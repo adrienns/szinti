@@ -1,0 +1,13 @@
+.side_image {
+  width: 110px;
+  height: 110px;
+  opacity: 0.5;
+}
+
+.side_image_list {
+  list-style: none;
+}
+
+.currently_selected {
+  opacity: 1;
+}

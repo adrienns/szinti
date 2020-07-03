@@ -1,0 +1,44 @@
+.jewelery-item {
+  margin: 70px 0 70px 0;
+  list-style: none;
+}
+
+.necklaces-img {
+  width: 360px;
+  height: 425px;
+  padding: 20px;
+  transition: 2s;
+}
+
+.product-description {
+  padding: 20px;
+  text-align: center;
+}
+
+.jewelery-item {
+  position: relative;
+}
+
+.cart_btn {
+  position: absolute;
+  width: 322px;
+  bottom: 139px;
+  padding: 11px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  left: 19px;
+  opacity: 0.7;
+  border: none;
+  cursor: pointer;
+}
+
+.cart_btn:hover {
+  background-color: rgb(236, 233, 233);
+  opacity: 1;
+}
+
+.button_text {
+  color: black;
+  font-weight: 900;
+}

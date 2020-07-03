@@ -1,0 +1,9 @@
+.notfound_container {
+  padding-top: 150px;
+  text-align: center;
+  text-decoration-color: rgb(78, 76, 76);
+}
+
+#homepagelink :hover {
+  color: black;
+}

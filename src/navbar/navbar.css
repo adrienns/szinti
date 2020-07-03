@@ -1,0 +1,105 @@
+#site-logo-image {
+  float: left;
+}
+
+.menu-navigation ul {
+  margin: 0;
+
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+/*Navbar hover animation*/
+
+.menu-navigation ul li a {
+  position: relative;
+  padding: 10px;
+}
+
+.menu-navigation ul li a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 0.5px;
+  background-color: rgb(39, 37, 37);
+  transition: 0.5s;
+}
+
+.menu-navigation ul li:hover a::before {
+  width: 100%;
+}
+.menu-navigation li {
+  margin-right: 20px;
+  padding-top: 12px;
+}
+
+.menu-navigation ul li a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0.5px;
+  background-color: rgb(39, 37, 37);
+  transition: 0.5s;
+}
+
+.menu-navigation ul li:hover a::after {
+  width: 100%;
+}
+.menu-navigation li {
+  padding-top: 10px;
+}
+
+nav a {
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: black;
+}
+
+.menu-navigation label {
+  margin: 0 40px 0 0;
+  font-size: 30px;
+  line-height: 70px;
+  display: none;
+}
+
+.navbar-links .closebtn {
+  position: absolute;
+  font-size: 40px;
+  top: 32px;
+  right: 40px;
+  cursor: pointer;
+  color: rgb(73, 71, 71);
+  z-index: 1;
+  display: none;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.language_bar ul {
+  list-style: none;
+  display: inline-flex;
+  margin-right: 15px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding-top: 5px;
+}
+
+.language_bar ul li {
+  padding: 4px;
+}
+
+.shopping_bag {
+  font-size: 15px !important;
+}
