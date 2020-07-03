@@ -43,6 +43,7 @@ class ProductProvider extends Component {
 
   getFirstImg = (id) => {
     const item = this.getItem(id);
+    console.log("test");
     return item.images[0];
   };
 
