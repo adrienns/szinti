@@ -9,7 +9,7 @@ class Model extends React.Component {
       <ProductConsumer>
         {(value) => {
           const { modelOpen, closeModel, currentModalImage } = value;
-          const { name, price, info, images } = value.modelProduct;
+          const { name, price, info } = value.modelProduct;
 
           // const firstImg = productDetails.map((element) => {
           // return (
@@ -31,7 +31,12 @@ class Model extends React.Component {
                   <div id="model-row">
                     <h1>Added Item</h1>
                     <h1>{name}</h1>
-                    <img src={currentModalImage} />
+                    <img
+                      src={currentModalImage}
+                      width="300"
+                      height="400"
+                      alt="Product"
+                    />
 
                     <h3>{price}</h3>
                     <h5>{info}</h5>

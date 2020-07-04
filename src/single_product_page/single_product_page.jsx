@@ -40,7 +40,7 @@ class SingleProductPage extends React.Component {
   }
 
   render() {
-    const { name, info, id, price, addToCart, getFirstImg } = this.props;
+    const { name, info, id, price, addToCart } = this.props;
 
     const { currentImage } = this.state;
     const imgSrc = this.props.productImages[currentImage];

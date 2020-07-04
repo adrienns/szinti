@@ -34,6 +34,12 @@ class ProductProvider extends Component {
     const product = this.state.necklaces.find((item) => item.id === id);
     return product;
   };
+
+  getItemProductDetails = (id) => {
+    const product = productDetails.find((item) => item.id === id);
+    return product;
+  };
+
   handleDetail = (id) => {
     const product = this.getItem(id);
     this.setState(() => {
@@ -42,9 +48,8 @@ class ProductProvider extends Component {
   };
 
   getFirstImg = (id) => {
-    const item = this.getItem(id);
-    console.log("test");
-    return item.images[0];
+    const product = this.getItemProductDetails(id);
+    return product.images[0];
   };
 
   addToCart = (id) => {
@@ -58,7 +63,7 @@ class ProductProvider extends Component {
     product.total = price;
 
     const currentImage = this.getFirstImg(id);
-
+    debugger;
     this.setState(() => {
       return {
         products: tempProducts,
