@@ -1,4 +1,3 @@
-import React from "react";
 import image1 from "../images/necklace2.jpg";
 import image2 from "../images/necklace1.jpg";
 import image3 from "../images/pics_small1.jpg";
@@ -12,7 +11,7 @@ export const necklaceProductList = [
     firstImage: image1,
     secondImage: image2,
     link: "organicnecklaceproduct",
-    price: "200HUF",
+    price: 200,
     name: "Flower Wave",
     info: "sofrfjgklfgjflef",
     inCart: false,
@@ -25,7 +24,7 @@ export const necklaceProductList = [
     firstImage: image4,
     secondImage: image3,
     link: "organicnecklaceitem2",
-    price: "300HUF",
+    price: 220,
     name: "Liliom",
     inCart: false,
     count: 0,
@@ -37,7 +36,7 @@ export const necklaceProductList = [
     firstImage: image6,
     secondImage: image5,
     link: "organicnecklaceitem3",
-    price: "400HUF",
+    price: 400,
     name: "Cristal Wave",
     inCart: false,
     count: 0,
@@ -48,7 +47,7 @@ export const necklaceProductList = [
     firstImage: image2,
     secondImage: image1,
     link: "organicnecklaceitem4",
-    price: "500HUF",
+    price: 330,
     name: "Spring",
     inCart: false,
     count: 0,
@@ -59,7 +58,7 @@ export const necklaceProductList = [
     firstImage: image6,
     secondImage: image5,
     link: "organicnecklaceitem5",
-    price: "600HUF",
+    price: 440,
     name: "Poppy seed",
     inCart: false,
     count: 0,
@@ -70,7 +69,7 @@ export const necklaceProductList = [
     firstImage: image4,
     secondImage: image3,
     link: "organicnecklaceitem6",
-    price: "700HUF",
+    price: 520,
     name: "Peach",
     inCart: false,
     count: 0,

@@ -1,0 +1,30 @@
+.model-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#model-row {
+  background: white;
+  padding: 50px;
+}
+
+.modal-image {
+  width: 300px;
+  height: 350px;
+}
+.modal-btn {
+  background-color: rgb(88, 87, 87);
+  color: white;
+  width: 150px;
+  height: 30px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}

@@ -2,10 +2,12 @@ import React from "react";
 import "./navbar.css";
 import logo from "../images/logo.jpg";
 import { Link } from "react-router-dom";
+import { ProductConsumer } from "../product_context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class NavBar extends React.Component {
   render() {
+    debugger;
     let linksMarkup = this.props.links.map((link, index) => {
       return (
         <li className="list-item" key={index}>
@@ -43,13 +45,22 @@ class NavBar extends React.Component {
             </li>
             <li>
               <Link to="/cart">
-                <button className="nav_cart_button">
-                  0{" "}
-                  <FontAwesomeIcon
-                    className="shopping_bag"
-                    icon="shopping-bag"
-                  />
-                </button>
+                <span className="nav_cart_button">
+                  <ProductConsumer>
+                    {(value) => {
+                      const { itemsTotal } = value;
+                      return (
+                        <div className="item-counter">
+                          ITEMS: {itemsTotal}{" "}
+                          <FontAwesomeIcon
+                            className="shopping_bag"
+                            icon="shopping-bag"
+                          />
+                        </div>
+                      );
+                    }}
+                  </ProductConsumer>
+                </span>
               </Link>
             </li>
           </ul>

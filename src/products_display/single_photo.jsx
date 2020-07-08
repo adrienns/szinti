@@ -19,8 +19,8 @@ class SinglePhoto extends React.Component {
   };
 
   render() {
-    const inCart = this.props.inCart;
     const id = this.props.id;
+    const inCart = this.props.inCart;
     const imgUrl = this.props.imgLink;
     const imgName = this.props.imgName;
     const imgPrice = this.props.imgPrice;
@@ -57,8 +57,11 @@ class SinglePhoto extends React.Component {
                     <button
                       className="cart_btn"
                       onClick={() => {
-                        value.addToCart(id);
-                        value.openModel(id);
+                        if (inCart == false) {
+                          return value.addToCart(id), value.openModel(id);
+                        } else {
+                          return value.increment(id), value.openModel(id);
+                        }
                       }}
                     >
                       <p className="button_text">ADD TO BAG</p>
@@ -70,7 +73,7 @@ class SinglePhoto extends React.Component {
                 <p className="product-description">
                   <Link to="/organicproduct">{imgName}</Link>
                 </p>
-                <p className="product-description">{imgPrice}</p>
+                <p className="product-description">{imgPrice}$</p>
               </div>
             </div>
           )}

@@ -15,13 +15,13 @@ import NavBar from "./navbar/navbar";
 import AboutUs from "./pages/aboutus/aboutus.jsx";
 import FinalNecklacesDisplay from "./products_display/FinalNecklacesDisplay";
 import Footer from "./footer/footer.jsx";
-import Carts from "./pages/cart/carts";
-import RingProductList from "./products_display/ringproductlist";
-import Rings from "./rings/rings";
+import Cart from "./pages/cart/Cart";
+
+import RingsInfo from "./rings/RingsInfo";
 import NecklacesInfo from "./single_product_page/NecklacesInfo";
 import { ProductProvider } from "./product_context";
-import Model from "./products_display/model";
-
+import Model from "./products_display/modal";
+import ScrollToTop from "react-router-scroll-top";
 const LINKS = [
   { label: "Necklaces", link: "necklaces" },
   { label: "Earings", link: "earings" },
@@ -61,18 +61,12 @@ class ReactApp extends React.Component {
                   strict
                   component={NecklacesInfo}
                 />
-                <Route
-                  path={`/${LINKMAP["Rings"]}`}
-                  exact
-                  strict
-                  component={RingProductList}
-                />
 
                 <Route
                   path={`/${LINKMAP["Rings"]}`}
                   exact
                   strict
-                  component={Rings}
+                  component={RingsInfo}
                 />
                 <Route
                   path={`/${LINKMAP["Necklaces"]}`}
@@ -80,7 +74,7 @@ class ReactApp extends React.Component {
                   strict
                   component={FinalNecklacesDisplay}
                 />
-                <Route path="/cart" exact strict component={Carts} />
+                <Route path="/cart" exact strict component={Cart} />
                 <Route
                   path={`/${LINKMAP["Contact us"]}`}
                   exact

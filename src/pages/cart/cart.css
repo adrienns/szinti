@@ -1,40 +1,76 @@
-.cart_container {
-  padding-top: 200px;
+.cart-table {
+  margin-top: 200px;
+  table-layout: fixed;
+  width: 90%;
+  border-collapse: collapse;
+  position: relative;
+}
+
+.cart-container {
+  display: flex;
+  justify-content: center;
+}
+
+.products-information {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  border-bottom: solid rgb(56, 54, 54);
+  border-width: 1.5px;
+  padding-bottom: 10px;
+}
+
+.cart-item {
+  text-align: center;
+  border-bottom: solid rgb(56, 54, 54);
+  border-width: 1.5px;
+}
+
+.empty-class-container {
+  padding-top: 100px;
   text-align: center;
 }
 
-.circle {
-  background: rgb(14, 161, 230);
-  border-radius: 50%;
-  padding: 10px;
-  width: 100px;
-  height: 100px;
+.cart-table td {
+  width: 25%;
 }
 
-.yellow {
-  background: rgb(238, 235, 34);
-  border-radius: 50%;
-  padding: 10px;
-  width: 100px;
-  height: 100px;
+.item-counter {
+  margin-left: 5px;
+  margin-right: 5px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-.btn {
-  padding: 10px;
-  color: gray;
-  margin-left: 20px;
+tfoot {
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 15px;
+  border-width: 1.5px;
 }
 
-.delete_button {
-  padding: 10px;
-  background-color: red;
-  margin-left: 20px;
+#payment-btn {
+  text-transform: uppercase;
+  font-family: " Gillsans", sans-serif;
+  color: white;
+  letter-spacing: 1px;
+  font-size: 16px;
 }
 
-.reset_btn {
-  padding: 10px;
-  background-color: rgb(47, 255, 47);
-  margin-left: 20px;
-  margin-top: 170px;
-  margin-left: 100px;
+.cart-total-countainer td {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.payment-btn {
+  background-color: rgb(66, 65, 65);
+  padding-top: 1px !important;
+  padding-bottom: 1px !important;
+}
+
+.clear-cart-btn {
+  background-color: pink;
+  border-radius: 10%;
+  padding: 7px;
 }

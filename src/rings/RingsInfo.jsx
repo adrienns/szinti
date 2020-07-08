@@ -1,11 +1,11 @@
 import React from "react";
-import Image1 from "../images/pics1.jpg";
-import Image2 from "../images/pics2.jpg";
-import Image3 from "../images/pics3.jpg";
-import Image4 from "../images/pics4.jpg";
-import OrganicProduct from "./organic_product";
+import Image1 from "../images/cute2.jpg";
+import Image2 from "../images/cute3.jpg";
+import Image3 from "../images/cute4.jpg";
+import Image4 from "../images/cute3.jpg";
+import OrganicProduct from "../single_product_page/organic_product";
 
-export const productDetails = [
+export const ringProductDetails = [
   {
     id: 1,
 
@@ -68,7 +68,7 @@ export const productDetails = [
 
 const PRODUCTIMAGES = [Image1, Image2, Image3, Image4];
 
-class NecklacesInfo extends React.Component {
+class RingsInfo extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -78,11 +78,11 @@ class NecklacesInfo extends React.Component {
       <div>
         <OrganicProduct
           productImages={PRODUCTIMAGES}
-          productDetails={productDetails}
+          RingProductDetails={RingProductDetails}
         />
       </div>
     );
   }
 }
 
-export default NecklacesInfo;
+export default RingsInfo;

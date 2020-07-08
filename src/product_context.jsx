@@ -9,9 +9,12 @@ class ProductProvider extends Component {
     necklaces: [],
     productDetails: productDetails,
     cart: [],
+    inCart: false,
     modelOpen: false,
     modelProduct: productDetails,
     currentModalImage: null,
+    cartTotal: 0,
+    itemsTotal: 0,
   };
 
   componentDidMount() {
@@ -52,24 +55,124 @@ class ProductProvider extends Component {
     return product.images[0];
   };
 
+  increment = (id) => {
+    let tempCart = [...this.state.cart];
+    const selectedProduct = tempCart.find((item) => item.id === id);
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count += 1;
+    product.total = product.count * product.price;
+
+    this.setState(
+      () => {
+        return { cart: [...tempCart] };
+      },
+      () => {
+        this.addTotals();
+        this.totalItems();
+      }
+    );
+  };
+
+  decrement = (id) => {
+    let tempCart = [...this.state.cart];
+    const selectedProduct = tempCart.find((item) => item.id === id);
+    const index = tempCart.indexOf(selectedProduct);
+    const product = tempCart[index];
+    product.count -= 1;
+    if (product.count === 0) {
+      this.removeItem(id);
+    } else {
+      product.total = product.count * product.price;
+
+      this.setState(
+        () => {
+          return { cart: tempCart };
+        },
+        () => this.addTotals(),
+        this.totalItems()
+      );
+    }
+  };
+
+  removeItem = (id) => {
+    let tempProducts = [...this.state.necklaces];
+    let tempCart = [...this.state.cart];
+    tempCart = tempCart.filter((item) => item.id !== id);
+    const index = tempProducts.indexOf(this.getItem(id));
+    let removedProduct = tempProducts[index];
+    removedProduct.inCart = false;
+    removedProduct.count = 0;
+    removedProduct.total = 0;
+
+    this.setState(
+      () => {
+        return { cart: [...tempCart], necklaces: [...tempProducts] };
+      },
+      () => {
+        this.addTotals();
+        this.totalItems();
+      }
+    );
+  };
+
+  clearCart = () => {
+    this.setState(
+      () => {
+        return { cart: [] };
+      },
+      () => {
+        this.setNecklaces();
+        this.addTotals();
+        this.totalItems();
+      }
+    );
+  };
+
+  addTotals = () => {
+    let cartTotal = 0;
+    this.state.cart.map((item) => (cartTotal += item.total));
+    this.setState(() => {
+      return { cartTotal: cartTotal };
+    });
+  };
+
   addToCart = (id) => {
     let tempProducts = [...this.state.necklaces];
-    const index = tempProducts.indexOf(this.getItem(id));
 
-    const product = tempProducts[index];
+    const index = tempProducts.findIndex((elem) => elem.id === id);
+
+    const product = { ...tempProducts[index] };
+
     const price = product.price;
+
     product.inCart = true;
     product.count = 1;
     product.total = price;
 
+    tempProducts[index] = product;
     const currentImage = this.getFirstImg(id);
-    debugger;
+
+    this.setState(
+      () => {
+        return {
+          necklaces: tempProducts,
+          cart: [...this.state.cart, product],
+          currentModalImage: currentImage,
+        };
+      },
+      () => {
+        this.addTotals();
+        this.totalItems();
+      }
+    );
+  };
+
+  totalItems = () => {
+    let itemsTotal = 0;
+    this.state.cart.map((item) => (itemsTotal += item.count));
     this.setState(() => {
-      return {
-        products: tempProducts,
-        cart: [...this.state.cart, product],
-        currentModalImage: currentImage,
-      };
+      return { itemsTotal: itemsTotal };
     });
   };
 
@@ -95,6 +198,10 @@ class ProductProvider extends Component {
           addToCart: this.addToCart,
           openModel: this.openModel,
           closeModel: this.closeModel,
+          increment: this.increment,
+          decrement: this.decrement,
+          removeItem: this.removeItem,
+          clearCart: this.clearCart,
         }}
       >
         {this.props.children}

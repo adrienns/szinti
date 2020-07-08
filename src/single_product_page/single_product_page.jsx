@@ -1,6 +1,7 @@
 import React from "react";
 import "./single_product_page.css";
 import SideImages from "../single_product_page/side_images";
+import { ProductConsumer } from "../product_context";
 
 import { Link } from "react-router-dom";
 
@@ -47,7 +48,6 @@ class SingleProductPage extends React.Component {
     const sideImageClass = this.state.isFadeIn
       ? "single_product_image single_product_image_fadein"
       : "single_product_image";
-
     return (
       <div>
         <div className="product_wrapper">
@@ -73,7 +73,7 @@ class SingleProductPage extends React.Component {
           <div className="product_textbox">
             <div>
               <h1> {name}</h1>
-              <h1> {price}</h1>
+
               <h1> {info}</h1>
             </div>
 
@@ -82,7 +82,6 @@ class SingleProductPage extends React.Component {
                 <button
                   onClick={() => {
                     addToCart(id);
-                    openModel(id);
                   }}
                 >
                   Add to cart

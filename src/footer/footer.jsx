@@ -64,12 +64,12 @@ class Footer extends React.Component {
           <div className="social_media_icons">
             <ul>
               <li>
-                <Link to="/cart">
+                <Link to="">
                   <FontAwesomeIcon icon={["fab", "instagram"]} />
                 </Link>
               </li>
               <li>
-                <Link to="/cart">
+                <Link to="https://www.facebook.com/vewedesign">
                   <FontAwesomeIcon icon={faFacebook} />
                 </Link>
               </li>

@@ -1,15 +1,4 @@
-import React, { Component } from "react";
-import "./cart.css";
-
-class Cart extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div className="cart_container">
-        <span className={this.getNewColor()}>{this.formatCount()} </span>
+/* <span className={this.getNewColor()}>{this.formatCount()} </span>
         <button
           onClick={() => this.props.onIncrement(this.props.counter)}
           className="btn"
@@ -38,4 +27,4 @@ class Cart extends Component {
   }
 }
 
-export default Cart;
+export default Cart; */

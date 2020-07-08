@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductConsumer } from "../product_context";
 import { Link } from "react-router-dom";
-import "./model.css";
+import "./modal.css";
 
 class Model extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class Model extends React.Component {
       <ProductConsumer>
         {(value) => {
           const { modelOpen, closeModel, currentModalImage } = value;
-          const { name, price, info } = value.modelProduct;
+          const { name, price } = value.modelProduct;
 
           // const firstImg = productDetails.map((element) => {
           // return (
@@ -29,26 +29,32 @@ class Model extends React.Component {
               <div className="model-container">
                 <div>
                   <div id="model-row">
-                    <h1>Added Item</h1>
-                    <h1>{name}</h1>
+                    <h3>Added Item</h3>
+                    <h3>{name}</h3>
                     <img
+                      className="modal-image"
                       src={currentModalImage}
-                      width="300"
-                      height="400"
                       alt="Product"
                     />
 
                     <h3>{price}</h3>
-                    <h5>{info}</h5>
 
                     <Link to="/necklaces">
-                      <button onClick={() => closeModel()}>
+                      <button
+                        className="modal-btn"
+                        onClick={() => closeModel()}
+                      >
                         Continue Shopping
                       </button>
                     </Link>
 
                     <Link to="/cart">
-                      <button onClick={() => closeModel()}>Go to Cart</button>
+                      <button
+                        className="modal-btn"
+                        onClick={() => closeModel()}
+                      >
+                        Go to Cart
+                      </button>
                     </Link>
                   </div>
                 </div>

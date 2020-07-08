@@ -5,9 +5,7 @@ import image2 from "../images/cute3.jpg";
 import image3 from "../images/cute4.jpg";
 import image4 from "../images/earingwithpearl.jpg";
 
-import ProductsDisplay from "../products_display/products_display";
-
-const IMAGES = [
+export const ringsProductList = [
   {
     firstImage: image1,
     secondImage: image2,
@@ -51,11 +49,3 @@ const IMAGES = [
     name: "Liliom",
   },
 ];
-
-class Rings extends React.Component {
-  render() {
-    return <ProductsDisplay images={IMAGES} />;
-  }
-}
-
-export default Rings;
