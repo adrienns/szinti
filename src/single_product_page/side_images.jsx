@@ -9,16 +9,15 @@ class SideImages extends Component {
       <ul className="side_image_container">
         {this.props.productImages.map((element, index) => {
           return (
-            <li className="side_image_list">
+            <li className="side_image_list" key={index}>
               <img
                 className={
                   currentImage == index
                     ? "side_image currently_selected"
                     : "side_image"
                 }
-                key={index}
-                src={element}
                 onClick={() => this.props.onChange(index)}
+                src={element}
               />
             </li>
           );

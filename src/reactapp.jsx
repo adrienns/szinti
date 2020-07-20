@@ -9,19 +9,21 @@ import {
 } from "react-router-dom";
 import Form from "./pages/form/form";
 import "./reactapp.css";
-import HomePage from "./pages/homepage";
+import HomePage from "./pages/Homepage";
 import NotFoundPage from "./pages/404.jsx";
 import NavBar from "./navbar/navbar";
 import AboutUs from "./pages/aboutus/aboutus.jsx";
 import FinalNecklacesDisplay from "./products_display/FinalNecklacesDisplay";
+import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/footer.jsx";
 import Cart from "./pages/cart/Cart";
+import ScrollToTop from "./ScrollToTop";
 
 import RingsInfo from "./rings/RingsInfo";
 import NecklacesInfo from "./single_product_page/NecklacesInfo";
 import { ProductProvider } from "./product_context";
 import Model from "./products_display/modal";
-import ScrollToTop from "react-router-scroll-top";
+
 const LINKS = [
   { label: "Necklaces", link: "necklaces" },
   { label: "Earings", link: "earings" },
@@ -42,6 +44,8 @@ class ReactApp extends React.Component {
     return (
       <ProductProvider>
         <Router>
+          <ScrollToTop />
+
           <div className="app">
             <header className="header">
               <NavBar links={LINKS} />
@@ -66,7 +70,7 @@ class ReactApp extends React.Component {
                   path={`/${LINKMAP["Rings"]}`}
                   exact
                   strict
-                  component={RingsInfo}
+                  component={FinalRingsDisplay}
                 />
                 <Route
                   path={`/${LINKMAP["Necklaces"]}`}

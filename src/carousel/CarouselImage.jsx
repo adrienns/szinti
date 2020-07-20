@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-const style = { height: "350px", width: "272px", padding: "20px" };
+import "./CarouselImage.css";
 
 class CarouselImage extends Component {
   constructor(props) {
@@ -27,8 +26,8 @@ class CarouselImage extends Component {
           onMouseEnter={this.handleOnMouseEnter}
           onMouseLeave={this.handleOnMouseLeave}
           src={srcImg}
-          style={style}
         />
+        <p>Price:100</p>
       </div>
     );
   }

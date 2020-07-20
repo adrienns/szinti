@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function CartTotals({ value }) {
   const { cartTotal, clearCart, itemsTotal } = value;
   return (
-    <tfoot className="cart-total-countainer" colspan="5">
+    <tfoot className="cart-total-countainer" colSpan="5">
       <tr className="cart-total-row">
         <td>
           <Link to="/">

@@ -1,8 +1,8 @@
 import React from "react";
 
 import Slider from "react-slick";
-import "./carousel.css";
-import CarouselImage from "./carousel_image";
+import "./Carousel.css";
+import CarouselImage from "./CarouselImage";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { library } from "@fortawesome/fontawesome-svg-core";

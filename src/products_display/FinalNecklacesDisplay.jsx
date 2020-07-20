@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductsDisplay from "./products_display";
+import ProductsDisplay from "./NecklaceProductsDisplay";
 
 class FinalNecklacesDisplay extends React.Component {
   render() {

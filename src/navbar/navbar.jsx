@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class NavBar extends React.Component {
   render() {
-    debugger;
     let linksMarkup = this.props.links.map((link, index) => {
       return (
         <li className="list-item" key={index}>

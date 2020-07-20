@@ -10,21 +10,60 @@
   justify-content: center;
 }
 
-#model-row {
+.modal-coloumns {
+  display: flex;
+  padding: 10px;
+  background-color: white;
+  margin-top: 43px;
+}
+
+#modal-row {
   background: white;
   padding: 50px;
+  width: 350px;
+  height: 450px;
 }
 
 .modal-image {
-  width: 300px;
-  height: 350px;
+  width: 350px;
+  height: 450px;
 }
 .modal-btn {
   background-color: rgb(88, 87, 87);
   color: white;
-  width: 150px;
-  height: 30px;
+  width: 250px;
+  height: 40px;
   font-size: 13px;
   letter-spacing: 1px;
   font-weight: bold;
+  margin: 5px;
+}
+
+.item-info {
+  margin: 10px;
+}
+
+.more-details-text {
+  text-align: center;
+  padding-top: 60px;
+}
+
+#select-material {
+  width: 248px;
+  height: 40px;
+  background-color: white;
+  color: black;
+  border: solid rgb(65, 63, 63);
+}
+
+.exit-btn:before {
+  display: inline-block;
+  content: "\00d7";
+  font-size: 30px;
+  margin-right: 0;
+  font-weight: 100;
+}
+
+.exit-btn-container {
+  float: left;
 }

@@ -5,11 +5,13 @@ import Image3 from "../images/pics3.jpg";
 import Image4 from "../images/pics4.jpg";
 import OrganicProduct from "./organic_product";
 
-export const productDetails = [
+export const necklaceProductDetails = [
   {
     id: 1,
 
     price: 200,
+    firstImage: Image1,
+    type: "necklaces",
     images: [Image1, Image2, Image3, Image4],
     name: "Flower Wave",
     info: "sofrfjgklfgjflef",
@@ -19,8 +21,9 @@ export const productDetails = [
   },
   {
     id: 2,
-
-    price: "300HUF",
+    type: "necklaces",
+    firstImage: Image4,
+    price: 300,
     images: [Image2, Image3, Image3, Image4],
     name: "Liliom",
     inCart: false,
@@ -31,6 +34,8 @@ export const productDetails = [
   {
     id: 3,
     price: 300,
+    firstImage: Image3,
+    type: "necklaces",
     images: [Image3, Image2, Image1, Image4],
     name: "Cristal Wave",
     inCart: false,
@@ -40,6 +45,8 @@ export const productDetails = [
   {
     id: 4,
     price: 500,
+    firstImage: Image4,
+    type: "necklaces",
     images: [Image1, Image2, Image3, Image4],
     name: "Spring",
     inCart: false,
@@ -49,6 +56,8 @@ export const productDetails = [
   {
     id: 5,
     price: 600,
+    type: "necklaces",
+    firstImage: Image3,
     images: [Image1, Image2, Image3, Image4],
     name: "Poppy seed",
     inCart: false,
@@ -58,6 +67,8 @@ export const productDetails = [
   {
     id: 6,
     price: 650,
+    firstImage: Image2,
+    type: "necklaces",
     images: [Image1, Image2, Image3, Image4],
     name: "Peach",
     inCart: false,
@@ -78,7 +89,7 @@ class NecklacesInfo extends React.Component {
       <div>
         <OrganicProduct
           productImages={PRODUCTIMAGES}
-          productDetails={productDetails}
+          productDetails={necklaceProductDetails}
         />
       </div>
     );

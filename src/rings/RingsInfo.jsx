@@ -7,8 +7,8 @@ import OrganicProduct from "../single_product_page/organic_product";
 
 export const ringProductDetails = [
   {
-    id: 1,
-
+    id: 7,
+    type: "rings",
     price: 200,
     images: [Image1, Image2, Image3, Image4],
     name: "Flower Wave",
@@ -18,9 +18,10 @@ export const ringProductDetails = [
     total: 0,
   },
   {
-    id: 2,
+    id: 8,
 
-    price: "300HUF",
+    price: 400,
+    type: "rings",
     images: [Image2, Image3, Image3, Image4],
     name: "Liliom",
     inCart: false,
@@ -29,8 +30,9 @@ export const ringProductDetails = [
   },
 
   {
-    id: 3,
+    id: 9,
     price: 300,
+    type: "rings",
     images: [Image3, Image2, Image1, Image4],
     name: "Cristal Wave",
     inCart: false,
@@ -38,8 +40,9 @@ export const ringProductDetails = [
     total: 0,
   },
   {
-    id: 4,
+    id: 10,
     price: 500,
+    type: "rings",
     images: [Image1, Image2, Image3, Image4],
     name: "Spring",
     inCart: false,
@@ -47,8 +50,9 @@ export const ringProductDetails = [
     total: 0,
   },
   {
-    id: 5,
+    id: 11,
     price: 600,
+    type: "rings",
     images: [Image1, Image2, Image3, Image4],
     name: "Poppy seed",
     inCart: false,
@@ -56,8 +60,9 @@ export const ringProductDetails = [
     total: 0,
   },
   {
-    id: 6,
+    id: 12,
     price: 650,
+    type: "rings",
     images: [Image1, Image2, Image3, Image4],
     name: "Peach",
     inCart: false,

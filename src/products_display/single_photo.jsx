@@ -3,7 +3,6 @@ import "./single_photo.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../product_context";
-
 class SinglePhoto extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,6 @@ class SinglePhoto extends React.Component {
 
   render() {
     const id = this.props.id;
-    const inCart = this.props.inCart;
     const imgUrl = this.props.imgLink;
     const imgName = this.props.imgName;
     const imgPrice = this.props.imgPrice;
@@ -39,9 +37,9 @@ class SinglePhoto extends React.Component {
               >
                 <Link to="/organicproduct">
                   <img
+                    className="necklaces-img"
                     onMouseEnter={this.handleMouseOn}
                     onMouseLeave={this.handleMouseOff}
-                    className="necklaces-img"
                     src={imgSrc}
                     url={imgUrl}
                     alt="product"
@@ -57,11 +55,7 @@ class SinglePhoto extends React.Component {
                     <button
                       className="cart_btn"
                       onClick={() => {
-                        if (inCart == false) {
-                          return value.addToCart(id), value.openModel(id);
-                        } else {
-                          return value.increment(id), value.openModel(id);
-                        }
+                        value.openModel(id);
                       }}
                     >
                       <p className="button_text">ADD TO BAG</p>

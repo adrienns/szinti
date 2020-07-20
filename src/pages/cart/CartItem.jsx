@@ -7,13 +7,13 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 library.add(faTimes);
 
 export default function CartItem({ item, value }) {
-  const { price, id, name, count } = item;
-  const { increment, decrement, removeItem, currentModalImage } = value;
-
+  const { price, id, name, count, firstImage } = item;
+  const { increment, decrement, removeItem } = value;
+  debugger;
   return (
     <tr className="cart-items">
       <td className="cart-item">
-        <img src={currentModalImage} width="50" height="50" alt="product" />
+        <img src={firstImage} width="50" height="50" alt="product" />
       </td>
 
       <td className="cart-item">{name}</td>
