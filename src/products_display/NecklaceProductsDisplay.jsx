@@ -1,6 +1,6 @@
 import React from "react";
 
-import SinglePhoto from "./single_photo";
+import SinglePhoto from "./Single_Photo";
 import "./NecklaceProductsDisplay.css";
 
 import { ProductConsumer } from "../product_context";

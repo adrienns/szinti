@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./side_images.css";
+import "./Side_Images.css";
 
 class SideImages extends Component {
   render() {

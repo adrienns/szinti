@@ -1,9 +1,7 @@
-import React from "react";
 import Image1 from "../images/cute2.jpg";
 import Image2 from "../images/cute3.jpg";
 import Image3 from "../images/cute4.jpg";
 import Image4 from "../images/cute3.jpg";
-import OrganicProduct from "../single_product_page/organic_product";
 
 export const ringProductDetails = [
   {
@@ -70,24 +68,3 @@ export const ringProductDetails = [
     total: 0,
   },
 ];
-
-const PRODUCTIMAGES = [Image1, Image2, Image3, Image4];
-
-class RingsInfo extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <OrganicProduct
-          productImages={PRODUCTIMAGES}
-          RingProductDetails={RingProductDetails}
-        />
-      </div>
-    );
-  }
-}
-
-export default RingsInfo;

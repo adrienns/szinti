@@ -57,13 +57,13 @@
 }
 
 .exit-btn:before {
-  display: inline-block;
   content: "\00d7";
   font-size: 30px;
-  margin-right: 0;
+  margin-right: 8px;
+
   font-weight: 100;
 }
 
 .exit-btn-container {
-  float: left;
+  float: right;
 }

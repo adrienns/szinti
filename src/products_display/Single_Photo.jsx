@@ -1,5 +1,5 @@
 import React from "react";
-import "./single_photo.css";
+import "./Single_Photo.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../product_context";

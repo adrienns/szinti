@@ -12,17 +12,16 @@ import "./reactapp.css";
 import HomePage from "./pages/Homepage";
 import NotFoundPage from "./pages/404.jsx";
 import NavBar from "./navbar/navbar";
-import AboutUs from "./pages/aboutus/aboutus.jsx";
+import AboutUs from "./pages/aboutus/AboutUs.jsx";
 import FinalNecklacesDisplay from "./products_display/FinalNecklacesDisplay";
 import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/footer.jsx";
 import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
 
-import RingsInfo from "./rings/RingsInfo";
-import NecklacesInfo from "./single_product_page/NecklacesInfo";
 import { ProductProvider } from "./product_context";
 import Model from "./products_display/modal";
+import OrganicProduct from "./single_product_page/organic_product";
 
 const LINKS = [
   { label: "Necklaces", link: "necklaces" },
@@ -63,7 +62,7 @@ class ReactApp extends React.Component {
                   path="/organicproduct"
                   exact
                   strict
-                  component={NecklacesInfo}
+                  component={OrganicProduct}
                 />
 
                 <Route

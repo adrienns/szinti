@@ -1,7 +1,6 @@
 import React from "react";
 import "./single_product_page.css";
-import SideImages from "../single_product_page/side_images";
-import { ProductConsumer } from "../product_context";
+import SideImages from "./Side_Images";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import { Link } from "react-router-dom";

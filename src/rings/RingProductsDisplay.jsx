@@ -1,6 +1,6 @@
 import React from "react";
 
-import SinglePhoto from "../products_display/single_photo";
+import SinglePhoto from "../products_display/Single_Photo";
 import "./RingProductsDisplay.css";
 
 import { ProductConsumer } from "../product_context";
