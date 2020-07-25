@@ -20,7 +20,7 @@ class ProductProvider extends Component {
     modalProduct: {},
     cartTotal: 0,
     itemsTotal: 0,
-    isNotAdded: true,
+    isAdded: false,
   };
 
   UNSAFE_componentWillMount() {
@@ -198,7 +198,7 @@ class ProductProvider extends Component {
       () => {
         return {
           products: tempProducts,
-
+          isAdded: true,
           cart: [...this.state.cart, product],
         };
       },
@@ -226,7 +226,7 @@ class ProductProvider extends Component {
 
   closeModal = () => {
     this.setState(() => {
-      return { modalOpen: false };
+      return { modalOpen: false, isAdded: false };
     });
   };
 

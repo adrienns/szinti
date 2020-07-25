@@ -13,7 +13,7 @@ const Modal = () => {
     handleDetail,
     modalProduct,
     products,
-    isNotAdded,
+    isAdded,
   } = useContext(ProductContext);
 
   const { id, name, firstImage, price } = modalProduct;
@@ -66,25 +66,18 @@ const Modal = () => {
               </div>
               <div>
                 <button
-                  className="modal-btn"
-                  className="modal-btn-added"
+                  className={isAdded ? "modal-btn-added" : "modal-btn"}
                   disabled={material === "select" ? true : false}
                   onClick={() => {
                     incrementCartProduct(id, material);
-                    {
-                    }
                   }}
-                >
-                  {isNotAdded
-                    ? "modal-btn" || "Add to Shopping Bag"
-                    : "modal-btn-added" || "ALready added"}
-                </button>
+                ></button>
               </div>
 
               <div>
                 <Link to="/cart">
                   <button
-                    className="modal-btn"
+                    className="go-to-cart-btn"
                     onClick={() => {
                       closeModal();
                     }}
