@@ -8,7 +8,7 @@ export const necklaceProductDetails = [
     id: 1,
 
     price: 200,
-    firstImage: Image1,
+
     type: "necklaces",
 
     name: "Flower",
@@ -32,7 +32,7 @@ export const necklaceProductDetails = [
   {
     id: 3,
     price: 300,
-    firstImage: Image3,
+
     type: "necklaces",
 
     name: "Cristal Wave",
@@ -43,7 +43,7 @@ export const necklaceProductDetails = [
   {
     id: 4,
     price: 500,
-    firstImage: Image4,
+
     type: "necklaces",
 
     name: "Spring",
@@ -55,7 +55,6 @@ export const necklaceProductDetails = [
     id: 5,
     price: 600,
     type: "necklaces",
-    firstImage: Image3,
 
     name: "Poppy seed",
     inCart: false,
@@ -65,11 +64,11 @@ export const necklaceProductDetails = [
   {
     id: 6,
     price: 650,
-    firstImage: Image2,
+
     type: "necklaces",
 
     name: "Peach",
-    inCart: false,
+
     count: 0,
     total: 0,
   },

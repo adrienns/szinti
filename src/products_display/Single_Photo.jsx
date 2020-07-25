@@ -55,7 +55,7 @@ class SinglePhoto extends React.Component {
                     <button
                       className="cart_btn"
                       onClick={() => {
-                        value.openModel(id);
+                        value.openModal(id);
                       }}
                     >
                       <p className="button_text">ADD TO BAG</p>

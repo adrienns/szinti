@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, createContext } from "react";
 import { necklaceProductList } from "./products_display/necklaceproductlist";
 import { necklaceProductDetails } from "./single_product_page/NecklacesInfo";
 import { ringsProductList } from "./rings/RingsProductList";
 import { ringProductDetails } from "./rings/RingsInfo";
 
-export const ProductContext = React.createContext();
+export const ProductContext = createContext();
 
 const productsArray = [...necklaceProductList, ...ringsProductList];
 
@@ -16,11 +16,11 @@ class ProductProvider extends Component {
     productDetails: productDetails,
     cart: [],
     inCart: false,
-    modelOpen: false,
-    modelProduct: {},
-    //currentModalImage: null,
+    modalOpen: false,
+    modalProduct: {},
     cartTotal: 0,
     itemsTotal: 0,
+    isNotAdded: true,
   };
 
   UNSAFE_componentWillMount() {
@@ -69,11 +69,6 @@ class ProductProvider extends Component {
       return { productDetails: product };
     });
   };
-
-  // getFirstImg = (id) => {
-  //   const product = this.getItemProductDetails(id);
-  //   return product.firstImage;
-  // };
 
   increment = (id) => {
     let tempCart = [...this.state.cart];
@@ -158,28 +153,53 @@ class ProductProvider extends Component {
     });
   };
 
-  addToCart = (id) => {
+  // handleSelectedMaterial = (event) => {
+  //   this.setState({ valueMaterial: event.target.value });
+  // };
+
+  getIndex = (id) => {
+    const index = this.state.products.findIndex((elem) => elem.id === id);
+    return index;
+  };
+
+  calculatePriceWithMaterial = (id, material) => {
+    debugger;
     let tempProducts = [...this.state.products];
-
-    const index = tempProducts.findIndex((elem) => elem.id === id);
-
+    const index = this.getIndex(id);
     const product = { ...tempProducts[index] };
-
+    tempProducts[index] = product;
     const price = product.price;
+    const gold = product.selectedMaterial.gold;
+    const silver = product.selectedMaterial.silver;
+    const bronze = product.selectedMaterial.bronze;
+    if (material === "gold") {
+      return gold + price;
+    }
+    if (material === "silver") {
+      return silver + price;
+    }
+    return bronze + price;
+  };
 
+  addToCart = (id, material) => {
+    let tempProducts = [...this.state.products];
+    const index = this.getIndex(id);
+    const product = { ...tempProducts[index] };
+    tempProducts[index] = product;
     product.inCart = true;
     product.count = 1;
+
+    product.material = material;
+    debugger;
+    const price = this.calculatePriceWithMaterial(id, material);
     product.total = price;
-
-    tempProducts[index] = product;
-    //const currentImage = this.getFirstImg(id);
-
+    debugger;
     this.setState(
       () => {
         return {
           products: tempProducts,
+
           cart: [...this.state.cart, product],
-          //currentModalImage: currentImage,
         };
       },
       () => {
@@ -197,23 +217,23 @@ class ProductProvider extends Component {
     });
   };
 
-  openModel = (id) => {
+  openModal = (id) => {
     const product = this.getItem(id);
     this.setState(() => {
-      return { modelProduct: product, modelOpen: true };
+      return { modalProduct: product, modalOpen: true };
     });
   };
 
-  closeModel = () => {
+  closeModal = () => {
     this.setState(() => {
-      return { modelOpen: false };
+      return { modalOpen: false };
     });
   };
 
-  incrementCartProduct = (id) => {
+  incrementCartProduct = (id, material) => {
     const product = this.getItem(id);
     if (product.inCart == false) {
-      return this.addToCart(id);
+      return this.addToCart(id, material);
     } else {
       return this.increment(id);
     }
@@ -226,12 +246,13 @@ class ProductProvider extends Component {
           ...this.state,
           handleDetail: this.handleDetail,
           addToCart: this.addToCart,
-          openModel: this.openModel,
-          closeModel: this.closeModel,
+          openModal: this.openModal,
+          closeModal: this.closeModal,
           increment: this.increment,
           decrement: this.decrement,
           removeItem: this.removeItem,
           clearCart: this.clearCart,
+          // handleSelectedMaterial: this.handleSelectedMaterial,
           incrementCartProduct: this.incrementCartProduct,
           changeLanguage: this.changeLanguage,
         }}

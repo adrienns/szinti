@@ -7,7 +7,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 library.add(faTimes);
 
 export default function CartItem({ item, value }) {
-  const { price, id, name, count, firstImage } = item;
+  const { total, id, name, count, firstImage, material } = item;
   const { increment, decrement, removeItem } = value;
   debugger;
   return (
@@ -17,6 +17,7 @@ export default function CartItem({ item, value }) {
       </td>
 
       <td className="cart-item">{name}</td>
+      <td className="cart-item">{material}</td>
 
       <td className="cart-item">
         <span className="item-counter" onClick={() => decrement(id)}>
@@ -31,7 +32,7 @@ export default function CartItem({ item, value }) {
           +{" "}
         </span>
       </td>
-      <td className="cart-item">{price}$</td>
+      <td className="cart-item">{total}$</td>
       <td className="cart-item">
         <span onClick={() => removeItem(id)}>
           {" "}

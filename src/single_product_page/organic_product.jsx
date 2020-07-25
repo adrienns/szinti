@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import SingleProductPage from "../single_product_page/single_product_page";
 import { ProductConsumer } from "../product_context";
 
@@ -9,7 +9,7 @@ class OrganicProduct extends React.Component {
   myFunc = (value) => {
     const { id, images, info, price, name, inCart } = value.productDetails;
     const { addToCart } = value;
-    const { openModel } = value;
+    const { openModal } = value;
     const { incrementCartProduct } = value;
 
     return (
@@ -17,7 +17,7 @@ class OrganicProduct extends React.Component {
         productImages={images}
         incrementCartProduct={incrementCartProduct}
         addToCart={addToCart}
-        openModel={openModel}
+        openModal={openModal}
         price={price}
         inCart={inCart}
         info={info}

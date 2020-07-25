@@ -1,27 +1,26 @@
-import React, { useContext } from "react";
-import { ProductConsumer } from "../product_context";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./modal.css";
 import { ProductContext } from "../product_context";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faTimes);
+const Modal = () => {
+  const [material, SetMaterial] = useState("select");
 
-const Model = () => {
   const {
-    modelOpen,
-    closeModel,
+    modalOpen,
+    closeModal,
     incrementCartProduct,
     handleDetail,
-    modelProduct,
+    modalProduct,
+    products,
+    isNotAdded,
   } = useContext(ProductContext);
 
-  const { id, name, price, firstImage } = modelProduct;
+  const { id, name, firstImage, price } = modalProduct;
+  const { total } = products;
 
-  return modelOpen ? (
-    <div className="model-container">
+  return modalOpen ? (
+    <div className="modal-container">
       <div className="image-container" onClick={() => handleDetail(id)}>
         <div className="modal-coloumns">
           <div className="modal-image-container">
@@ -30,27 +29,37 @@ const Model = () => {
 
           <div className="modal-row-container">
             <div>
-              <span className="exit-btn-container" onClick={() => closeModel()}>
+              <span className="exit-btn-container" onClick={closeModal}>
                 <p className="exit-btn"></p>
               </span>
             </div>
             <div id="modal-row">
               <div>
-                <h3 className="item-info">{name}</h3>
+                <h3 className="item-info">
+                  {name} {material}
+                </h3>
               </div>
 
               <div>
                 <h3 className="item-info">${price}</h3>
+                <h3 className="item-info">${total}</h3>
               </div>
               <div>
                 <form>
-                  <label htmlFor="animal">
+                  <label htmlFor="materials">
                     <div className="item-info">Select Material:</div>
-                    <select className="item-info" id="select-material">
-                      <option>Please select material</option>
-                      <option>Gold</option>
-                      <option>Silver</option>
-                      <option>Bronz</option>
+                    <select
+                      value={material}
+                      className="item-info"
+                      id="select-material"
+                      onChange={(event) => {
+                        SetMaterial(event.target.value);
+                      }}
+                    >
+                      <option value="select">Please select material</option>
+                      <option value="gold">Gold</option>
+                      <option value="silver">Silver</option>
+                      <option value="bronze">Bronze</option>
                     </select>
                   </label>
                 </form>
@@ -58,18 +67,28 @@ const Model = () => {
               <div>
                 <button
                   className="modal-btn"
-                  className="modal-btn"
+                  className="modal-btn-added"
+                  disabled={material === "select" ? true : false}
                   onClick={() => {
-                    incrementCartProduct(id);
+                    incrementCartProduct(id, material);
+                    {
+                    }
                   }}
                 >
-                  Add to Shopping Bag
+                  {isNotAdded
+                    ? "modal-btn" || "Add to Shopping Bag"
+                    : "modal-btn-added" || "ALready added"}
                 </button>
               </div>
 
               <div>
                 <Link to="/cart">
-                  <button className="modal-btn" onClick={() => closeModel()}>
+                  <button
+                    className="modal-btn"
+                    onClick={() => {
+                      closeModal();
+                    }}
+                  >
                     Go to Cart
                   </button>
                 </Link>
@@ -87,24 +106,24 @@ const Model = () => {
   );
 };
 
-// class Model extends React.Component {
+// class Modal extends React.Component {
 //   render() {
 //     return (
 //       <ProductConsumer>
 //         {(value) => {
 //           const {
-//             modelOpen,
-//             closeModel,
+//             modalOpen,
+//             closeModal,
 //             incrementCartProduct,
 //             handleDetail,
 //           } = value;
-//           const { name, price, id, firstImage } = value.modelProduct;
+//           const { name, price, id, firstImage } = value.modalProduct;
 
-//           if (!modelOpen) {
+//           if (!modalOpen) {
 //             return null;
 //           } else {
 //             return (
-//               <div className="model-container">
+//               <div className="modal-container">
 //                 <div
 //                   className="image-container"
 //                   onClick={() => handleDetail(id)}
@@ -156,7 +175,7 @@ const Model = () => {
 //                           <Link to="/necklaces">
 //                             <button
 //                               className="modal-btn"
-//                               onClick={() => closeModel()}
+//                               onClick={() => closeModal()}
 //                             >
 //                               Continue Shopping
 //                             </button>
@@ -166,7 +185,7 @@ const Model = () => {
 //                           <Link to="/cart">
 //                             <button
 //                               className="modal-btn"
-//                               onClick={() => closeModel()}
+//                               onClick={() => closeModal()}
 //                             >
 //                               Go to Cart
 //                             </button>
@@ -190,4 +209,4 @@ const Model = () => {
 //   }
 // }
 
-export default Model;
+export default Modal;

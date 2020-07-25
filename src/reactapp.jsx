@@ -20,7 +20,7 @@ import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
 
 import { ProductProvider } from "./product_context";
-import Model from "./products_display/modal";
+import Modal from "./products_display/modal";
 import OrganicProduct from "./single_product_page/organic_product";
 
 const LINKS = [
@@ -91,7 +91,7 @@ class ReactApp extends React.Component {
 
                 <Redirect to="/404" />
               </Switch>
-              <Model />
+              <Modal />
             </div>
             <div className="footer">
               <Footer />

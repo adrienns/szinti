@@ -41,11 +41,12 @@ class SingleProductPage extends React.Component {
   //}
 
   render() {
-    const { name, info, id, price } = this.props;
+    const { name, info, id, price, material } = this.props;
     const { incrementCartProduct } = this.props;
 
     const { currentImage } = this.state;
     const imgSrc = this.props.productImages[currentImage];
+    debugger;
     return (
       <div>
         <div className="product_wrapper">
@@ -86,10 +87,29 @@ class SingleProductPage extends React.Component {
               <h1> {price}</h1>
             </div>
 
+            <div>
+              <form>
+                <label htmlFor="materials">
+                  <div className="item-info">Select Material:</div>
+                  <select
+                    value={material}
+                    className="item-info"
+                    id="select-material"
+                  >
+                    <option value="select">Please select material</option>
+                    <option value="gold">Gold</option>
+                    <option value="silver">Silver</option>
+                    <option value="bronze">Bronze</option>
+                  </select>
+                </label>
+              </form>
+            </div>
+
             <div className="single_product_page_button_container">
               <div>
                 <button
                   className="modal-btn"
+                  disabled={material === "select" ? true : false}
                   onClick={() => {
                     incrementCartProduct(id);
                   }}
