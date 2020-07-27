@@ -1,0 +1,117 @@
+.cart-modal-container {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(37, 37, 37, 0.747);
+}
+
+.cart-modal-column {
+  top: 0;
+  bottom: 0;
+  width: 390px;
+  right: 0;
+  position: fixed;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.cart-modal-items-box {
+  overflow: auto;
+  height: 40%;
+}
+
+.cart-modal-upper-row {
+  display: flex;
+  margin: 16px;
+  justify-content: space-between;
+}
+.exit-cart-modal-btn:before {
+  content: "\00d7";
+  font-size: 40px;
+  color: black;
+  font-weight: 100;
+}
+
+.cart-modal-img {
+  width: 140px;
+  height: 180px;
+}
+
+.cart-modal-item {
+  display: flex;
+  justify-content: center;
+
+  margin: 16px;
+}
+
+.your-cart-text {
+  margin: 20px;
+  justify-self: start;
+}
+
+.cart-modal-product-info {
+  width: 140px;
+  height: 180px;
+  margin-left: 30px;
+}
+.cart-modal-name {
+  margin-bottom: 10px;
+  margin-top: 2px;
+}
+
+.cart-modal-material {
+  margin-bottom: 10px;
+}
+
+.cart-modal-payment-btn {
+  background-color: rgb(66, 65, 65);
+  color: white;
+  width: 320px;
+  height: 38px;
+  letter-spacing: 1px;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px;
+  margin: 40px;
+}
+
+.cart-modal-payment-summary {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 390px;
+
+  height: 250px;
+}
+
+/*CSS Transition Group*/
+
+.transition-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.transition-enter.transition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.transition-exit {
+  opacity: 1;
+}
+
+.transition-exit.transition-exit-active {
+  opacity: 0;
+  transition: opacity 5000ms linear;
+}
+
+.transition-exit-done {
+  opacity: 0;
+}

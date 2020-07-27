@@ -18,8 +18,8 @@ import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/footer.jsx";
 import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
-
 import { ProductProvider } from "./product_context";
+import CartModal from "./pages/cart/CartModal";
 import Modal from "./products_display/modal";
 import OrganicProduct from "./single_product_page/organic_product";
 
@@ -91,6 +91,7 @@ class ReactApp extends React.Component {
 
                 <Redirect to="/404" />
               </Switch>
+              <CartModal />
               <Modal />
             </div>
             <div className="footer">

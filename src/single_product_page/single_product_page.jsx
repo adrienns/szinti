@@ -46,7 +46,7 @@ class SingleProductPage extends React.Component {
 
     const { currentImage } = this.state;
     const imgSrc = this.props.productImages[currentImage];
-    debugger;
+
     return (
       <div>
         <div className="product_wrapper">

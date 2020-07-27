@@ -17,6 +17,7 @@ class ProductProvider extends Component {
     cart: [],
     inCart: false,
     modalOpen: false,
+    cartModalOpen: false,
     modalProduct: {},
     cartTotal: 0,
     itemsTotal: 0,
@@ -70,14 +71,36 @@ class ProductProvider extends Component {
     });
   };
 
-  increment = (id) => {
+  calculatePriceWithMaterial = (id, material) => {
+    let tempProducts = [...this.state.products];
+    const index = this.getIndex(id);
+    const product = { ...tempProducts[index] };
+    tempProducts[index] = product;
+    const price = product.price;
+    const gold = product.selectedMaterial.gold;
+    const silver = product.selectedMaterial.silver;
+    const bronze = product.selectedMaterial.bronze;
+    if (material === "gold") {
+      return gold + price;
+    }
+    if (material === "silver") {
+      debugger;
+      return silver + price;
+    }
+    debugger;
+    return bronze + price;
+  };
+
+  increment = (id, material) => {
     let tempCart = [...this.state.cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
     product.count += 1;
-
-    product.total = product.count * product.price;
+    product.material = material;
+    const price = this.calculatePriceWithMaterial(id, material);
+    product.total = product.count * price;
+    debugger;
 
     this.setState(
       () => {
@@ -90,16 +113,19 @@ class ProductProvider extends Component {
     );
   };
 
-  decrement = (id) => {
+  decrement = (id, material) => {
     let tempCart = [...this.state.cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
     product.count -= 1;
+    product.material = material;
+    const price = this.calculatePriceWithMaterial(id, material);
+
     if (product.count === 0) {
       this.removeItem(id);
     } else {
-      product.total = product.count * product.price;
+      product.total = product.count * price;
 
       this.setState(
         () => {
@@ -162,25 +188,6 @@ class ProductProvider extends Component {
     return index;
   };
 
-  calculatePriceWithMaterial = (id, material) => {
-    debugger;
-    let tempProducts = [...this.state.products];
-    const index = this.getIndex(id);
-    const product = { ...tempProducts[index] };
-    tempProducts[index] = product;
-    const price = product.price;
-    const gold = product.selectedMaterial.gold;
-    const silver = product.selectedMaterial.silver;
-    const bronze = product.selectedMaterial.bronze;
-    if (material === "gold") {
-      return gold + price;
-    }
-    if (material === "silver") {
-      return silver + price;
-    }
-    return bronze + price;
-  };
-
   addToCart = (id, material) => {
     let tempProducts = [...this.state.products];
     const index = this.getIndex(id);
@@ -188,12 +195,10 @@ class ProductProvider extends Component {
     tempProducts[index] = product;
     product.inCart = true;
     product.count = 1;
-
     product.material = material;
-    debugger;
     const price = this.calculatePriceWithMaterial(id, material);
     product.total = price;
-    debugger;
+
     this.setState(
       () => {
         return {
@@ -217,6 +222,18 @@ class ProductProvider extends Component {
     });
   };
 
+  openCartModal = () => {
+    this.setState(() => {
+      return { cartModalOpen: true };
+    });
+  };
+
+  closeCartModal = () => {
+    this.setState(() => {
+      return { cartModalOpen: false };
+    });
+  };
+
   openModal = (id) => {
     const product = this.getItem(id);
     this.setState(() => {
@@ -235,7 +252,7 @@ class ProductProvider extends Component {
     if (product.inCart == false) {
       return this.addToCart(id, material);
     } else {
-      return this.increment(id);
+      return this.increment(id, material);
     }
   };
 
@@ -252,8 +269,9 @@ class ProductProvider extends Component {
           decrement: this.decrement,
           removeItem: this.removeItem,
           clearCart: this.clearCart,
-          // handleSelectedMaterial: this.handleSelectedMaterial,
+          closeCartModal: this.closeCartModal,
           incrementCartProduct: this.incrementCartProduct,
+          openCartModal: this.openCartModal,
           changeLanguage: this.changeLanguage,
         }}
       >

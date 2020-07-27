@@ -43,15 +43,26 @@ class NavBar extends React.Component {
               <Link to="/cart">EN</Link>
             </li>
             <li>
-              <Link to="/cart">
+              {/* {(value) => (
+            <div>
+              <div
+                className="image-container"
+                onClick={() => value.handleDetail(id)} */}
+
+              <div>
                 <span className="nav_cart_button">
                   <ProductConsumer>
                     {(value) => {
                       const { itemsTotal } = value;
+                      const { openCartModal } = value;
+
                       return (
                         <div className="item-counter">
                           ITEMS: {itemsTotal}{" "}
                           <FontAwesomeIcon
+                            onClick={() => {
+                              openCartModal();
+                            }}
                             className="shopping_bag"
                             icon="shopping-bag"
                           />
@@ -60,7 +71,7 @@ class NavBar extends React.Component {
                     }}
                   </ProductConsumer>
                 </span>
-              </Link>
+              </div>
             </li>
           </ul>
         </div>

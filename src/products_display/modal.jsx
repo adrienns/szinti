@@ -14,6 +14,7 @@ const Modal = () => {
     modalProduct,
     products,
     isAdded,
+    openCartModal,
   } = useContext(ProductContext);
 
   const { id, name, firstImage, price } = modalProduct;
@@ -70,6 +71,7 @@ const Modal = () => {
                   disabled={material === "select" ? true : false}
                   onClick={() => {
                     incrementCartProduct(id, material);
+                    openCartModal();
                   }}
                 ></button>
               </div>
@@ -82,7 +84,7 @@ const Modal = () => {
                       closeModal();
                     }}
                   >
-                    Go to Cart
+                    Go to Your Cart
                   </button>
                 </Link>
                 <Link to="/cart">

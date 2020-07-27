@@ -9,7 +9,7 @@ library.add(faTimes);
 export default function CartItem({ item, value }) {
   const { total, id, name, count, firstImage, material } = item;
   const { increment, decrement, removeItem } = value;
-  debugger;
+
   return (
     <tr className="cart-items">
       <td className="cart-item">
@@ -20,14 +20,14 @@ export default function CartItem({ item, value }) {
       <td className="cart-item">{material}</td>
 
       <td className="cart-item">
-        <span className="item-counter" onClick={() => decrement(id)}>
+        <span className="item-counter" onClick={() => decrement(id, material)}>
           {" "}
           -{" "}
         </span>
 
         {count}
 
-        <span className="item-counter" onClick={() => increment(id)}>
+        <span className="item-counter" onClick={() => increment(id, material)}>
           {" "}
           +{" "}
         </span>
