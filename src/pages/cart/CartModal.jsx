@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 import "./CartModal.css";
+import { Link } from "react-router-dom";
 
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import { ProductContext } from "../../product_context";
 
@@ -13,19 +14,24 @@ const CartModal = () => {
     cartTotal,
     itemsTotal,
   } = useContext(ProductContext);
-  debugger;
 
-  return cartModalOpen ? (
-    <div className="cart-modal-container">
-      <CSSTransition
-        timeout={{ enter: 500, exit: 100 }}
-        classNames="transition"
-      >
+  return (
+    <CSSTransition
+      in={cartModalOpen}
+      unmountOnExit
+      timeout={{
+        enter: 1000,
+        exit: 1000,
+      }}
+      classNames="transition"
+    >
+      <div className="cart-modal-container">
         <div className="cart-modal-column">
           <div className="cart-modal-upper-row">
             <div className="your-cart-text">
               Your Shopping Bag ({itemsTotal} items)
             </div>
+
             <span
               className="exit-cart-modal-btn"
               onClick={() => {
@@ -33,11 +39,12 @@ const CartModal = () => {
               }}
             ></span>
           </div>
+
           <div className="cart-modal-items-box">
             <div>
               {cart.map((item) => {
                 return (
-                  <div className="cart-modal-item">
+                  <div className="cart-modal-item" key={item.id}>
                     <img className="cart-modal-img" src={item.firstImage} />
                     <div className="cart-modal-product-info">
                       <div className="cart-modal-name">{item.name}</div>
@@ -54,15 +61,33 @@ const CartModal = () => {
             </div>
           </div>
           <div className="cart-modal-payment-summary">
-            <div> Total: {cartTotal}$</div>
-            <div>Shipping fee: </div>
-            <div className="cart-modal-payment-btn">Go To Payment</div>
+            <div>
+              <div className="total-shipping-fee-container">
+                <div className="modal-total-cart-wrapper">
+                  {" "}
+                  <div> Total:</div>
+                  <div> {cartTotal}$</div>
+                </div>
+                <div className="modal-shipping-fee-cart-wrapper">
+                  <div>Shipping fee: </div>
+                  <div>the fee</div>
+                </div>
+              </div>
+              <Link to="/cart">
+                <div
+                  className="cart-modal-payment-btn"
+                  onClick={() => {
+                    closeCartModal();
+                  }}
+                >
+                  Go To Payment
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
-      </CSSTransition>
-    </div>
-  ) : (
-    <div />
+      </div>
+    </CSSTransition>
   );
 };
 

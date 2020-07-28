@@ -40,10 +40,6 @@
   margin: 5px;
 }
 
-.modal-btn:after {
-  content: "Add To Shopping Cart ";
-}
-
 .go-to-cart-btn {
   background-color: rgb(88, 87, 87);
   color: white;
@@ -82,20 +78,4 @@
 
 .exit-btn-container {
   float: right;
-}
-
-.modal-btn-added {
-  background-color: white;
-  color: rgb(65, 63, 63);
-  border: solid rgb(65, 63, 63);
-  width: 250px;
-  height: 40px;
-  font-size: 13px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  margin: 5px;
-}
-
-.modal-btn-added:after {
-  content: "Added To Cart :) ";
 }

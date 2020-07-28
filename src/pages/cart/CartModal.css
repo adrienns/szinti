@@ -23,7 +23,7 @@
 
 .cart-modal-items-box {
   overflow: auto;
-  height: 40%;
+  height: 53%;
 }
 
 .cart-modal-upper-row {
@@ -46,8 +46,10 @@
 .cart-modal-item {
   display: flex;
   justify-content: center;
-
+  border-bottom: solid rgb(187, 183, 183);
+  border-width: 1px;
   margin: 16px;
+  padding-bottom: 25px;
 }
 
 .your-cart-text {
@@ -79,39 +81,57 @@
   text-transform: uppercase;
   text-align: center;
   padding: 10px;
-  margin: 40px;
 }
 
+.total-shipping-fee-container {
+display: flex;
+flex-direction: column;
+  margin: 25px;}
+
+
+.modal-total-cart-wrapper,
+.modal-shipping-fee-cart-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+}
 .cart-modal-payment-summary {
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 390px;
-
+  width: 300px;
   height: 250px;
+  display: flex;
+  margin: 20px;
+  align-items: flex-end;
 }
 
 /*CSS Transition Group*/
 
 .transition-enter {
   opacity: 0;
-  z-index: 1;
+  transform: translateX(100%);
 }
 
 .transition-enter.transition-enter-active {
   opacity: 1;
-  transition: opacity 500ms linear;
+  transform: translateX(0%);
+  transition: all 1000ms;
 }
 
 .transition-exit {
   opacity: 1;
+  /* transform: translateX(0%); */
 }
 
 .transition-exit.transition-exit-active {
   opacity: 0;
-  transition: opacity 5000ms linear;
+  transform: translateX(100%);
+  transition: all 1000ms;
 }
 
 .transition-exit-done {
   opacity: 0;
 }
+

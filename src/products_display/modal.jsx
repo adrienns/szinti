@@ -13,7 +13,6 @@ const Modal = () => {
     handleDetail,
     modalProduct,
     products,
-    isAdded,
     openCartModal,
   } = useContext(ProductContext);
 
@@ -67,13 +66,16 @@ const Modal = () => {
               </div>
               <div>
                 <button
-                  className={isAdded ? "modal-btn-added" : "modal-btn"}
+                  className="modal-btn"
                   disabled={material === "select" ? true : false}
                   onClick={() => {
                     incrementCartProduct(id, material);
                     openCartModal();
+                    closeModal();
                   }}
-                ></button>
+                >
+                  Add To Shopping Cart
+                </button>
               </div>
 
               <div>

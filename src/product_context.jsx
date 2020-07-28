@@ -84,10 +84,9 @@ class ProductProvider extends Component {
       return gold + price;
     }
     if (material === "silver") {
-      debugger;
       return silver + price;
     }
-    debugger;
+
     return bronze + price;
   };
 
@@ -100,7 +99,6 @@ class ProductProvider extends Component {
     product.material = material;
     const price = this.calculatePriceWithMaterial(id, material);
     product.total = product.count * price;
-    debugger;
 
     this.setState(
       () => {
@@ -108,7 +106,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotals();
-        this.totalItems();
+        this.calcUpdateTotalItems();
       }
     );
   };
@@ -132,7 +130,7 @@ class ProductProvider extends Component {
           return { cart: tempCart };
         },
         () => this.addTotals(),
-        this.totalItems()
+        this.calcUpdateTotalItems()
       );
     }
   };
@@ -153,7 +151,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotals();
-        this.totalItems();
+        this.calcUpdateTotalItems();
       }
     );
   };
@@ -166,7 +164,7 @@ class ProductProvider extends Component {
       () => {
         this.setProducts();
         this.addTotals();
-        this.totalItems();
+        this.calcUpdateTotalItems();
       }
     );
   };
@@ -209,16 +207,18 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotals();
-        this.totalItems();
+        this.calcUpdateTotalItems();
       }
     );
   };
 
-  totalItems = () => {
+  calcUpdateTotalItems = () => {
     let itemsTotal = 0;
-    this.state.cart.map((item) => (itemsTotal += item.count));
+    let Counter = { itemsTotal: 0, gold: 0, silver: 0, bronze: 0 };
+
+    this.state.cart.forEach((item) => (itemsTotal += item.count));
     this.setState(() => {
-      return { itemsTotal: itemsTotal };
+      return { itemsTotal };
     });
   };
 
@@ -272,6 +272,7 @@ class ProductProvider extends Component {
           closeCartModal: this.closeCartModal,
           incrementCartProduct: this.incrementCartProduct,
           openCartModal: this.openCartModal,
+
           changeLanguage: this.changeLanguage,
         }}
       >
