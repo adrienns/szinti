@@ -17,7 +17,8 @@ class ProductProvider extends Component {
     cart: [],
     inCart: false,
     modalOpen: false,
-    cartModalOpen: false,
+    isSideModalOpen: false,
+
     modalProduct: {},
     cartTotal: 0,
     itemsTotal: 0,
@@ -93,12 +94,11 @@ class ProductProvider extends Component {
   increment = (id, material) => {
     let tempCart = [...this.state.cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
-    const index = tempCart.indexOf(selectedProduct);
-    const product = tempCart[index];
-    product.count += 1;
-    product.material = material;
+    selectedProduct.count[material] += 1;
     const price = this.calculatePriceWithMaterial(id, material);
-    product.total = product.count * price;
+    selectedProduct.total[material] += price;
+
+    debugger;
 
     this.setState(
       () => {
@@ -116,14 +116,14 @@ class ProductProvider extends Component {
     const selectedProduct = tempCart.find((item) => item.id === id);
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
-    product.count -= 1;
-    product.material = material;
+    product.count[material] -= 1;
+
     const price = this.calculatePriceWithMaterial(id, material);
 
-    if (product.count === 0) {
-      this.removeItem(id);
+    if (product.count[material] === 0) {
+      this.removeItem(id, material);
     } else {
-      product.total = product.count * price;
+      product.total[material] = product.count[material] * price;
 
       this.setState(
         () => {
@@ -135,15 +135,17 @@ class ProductProvider extends Component {
     }
   };
 
-  removeItem = (id) => {
+  removeItem = (id, material) => {
     let tempProducts = [...this.state.products];
     let tempCart = [...this.state.cart];
     tempCart = tempCart.filter((item) => item.id !== id);
     const index = tempProducts.indexOf(this.getItem(id));
     let removedProduct = tempProducts[index];
     removedProduct.inCart = false;
-    removedProduct.count = 0;
-    removedProduct.total = 0;
+    removedProduct.count[material] = 0;
+    removedProduct.total[material] = 0;
+
+    debugger;
 
     this.setState(
       () => {
@@ -171,36 +173,50 @@ class ProductProvider extends Component {
 
   addTotals = () => {
     let cartTotal = 0;
-    this.state.cart.map((item) => (cartTotal += item.total));
+
+    let Counter = { gold: 0, silver: 0, bronze: 0 };
+
+    this.state.cart.forEach((item) => {
+      Counter.gold += item.total.gold;
+      Counter.silver += item.total.silver;
+      Counter.bronze += item.total.bronze;
+      cartTotal += item.total.gold + item.total.silver + item.total.bronze;
+    });
+    debugger;
     this.setState(() => {
       return { cartTotal: cartTotal };
     });
   };
-
-  // handleSelectedMaterial = (event) => {
-  //   this.setState({ valueMaterial: event.target.value });
-  // };
 
   getIndex = (id) => {
     const index = this.state.products.findIndex((elem) => elem.id === id);
     return index;
   };
 
-  addToCart = (id, material) => {
-    let tempProducts = [...this.state.products];
-    const index = this.getIndex(id);
-    const product = { ...tempProducts[index] };
-    tempProducts[index] = product;
-    product.inCart = true;
-    product.count = 1;
-    product.material = material;
-    const price = this.calculatePriceWithMaterial(id, material);
-    product.total = price;
+  isInCart = (id) => {
+    const index = this.state.cart.findIndex((elem) => elem.id === id);
+    return index != -1;
+  };
 
+  isInCart = (id) => {
+    const index = this.state.cart.findIndex((elem) => elem.id === id);
+    return index != -1;
+  };
+
+  addToCart = (id, material) => {
+    const index = this.getIndex(id);
+    const product = { ...this.state.products[index] };
+
+    product.inCart = true;
+
+    product.count = { gold: 0, silver: 0, bronze: 0 };
+    product.count[material] += 1;
+
+    const price = this.calculatePriceWithMaterial(id, material);
+    product.total[material] = price;
     this.setState(
       () => {
         return {
-          products: tempProducts,
           isAdded: true,
           cart: [...this.state.cart, product],
         };
@@ -214,23 +230,27 @@ class ProductProvider extends Component {
 
   calcUpdateTotalItems = () => {
     let itemsTotal = 0;
-    let Counter = { itemsTotal: 0, gold: 0, silver: 0, bronze: 0 };
-
-    this.state.cart.forEach((item) => (itemsTotal += item.count));
+    let Counter = { gold: 0, silver: 0, bronze: 0 };
+    this.state.cart.forEach((item) => {
+      Counter.gold += item.count.gold;
+      Counter.silver += item.count.silver;
+      Counter.bronze += item.count.bronze;
+      itemsTotal += item.count.gold + item.count.silver + item.count.bronze;
+    });
     this.setState(() => {
       return { itemsTotal };
     });
   };
 
-  openCartModal = () => {
+  openSideModal = () => {
     this.setState(() => {
-      return { cartModalOpen: true };
+      return { isSideModalOpen: true };
     });
   };
 
-  closeCartModal = () => {
+  closeSideModal = () => {
     this.setState(() => {
-      return { cartModalOpen: false };
+      return { isSideModalOpen: false };
     });
   };
 
@@ -248,11 +268,10 @@ class ProductProvider extends Component {
   };
 
   incrementCartProduct = (id, material) => {
-    const product = this.getItem(id);
-    if (product.inCart == false) {
-      return this.addToCart(id, material);
-    } else {
+    if (this.isInCart(id)) {
       return this.increment(id, material);
+    } else {
+      return this.addToCart(id, material);
     }
   };
 
@@ -269,9 +288,9 @@ class ProductProvider extends Component {
           decrement: this.decrement,
           removeItem: this.removeItem,
           clearCart: this.clearCart,
-          closeCartModal: this.closeCartModal,
+          closeSideModal: this.closeSideModal,
           incrementCartProduct: this.incrementCartProduct,
-          openCartModal: this.openCartModal,
+          openSideModal: this.openSideModal,
 
           changeLanguage: this.changeLanguage,
         }}

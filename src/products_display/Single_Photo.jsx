@@ -3,6 +3,8 @@ import "./Single_Photo.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../product_context";
+import { CSSTransition } from "react-transition-group";
+
 class SinglePhoto extends React.Component {
   constructor(props) {
     super(props);
@@ -36,16 +38,25 @@ class SinglePhoto extends React.Component {
                 onClick={() => value.handleDetail(id)}
               >
                 <Link to="/organicproduct">
-                  <img
-                    className="necklaces-img"
-                    onMouseEnter={this.handleMouseOn}
-                    onMouseLeave={this.handleMouseOff}
-                    src={imgSrc}
-                    url={imgUrl}
-                    alt="product"
-                  />
+                  <CSSTransition
+                    in={this.state.isHover}
+                    key={id}
+                    timeout={1000}
+                    onEnter={() => this.handleMouseOn(true)}
+                    classNames="hover-transitions"
+                  >
+                    <img
+                      className="necklaces-img"
+                      onMouseEnter={this.handleMouseOn}
+                      onMouseLeave={this.handleMouseOff}
+                      src={imgSrc}
+                      url={imgUrl}
+                      alt="product"
+                    />
+                  </CSSTransition>
                 </Link>
               </div>
+
               <div
                 onMouseEnter={this.handleMouseOn}
                 onMouseLeave={this.handleMouseOff}

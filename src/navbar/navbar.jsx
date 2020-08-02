@@ -4,6 +4,8 @@ import logo from "../images/logo.jpg";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../product_context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Icon, InlineIcon } from "@iconify/react";
+import bagIcon from "@iconify/icons-bytesize/bag";
 
 class NavBar extends React.Component {
   render() {
@@ -54,17 +56,17 @@ class NavBar extends React.Component {
                   <ProductConsumer>
                     {(value) => {
                       const { itemsTotal } = value;
-                      const { openCartModal } = value;
+                      const { openSideModal } = value;
 
                       return (
                         <div className="item-counter">
-                          ITEMS: {itemsTotal}{" "}
-                          <FontAwesomeIcon
+                          ITEMS: {itemsTotal}
+                          <Icon
                             onClick={() => {
-                              openCartModal();
+                              openSideModal();
                             }}
                             className="shopping_bag"
-                            icon="shopping-bag"
+                            icon={bagIcon}
                           />
                         </div>
                       );

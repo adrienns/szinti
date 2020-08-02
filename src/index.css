@@ -1,11 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Gillsans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400&display=swap");
 
 * {
   color: rgb(68, 66, 66);
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: " Gillsans", sans-serif;
+  font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
@@ -16,25 +16,9 @@
   user-select: none;
 }
 
-.top-bar {
-  padding-top: 10px;
-  height: 30px;
-  background: white;
-  font-size: 14px;
-}
-.top-bar-navigation ul {
-  float: left;
-  padding-left: 20px;
-}
-
 .basket {
   float: right;
   padding-right: 20px;
-}
-
-.top-bar li {
-  display: inline-block;
-  list-style: none;
 }
 
 /*.framed_picture{
@@ -67,7 +51,7 @@
 .heading-big {
   margin-top: 100px;
   padding: 50px;
-  font-family: "Brandon-Bold", serif;
+  font-family: "Montserrat", serif;
   font-weight: 400;
   letter-spacing: 4px;
   text-align: center;

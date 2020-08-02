@@ -9,7 +9,7 @@
   justify-content: center;
   list-style: none;
   letter-spacing: 1px;
-  font-size: 14px;
+  font-size: 13.5px;
 }
 /*Navbar hover animation*/
 
@@ -91,7 +91,7 @@ nav a:hover {
   list-style: none;
   display: inline-flex;
   margin-right: 15px;
-  font-size: 14px;
+  font-size: 13.5px;
   letter-spacing: 1px;
   padding-top: 5px;
 }
@@ -101,5 +101,5 @@ nav a:hover {
 }
 
 .shopping_bag {
-  font-size: 15px !important;
+  font-size: 19px !important;
 }

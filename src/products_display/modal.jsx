@@ -13,7 +13,7 @@ const Modal = () => {
     handleDetail,
     modalProduct,
     products,
-    openCartModal,
+    openSideModal,
   } = useContext(ProductContext);
 
   const { id, name, firstImage, price } = modalProduct;
@@ -62,6 +62,23 @@ const Modal = () => {
                       <option value="bronze">Bronze</option>
                     </select>
                   </label>
+                  {/* 
+                  <label htmlFor="materials">
+                    <div className="item-info"> Select necklace length:</div>
+                    <select
+                      value={material}
+                      className="item-info"
+                      id="select-material"
+                      onChange={(event) => {
+                        SetMaterial(event.target.value);
+                      }}
+                    >
+                      <option value="select">Please select length</option>
+                      <option value="10cm">10 cm</option>
+                      <option value="20cm">20 cm</option>
+                      <option value="30cm">30 cm</option>
+                    </select>
+                  </label> */}
                 </form>
               </div>
               <div>
@@ -70,7 +87,7 @@ const Modal = () => {
                   disabled={material === "select" ? true : false}
                   onClick={() => {
                     incrementCartProduct(id, material);
-                    openCartModal();
+                    openSideModal();
                     closeModal();
                   }}
                 >

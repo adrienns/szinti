@@ -18,8 +18,8 @@ export const necklaceProductList = [
     name: "Item1",
     info: "sofrfjgklfgjflef",
     inCart: false,
-    count: 0,
-    total: 0,
+    count: { gold: 0, silver: 0, bronze: 0 },
+    total: { gold: 0, silver: 0, bronze: 0 },
   },
 
   {
@@ -34,8 +34,8 @@ export const necklaceProductList = [
     name: "Item2",
     info: "sofrfjgklfgjflef",
     inCart: false,
-    count: 0,
-    total: 0,
+    count: { gold: 0, silver: 0, bronze: 0 },
+    total: { gold: 0, silver: 0, bronze: 0 },
   },
 
   {
@@ -50,8 +50,8 @@ export const necklaceProductList = [
     name: "Item3",
     info: "sofrfjgklfgjflef",
     inCart: false,
-    count: 0,
-    total: 0,
+    count: { gold: 0, silver: 0, bronze: 0 },
+    total: { gold: 0, silver: 0, bronze: 0 },
   },
   {
     id: 4,
@@ -66,8 +66,8 @@ export const necklaceProductList = [
     name: "Item4",
     info: "sofrfjgklfgjflef",
     inCart: false,
-    count: 0,
-    total: 0,
+
+    total: { gold: 0, silver: 0, bronze: 0 },
   },
   {
     id: 5,
@@ -81,8 +81,8 @@ export const necklaceProductList = [
     name: "Item5",
     info: "sofrfjgklfgjflef",
     inCart: false,
-    count: 0,
-    total: 0,
+    count: { gold: 0, silver: 0, bronze: 0 },
+    total: { gold: 0, silver: 0, bronze: 0 },
   },
   {
     id: 6,
@@ -97,7 +97,7 @@ export const necklaceProductList = [
 
     info: "sofrfjgklfgjflef",
     inCart: false,
-    count: 0,
-    total: 0,
+    count: { gold: 0, silver: 0, bronze: 0 },
+    total: { gold: 0, silver: 0, bronze: 0 },
   },
 ];

@@ -8,7 +8,7 @@ class CartColumns extends React.Component {
           <th className="products-information">image</th>
 
           <th className="products-information">product name </th>
-          <th className="products-information">material </th>
+          <th className="products-information">details </th>
 
           <th className="products-information">quantity</th>
           <th className="products-information">price</th>

@@ -34,7 +34,7 @@ export default function CartItem({ item, value }) {
       </td>
       <td className="cart-item">{total}$</td>
       <td className="cart-item">
-        <span onClick={() => removeItem(id)}>
+        <span onClick={() => removeItem(id, material)}>
           {" "}
           <FontAwesomeIcon className="shopping_bag" icon="times" />
         </span>

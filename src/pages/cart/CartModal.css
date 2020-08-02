@@ -1,13 +1,20 @@
 .cart-modal-container {
   position: fixed;
-  z-index: 999;
+  z-index: 1001;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(37, 37, 37, 0.747);
+  /* background: rgba(37, 37, 37, 0.747) !important; */
 }
-
+.cart-modal-background {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .cart-modal-column {
   top: 0;
   bottom: 0;
@@ -53,7 +60,7 @@
 }
 
 .your-cart-text {
-  margin: 20px;
+  margin: 14px;
   justify-self: start;
 }
 
@@ -67,71 +74,33 @@
   margin-top: 2px;
 }
 
-.cart-modal-material {
-  margin-bottom: 10px;
+.cart-modal-payment-summary {
+  width: 390px;
+  height: 260px;
+  background-color: rgb(251, 238, 238);
 }
 
 .cart-modal-payment-btn {
   background-color: rgb(66, 65, 65);
   color: white;
-  width: 320px;
+  width: 341px;
   height: 38px;
   letter-spacing: 1px;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
   padding: 10px;
+  margin-left: 25px;
+  margin-top: 40px;
 }
 
 .total-shipping-fee-container {
-display: flex;
-flex-direction: column;
-  margin: 25px;}
-
+  margin: 25px;
+}
 
 .modal-total-cart-wrapper,
 .modal-shipping-fee-cart-wrapper {
   display: flex;
   justify-content: space-between;
+  margin-top: 20px;
 }
-
-}
-.cart-modal-payment-summary {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 300px;
-  height: 250px;
-  display: flex;
-  margin: 20px;
-  align-items: flex-end;
-}
-
-/*CSS Transition Group*/
-
-.transition-enter {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-.transition-enter.transition-enter-active {
-  opacity: 1;
-  transform: translateX(0%);
-  transition: all 1000ms;
-}
-
-.transition-exit {
-  opacity: 1;
-  /* transform: translateX(0%); */
-}
-
-.transition-exit.transition-exit-active {
-  opacity: 0;
-  transform: translateX(100%);
-  transition: all 1000ms;
-}
-
-.transition-exit-done {
-  opacity: 0;
-}
-
