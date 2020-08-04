@@ -20,3 +20,10 @@
   padding: 170px;
   text-align: center;
 }
+
+/* 
+@media only screen and (max-width: 421px) {
+  .about-us-wrapper {
+    grid-template-columns: repeat(1, 1fr);
+  }
+} */

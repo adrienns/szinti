@@ -22,6 +22,7 @@ import { ProductProvider } from "./product_context";
 import CartModal from "./pages/cart/CartModal";
 import Modal from "./products_display/modal";
 import OrganicProduct from "./single_product_page/organic_product";
+import ResponsiveNav from "./navbar/ResponsiveNav";
 
 const LINKS = [
   { label: "Necklaces", link: "necklaces" },
@@ -39,6 +40,20 @@ const LINKMAP = LINKS.reduce(function (map, obj) {
 }, {});
 
 class ReactApp extends React.Component {
+  state = {
+    responsiveNavMenuOpen: false,
+  };
+
+  responsiveNavMenuHandler = () => {
+    this.setState((prevState) => {
+      return { responsiveNavMenuOpen: !prevState.responsiveNavMenuOpen };
+    });
+  };
+
+  closeResponsiveNavMenu = () => {
+    this.setState({ responsiveNavMenuOpen: false });
+  };
+
   render() {
     return (
       <ProductProvider>
@@ -47,7 +62,15 @@ class ReactApp extends React.Component {
 
           <div className="app">
             <header className="header">
-              <NavBar links={LINKS} />
+              <NavBar
+                links={LINKS}
+                responsiveNavMenuHandler={this.responsiveNavMenuHandler}
+              />
+              <ResponsiveNav
+                show={this.state.responsiveNavMenuOpen}
+                links={LINKS}
+                closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+              />
             </header>
             <div className="main-container">
               <Switch>

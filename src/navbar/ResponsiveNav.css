@@ -1,0 +1,103 @@
+.responsive-nav {
+  display: none;
+}
+
+@media only screen and (max-width: 1201px) {
+  .responsive-nav {
+    background-color: rgb(245, 245, 245);
+    right: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .responsive-nav.open {
+    transform: translateX(0);
+  }
+
+  .responsive-nav-list-item {
+    list-style: none;
+    padding: 18px;
+    text-align: center;
+    font-size: 21px;
+  }
+
+  .responsive-nav-list-item:nth-last-child(2) {
+    border-bottom: ridge grey;
+  }
+
+  #responsive-language-options span {
+    padding: 25px;
+  }
+
+  .responsive-nav-list-item :hover {
+    background-size: 50% 2px, auto;
+  }
+
+  .responsive-nav-list-item :active {
+    background-color: rgb(134, 133, 133);
+  }
+
+  .close-responsive-menu-btn {
+    font-size: 34px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media only screen and (max-width: 421px) {
+  .responsive-nav-wrapper {
+    background-color: rgb(243, 235, 235);
+    right: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+  }
+
+  .responsive-nav-list-item {
+    list-style: none;
+    padding: 18px;
+    text-align: center;
+    font-size: 21px;
+    letter-spacing: 0.5px;
+    transition: 0.5s ease-in-out;
+  }
+
+  /* .responsive-nav-list-item {
+    background-image: linear-gradient(rgb(126, 119, 124), rgb(119, 113, 118));
+    background-size: 0 2px, auto;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    transition: all 0.2s ease-out;
+  } */
+
+  .responsive-nav-list-item :hover {
+    background-size: 50% 2px, auto;
+  }
+
+  .responsive-nav-list-item :active {
+    background-color: rgb(134, 133, 133);
+  }
+
+  .close-responsive-menu-btn {
+    font-size: 34px;
+  }
+
+  .close-responsive-menu-btn {
+  }
+}

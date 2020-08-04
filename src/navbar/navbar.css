@@ -4,7 +4,6 @@
 
 .menu-navigation ul {
   margin: 0;
-
   display: flex;
   justify-content: center;
   list-style: none;
@@ -15,7 +14,8 @@
 
 .menu-navigation ul li a {
   position: relative;
-  padding: 10px;
+  padding: 8px;
+  text-transform: uppercase;
 }
 
 .menu-navigation ul li a::before {
@@ -51,34 +51,9 @@
 .menu-navigation ul li:hover a::after {
   width: 100%;
 }
-.menu-navigation li {
-  padding-top: 10px;
-}
-
-nav a {
-  text-transform: uppercase;
-}
 
 nav a:hover {
   color: black;
-}
-
-.menu-navigation label {
-  margin: 0 40px 0 0;
-  font-size: 30px;
-  line-height: 70px;
-  display: none;
-}
-
-.navbar-links .closebtn {
-  position: absolute;
-  font-size: 40px;
-  top: 32px;
-  right: 40px;
-  cursor: pointer;
-  color: rgb(73, 71, 71);
-  z-index: 1;
-  display: none;
 }
 
 .navbar-container {
@@ -87,19 +62,67 @@ nav a:hover {
   align-items: center;
 }
 
-.language_bar ul {
+.language_bar {
   list-style: none;
-  display: inline-flex;
+  display: flex;
+  align-items: flex-end;
   margin-right: 15px;
   font-size: 13.5px;
   letter-spacing: 1px;
-  padding-top: 5px;
-}
-
-.language_bar ul li {
-  padding: 4px;
+  padding-top: 2px;
 }
 
 .shopping_bag {
   font-size: 19px !important;
+  margin-bottom: -3px;
+}
+
+.mobile-nav-bar {
+  display: none;
+}
+
+/* Navbar responsive design*/
+
+@media only screen and (min-width: 1202px) {
+  .hamburger-icon {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1201px) {
+  .hamburger-icon {
+    display: flex;
+    align-self: flex-start;
+    cursor: pointer;
+    font-size: 25px;
+  }
+
+  .navbar-container {
+    display: none;
+  }
+  .mobile-nav-bar {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+  }
+}
+
+/* Navbar responsive design*/
+
+@media only screen and (max-width: 421px) {
+  .hamburger-icon {
+    display: flex;
+    align-self: flex-start;
+    cursor: pointer;
+    font-size: 25px;
+  }
+
+  .navbar-container {
+    display: none;
+  }
+  .mobile-nav-bar {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+  }
 }
