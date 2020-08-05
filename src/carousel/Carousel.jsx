@@ -40,14 +40,39 @@ class Carousel extends React.Component {
       className: "product-item-box",
       swipe: true,
       touchMove: true,
-
       nextArrow: (
         <FontAwesomeIcon icon={faChevronRight} className="slick-next" />
       ),
       prevArrow: (
         <FontAwesomeIcon icon={faChevronLeft} className="slick-prev" />
       ),
+
+      responsive: [
+        {
+          breakpoint: 1030,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+          },
+        },
+        {
+          breakpoint: 790,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2,
+          },
+        },
+        {
+          breakpoint: 510,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
     };
+
     return (
       <div className="carousel">
         <Slider {...settings}>

@@ -19,13 +19,12 @@ class Footer extends React.Component {
       <footer className="footer">
         <section className="footer-nav">
           <div className="footer-section">
-            <div className="footer-group-title">May I help you?</div>
+            <div className="footer-group-title">help</div>
 
             <ul>
               <li>
                 <Link to="/form">Contact us</Link>
               </li>
-              <li>Product care</li>
             </ul>
           </div>
 
@@ -48,13 +47,10 @@ class Footer extends React.Component {
 
             <ul>
               <li>
-                <a href="#">Privacy & Cookie Policy</a>
+                <a href="#">Privacy & Cookies</a>
               </li>
               <li>
-                <a href="#">General Conditions of Purchase</a>
-              </li>
-              <li>
-                <a href="#">Legal Notes</a>
+                <a href="#">Terms & Conditions</a>
               </li>
             </ul>
           </div>

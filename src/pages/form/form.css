@@ -1,7 +1,7 @@
 .contact-wrapper {
   position: relative;
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 136px;
 
   width: 500px;
   height: 700px;
@@ -29,6 +29,7 @@
   border: 0.5px solid rgb(148, 142, 142);
   height: 40px;
   font-size: 19px;
+  padding: 7px;
 }
 
 .form-row ::placeholder {
@@ -42,4 +43,10 @@
 .form-row button {
   background-color: rgb(78, 73, 73);
   color: white;
+}
+
+@media only screen and (max-width: 421px) {
+  .contact-wrapper {
+    width: 374px;
+  }
 }
