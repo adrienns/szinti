@@ -2,40 +2,35 @@ import React from "react";
 
 import SinglePhoto from "../products_display/Single_Photo";
 import "./RingProductsDisplay.css";
+import { useTrail, animated } from "react-spring";
+import { useContext, useState } from "react";
+import { ProductContext } from "../product_context";
 
-import { ProductConsumer } from "../product_context";
+const RingProductsDisplay = () => {
+  const { products } = useContext(ProductContext);
 
-class RingProductsDisplay extends React.Component {
-  render() {
-    return (
-      <div>
-        <ul className="necklace_container">
-          <ProductConsumer>
-            {(value) => {
-              return value.products
-                .filter((element) => element.type === "rings")
-                .map((element) => {
-                  return (
-                    <SinglePhoto
-                      type={element.type}
-                      inCart={element.inCart}
-                      element={element}
-                      key={element.id}
-                      id={element.id}
-                      mainImg={element.firstImage}
-                      secondImg={element.secondImage}
-                      imgLink={element.link}
-                      imgName={element.name}
-                      imgPrice={element.price}
-                    />
-                  );
-                });
-            }}
-          </ProductConsumer>
-        </ul>
-      </div>
-    );
-  }
-}
+  return (
+    <ul className="necklace_container">
+      {products
+        .filter((element) => element.type === "rings")
+        .map((element) => {
+          return (
+            <SinglePhoto
+              type={element.type}
+              inCart={element.inCart}
+              element={element}
+              key={element.id}
+              id={element.id}
+              mainImg={element.firstImage}
+              secondImg={element.secondImage}
+              imgLink={element.link}
+              imgName={element.name}
+              imgPrice={element.price}
+            />
+          );
+        })}
+    </ul>
+  );
+};
 
 export default RingProductsDisplay;

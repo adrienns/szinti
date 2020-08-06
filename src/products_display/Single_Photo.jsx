@@ -1,92 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Single_Photo.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../product_context";
-import { CSSTransition } from "react-transition-group";
+import { useSpring, useTransition, animated } from "react-spring";
 
-class SinglePhoto extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isHover: false };
-  }
+const SinglePhoto = (props) => {
+  const [isHovered, setHover] = useState(false);
 
-  handleMouseOn = () => {
-    this.setState({ isHover: true });
+  const transitions = useTransition(isHovered, null, {
+    from: { position: "absolute", opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { tension: 220, friction: 120 },
+  });
+
+  // const propsexample2 = useSpring({
+  //   opacity: isHovered ? 0.6 : 1,
+  //   config: { duration: 100, mass: 5, tension: 2000, friction: 200 },
+  // });
+
+  // const [animated, setAnimation] = useSpring({opacity:0})
+
+  const handleMouseOn = () => {
+    setHover(() => ({ isHovered: true }));
   };
 
-  handleMouseOff = () => {
-    this.setState({ isHover: false });
+  const handleMouseOff = () => {
+    setHover(() => {
+      !isHovered;
+    });
   };
 
-  render() {
-    const id = this.props.id;
-    const imgUrl = this.props.imgLink;
-    const imgName = this.props.imgName;
-    const imgPrice = this.props.imgPrice;
-    const imgSrc = this.state.isHover
-      ? this.props.secondImg
-      : this.props.mainImg;
+  const { id, imgUrl, imgName, imgPrice, secondImg, mainImg } = props;
 
-    return (
-      <li className="jewelery-item">
-        <ProductConsumer>
-          {(value) => (
-            <div>
-              <div
-                className="image-container"
-                onClick={() => value.handleDetail(id)}
-              >
-                <Link to="/organicproduct">
-                  <CSSTransition
-                    in={this.state.isHover}
-                    key={id}
-                    timeout={1000}
-                    onEnter={() => this.handleMouseOn(true)}
-                    classNames="hover-transitions"
-                  >
-                    <img
+  return (
+    <li className="jewelery-item">
+      <ProductConsumer>
+        {(value) => (
+          <div>
+            <div
+              className="image-container"
+              onClick={() => value.handleDetail(id)}
+            >
+              <Link to="/organicproduct">
+                {transitions.map(({ item, key, props }) =>
+                  item ? (
+                    <animated.img
+                      key={key}
+                      style={props}
                       className="necklaces-img"
-                      onMouseEnter={this.handleMouseOn}
-                      onMouseLeave={this.handleMouseOff}
-                      src={imgSrc}
+                      onMouseLeave={handleMouseOff}
+                      src={mainImg}
                       url={imgUrl}
                       alt="product"
-                    />
-                  </CSSTransition>
-                </Link>
-              </div>
-
-              <div
-                onMouseEnter={this.handleMouseOn}
-                onMouseLeave={this.handleMouseOff}
-              >
-                <div>
-                  {this.state.isHover ? (
-                    <button
-                      className="cart_btn"
-                      onClick={() => {
-                        value.openModal(id);
-                      }}
-                    >
-                      <p className="button_text">ADD TO BAG</p>
-                    </button>
+                    ></animated.img>
                   ) : (
-                    ""
-                  )}
-                </div>
-                <p className="product-description">
-                  <Link to="/organicproduct">{imgName}</Link>
-                </p>
-                <p className="product-description">{imgPrice}$</p>
-              </div>
+                    <animated.img
+                      style={props}
+                      key={key}
+                      className="necklaces-img"
+                      onMouseEnter={handleMouseOn}
+                      src={secondImg}
+                      url={imgUrl}
+                      alt="product"
+                    ></animated.img>
+                  )
+                )}
+              </Link>
             </div>
-          )}
-        </ProductConsumer>
-      </li>
-    );
-  }
-}
+
+            <div onMouseEnter={handleMouseOn} onMouseLeave={handleMouseOff}>
+              <div>
+                {isHovered ? (
+                  <button
+                    className="cart_btn"
+                    onClick={() => {
+                      value.openModal(id);
+                    }}
+                  >
+                    <p className="button_text">ADD TO BAG</p>
+                  </button>
+                ) : (
+                  ""
+                )}
+              </div>
+              <p className="product-description">
+                <Link to="/organicproduct">{imgName}</Link>
+              </p>
+              <p className="product-description">{imgPrice}$</p>
+            </div>
+          </div>
+        )}
+      </ProductConsumer>
+    </li>
+  );
+};
 
 SinglePhoto.propTypes = {
   element: PropTypes.shape({

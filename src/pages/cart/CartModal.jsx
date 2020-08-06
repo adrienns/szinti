@@ -3,7 +3,6 @@ import "./CartModal.css";
 import { Link } from "react-router-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import { ProductContext } from "../../product_context";
 
@@ -45,8 +44,6 @@ const createCartItems = (cart) => {
 };
 
 const CartModal = () => {
-  // const [opacityBackground, setOpacityBackGround] = useState(false);
-
   const {
     cart,
     isSideModalOpen,
@@ -69,21 +66,6 @@ const CartModal = () => {
           closeSideModal();
         }}
       >
-        {/* {opacityBackground && <div className="cart-modal-background" />}
-      <CSSTransition
-        in={sideModalOpen}
-        unmountOnExit
-        timeout={{
-          enter: 1000,
-          exit: 1000,
-        }}
-        classNames="transition"
-        onEntered={() => setOpacityBackGround(true)}
-        onExiting={() => setOpacityBackGround(false)}
-      > */}
-
-        {/* <div>
-          <div className="cart-modal-container"> */}
         <div className="cart-modal-column">
           <div className="cart-modal-upper-row">
             <div className="your-cart-text">
@@ -146,9 +128,6 @@ const CartModal = () => {
             </Link>
           </div>
         </div>
-        {/* </div>
-        </div> */}
-        {/* </CSSTransition> */}
       </SlidingPane>
     </div>
   );

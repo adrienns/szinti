@@ -49,7 +49,7 @@
   }
 
   .close-responsive-menu-btn {
-    font-size: 34px;
+    font-size: 27px;
     position: absolute;
     top: 20px;
     right: 20px;
@@ -89,5 +89,12 @@
 
   .close-responsive-menu-btn {
     font-size: 34px;
+  }
+
+  .close-responsive-menu-btn {
+    font-size: 27px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }

@@ -1,3 +1,7 @@
+.responsive-product_wrapper {
+  display: none;
+}
+
 .product_textbox {
   width: 490px;
   height: 550px;
@@ -162,4 +166,29 @@
 
 .single_product_page_button_container {
   padding-top: 60px;
+}
+
+@media only screen and (max-width: 1201px) {
+  .product_wrapper {
+    display: none;
+  }
+
+  .responsive-product_wrapper {
+  }
+}
+
+@media only screen and (max-width: 421px) {
+  .product_wrapper {
+    display: none;
+  }
+
+  .responsive-img_container {
+    width: 150px;
+    height: 100px;
+  }
+
+  .product_wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 }

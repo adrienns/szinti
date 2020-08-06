@@ -43,8 +43,8 @@ const NavBar = (props) => {
               const { openSideModal } = value;
 
               return (
-                <div className="item-counter">
-                  {itemsTotal}
+                <div>
+                  <span className="responsive-item-counter"> {itemsTotal}</span>
                   <Icon
                     onClick={() => {
                       openSideModal();
