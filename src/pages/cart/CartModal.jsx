@@ -61,7 +61,7 @@ const CartModal = () => {
         overlayClassName="cart-modal-container"
         isOpen={isSideModalOpen}
         hideHeader={true}
-        width="390px"
+        width="342px"
         onRequestClose={() => {
           closeSideModal();
         }}
@@ -108,13 +108,13 @@ const CartModal = () => {
           <div className="cart-modal-payment-summary">
             <div className="total-shipping-fee-container">
               <div className="modal-total-cart-wrapper">
-                <div> Total:</div>
+                <div> SubTotal:</div>
                 <div> {cartTotal}$</div>
               </div>
-              <div className="modal-shipping-fee-cart-wrapper">
+              {/* <div className="modal-shipping-fee-cart-wrapper">
                 <div>Shipping fee: </div>
                 <div>the fee</div>
-              </div>
+              </div> */}
             </div>
             <Link to="/cart">
               <div

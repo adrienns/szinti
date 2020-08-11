@@ -2,9 +2,6 @@ import React, { useState, useContext } from "react";
 
 import { Link } from "react-router-dom";
 
-import { Icon, InlineIcon } from "@iconify/react";
-import closeFill from "@iconify/icons-eva/close-fill";
-
 import "./ResponsiveNav.css";
 
 const ResponsiveNav = (props) => {
@@ -55,7 +52,7 @@ const ResponsiveNav = (props) => {
             className="close-responsive-menu-btn"
             onClick={props.closeResponsiveNavMenu}
           >
-            <Icon icon={closeFill} />
+            {/* <Icon icon={closeFill} /> */}
           </span>
         </div>
       </div>

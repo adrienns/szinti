@@ -1,206 +1,204 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import "./single_product_page.css";
 import SideImages from "./Side_Images";
+import { ProductContext } from "../product_context";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import { Link } from "react-router-dom";
 
-class SingleProductPage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentImage: 0 };
-  }
+const SingleProductPage = (props) => {
+  const [material, SetMaterial] = useState("select");
+  const [currentImage, setCurrentImage] = useState(0);
 
-  handlePrevImage = () => {
-    const numberOfImages = this.props.productImages.length;
+  const { incrementCartProduct, products, openSideModal } = useContext(
+    ProductContext
+  );
 
-    const prevState =
-      (this.state.currentImage + numberOfImages - 1) % numberOfImages;
-    this.changeCurrentImageTo(prevState);
+  const { total } = products;
+
+  const numberOfImages = props.productImages.length;
+
+  const handlePrevImage = () => {
+    const prevState = (currentImage + numberOfImages - 1) % numberOfImages;
+    changeCurrentImageTo(prevState);
   };
 
-  handleNextImage = () => {
-    const numberOfImages = this.props.productImages.length;
-
-    const nextState = (this.state.currentImage + 1) % numberOfImages;
-    this.changeCurrentImageTo(nextState);
+  const handleNextImage = () => {
+    const nextState = (currentImage + 1) % numberOfImages;
+    changeCurrentImageTo(nextState);
   };
 
-  changeCurrentImageTo = (index) => {
-    this.setState({ currentImage: index });
+  const changeCurrentImageTo = (index) => {
+    setCurrentImage(index);
   };
 
-  render() {
-    const { name, info, id, price, material } = this.props;
-    const { incrementCartProduct } = this.props;
+  const { name, info, id, price } = props;
+  const imgSrc = props.productImages[currentImage];
 
-    const { currentImage } = this.state;
-    const imgSrc = this.props.productImages[currentImage];
-
-    return (
-      <div>
-        <div className="responsive-product_wrapper">
-          <div className="responsive-img_container">
-            {/* <button
-              className="prev_btn"
-              onClick={this.handlePrevImage}
-            ></button>
-            <button
-              className="next_btn"
-              onClick={this.handleNextImage}
-            ></button> */}
-            <SwitchTransition>
-              <CSSTransition
-                key={currentImage}
-                timeout={{ enter: 500, exit: 100 }}
-                classNames="fade"
-              >
-                <img src={imgSrc} className="sideImageClass" alt="product" />
-              </CSSTransition>
-            </SwitchTransition>
-          </div>
+  return (
+    <div>
+      {/* <div className="responsive-product_wrapper">
+        <div className="responsive-img_container">
+          <button className="prev_btn" onClick={handlePrevImage}></button>
+          <button className="next_btn" onClick={handleNextImage}></button>
+          <SwitchTransition>
+            <CSSTransition
+              key={currentImage}
+              timeout={{ enter: 500, exit: 100 }}
+              classNames="fade"
+            >
+              <img src={imgSrc} className="sideImageClass" alt="product" />
+            </CSSTransition>
+          </SwitchTransition>
+        </div>
+        <div>
+          <SideImages
+            currentImage={currentImage}
+            onChange={changeCurrentImageTo}
+            productImages={props.productImages}
+          />
+        </div>
+        <div className="responsive-product_textbox">
           <div>
-            <SideImages
-              currentImage={currentImage}
-              onChange={this.changeCurrentImageTo}
-              productImages={this.props.productImages}
-            />
+            <h1> {name}</h1>
+
+            <h1> {info}</h1>
+            <h1> {price}</h1>
           </div>
-          <div className="responsive-product_textbox">
-            <div>
-              <h1> {name}</h1>
 
-              <h1> {info}</h1>
-              <h1> {price}</h1>
-            </div>
-
-            <div>
-              <form>
-                <label htmlFor="materials">
-                  <div className="item-info">Select Material:</div>
-                  <select
-                    value={material}
-                    className="item-info"
-                    id="select-material"
-                  >
-                    <option value="select">Please select material</option>
-                    <option value="gold">Gold</option>
-                    <option value="silver">Silver</option>
-                    <option value="bronze">Bronze</option>
-                  </select>
-                </label>
-              </form>
-            </div>
-
-            <div className="single_product_page_button_container">
-              <div>
-                {/* <button
-                  className="modal-btn"
-                  disabled={material === "select" ? true : false}
-                  onClick={() => {
-                    incrementCartProduct(id);
+          <div>
+            <form>
+              <label htmlFor="materials">
+                <div className="item-info">Select Material:</div>
+                <select
+                  value={material}
+                  className="item-info"
+                  id="select-material"
+                  onChange={(event) => {
+                    SetMaterial(event.target.value);
                   }}
-                > */}
-                {/* Add to Shopping Bag
-                </button> */}
-              </div>
-              <div>
-                <Link to="/necklaces">
-                  <button>Continue Shopping</button>{" "}
-                </Link>
-              </div>
-              <div>
-                <Link to="/cart">
-                  <button>Pay Now</button>
-                </Link>
-              </div>
+                >
+                  <option value="select">Please select material</option>
+                  <option value="gold">Gold</option>
+                  <option value="silver">Silver</option>
+                  <option value="bronze">Bronze</option>
+                </select>
+              </label>
+            </form>
+          </div> */}
+
+      {/* <div className="single_product_page_button_container">
+            <div>
+              <button
+                className="modal-btn"
+                disabled={material === "select" ? true : false}
+                onClick={() => {
+                  incrementCartProduct(id, material);
+                  openSideModal();
+                }}
+              >
+                Add to Shopping Bag
+              </button>
+            </div>
+            <div>
+              <Link to="/necklaces">
+                <button>Continue Shopping</button>{" "}
+              </Link>
+            </div>
+            <div>
+              <Link to="/cart">
+                <button>Pay Now</button>
+              </Link>
             </div>
           </div>
         </div>
-        <div className="product_wrapper">
+      </div> */}
+      <div className="product_wrapper">
+        <div>
+          <SideImages
+            currentImage={currentImage}
+            onChange={changeCurrentImageTo}
+            productImages={props.productImages}
+          />
+        </div>
+
+        <div className="img_container">
+          <button className="prev_btn" onClick={handlePrevImage}></button>
+          <SwitchTransition>
+            <CSSTransition
+              key={currentImage}
+              timeout={{ enter: 500, exit: 100 }}
+              classNames="fade"
+            >
+              <img src={imgSrc} className="sideImageClass" alt="product" />
+            </CSSTransition>
+          </SwitchTransition>
+          <button className="next_btn" onClick={handleNextImage}></button>
+        </div>
+
+        <div className="product_textbox">
           <div>
-            <SideImages
-              currentImage={currentImage}
-              onChange={this.changeCurrentImageTo}
-              productImages={this.props.productImages}
-            />
+            <h1>
+              {" "}
+              {name} {material}
+            </h1>
+
+            <h1> {info}</h1>
+            <h1>
+              {" "}
+              {price} and {total}
+            </h1>
           </div>
 
-          <div className="img_container">
-            {/* <button
-              className="prev_btn"
-              onClick={this.handlePrevImage}
-            ></button> */}
-            <SwitchTransition>
-              <CSSTransition
-                key={currentImage}
-                timeout={{ enter: 500, exit: 100 }}
-                classNames="fade"
-              >
-                <img src={imgSrc} className="sideImageClass" alt="product" />
-              </CSSTransition>
-            </SwitchTransition>
-
-            {/* <button
-              className="next_btn"
-              onClick={this.handleNextImage}
-            ></button> */}
-          </div>
-
-          <div className="product_textbox">
-            <div>
-              <h1> {name}</h1>
-
-              <h1> {info}</h1>
-              <h1> {price}</h1>
-            </div>
-
-            <div>
-              <form>
-                <label htmlFor="materials">
-                  <div className="item-info">Select Material:</div>
-                  <select
-                    value={material}
-                    className="item-info"
-                    id="select-material"
-                  >
-                    <option value="select">Please select material</option>
-                    <option value="gold">Gold</option>
-                    <option value="silver">Silver</option>
-                    <option value="bronze">Bronze</option>
-                  </select>
-                </label>
-              </form>
-            </div>
-
-            <div className="single_product_page_button_container">
-              <div>
-                <button
-                  className="modal-btn"
-                  disabled={material === "select" ? true : false}
-                  onClick={() => {
-                    incrementCartProduct(id);
+          <div>
+            <form>
+              <label htmlFor="materials">
+                <div className="item-info">Select Material:</div>
+                <select
+                  value={material}
+                  className="item-info"
+                  id="select-material"
+                  onChange={(event) => {
+                    SetMaterial(event.target.value);
                   }}
                 >
-                  Add to Shopping Bag
-                </button>
-              </div>
-              <div>
-                <Link to="/necklaces">
-                  <button>Continue Shopping</button>{" "}
-                </Link>
-              </div>
-              <div>
-                <Link to="/cart">
-                  <button>Pay Now</button>
-                </Link>
-              </div>
+                  <option value="select">Please select material</option>
+                  <option value="gold">Gold</option>
+                  <option value="silver">Silver</option>
+                  <option value="bronze">Bronze</option>
+                </select>
+              </label>
+            </form>
+          </div>
+
+          <div className="single_product_page_button_container">
+            <div>
+              <button
+                className="modal-btn"
+                disabled={material === "select" ? true : false}
+                onClick={() => {
+                  incrementCartProduct(id, material);
+                  openSideModal();
+                }}
+              >
+                Add to Shopping Bag
+              </button>
+            </div>
+            <div>
+              <Link to="/necklaces">
+                <button>Continue Shopping</button>{" "}
+              </Link>
+            </div>
+            <div>
+              <Link to="/cart">
+                <button>Pay Now</button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default SingleProductPage;

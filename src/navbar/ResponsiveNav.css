@@ -54,6 +54,12 @@
     top: 20px;
     right: 20px;
   }
+
+  .close-responsive-menu-btn:before {
+    content: "\00d7";
+    font-size: 55px;
+    color: rgb(78, 78, 78);
+  }
 }
 
 @media only screen and (max-width: 421px) {

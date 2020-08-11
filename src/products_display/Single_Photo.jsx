@@ -9,10 +9,10 @@ const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
 
   const transitions = useTransition(isHovered, null, {
-    from: { position: "absolute", opacity: 0 },
+    from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: { tension: 220, friction: 120 },
+    config: { tension: 220, friction: 120, duration: 150 },
   });
 
   // const propsexample2 = useSpring({
@@ -44,29 +44,20 @@ const SinglePhoto = (props) => {
               onClick={() => value.handleDetail(id)}
             >
               <Link to="/organicproduct">
-                {transitions.map(({ item, key, props }) =>
-                  item ? (
+                <div className="img-wrapper-single">
+                  {transitions.map(({ item, key, props }) => (
                     <animated.img
                       key={key}
                       style={props}
                       className="necklaces-img"
-                      onMouseLeave={handleMouseOff}
-                      src={mainImg}
+                      onMouseLeave={() => item && handleMouseOff()}
+                      onMouseEnter={() => !item && handleMouseOn()}
+                      src={item ? secondImg : mainImg}
                       url={imgUrl}
                       alt="product"
                     ></animated.img>
-                  ) : (
-                    <animated.img
-                      style={props}
-                      key={key}
-                      className="necklaces-img"
-                      onMouseEnter={handleMouseOn}
-                      src={secondImg}
-                      url={imgUrl}
-                      alt="product"
-                    ></animated.img>
-                  )
-                )}
+                  ))}
+                </div>
               </Link>
             </div>
 

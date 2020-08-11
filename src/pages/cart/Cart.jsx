@@ -20,11 +20,20 @@ class Cart extends Component {
             if (cart.length > 0) {
               return (
                 <div className="cart-container">
-                  <table className="cart-table">
-                    <CartColumns />
-                    <CartList value={value} />
-                    <CartTotals value={value} />
-                  </table>
+                  <div>
+                    <table className="cart-table">
+                      <CartColumns />
+                      <CartList value={value} />
+                    </table>
+                  </div>
+                  <div className="cart-order-summary-wrapper">
+                    <div className="cart-order-summary">
+                      <h2 className="order-summary-text">Order Summary</h2>
+                      <table className="cart-total-table">
+                        <CartTotals value={value} />
+                      </table>
+                    </div>
+                  </div>
                 </div>
               );
             } else {
@@ -38,56 +47,3 @@ class Cart extends Component {
 }
 
 export default Cart;
-// class Carts extends Component {
-//   state = {
-//     counters: [
-//       { id: 1, value: 6 },
-//       { id: 2, value: 0 },
-//       { id: 3, value: 0 },
-//       { id: 4, value: 0 },
-//     ],
-//   };
-
-//   handleDelete = (counterId) => {
-//     const counters = this.state.counters.filter(
-//       (counter) => counter.id !== counterId
-//     );
-//     this.setState({ counters });
-//   };
-
-//   handleIncrement = (counter) => {
-//     const counters = [...this.state.counters];
-//     const index = counters.indexOf(counter);
-//     counters[index] = { ...counter };
-//     counters[index].value++;
-//     this.setState({ counters });
-//   };
-
-//   handleReset = () => {
-//     const counters = this.state.counters.map((counter) => {
-//       counter.value = 0;
-//       return counter;
-//     });
-//     this.setState({ counters });
-//   };
-
-//   render() {
-//     return (
-//       <div>
-//         <button className="reset_btn" onClick={this.handleReset}>
-//           Reset
-//         </button>
-//         {this.state.counters.map((counter) => (
-//           <Cart
-//             key={counter.id}
-//             onDelete={this.handleDelete}
-//             counter={counter}
-//             onIncrement={this.handleIncrement}
-//           />
-//         ))}
-//       </div>
-//     );
-//   }
-// }
-
-// export default Carts;

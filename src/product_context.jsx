@@ -98,8 +98,6 @@ class ProductProvider extends Component {
     const price = this.calculatePriceWithMaterial(id, material);
     selectedProduct.total[material] += price;
 
-    debugger;
-
     this.setState(
       () => {
         return { cart: [...tempCart] };
@@ -145,8 +143,6 @@ class ProductProvider extends Component {
     removedProduct.count[material] = 0;
     removedProduct.total[material] = 0;
 
-    debugger;
-
     this.setState(
       () => {
         return { cart: [...tempCart], products: [...tempProducts] };
@@ -182,7 +178,7 @@ class ProductProvider extends Component {
       Counter.bronze += item.total.bronze;
       cartTotal += item.total.gold + item.total.silver + item.total.bronze;
     });
-    debugger;
+
     this.setState(() => {
       return { cartTotal: cartTotal };
     });

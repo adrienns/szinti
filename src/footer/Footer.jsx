@@ -9,7 +9,7 @@ import {
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 
-import "./footer.css";
+import "./Footer.css";
 
 library.add(fab, faFacebook, faInstagram);
 
@@ -50,7 +50,7 @@ class Footer extends React.Component {
                 <a href="#">Privacy & Cookies</a>
               </li>
               <li>
-                <a href="#">Terms & Conditions</a>
+                <Link to="/terms&conditions">Terms & Conditions</Link>
               </li>
             </ul>
           </div>

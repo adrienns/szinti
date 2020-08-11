@@ -4,6 +4,7 @@
 }
 
 .necklaces-img {
+  position: absolute;
   width: 360px;
   height: 425px;
   padding: 20px;
@@ -13,7 +14,10 @@
   padding: 20px;
   text-align: center;
 }
-
+.img-wrapper-single {
+  width: 360px;
+  height: 425px;
+}
 .jewelery-item {
   position: relative;
 }
@@ -21,7 +25,7 @@
 .cart_btn {
   position: absolute;
   width: 322px;
-  bottom: 139px;
+  bottom: 132px;
   padding: 11px;
   background-color: white;
   color: black;
@@ -40,6 +44,7 @@
 .button_text {
   color: black;
   font-weight: 900;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
 /*CSS Transition Group*/
@@ -64,4 +69,13 @@
 
 .transition-exit-done {
   opacity: 0.01;
+}
+
+@media only screen and (max-width: 325px) {
+  .img-wrapper-single {
+    width: 320px;
+  }
+  .necklaces-img {
+    width: 320px;
+  }
 }

@@ -15,7 +15,7 @@ import NavBar from "./navbar/navbar";
 import AboutUs from "./pages/aboutus/AboutUs.jsx";
 import FinalNecklacesDisplay from "./products_display/FinalNecklacesDisplay";
 import FinalRingsDisplay from "./rings/FinalRingsDisplay";
-import Footer from "./footer/footer.jsx";
+import Footer from "./footer/Footer.jsx";
 import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
 import { ProductProvider } from "./product_context";
@@ -23,6 +23,7 @@ import CartModal from "./pages/cart/CartModal";
 import Modal from "./products_display/modal";
 import OrganicProduct from "./single_product_page/organic_product";
 import ResponsiveNav from "./navbar/ResponsiveNav";
+import TermsandConditions from "./pages/TermsAndConditions";
 
 const LINKS = [
   { label: "Necklaces", link: "necklaces" },
@@ -106,6 +107,12 @@ class ReactApp extends React.Component {
                   exact
                   strict
                   component={Form}
+                />
+                <Route
+                  path="/terms&conditions"
+                  exact
+                  strict
+                  component={TermsandConditions}
                 />
 
                 <Route path="/" exact component={Home} />

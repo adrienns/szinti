@@ -12,8 +12,8 @@ export default function CartItem({ item, value }) {
 
   return (
     <tr className="cart-items">
-      <td className="cart-item">
-        <img src={firstImage} width="50" height="50" alt="product" />
+      <td id="cart-item-left" className="cart-item">
+        <img src={firstImage} alt="product" className="cart-item-image" />
       </td>
 
       <td className="cart-item">{name}</td>

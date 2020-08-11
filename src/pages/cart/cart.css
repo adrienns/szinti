@@ -1,14 +1,19 @@
-.cart-table {
-  margin-top: 200px;
-  table-layout: fixed;
-  width: 90%;
-  border-collapse: collapse;
+.cart-container {
   position: relative;
+  margin: 32px;
+  box-sizing: border-box;
 }
 
-.cart-container {
-  display: flex;
-  justify-content: center;
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+}
+
+.cart-table {
+  margin-top: 160px;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .products-information {
@@ -18,22 +23,19 @@
   font-size: 15px;
   border-bottom: solid rgb(56, 54, 54);
   border-width: 1.5px;
-  padding-bottom: 10px;
+  padding-bottom: 13px;
 }
 
 .cart-item {
   text-align: center;
   border-bottom: solid rgb(56, 54, 54);
   border-width: 1.5px;
+  padding: 16px 0 16px 0;
 }
 
 .empty-class-container {
   padding-top: 100px;
   text-align: center;
-}
-
-.cart-table td {
-  width: 25%;
 }
 
 .item-counter {
@@ -43,34 +45,60 @@
   cursor: pointer;
 }
 
-tfoot {
-  text-align: center;
-  letter-spacing: 1px;
-  font-size: 15px;
-  border-width: 1.5px;
-}
-
-#payment-btn {
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  letter-spacing: 1px;
-  font-size: 16px;
-}
-
-.cart-total-countainer td {
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.payment-btn {
-  background-color: rgb(66, 65, 65);
-  padding-top: 1px !important;
-  padding-bottom: 1px !important;
-}
-
-.clear-cart-btn {
+/* .clear-cart-btn {
   background-color: pink;
   border-radius: 10%;
-  padding: 7px;
+} */
+
+.cart-order-summary-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 35px;
+  width: 100%;
+}
+
+.cart-order-summary {
+  background-color: rgb(238, 238, 238);
+}
+
+.order-summary-text {
+  text-align: center;
+  padding: 30px 0 10px 0;
+}
+
+.shipping-method-list {
+  list-style: none;
+  direction: rtl;
+  text-align: right;
+}
+
+.shipping-method-list li {
+  margin: 20px;
+}
+
+.order-summary-total {
+  background-color: rgba(194, 194, 194, 0.548);
+  padding: 20px;
+}
+
+.cart-total-table {
+  border-collapse: collapse;
+}
+
+#order-summery-text-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#order-summery-text-right-list label {
+  margin-right: 11px;
+}
+
+.cart-totals-table-row {
+  padding: 200px;
+  background-color: indianred;
+}
+
+.cart-totals-table-inner-chart {
+  padding: 33px 40px 33px 40px;
 }
