@@ -106,26 +106,40 @@ const CartModal = () => {
             </div>
           </div>
           <div className="cart-modal-payment-summary">
-            <div className="total-shipping-fee-container">
+            <div className="cart-modal-subtotal-container">
               <div className="modal-total-cart-wrapper">
                 <div> SubTotal:</div>
                 <div> {cartTotal}$</div>
               </div>
-              {/* <div className="modal-shipping-fee-cart-wrapper">
-                <div>Shipping fee: </div>
-                <div>the fee</div>
-              </div> */}
-            </div>
-            <Link to="/cart">
-              <div
-                className="cart-modal-payment-btn"
-                onClick={() => {
-                  closeSideModal();
-                }}
-              >
-                Go To Payment
+              <div className="modal-total-cart-wrapper">
+                <h5>Including V.A.T </h5>
               </div>
-            </Link>
+            </div>
+            <div>
+              <Link to="/cart">
+                <div
+                  className="cart-modal-btn"
+                  id="cart-modal-payment-btn"
+                  onClick={() => {
+                    closeSideModal();
+                  }}
+                >
+                  Go To Payment
+                </div>
+              </Link>
+
+              <Link to="/necklaces">
+                <div
+                  className="cart-modal-btn"
+                  id="cart-modal-continue-shopping-btn"
+                  onClick={() => {
+                    closeSideModal();
+                  }}
+                >
+                  Continue shopping
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </SlidingPane>

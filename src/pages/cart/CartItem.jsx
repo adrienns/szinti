@@ -6,9 +6,9 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faTimes);
 
-export default function CartItem({ item, value }) {
+export default function CartItem({ item, val }) {
   const { total, id, name, count, firstImage, material } = item;
-  const { increment, decrement, removeItem } = value;
+  const { increment, decrement, removeItem } = val;
 
   return (
     <tr className="cart-items">

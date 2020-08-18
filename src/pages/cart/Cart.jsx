@@ -6,31 +6,32 @@ import { ProductConsumer } from "../../product_context";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 
-class Cart extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Cart = () => {
+  return (
+    <div>
+      <div className="responsive-cart-wrapper">
+        <div>
+          <div className="responsive-your-cart-text">
+            Your Shopping Bagggerawawr
+          </div>
+        </div>
 
-  render() {
-    return (
-      <div className="cart_container">
         <ProductConsumer>
-          {(value) => {
-            const { cart } = value;
+          {(val) => {
+            const { cart } = val;
             if (cart.length > 0) {
               return (
-                <div className="cart-container">
+                <div className="responsive-cart-container">
                   <div>
-                    <table className="cart-table">
-                      <CartColumns />
-                      <CartList value={value} />
-                    </table>
+                    <CartList val={val} />
                   </div>
-                  <div className="cart-order-summary-wrapper">
-                    <div className="cart-order-summary">
-                      <h2 className="order-summary-text">Order Summary</h2>
-                      <table className="cart-total-table">
-                        <CartTotals value={value} />
+                  <div className="responsive-cart-order-summary-wrapper">
+                    <div className="responive-cart-order-summary">
+                      <h2 className="responsive-order-summary-text">
+                        Order Summary
+                      </h2>
+                      <table className="responsive-cart-total-table">
+                        <CartTotals val={val} />
                       </table>
                     </div>
                   </div>
@@ -42,8 +43,37 @@ class Cart extends Component {
           }}
         </ProductConsumer>
       </div>
-    );
-  }
-}
+      <div className="cart_container">
+        <ProductConsumer>
+          {(val) => {
+            const { cart } = val;
+            if (cart.length > 0) {
+              return (
+                <div className="cart-container">
+                  <div>
+                    <table className="cart-table">
+                      <CartColumns />
+                      <CartList val={val} />
+                    </table>
+                  </div>
+                  <div className="cart-order-summary-wrapper">
+                    <div className="cart-order-summary">
+                      <h2 className="order-summary-text">Order Summary</h2>
+                      <table className="cart-total-table">
+                        <CartTotals val={val} />
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              );
+            } else {
+              return <EmptyCart />;
+            }
+          }}
+        </ProductConsumer>
+      </div>
+    </div>
+  );
+};
 
 export default Cart;

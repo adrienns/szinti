@@ -38,19 +38,15 @@ const createCartItems = (cart) => {
   return cartItems;
 };
 
-export default function CartList({ value }) {
-  const { cart, increment } = value;
+export default function CartList({ val }) {
+  const { cart, increment } = val;
 
   const items = createCartItems(cart);
 
   return (
     <tbody className="coloumns-container">
       {items.map((item) => (
-        <CartItem
-          key={`${item.id} ${item.material}`}
-          item={item}
-          value={value}
-        />
+        <CartItem key={`${item.id} ${item.material}`} item={item} val={val} />
       ))}
     </tbody>
   );
