@@ -18,6 +18,7 @@
   position: relative;
   padding: 8px;
   text-transform: uppercase;
+  padding-top: 13px;
 }
 
 .menu-navigation ul li a::before {

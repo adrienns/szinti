@@ -24,15 +24,45 @@ import Modal from "./products_display/modal";
 import OrganicProduct from "./single_product_page/organic_product";
 import ResponsiveNav from "./navbar/ResponsiveNav";
 import TermsandConditions from "./pages/TermsAndConditions";
+import { defineMessages } from "react-intl";
+
+import Wrapper from "./Wrapper";
 
 const LINKS = [
-  { label: "Necklaces", link: "necklaces" },
-  { label: "Earings", link: "earings" },
-  { label: "Rings", link: "rings" },
-  { label: "Wedding Jewelery", link: "wedding" },
-  { label: "Collections", link: "collection" },
-  { label: "About me", link: "aboutus" },
-  { label: "Contact us", link: "form" },
+  defineMessages({
+    label: { defaultMessage: "Necklaces", id: "app.necklace" },
+    // link: "necklaces",
+  }),
+  defineMessages({
+    label: { defaultMessage: "Earings", id: "app.earing" },
+    // link: "earings",
+  }),
+  defineMessages({
+    label: { defaultMessage: "Rings", id: "app.ring" },
+    // link: "rings",
+  }),
+  defineMessages({
+    label: {
+      defaultMessage: "Wedding Jewelery",
+      id: "app.weddingjewel",
+    },
+    // , link: "wedding",
+  }),
+  defineMessages({
+    label: {
+      defaultMessage: "Collections",
+      id: "app.collection",
+    },
+    // link: "collection",
+  }),
+  defineMessages({
+    label: { defaultMessage: "About me", id: "app.aboutus" },
+    // link: "aboutus",
+  }),
+  defineMessages({
+    label: { defaultMessage: "Contact us", id: "app.contactus" },
+    // link: "form",
+  }),
 ];
 
 const LINKMAP = LINKS.reduce(function (map, obj) {
@@ -140,6 +170,11 @@ export const Home = () => (
   </div>
 );
 
-ReactDOM.render(<ReactApp />, document.getElementById("root"));
+ReactDOM.render(
+  <Wrapper>
+    <ReactApp />
+  </Wrapper>,
+  document.getElementById("root")
+);
 
 export default ReactApp;

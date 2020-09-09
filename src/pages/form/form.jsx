@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./form.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FormattedMessage } from "react-intl";
 import { library } from "@fortawesome/fontawesome-svg-core";
 library.add(faEnvelope);
 
@@ -38,9 +39,19 @@ class Form extends Component {
     return (
       <div className="contact-wrapper">
         <div className="form">
-          <h4 id="get_in_touch"> GET IN TOUCH </h4>
+          <h4 id="get_in_touch">
+            {" "}
+            <FormattedMessage
+              id="app.text"
+              defaultMessage="Contact us sweetheart"
+            />
+          </h4>
           <h5 id="get_in_touch">
-            Contact us via email or by filling out our simple contact form.
+            {" "}
+            <FormattedMessage
+              id="app.longtxt"
+              defaultMessage="Contact us via email or by filling out our simple contact form."
+            />
           </h5>
           <h5 id="get_in_touch">
             <a>

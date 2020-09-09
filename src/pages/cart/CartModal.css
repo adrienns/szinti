@@ -76,6 +76,8 @@
 .cart-modal-payment-summary {
   width: 342px;
   height: 240px;
+  left: 0;
+  right: 0;
   background-color: rgb(226, 226, 226);
   position: fixed;
   bottom: 0;

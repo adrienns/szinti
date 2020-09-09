@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./navbar.css";
 import logo from "../images/logo.jpg";
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../product_context";
 
-import { Icon, InlineIcon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 import bagIcon from "@iconify/icons-bytesize/bag";
 import HamburgerButton from "./HamburgerButton";
+import { Context } from "../Wrapper";
+import { FormattedMessage } from "react-intl";
 
 const NavBar = (props) => {
+  const context = useContext(Context);
+
   let linksMarkup = props.links.map((link, index) => {
     return (
       <li className="list-item" key={index}>
-        {" "}
-        <Link to={`/${link.link}`}>{link.label}</Link>
+        <Link to={`/${link.link}`}>
+          <FormattedMessage {...link.label} />
+        </Link>
       </li>
     );
   });
@@ -33,10 +38,9 @@ const NavBar = (props) => {
               width=" 160"
               height="90"
             />
-          </Link>{" "}
+          </Link>
         </li>
         <li>
-          {" "}
           <ProductConsumer>
             {(value) => {
               const { itemsTotal } = value;
@@ -79,11 +83,13 @@ const NavBar = (props) => {
         </nav>
         <div>
           <ul className="language_bar">
-            <li>
-              <Link to="/cart">HU|</Link>
+            <li onClick={context.switchHungarian} value="hun">
+              <a>HU|</a>
             </li>
             <li>
-              <Link to="/cart">EN</Link>
+              <a onClick={context.switchEnglish} value="en">
+                EN
+              </a>
             </li>
             <li>
               <div>
