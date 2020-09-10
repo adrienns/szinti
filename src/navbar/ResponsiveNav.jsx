@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 import "./ResponsiveNav.css";
 
@@ -17,8 +18,9 @@ const ResponsiveNav = (props) => {
         key={index}
         onClick={props.closeResponsiveNavMenu}
       >
-        {" "}
-        <Link to={`/${link.link}`}>{link.label}</Link>
+        <Link to={`/${link.link}`}>
+          <FormattedMessage {...link.label} />
+        </Link>
       </li>
     );
   });

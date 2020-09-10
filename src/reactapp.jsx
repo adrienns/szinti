@@ -31,44 +31,46 @@ import Wrapper from "./Wrapper";
 const LINKS = [
   defineMessages({
     label: { defaultMessage: "Necklaces", id: "app.necklace" },
-    // link: "necklaces",
+    link: "necklaces",
   }),
   defineMessages({
     label: { defaultMessage: "Earings", id: "app.earing" },
-    // link: "earings",
+    link: "earings",
   }),
   defineMessages({
     label: { defaultMessage: "Rings", id: "app.ring" },
-    // link: "rings",
+    link: "rings",
   }),
   defineMessages({
     label: {
       defaultMessage: "Wedding Jewelery",
       id: "app.weddingjewel",
     },
-    // , link: "wedding",
+    link: "wedding",
   }),
   defineMessages({
     label: {
       defaultMessage: "Collections",
       id: "app.collection",
     },
-    // link: "collection",
+    link: "collection",
   }),
   defineMessages({
     label: { defaultMessage: "About me", id: "app.aboutus" },
-    // link: "aboutus",
+    link: "aboutus",
   }),
   defineMessages({
     label: { defaultMessage: "Contact us", id: "app.contactus" },
-    // link: "form",
+    link: "form",
   }),
 ];
 
-const LINKMAP = LINKS.reduce(function (map, obj) {
-  map[obj.label] = obj.link;
+const LINKMAP = LINKS.reduce((map, obj) => {
+  map[obj.label.id] = obj.link;
   return map;
 }, {});
+
+debugger;
 
 class ReactApp extends React.Component {
   state = {
@@ -106,7 +108,7 @@ class ReactApp extends React.Component {
             <div className="main-container">
               <Switch>
                 <Route
-                  path={`/${LINKMAP["About me"]}`}
+                  path={`/${LINKMAP["app.aboutus"]}`}
                   exact
                   strict
                   component={AboutUs}
@@ -120,20 +122,20 @@ class ReactApp extends React.Component {
                 />
 
                 <Route
-                  path={`/${LINKMAP["Rings"]}`}
+                  path={`/${LINKMAP["app.ring"]}`}
                   exact
                   strict
                   component={FinalRingsDisplay}
                 />
                 <Route
-                  path={`/${LINKMAP["Necklaces"]}`}
+                  path={`/${LINKMAP["app.necklace"]}`}
                   exact
                   strict
                   component={FinalNecklacesDisplay}
                 />
                 <Route path="/cart" exact strict component={Cart} />
                 <Route
-                  path={`/${LINKMAP["Contact us"]}`}
+                  path={`/${LINKMAP["app.contactus"]}`}
                   exact
                   strict
                   component={Form}

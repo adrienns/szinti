@@ -7,11 +7,11 @@ import { ProductConsumer } from "../product_context";
 import { Icon } from "@iconify/react";
 import bagIcon from "@iconify/icons-bytesize/bag";
 import HamburgerButton from "./HamburgerButton";
-import { Context } from "../Wrapper";
+import { WrapperContext } from "../Wrapper";
 import { FormattedMessage } from "react-intl";
 
 const NavBar = (props) => {
-  const context = useContext(Context);
+  const { switchEnglish, switchHungarian } = useContext(WrapperContext);
 
   let linksMarkup = props.links.map((link, index) => {
     return (
@@ -83,13 +83,15 @@ const NavBar = (props) => {
         </nav>
         <div>
           <ul className="language_bar">
-            <li onClick={context.switchHungarian} value="hun">
-              <a>HU|</a>
+            <li>
+              <span className="hun-btn" onClick={switchHungarian} value="hun">
+                HU|
+              </span>
             </li>
             <li>
-              <a onClick={context.switchEnglish} value="en">
+              <span className="en-btn" onClick={switchEnglish} value="en">
                 EN
-              </a>
+              </span>
             </li>
             <li>
               <div>
