@@ -1,12 +1,13 @@
 {
-  "app.text": "This is in Englishhhhhhhhhhhhh!",
-  "app.longtxt": "Contact us via email or by filling out our simple contact form.",
+  "app.text": "Contact me!",
+  "app.messagesent": "Thank you! Your message has been sent! I'll contact you shortly :)",
+  "app.longtxt": "Contact me via email or by filling out the following simple contact form.",
   "app.necklace": "necklaces",
   "app.earing": "earings",
   "app.ring": "rings",
-  "app.weddingjewel": "wedding jewelery",
+  "app.weddingjewel": "wedding",
   "app.aboutus": "about me",
   "app.contactus": "contact me",
-  "app.collection": "collections",
+  "app.collection": "new!",
   "app.form": "form"
 }

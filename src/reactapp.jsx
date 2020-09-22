@@ -70,8 +70,6 @@ const LINKMAP = LINKS.reduce((map, obj) => {
   return map;
 }, {});
 
-debugger;
-
 class ReactApp extends React.Component {
   state = {
     responsiveNavMenuOpen: false,

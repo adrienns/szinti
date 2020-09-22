@@ -19,6 +19,14 @@
   padding: 20px;
 }
 
+.msg {
+  display: none;
+}
+
+.msg_appear {
+  display: block;
+}
+
 #contact_form .form-row {
   padding: 5px;
 }

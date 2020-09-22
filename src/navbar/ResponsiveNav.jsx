@@ -2,10 +2,12 @@ import React, { useState, useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import { WrapperContext } from "../Wrapper";
 
 import "./ResponsiveNav.css";
 
 const ResponsiveNav = (props) => {
+  const { switchEnglish, switchHungarian } = useContext(WrapperContext);
   let responsiveNavClasses = "responsive-nav";
   if (props.show) {
     responsiveNavClasses = "responsive-nav open";
@@ -39,12 +41,23 @@ const ResponsiveNav = (props) => {
                 home
               </li>
               <li
-                onClick={props.closeResponsiveNavMenu}
                 className="responsive-nav-list-item"
                 id="responsive-language-options"
               >
-                <span>HU</span>
-                <span>EN</span>
+                <span
+                  className="responsive-hun-btn"
+                  onClick={switchHungarian}
+                  value="hun"
+                >
+                  HU
+                </span>
+                <span
+                  className="responsive-en-btn"
+                  onClick={switchEnglish}
+                  value="en"
+                >
+                  EN
+                </span>
               </li>
             </ul>
           </div>

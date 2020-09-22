@@ -1,11 +1,12 @@
 {
-  "app.text": "magyarul van ez haver!",
-  "app.longtxt": "Kuldj emailt, majd toltsd ki ezt a nyomtatvanyt.",
+  "app.text": "Kapcsolat",
+  "app.messagesent": "Köszönöm! Az üzenetet sikeresen elküldted. Nemsokára kapcsolatba lépek veled! :)",
+  "app.longtxt": "Küldj egy emailt, vagy töltsd ki ezt az űrlapot.",
   "app.necklace": "nyakláncok",
   "app.earing": "fülbevalók",
   "app.ring": "Gyűrűk",
-  "app.weddingjewel": "esküvői ékszerek",
+  "app.weddingjewel": "esküvő",
   "app.aboutus": "rólam",
   "app.contactus": "kapcsolat",
-  "app.collection": "kollekció"
+  "app.collection": "újdonság"
 }

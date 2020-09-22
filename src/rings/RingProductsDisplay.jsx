@@ -2,8 +2,7 @@ import React from "react";
 
 import SinglePhoto from "../products_display/Single_Photo";
 import "./RingProductsDisplay.css";
-import { useTrail, animated } from "react-spring";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ProductContext } from "../product_context";
 
 const RingProductsDisplay = () => {

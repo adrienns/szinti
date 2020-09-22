@@ -12,7 +12,7 @@ const SinglePhoto = (props) => {
     from: { opacity: 0 },
     enter: { opacity: 1 },
     leave: { opacity: 0 },
-    config: { tension: 220, friction: 120, duration: 150 },
+    config: { tension: 220, friction: 120, duration: 300 },
   });
 
   // const propsexample2 = useSpring({

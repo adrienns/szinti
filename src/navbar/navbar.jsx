@@ -64,18 +64,15 @@ const NavBar = (props) => {
       </ul>
 
       <div className="navbar-container">
-        <div>
-          <Link to="/">
-            <img
-              id="site-logo-image"
-              src={logo}
-              alt="VeWe Handcrafted Jewelry"
-              width=" 160"
-              height="90"
-            />
-          </Link>{" "}
-        </div>
-
+        <Link to="/">
+          <img
+            id="site-logo-image"
+            src={logo}
+            alt="VeWe Handcrafted Jewelry"
+            width=" 160"
+            height="90"
+          />
+        </Link>{" "}
         <nav className="menu-navigation">
           <nav className="navbar-links" id="navbar-links">
             <ul>{linksMarkup}</ul>

@@ -5,3 +5,4 @@ dist/
 coverage/
 .vscode/
 .env
+src_server/mailgun-auth.js

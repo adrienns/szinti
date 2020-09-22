@@ -1,16 +1,20 @@
 {
-  "name": "VeweJewelery",
+  "name": "vewejewelery",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "form",
+  "main": "src_server/index.js",
+  "proxy": "http://localhost:1234",
   "scripts": {
-    "dev": "parcel src/index.html",
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx} \" --quiet",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"parcel src/index.html\""
   },
   "keywords": [],
-  "author": "",
+  "author": "adri",
   "license": "ISC",
   "devDependencies": {
     "@iconify/icons-ant-design": "^1.0.8",
@@ -37,8 +41,16 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.10",
     "@frontendmasters/pet": "^1.0.3",
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
+    "nodemailer": "^6.4.11",
+    "nodemailer-mailgun-transport": "^2.0.0",
+    "nodemon": "^2.0.4",
     "parcel-plugin-clean-dist": "0.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -54,5 +66,13 @@
     "react-spring": "^8.0.27",
     "react-transition-group": "^4.4.1",
     "slick-carousel": "^1.8.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrienns/szinti.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adrienns/szinti/issues"
+  },
+  "homepage": "https://github.com/adrienns/szinti#readme"
 }
