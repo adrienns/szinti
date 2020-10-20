@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 /* @import url("https://fonts.googleapis.com/css2?family=Arial&display=swap"); */
 * {
@@ -6,13 +6,13 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Special+Elite", sans-serif;
+  font-family: "Special Elite", sans-serif;
   box-sizing: border-box;
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
 
-  /* betutipus:  FuturaPT FuturaPT, Helvetica, Arial, sans-serif; Montserrat, Abel, IBM Plex, Oxygen, Varela  Quicksand
+  /* betutipus:  FuturaPT FuturaPT, Helvetica, Arial, sans-serif; Abel, IBM Plex, Oxygen, Varela  Quicksand
 */
 
   /* Rules below not implemented in browsers yet */

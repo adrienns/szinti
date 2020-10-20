@@ -1,10 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./form.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FormattedMessage } from "react-intl";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { Link } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  fab,
+  faFacebook,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
+library.add(fab, faFacebook, faInstagram);
+
 library.add(faEnvelope);
 
 const styleMessage = {
@@ -72,86 +82,113 @@ class Form extends Component {
 
   render() {
     return (
-      <div className="contact-wrapper">
-        <div className="form">
-          <h4 id="get_in_touch">
-            {" "}
-            <FormattedMessage id="app.text" defaultMessage="Contact us!" />
-          </h4>
-          <h5 id="get_in_touch">
-            {" "}
-            <FormattedMessage
-              id="app.longtxt"
-              defaultMessage="Contact us via email or by filling out our simple contact form."
-            />
-          </h5>
-          <h5 id="get_in_touch">
-            <a>
-              <FontAwesomeIcon icon="envelope" style={{ color: "blue" }} />
-            </a>
-            {"  "}
-            vewejewelery@gmail.com
-          </h5>
-          <form
-            onSubmit={this.handleSubmit}
-            id="contact_form"
-            action="contact_form.php"
-            method="POST"
-            autoComplete="on"
-          >
-            <div className="form-row">
-              <label htmlFor="name"></label>
-              <input
-                className="text"
-                type="text"
-                value={this.state.customername}
-                onChange={this.handleCustomernameChange}
-                name="name"
-                placeholder="  Your name"
-              />
-            </div>
+      <div>
+        <h1 id="get_in_touch">
+          {" "}
+          <FormattedMessage id="app.text" defaultMessage="Contact us!" />
+        </h1>
+        <h5 id="get_in_touch">
+          {" "}
+          <FormattedMessage
+            id="app.longtxt"
+            defaultMessage="Contact us via email or by filling out our simple contact form."
+          />
+        </h5>
 
-            <div className="form-row">
-              <label htmlFor="email"></label>
+        <div class="contact-wrapper">
+          <div className="contact-form-wrapper">
+            <div className="form">
+              <h5 id="get_in_touch">
+                <a>
+                  <FontAwesomeIcon icon="envelope" style={{ color: "blue" }} />
+                </a>
+                {"  "}
+                vewejewelery@gmail.com
+              </h5>
+              <h5 id="get_in_touch">
+                {" "}
+                <Link to="">
+                  <FontAwesomeIcon icon={["fab", "instagram"]} /> {"  "}
+                  Instagram
+                </Link>
+              </h5>
+              <h5 id="get_in_touch">
+                <Link to="https://www.facebook.com/vewedesign">
+                  <FontAwesomeIcon icon={faFacebook} /> {"  "}
+                  Facebook
+                </Link>
+              </h5>
 
-              <input
-                className="text"
-                type="email"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleEmailChange}
-                placeholder="  Email address"
-                required
-              />
-            </div>
+              <form
+                onSubmit={this.handleSubmit}
+                id="contact_form"
+                action="contact_form.php"
+                method="POST"
+                autoComplete="on"
+              >
+                <div className="form-row">
+                  <label htmlFor="name"></label>
+                  <input
+                    className="text"
+                    type="text"
+                    value={this.state.customername}
+                    onChange={this.handleCustomernameChange}
+                    name="name"
+                    placeholder="  Your name"
+                  />
+                </div>
 
-            <div className="form-row">
-              <label htmlFor="message"></label>
+                <div className="form-row">
+                  <label htmlFor="email"></label>
 
-              <textarea
-                className="text"
-                type="message"
-                name="message"
-                placeholder="  Your message"
-                style={styleMessage}
-                value={this.state.message}
-                onChange={this.handleMessageChange}
-                required
-              ></textarea>
-            </div>
-            <div className={this.state.sent ? "msg msg_appear" : "msg"}>
-              <FormattedMessage
-                id="app.messagesent"
-                defaultMessage="Contact us sweetheart"
-              />
-            </div>
+                  <input
+                    className="text"
+                    type="email"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleEmailChange}
+                    placeholder="  Email address"
+                    required
+                  />
+                </div>
 
-            <div className="form-row">
-              <button className="text" type="submit">
-                SEND
-              </button>
+                <div className="form-row">
+                  <label htmlFor="message"></label>
+
+                  <textarea
+                    className="text"
+                    type="message"
+                    name="message"
+                    placeholder="  Your message"
+                    style={styleMessage}
+                    value={this.state.message}
+                    onChange={this.handleMessageChange}
+                    required
+                  ></textarea>
+                </div>
+                <div className={this.state.sent ? "msg msg_appear" : "msg"}>
+                  <FormattedMessage
+                    id="app.messagesent"
+                    defaultMessage="Contact us sweetheart"
+                  />
+                </div>
+
+                <div className="form-row">
+                  <button className="text" type="submit">
+                    SEND
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
+          <div className="google-maps">
+            <h5> Személyesen itt veheted át a terméket:</h5>
+            <h5> Budapest, 1016, Lollipop utca</h5>
+            <iframe
+              id="google-maps"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.1008165121007!2d19.06910075088867!3d47.507427802715036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc7071814bb5%3A0xe03cc9a3800b4546!2sBudapest%2C%20Sz%C3%ADv%20u.%204%2C%201068!5e0!3m2!1sen!2shu!4v1600783601560!5m2!1sen!2shu"
+            ></iframe>
+          </div>
         </div>
       </div>
     );

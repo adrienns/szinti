@@ -1,6 +1,14 @@
 #site-logo-image {
-  width: 112px;
-  height: 50px;
+  width: 170px;
+  margin-right: 20px;
+  margin-left: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.menu-navigation li {
+  margin: 20px 0px 0px 0px;
+  padding-top: 15px;
 }
 
 .menu-navigation ul {
@@ -8,17 +16,24 @@
   list-style: none;
   letter-spacing: 1.5px;
   font-size: 13.5px;
-  padding-top: 8px;
 }
 /*Navbar hover animation*/
 
 .menu-navigation ul li a {
   position: relative;
-  padding: 8px;
   text-transform: uppercase;
-  padding-top: 13px;
+  /* border-radius: 50% 0 50% 0; */
+  padding: 10px 15px;
+  transition: 0.5s;
+  color: rgb(73, 71, 71);
 }
 
+.menu-navigation ul li a span {
+  position: relative;
+  z-index: 1;
+}
+
+/* 
 .menu-navigation ul li a::before {
   content: "";
   position: absolute;
@@ -28,17 +43,12 @@
   height: 0.5px;
   background-color: rgb(39, 37, 37);
   transition: 0.5s;
-}
+} */
 
-.menu-navigation ul li:hover a::before {
-  width: 100%;
-}
-.menu-navigation li {
-  margin: 8px;
-  padding-top: 5px;
-}
+/* .menu-navigation ul li:hover a::before {
+  width: 100%; }*/
 
-.menu-navigation ul li a::after {
+/* .menu-navigation ul li a::after {
   content: "";
   position: absolute;
   top: 0;
@@ -51,16 +61,34 @@
 
 .menu-navigation ul li:hover a::after {
   width: 100%;
+} */
+
+.menu-navigation ul li span:hover {
+  color: rgb(255, 72, 0);
 }
 
-nav a:hover {
-  color: black;
+.menu-navigation ul li a:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  /* background: url(blue-watercolor-brush-stroke-5.png);
+  background-size: cover;
+  transform-origin: left; */
+  transition: 0.5s;
+}
+
+.menu-navigation ul li a:hover:before {
+  width: 100%;
 }
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* justify-content: space-between;
+  align-items: center; */
+  justify-content: center;
 }
 
 .language_bar {
@@ -136,10 +164,6 @@ nav a:hover {
     align-self: flex-start;
     cursor: pointer;
     font-size: 26px;
-  }
-
-  #site-logo-image {
-    margin-top: -11px;
   }
 
   .responsive-item-counter {

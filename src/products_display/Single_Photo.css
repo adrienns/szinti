@@ -25,13 +25,13 @@
 
 .cart_btn {
   position: absolute;
-  width: 321px;
-  bottom: 117px;
+  width: 315px;
+  bottom: 126px;
   padding: 11px;
   background-color: white;
   color: black;
   text-align: center;
-  left: 2px;
+  left: 10px;
   opacity: 0.7;
   border: none;
   cursor: pointer;
@@ -45,8 +45,7 @@
 .button_text {
   color: black;
   font-weight: 900;
-  font-family: "Special+Elite", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+  font-family: "Gill Sans MT", "Calibri", "Trebuchet MS", sans-serif;
 }
 
 /*CSS Transition Group*/

@@ -1,6 +1,5 @@
 import React from "react";
 import MainImages from "../main_images/main_image";
-import HeadingBig from "../heading_big.jsx";
 import Carousel from "../carousel/Carousel.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -16,7 +15,7 @@ class HomePage extends React.Component {
     return (
       <div className="main-container">
         <MainImages />
-        <HeadingBig />
+
         <div>
           <Carousel />
         </div>

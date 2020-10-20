@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import "./navbar.css";
-import logo from "../images/logo.jpg";
+import logo from "../images/newlogo2.svg";
+
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../product_context";
-
 import { Icon } from "@iconify/react";
 import bagIcon from "@iconify/icons-bytesize/bag";
 import HamburgerButton from "./HamburgerButton";
@@ -13,11 +13,28 @@ import { FormattedMessage } from "react-intl";
 const NavBar = (props) => {
   const { switchEnglish, switchHungarian } = useContext(WrapperContext);
 
-  let linksMarkup = props.links.map((link, index) => {
+  let linksMarkup = props.links.slice(0, 3).map((link, index) => {
     return (
-      <li className="list-item" key={index}>
+      <li className="list-item" key={index} id="list-item-right">
         <Link to={`/${link.link}`}>
-          <FormattedMessage {...link.label} />
+          <span>
+            {" "}
+            <FormattedMessage {...link.label} />
+          </span>
+        </Link>
+      </li>
+    );
+  });
+
+  let linksMarkup2 = props.links.slice(3, 7).map((link, index) => {
+    return (
+      <li className="list-item" key={index} id="list-item-left">
+        {" "}
+        <Link to={`/${link.link}`}>
+          <span>
+            {" "}
+            <FormattedMessage {...link.label} />
+          </span>
         </Link>
       </li>
     );
@@ -64,21 +81,24 @@ const NavBar = (props) => {
       </ul>
 
       <div className="navbar-container">
-        <Link to="/">
-          <img
-            id="site-logo-image"
-            src={logo}
-            alt="VeWe Handcrafted Jewelry"
-            width=" 160"
-            height="90"
-          />
-        </Link>{" "}
         <nav className="menu-navigation">
           <nav className="navbar-links" id="navbar-links">
-            <ul>{linksMarkup}</ul>
+            <ul>
+              {linksMarkup}{" "}
+              <Link to="/">
+                <img
+                  id="site-logo-image"
+                  src={logo}
+                  alt="VeWe Handcrafted Jewelry"
+                  width=" 160"
+                  height="90"
+                />
+              </Link>
+              {linksMarkup2}{" "}
+            </ul>
           </nav>
         </nav>
-        <div>
+        {/* <div>
           <ul className="language_bar">
             <li>
               <span className="hun-btn" onClick={switchHungarian} value="hun">
@@ -116,7 +136,7 @@ const NavBar = (props) => {
               </div>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
   );
