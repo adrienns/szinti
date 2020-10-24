@@ -4,7 +4,7 @@ import Slider from "./slider.jsx";
 class MainImages extends React.Component {
   render() {
     return (
-      <div>
+      <React.Fragment>
         <div className="main-pictures">
           <div className="column" id="leftHalf">
             <Slider />
@@ -13,7 +13,7 @@ class MainImages extends React.Component {
             <Slider />
           </div>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }

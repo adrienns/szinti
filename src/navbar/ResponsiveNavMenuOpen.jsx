@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { WrapperContext } from "../Wrapper";
 
-import "./ResponsiveNav.css";
+import "./ResponsiveNavMenuOpen.css";
 
-const ResponsiveNav = (props) => {
+const ResponsiveNavMenuOpen = (props) => {
   const { switchEnglish, switchHungarian } = useContext(WrapperContext);
   let responsiveNavClasses = "responsive-nav";
   if (props.show) {
@@ -75,4 +75,4 @@ const ResponsiveNav = (props) => {
   );
 };
 
-export default ResponsiveNav;
+export default ResponsiveNavMenuOpen;

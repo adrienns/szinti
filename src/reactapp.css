@@ -6,12 +6,10 @@
   z-index: 999;
   box-sizing: border-box;
   background-color: white;
-  padding-top: 11px;
-  padding-bottom: 11px;
+  padding-bottom: 10px;
 }
 
 .main-container {
-  display: block;
-  margin-top: 50px;
-  z-index: 1;
+  position: relative;
+  top: 76px;
 }

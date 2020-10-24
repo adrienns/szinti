@@ -22,9 +22,10 @@ import { ProductProvider } from "./product_context";
 import CartModal from "./pages/cart/CartModal";
 import Modal from "./products_display/modal";
 import OrganicProduct from "./single_product_page/organic_product";
-import ResponsiveNav from "./navbar/ResponsiveNav";
+import ResponsiveNavMenuOpen from "./navbar/ResponsiveNavMenuOpen";
 import TermsandConditions from "./pages/TermsAndConditions";
 import { defineMessages } from "react-intl";
+import Topbar from "./TopBar/TopBar";
 
 import Wrapper from "./Wrapper";
 
@@ -90,14 +91,14 @@ class ReactApp extends React.Component {
       <ProductProvider>
         <Router>
           <ScrollToTop />
-
           <div className="app">
             <header className="header">
+              <Topbar />
               <NavBar
                 links={LINKS}
                 responsiveNavMenuHandler={this.responsiveNavMenuHandler}
               />
-              <ResponsiveNav
+              <ResponsiveNavMenuOpen
                 show={this.state.responsiveNavMenuOpen}
                 links={LINKS}
                 closeResponsiveNavMenu={this.closeResponsiveNavMenu}
