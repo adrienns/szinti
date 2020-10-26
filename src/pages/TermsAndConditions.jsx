@@ -8,25 +8,49 @@ const TermsandConditions = () => {
       <h2 className="terms-and-conditions-header">Terms and Conditions </h2>
 
       <p>
-        Please read these Terms and Conditions ("Terms", "Terms and Conditions")
-        carefully before using the http://www.vewe.com website (the "Service")
-        operated by <strong>Blakakdsfgfhj</strong> (change this) ("us", "we", or
-        "our).
-      </p>
-      <p>
-        Your access to and use of the Service is conditioned on your acceptance
-        of and compliance with these Terms including the terms of our Privacy
-        Policy www.cookiesvwew. nd our Cookie Policy (“Cookie Policy”) at
-        www.blaldasdf.com . These Terms apply to all visitors, users and others
-        who access or use the Service.
-      </p>
-      <p>
-        By accessing or using the Service you agree to be bound by these Terms.
-        If you disagree with any part of the terms then you may not access the
-        Service.
+        Please read these Terms and Conditions
+        carefully every time before using the http://www.vewe.com website("Service")
+        operated by <strong>Vewe Jewelery Ltd</strong>. These terms of use are subject to modifications, so we advise you to 
+        check back regularly.
       </p>
 
       <p>
+      By using the website you are agreeing to be bound by the then current version of these terms and conditions including the terms of our Privacy
+        Policy & Cookie Policy  www.vewe cookie policy
+        If you disagree with any part of the terms then you may not access the
+        website.   
+      </p>
+  
+<p>The materials appearing on Vewe Jewelry’s website could include technical, typographical, or photographic errors. 
+  Vewe Jewelry does not warrant that any of the materials on its web site are accurate, complete, or current.
+  </p>
+     <p>All text and images are copyright of Vewe Jewellery and should not be used
+       without prior consent. Should you wish to use images from this site please 
+       contact us. </p>
+
+<p>ACCEPTANCE OF YOUR ORDER
+
+When you submit an order to us on our website you will receive a ‘bounce back’
+ confirmatory email of this order saying that we are processing your order. 
+ You will then receive a second email from
+ us acknowledging your order and giving you estimated timescales for delivery. 
+
+All orders placed through our website will be subject to our acceptance of the order.
+Once an order is placed you will receive a confirmation acknowledging your details and processing your order.
+This is an acknowledgement of your details and is not a confirmation of your order. 
+ A contract between you and Vewe Jewelery is confirmed once you receive an email with your 
+ tracking information. You should check both emails for accuracy and let us know  immediately if there are any errors. We reserve the right not to accept your order if the item is 
+ out of stock, does not pass our quality checking stage, or if we are unable to obtain
+  authorization for payment. All orders are subject to availability and confirmation of 
+  e order price.
+
+
+</p>
+
+
+
+      <p>
+
         Ez meg nem tuti, hogy kell The Site may provide you with comprehensive
         information and news regarding Vewe, company overview, news regarding
         our company including any other content related thereto such as contact
@@ -39,14 +63,14 @@ const TermsandConditions = () => {
       </p>
       <p>
         Purchases <br></br> If you wish to purchase any product or service made
-        available through the Service ("Purchase"), you may be asked to supply
+        available through Vewe Jewelery, you may be asked to supply
         certain information relevant to your Purchase including, without
         limitation, your …
       </p>
       <p>
         Links To Other Web Sites<br></br> Our Service may contain links to
         third-party web sites or services that are not owned or controlled by My
-        Company (change this). My Company (change this) has no control over, and
+        Company (change this). Vewe Jewelery has no control over, and
         assumes no responsibility for, the content, privacy policies, or
         practices of any third party web sites or services. You further
         acknowledge and agree that My Company (change this) shall not be

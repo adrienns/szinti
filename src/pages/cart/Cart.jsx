@@ -22,9 +22,9 @@ const Cart = () => {
             if (cart.length > 0) {
               return (
                 <div className="responsive-cart-container">
-                  <div>
+                  <table>
                     <CartList val={val} />
-                  </div>
+                  </table>
                   <div className="responsive-cart-order-summary-wrapper">
                     <div className="responive-cart-order-summary">
                       <h2 className="responsive-order-summary-text">
