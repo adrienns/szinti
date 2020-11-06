@@ -2,8 +2,8 @@ import React from "react";
 import image1 from "../images/kezek.png";
 import image2 from "../images/kezek.png";
 import image3 from "../images/kezek.png";
-import { SliderImages } from "./slider_images.jsx";
-import "./main_images.css";
+import { SliderImages } from "./SliderImages.jsx";
+import "./MainImages.css";
 
 const INTERVAL = 3000;
 const IMAGES = [

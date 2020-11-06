@@ -2,11 +2,8 @@ import React from "react";
 import SingleProductPage from "../single_product_page/single_product_page";
 import { ProductConsumer } from "../product_context";
 
-class OrganicProduct extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  myFunc = (value) => {
+const OrganicProduct = () => {
+  const myFunc = (value) => {
     const { id, images, info, price, name, inCart } = value.productDetails;
     const { addToCart } = value;
     const { openModal } = value;
@@ -28,13 +25,11 @@ class OrganicProduct extends React.Component {
     );
   };
 
-  render() {
-    return (
-      <div className="organic_product_container">
-        <ProductConsumer>{this.myFunc}</ProductConsumer>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="organic_product_container">
+      <ProductConsumer>{myFunc}</ProductConsumer>
+    </div>
+  );
+};
 
 export default OrganicProduct;

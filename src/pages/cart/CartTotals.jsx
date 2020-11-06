@@ -3,33 +3,13 @@ import "./cart.css";
 
 const CartTotals = ({ val }) => {
   const [radio, setRadio] = useState("Hungary");
-  const { cartTotal, clearCart } = val;
-  const [totalwithShipping, setFinalTotal] = useState(cartTotal);
+  const { cartTotal, finalTotal } = val;
+  const { updateWithShippingCost } = val;
 
   const handleRadio = (event) => {
     const value = event.target.value;
+    // props.handleRadio()??????????? how to pass props back to contect api;
     setRadio(value);
-  };
-
-  const handleShippingCost = (event) => {
-    const value = event.target.value;
-    let shippingCost = 0;
-    if (value === "others") {
-      shippingCost = 1000;
-      return shippingCost;
-    }
-    if (value === "EU") {
-      shippingCost = 100;
-      return shippingCost;
-    }
-
-    return shippingCost;
-  };
-
-  const CalculateTotalswithShipping = (event) => {
-    const shippingCost = handleShippingCost(event);
-    const newTotalwithShipping = cartTotal + shippingCost;
-    setFinalTotal(newTotalwithShipping);
   };
 
   return (
@@ -44,7 +24,7 @@ const CartTotals = ({ val }) => {
         <th className="cart-totals-table-inner-chart">Shipping</th>
         <td className="cart-totals-table-inner-chart">
           {" "}
-          <form onChange={(event) => CalculateTotalswithShipping(event)}>
+          <form onChange={(event) => updateWithShippingCost(event)}>
             <ul className="shipping-method-list">
               {" "}
               <li id="order-summery-text-right-list">
@@ -86,7 +66,7 @@ const CartTotals = ({ val }) => {
       <tr>
         <th className="order-summary-total">Total</th>
         <td className="order-summary-total" id="order-summery-text-right">
-          {totalwithShipping}$
+          {finalTotal}$
         </td>
       </tr>
     </tbody>

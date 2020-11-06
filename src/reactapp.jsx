@@ -109,47 +109,37 @@ class ReactApp extends React.Component {
                 <Route
                   path={`/${LINKMAP["app.aboutus"]}`}
                   exact
-                  strict
                   component={AboutUs}
                 />
-
+                ``
                 <Route
-                  path="/organicproduct"
+                  path="/organicproduct/:slug"
                   exact
-                  strict
                   component={OrganicProduct}
                 />
-
                 <Route
                   path={`/${LINKMAP["app.ring"]}`}
                   exact
-                  strict
                   component={FinalRingsDisplay}
                 />
                 <Route
                   path={`/${LINKMAP["app.necklace"]}`}
                   exact
-                  strict
                   component={FinalNecklacesDisplay}
                 />
                 <Route path="/cart" exact strict component={Cart} />
                 <Route
                   path={`/${LINKMAP["app.contactus"]}`}
                   exact
-                  strict
                   component={Form}
                 />
                 <Route
                   path="/terms&conditions"
                   exact
-                  strict
                   component={TermsandConditions}
                 />
-
                 <Route path="/" exact component={Home} />
                 <Route component={NotFoundPage} />
-                <Route path="/" exact component={Home} />
-
                 <Redirect to="/404" />
               </Switch>
               <CartModal />

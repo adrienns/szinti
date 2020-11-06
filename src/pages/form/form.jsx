@@ -45,6 +45,7 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     let data = {
       customername: this.state.customername,
       email: this.state.email,
@@ -82,22 +83,21 @@ class Form extends Component {
 
   render() {
     return (
-      <div>
-        <h1 id="get_in_touch">
-          {" "}
-          <FormattedMessage id="app.text" defaultMessage="Contact us!" />
-        </h1>
-        <h5 id="get_in_touch">
-          {" "}
-          <FormattedMessage
-            id="app.longtxt"
-            defaultMessage="Contact us via email or by filling out our simple contact form."
-          />
-        </h5>
-
-        <div class="contact-wrapper">
+      <div className="contact-form-container">
+        <div className="contact-wrapper">
           <div className="contact-form-wrapper">
             <div className="form">
+              <h1 className="contact-us" id="get_in_touch">
+                {" "}
+                <FormattedMessage id="app.text" defaultMessage="Contact us" />
+              </h1>
+              <h5 id="get_in_touch">
+                {" "}
+                <FormattedMessage
+                  id="app.longtxt"
+                  defaultMessage="Contact us via email or by filling out our simple contact form."
+                />
+              </h5>
               <h5 id="get_in_touch">
                 <a>
                   <FontAwesomeIcon icon="envelope" style={{ color: "blue" }} />
@@ -131,7 +131,8 @@ class Form extends Component {
                   <input
                     className="text"
                     type="text"
-                    value={this.state.customername}
+                    required
+                    value={this.state.customername || ""}
                     onChange={this.handleCustomernameChange}
                     name="name"
                     placeholder="  Your name"
@@ -145,11 +146,12 @@ class Form extends Component {
                     className="text"
                     type="email"
                     name="email"
-                    value={this.state.email}
+                    value={this.state.email || ""}
                     onChange={this.handleEmailChange}
                     placeholder="  Email address"
                     required
                   />
+                  <h5>{this.state.emailError}</h5>
                 </div>
 
                 <div className="form-row">
@@ -161,7 +163,7 @@ class Form extends Component {
                     name="message"
                     placeholder="  Your message"
                     style={styleMessage}
-                    value={this.state.message}
+                    value={this.state.message || ""}
                     onChange={this.handleMessageChange}
                     required
                   ></textarea>

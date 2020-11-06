@@ -106,8 +106,15 @@ const Modal = () => {
                     Go to Your Cart
                   </button>
                 </Link>
-                <Link to="/cart">
-                  <div className="more-details-text">More details</div>
+                <Link to={`/organicproduct/${name}`}>
+                  <div
+                    className="more-details-text"
+                    onClick={() => {
+                      closeModal();
+                    }}
+                  >
+                    More details
+                  </div>
                 </Link>
               </div>
             </div>

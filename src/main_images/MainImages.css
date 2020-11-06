@@ -7,5 +7,5 @@
   display: grid;
   grid-template-columns: 50% 50%;
   margin: 0;
-  /* height: 100vh; */
+  height: calc(100vh - 143px);
 }

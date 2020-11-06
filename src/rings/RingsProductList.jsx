@@ -71,7 +71,7 @@ export const ringsProductList = [
     secondImage: image1,
     images: [image1, image2, image3, image4],
     selectedMaterial: { gold: 0, silver: 22, bronze: 340444 },
-    link: "organicringitem2",
+    link: "organicringitem3",
     price: 900,
     name: "Liliom",
     info: "sofrfjgklfgjflef",

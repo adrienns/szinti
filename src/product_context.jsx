@@ -7,7 +7,6 @@ import { ringProductDetails } from "./rings/RingsInfo";
 export const ProductContext = createContext();
 
 const productsArray = [...necklaceProductList, ...ringsProductList];
-
 const productDetails = [...necklaceProductDetails, ...ringProductDetails];
 
 class ProductProvider extends Component {
@@ -18,11 +17,35 @@ class ProductProvider extends Component {
     inCart: false,
     modalOpen: false,
     isSideModalOpen: false,
-
     modalProduct: {},
     cartTotal: 0,
     itemsTotal: 0,
     isAdded: false,
+    finalTotal: 0,
+  };
+
+  handleShippingCost = () => {
+    let value = handleRadio();
+    let shippingCost = 0;
+    if (value === "others") {
+      shippingCost = 1000;
+      return shippingCost;
+    }
+    if (value === "EU") {
+      shippingCost = 100;
+      return shippingCost;
+    }
+
+    return shippingCost;
+  };
+  updateWithShippingCost = () => {
+    const shippingCost = this.handleShippingCost();
+    const freeShipping = 0;
+    if (this.props.cartTotal > 10000) {
+      return this.setState({ finalTotal: freeShipping + cartTotal });
+    } else {
+      return this.setState({ finalTotal: this.props.cartTotal + shippingCost });
+    }
   };
 
   UNSAFE_componentWillMount() {
@@ -105,6 +128,7 @@ class ProductProvider extends Component {
       () => {
         this.addTotals();
         this.calcUpdateTotalItems();
+        this.updateWithShippingCost();
       }
     );
   };
@@ -112,6 +136,7 @@ class ProductProvider extends Component {
   decrement = (id, material) => {
     let tempCart = [...this.state.cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
+
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
     product.count[material] -= 1;
@@ -134,23 +159,26 @@ class ProductProvider extends Component {
   };
 
   removeItem = (id, material) => {
-    let tempProducts = [...this.state.products];
+    // let tempProducts = [...this.state.products];
     let tempCart = [...this.state.cart];
-    tempCart = tempCart.filter((item) => item.id !== id && item.material!==material);
-    const index = tempProducts.indexOf(this.getItem(id));
-    let removedProduct = tempProducts[index];
-    removedProduct.inCart = false;
-    removedProduct.count[material] = 0;
-    debugger;
+    // tempCart = tempCart.filter((item) => item.id !== id );
+    let removedProduct = tempCart.find((item) => item.id == id);
     removedProduct.total[material] = 0;
- 
+    removedProduct.count[material] = 0;
+
+    if (
+      Object.values(removedProduct).reduce((t, { value }) => t + value, 0) > 0
+    ) {
+      return (removedProduct.inCart = false);
+    }
     this.setState(
       () => {
-        return { cart: [...tempCart], products: [...tempProducts] };
+        return { cart: [...tempCart] };
       },
       () => {
         this.addTotals();
         this.calcUpdateTotalItems();
+        this.updateWithShippingCost();
       }
     );
   };
@@ -164,6 +192,7 @@ class ProductProvider extends Component {
         this.setProducts();
         this.addTotals();
         this.calcUpdateTotalItems();
+        this.updateWithShippingCost();
       }
     );
   };
@@ -202,10 +231,8 @@ class ProductProvider extends Component {
 
   addToCart = (id, material) => {
     const index = this.getIndex(id);
-    const product = { ...this.state.products[index] };
-
+    let product = { ...this.state.products[index] };
     product.inCart = true;
-
     product.count = { gold: 0, silver: 0, bronze: 0 };
     product.count[material] += 1;
 
@@ -221,6 +248,7 @@ class ProductProvider extends Component {
       () => {
         this.addTotals();
         this.calcUpdateTotalItems();
+        this.updateWithShippingCost();
       }
     );
   };
@@ -288,8 +316,9 @@ class ProductProvider extends Component {
           closeSideModal: this.closeSideModal,
           incrementCartProduct: this.incrementCartProduct,
           openSideModal: this.openSideModal,
-
-          changeLanguage: this.changeLanguage,
+          handleShippingCost: this.handleShippingCost,
+          updateWithShippingCost: this.updateWithShippingCost,
+          handleRadio: this.handleRadio,
         }}
       >
         {this.props.children}

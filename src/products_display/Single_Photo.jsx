@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./Single_Photo.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../product_context";
 import { useSpring, useTransition, animated } from "react-spring";
 
 const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
+  let { slug } = useParams();
 
   const transitions = useTransition(isHovered, null, {
     from: { opacity: 0 },
@@ -32,7 +33,7 @@ const SinglePhoto = (props) => {
     });
   };
 
-  const { id, imgUrl, imgName, imgPrice, secondImg, mainImg } = props;
+  const { id, imgUrl, name, imgPrice, secondImg, mainImg } = props;
 
   return (
     <li className="jewelery-item">
@@ -43,7 +44,7 @@ const SinglePhoto = (props) => {
               className="image-container"
               onClick={() => value.handleDetail(id)}
             >
-              <Link to="/organicproduct">
+              <Link to={`/organicproduct/${name}`}>
                 <div className="img-wrapper-single">
                   {transitions.map(({ item, key, props }) => (
                     <animated.img
@@ -77,7 +78,7 @@ const SinglePhoto = (props) => {
                 )}
               </div>
               <p className="product-description">
-                <Link to="/organicproduct">{imgName}</Link>
+                <Link to={`/organicproduct/${name}`}>{name}</Link>
               </p>
               <p className="product-description">{imgPrice}$</p>
             </div>

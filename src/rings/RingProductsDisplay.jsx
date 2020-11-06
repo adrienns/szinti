@@ -22,8 +22,7 @@ const RingProductsDisplay = () => {
               id={element.id}
               mainImg={element.firstImage}
               secondImg={element.secondImage}
-              imgLink={element.link}
-              imgName={element.name}
+              name={element.name}
               imgPrice={element.price}
             />
           );

@@ -1,8 +1,20 @@
+.contact-form-container {
+  box-sizing: border-box;
+  margin: 150px 25px 150px 25px;
+}
+
+.contact-us {
+  margin-top: -12px;
+  margin-bottom: 27px;
+}
 .contact-wrapper {
-  position: relative;
-  margin: 155px 40px 0px 40px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  /* position: relative;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 50% 50%; */
 }
 
 #get_in_touch {
@@ -18,9 +30,10 @@
   margin-left: 5px;
 }
 #google-maps {
-  width: 530px;
-  height: 480px;
-  width: 99%;
+  /* width: 530px; */
+  height: 500px;
+  min-width: 400px;
+  /* width: 120%; */
   border: 0.5px solid rgb(148, 142, 142);
 }
 .msg {
@@ -45,7 +58,10 @@
 }
 
 .contact-form-wrapper {
-  width: 92%;
+  /* width: 530px; */
+  padding-right: 32px;
+  /* width: 100%; */
+  min-width: 450px;
 }
 
 .form-row ::placeholder {

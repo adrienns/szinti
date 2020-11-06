@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
 import "./navbar.css";
 import logo from "../images/newlogo2.svg";
-
 import { Link } from "react-router-dom";
 import { ProductConsumer } from "../product_context";
 import { Icon } from "@iconify/react";
 import bagIcon from "@iconify/icons-bytesize/bag";
-
 import { WrapperContext } from "../Wrapper";
 import { FormattedMessage } from "react-intl";
 import MobileNavBar from "./MobileNavBar";
@@ -19,7 +17,6 @@ const NavBar = (props) => {
       <li className="navbar-list-item" key={index} id="list-item-right">
         <Link to={`/${link.link}`}>
           <span>
-            {" "}
             <FormattedMessage {...link.label} />
           </span>
         </Link>
@@ -30,10 +27,8 @@ const NavBar = (props) => {
   let linksMarkup2 = props.links.slice(3, 7).map((link, index) => {
     return (
       <li className="navbar-list-item" key={index} id="list-item-left">
-        {" "}
         <Link to={`/${link.link}`}>
           <span>
-            {" "}
             <FormattedMessage {...link.label} />
           </span>
         </Link>
@@ -56,7 +51,6 @@ const NavBar = (props) => {
             </span>
           </li>
         </ul>
-
         <nav className="menu-navigation">
           <ul>
             {linksMarkup}
@@ -65,11 +59,9 @@ const NavBar = (props) => {
                 id="site-logo-image"
                 src={logo}
                 alt="VeWe Handcrafted Jewelry"
-                width=" 160"
-                height="90"
               />
             </Link>
-            {linksMarkup2}{" "}
+            {linksMarkup2}
           </ul>
         </nav>
         <div className="shopping-bag-container">
@@ -78,7 +70,6 @@ const NavBar = (props) => {
               {(value) => {
                 const { itemsTotal } = value;
                 const { openSideModal } = value;
-
                 return (
                   <div className="item-counter">
                     {itemsTotal}
