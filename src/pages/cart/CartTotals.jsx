@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import "./cart.css";
 
 const CartTotals = ({ val }) => {
-  const [radio, setRadio] = useState("Hungary");
-  const { cartTotal, finalTotal } = val;
-  const { updateWithShippingCost } = val;
+  const { cartTotal, finalTotal, selectedOption } = val;
+  const { handleValueChange } = val;
 
-  const handleRadio = (event) => {
-    const value = event.target.value;
-    // props.handleRadio()??????????? how to pass props back to contect api;
-    setRadio(value);
+  const onShippingChange = (event) => {
+    handleValueChange(event.target.value);
   };
 
   return (
@@ -24,16 +21,16 @@ const CartTotals = ({ val }) => {
         <th className="cart-totals-table-inner-chart">Shipping</th>
         <td className="cart-totals-table-inner-chart">
           {" "}
-          <form onChange={(event) => updateWithShippingCost(event)}>
+          <form>
             <ul className="shipping-method-list">
               {" "}
               <li id="order-summery-text-right-list">
                 <input
-                  onChange={(event) => handleRadio(event)}
+                  onChange={onShippingChange}
                   type="radio"
                   name="shipping-method"
                   value="Hungary"
-                  checked={radio === "Hungary"}
+                  checked={selectedOption === "Hungary"}
                 />
                 <label htmlFor="shipping-method">
                   Shipping in Hungary: free{" "}
@@ -43,17 +40,19 @@ const CartTotals = ({ val }) => {
                 <input
                   type="radio"
                   value="EU"
-                  checked={radio === "EU"}
-                  onChange={(event) => handleRadio(event)}
+                  name="shipping-method"
+                  checked={selectedOption === "EU"}
+                  onChange={onShippingChange}
                 />
                 <label htmlFor="shipping-method">Shipping in EU: free </label>
               </li>
               <li id="order-summery-text-right-list">
                 <input
-                  onChange={(event) => handleRadio(event)}
+                  onChange={onShippingChange}
                   type="radio"
+                  name="shipping-method"
                   value="others"
-                  checked={radio === "others"}
+                  checked={selectedOption === "others"}
                 />
                 <label htmlFor="shipping-method">
                   Shipping outside of EU: $40{" "}

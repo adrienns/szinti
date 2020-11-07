@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "./single_product_page.css";
 import SideImages from "./Side_Images";
-import { ProductContext } from "../product_context";
+import { ProductContext } from "../contexts/ProductContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 import { Link } from "react-router-dom";

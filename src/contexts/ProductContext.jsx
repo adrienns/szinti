@@ -1,8 +1,8 @@
 import React, { Component, createContext } from "react";
-import { necklaceProductList } from "./products_display/necklaceproductlist";
-import { necklaceProductDetails } from "./single_product_page/NecklacesInfo";
-import { ringsProductList } from "./rings/RingsProductList";
-import { ringProductDetails } from "./rings/RingsInfo";
+import { necklaceProductList } from "../products_display/necklaceproductlist";
+import { necklaceProductDetails } from "../single_product_page/NecklacesInfo";
+import { ringsProductList } from "../rings/RingsProductList";
+import { ringProductDetails } from "../rings/RingsInfo";
 
 export const ProductContext = createContext();
 
@@ -11,6 +11,7 @@ const productDetails = [...necklaceProductDetails, ...ringProductDetails];
 
 class ProductProvider extends Component {
   state = {
+    selectedOption: "Hungary",
     products: [],
     productDetails: productDetails,
     cart: [],
@@ -24,27 +25,41 @@ class ProductProvider extends Component {
     finalTotal: 0,
   };
 
-  handleShippingCost = () => {
-    let value = handleRadio();
-    let shippingCost = 0;
-    if (value === "others") {
-      shippingCost = 1000;
-      return shippingCost;
-    }
-    if (value === "EU") {
-      shippingCost = 100;
-      return shippingCost;
-    }
+  handleValueChange = (selectedShippingOption) => {
+    this.setState(
+      {
+        selectedOption: selectedShippingOption,
+      },
+      () => {
+        this.updateWithShippingCost();
+      }
+    );
+  };
 
+  calculateShippingCost = () => {
+    const { selectedOption } = this.state;
+    let shippingCost = 0;
+    if (selectedOption === "others") {
+      shippingCost = 1000;
+    }
+    if (selectedOption === "EU") {
+      shippingCost = 100;
+    }
     return shippingCost;
   };
+
   updateWithShippingCost = () => {
-    const shippingCost = this.handleShippingCost();
-    const freeShipping = 0;
-    if (this.props.cartTotal > 10000) {
-      return this.setState({ finalTotal: freeShipping + cartTotal });
+    let shippingCost = this.calculateShippingCost();
+    const { cartTotal } = this.state;
+    debugger;
+    if (cartTotal > 10000) {
+      return this.setState(() => {
+        return { finalTotal: cartTotal };
+      });
     } else {
-      return this.setState({ finalTotal: this.props.cartTotal + shippingCost });
+      return this.setState(() => {
+        return { finalTotal: cartTotal + shippingCost };
+      });
     }
   };
 
@@ -127,8 +142,6 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotals();
-        this.calcUpdateTotalItems();
-        this.updateWithShippingCost();
       }
     );
   };
@@ -152,8 +165,11 @@ class ProductProvider extends Component {
         () => {
           return { cart: tempCart };
         },
-        () => this.addTotals(),
-        this.calcUpdateTotalItems()
+        () => {
+          this.addTotals();
+          this.calcUpdateTotalItems();
+          this.updateWithShippingCost();
+        }
       );
     }
   };
@@ -177,8 +193,6 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotals();
-        this.calcUpdateTotalItems();
-        this.updateWithShippingCost();
       }
     );
   };
@@ -191,8 +205,6 @@ class ProductProvider extends Component {
       () => {
         this.setProducts();
         this.addTotals();
-        this.calcUpdateTotalItems();
-        this.updateWithShippingCost();
       }
     );
   };
@@ -208,10 +220,17 @@ class ProductProvider extends Component {
       Counter.bronze += item.total.bronze;
       cartTotal += item.total.gold + item.total.silver + item.total.bronze;
     });
+    debugger;
 
-    this.setState(() => {
-      return { cartTotal: cartTotal };
-    });
+    this.setState(
+      () => {
+        return { cartTotal: cartTotal };
+      },
+      () => {
+        this.calcUpdateTotalItems();
+        this.updateWithShippingCost();
+      }
+    );
   };
 
   getIndex = (id) => {
@@ -238,6 +257,7 @@ class ProductProvider extends Component {
 
     const price = this.calculatePriceWithMaterial(id, material);
     product.total[material] = price;
+    console.log(this.state.cartTotal);
     this.setState(
       () => {
         return {
@@ -247,8 +267,6 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotals();
-        this.calcUpdateTotalItems();
-        this.updateWithShippingCost();
       }
     );
   };
@@ -316,9 +334,9 @@ class ProductProvider extends Component {
           closeSideModal: this.closeSideModal,
           incrementCartProduct: this.incrementCartProduct,
           openSideModal: this.openSideModal,
-          handleShippingCost: this.handleShippingCost,
+          calculateShippingCost: this.calculateShippingCost,
           updateWithShippingCost: this.updateWithShippingCost,
-          handleRadio: this.handleRadio,
+          handleValueChange: this.handleValueChange,
         }}
       >
         {this.props.children}

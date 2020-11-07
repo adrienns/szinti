@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./cart.css";
 import CartColumns from "./CartColumns";
 import EmptyCart from "./EmptyCart";
-import { ProductConsumer } from "../../product_context";
+import { ProductConsumer } from "../../contexts/ProductContext";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import HamburgerButton from "./HamburgerButton";
-import { ProductConsumer } from "../product_context";
+import { ProductConsumer } from "../contexts/ProductContext";
 import { Link } from "react-router-dom";
 import logo from "../images/newlogo2.svg";
 import { Icon } from "@iconify/react";

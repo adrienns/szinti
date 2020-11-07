@@ -3,7 +3,7 @@ import React from "react";
 import SinglePhoto from "../products_display/Single_Photo";
 import "./RingProductsDisplay.css";
 import { useContext } from "react";
-import { ProductContext } from "../product_context";
+import { ProductContext } from "../contexts/ProductContext";
 
 const RingProductsDisplay = () => {
   const { products } = useContext(ProductContext);

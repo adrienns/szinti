@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 
-import { ProductContext } from "../../product_context";
+import { ProductContext } from "../../contexts/ProductContext";
 
 const createCartItems = (cart) => {
   let cartItems = [];

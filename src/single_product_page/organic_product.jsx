@@ -1,6 +1,6 @@
 import React from "react";
 import SingleProductPage from "../single_product_page/single_product_page";
-import { ProductConsumer } from "../product_context";
+import { ProductConsumer } from "../contexts/ProductContext";
 
 const OrganicProduct = () => {
   const myFunc = (value) => {

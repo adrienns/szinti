@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "./Single_Photo.css";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { ProductConsumer } from "../product_context";
+import { ProductConsumer } from "../contexts/ProductContext";
 import { useSpring, useTransition, animated } from "react-spring";
 
 const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
-  let { slug } = useParams();
 
   const transitions = useTransition(isHovered, null, {
     from: { opacity: 0 },

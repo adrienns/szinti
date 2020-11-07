@@ -4,7 +4,7 @@ import SinglePhoto from "./Single_Photo";
 import "./NecklaceProductsDisplay.css";
 import { useLocation, Link } from "react-router-dom";
 
-import { ProductConsumer } from "../product_context";
+import { ProductConsumer } from "../contexts/ProductContext";
 
 const ProductsDisplay = () => {
   const { pathname } = useLocation();

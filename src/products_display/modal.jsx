@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./modal.css";
-import { ProductContext } from "../product_context";
+import { ProductContext } from "../contexts/ProductContext";
 
 const Modal = () => {
   const [material, SetMaterial] = useState("select");

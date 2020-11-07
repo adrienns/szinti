@@ -18,7 +18,7 @@ import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/Footer.jsx";
 import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
-import { ProductProvider } from "./product_context";
+import { ProductProvider } from "./contexts/ProductContext";
 import CartModal from "./pages/cart/CartModal";
 import Modal from "./products_display/modal";
 import OrganicProduct from "./single_product_page/organic_product";

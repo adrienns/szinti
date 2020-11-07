@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import "./navbar.css";
 import logo from "../images/newlogo2.svg";
 import { Link } from "react-router-dom";
-import { ProductConsumer } from "../product_context";
+import { ProductConsumer } from "../contexts/ProductContext";
 import { Icon } from "@iconify/react";
 import bagIcon from "@iconify/icons-bytesize/bag";
 import { WrapperContext } from "../Wrapper";
