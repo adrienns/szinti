@@ -1,13 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
-import Form from "./pages/form/form";
+import Form from "./pages/form/Form";
 import "./reactapp.css";
 import HomePage from "./pages/Homepage";
 import NotFoundPage from "./pages/404.jsx";
@@ -20,13 +19,12 @@ import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
 import { ProductProvider } from "./contexts/ProductContext";
 import CartModal from "./pages/cart/CartModal";
-import Modal from "./products_display/modal";
-import OrganicProduct from "./single_product_page/organic_product";
+import Modal from "./products_display/Modal";
+import OrganicProduct from "./single_product_page/OrganicProduct";
 import ResponsiveNavMenuOpen from "./navbar/ResponsiveNavMenuOpen";
 import TermsandConditions from "./pages/TermsAndConditions";
 import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
-
 import Wrapper from "./Wrapper";
 
 const LINKS = [

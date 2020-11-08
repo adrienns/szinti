@@ -1,19 +1,23 @@
 import React, { Component, createContext } from "react";
 import { necklaceProductList } from "../products_display/necklaceproductlist";
-import { necklaceProductDetails } from "../single_product_page/NecklacesInfo";
+// import { necklaceProductDetails } from "../single_product_page/NecklacesInfo";
 import { ringsProductList } from "../rings/RingsProductList";
-import { ringProductDetails } from "../rings/RingsInfo";
+// import { ringProductDetails } from "../rings/RingsInfo";
 
 export const ProductContext = createContext();
 
-const productsArray = [...necklaceProductList, ...ringsProductList];
-const productDetails = [...necklaceProductDetails, ...ringProductDetails];
+// const productsArray = [...necklaceProductList, ...ringsProductList];
+// const productDetails = [...necklaceProductDetails, ...ringProductDetails];
+
+const productDetails = [...necklaceProductList, ...ringsProductList];
+
+// const productDetails = [...necklaceProductDetails, ...ringProductDetails];
 
 class ProductProvider extends Component {
   state = {
     selectedOption: "Hungary",
     products: [],
-    productDetails: productDetails,
+    newPricewithMaterial: "",
     cart: [],
     inCart: false,
     modalOpen: false,
@@ -83,7 +87,12 @@ class ProductProvider extends Component {
 
   setProducts = () => {
     let tempProducts = [];
-    productsArray.forEach((item) => {
+
+    // productsArray.forEach((item) => {
+    //   const singleItem = { ...item };
+    //   tempProducts = [...tempProducts, singleItem];
+    // });
+    productDetails.forEach((item) => {
       const singleItem = { ...item };
       tempProducts = [...tempProducts, singleItem];
     });
@@ -197,17 +206,17 @@ class ProductProvider extends Component {
     );
   };
 
-  clearCart = () => {
-    this.setState(
-      () => {
-        return { cart: [] };
-      },
-      () => {
-        this.setProducts();
-        this.addTotals();
-      }
-    );
-  };
+  // clearCart = () => {
+  //   this.setState(
+  //     () => {
+  //       return { cart: [] };
+  //     },
+  //     () => {
+  //       // this.setProducts();
+  //       this.addTotals();
+  //     }
+  //   );
+  // };
 
   addTotals = () => {
     let cartTotal = 0;
@@ -257,7 +266,7 @@ class ProductProvider extends Component {
 
     const price = this.calculatePriceWithMaterial(id, material);
     product.total[material] = price;
-    console.log(this.state.cartTotal);
+
     this.setState(
       () => {
         return {
@@ -318,6 +327,22 @@ class ProductProvider extends Component {
     }
   };
 
+  changePriceandMaterial = (value) => {
+    console.log(value);
+    productDetails.filter((item) => {
+      const { selectedMaterial } = item;
+      const { gold, silver, bronze } = selectedMaterial;
+      if (value === "silver") {
+        return this.setState(() => ({ newPricewithMaterial: silver }));
+      }
+
+      if (value === "bronze") {
+        return this.setState(() => ({ newPricewithMaterial: bronze }));
+      }
+      return this.setState(() => ({ newPricewithMaterial: gold }));
+    });
+  };
+
   render() {
     return (
       <ProductContext.Provider
@@ -330,12 +355,10 @@ class ProductProvider extends Component {
           increment: this.increment,
           decrement: this.decrement,
           removeItem: this.removeItem,
-          clearCart: this.clearCart,
+          changePriceandMaterial: this.changePriceandMaterial,
           closeSideModal: this.closeSideModal,
           incrementCartProduct: this.incrementCartProduct,
           openSideModal: this.openSideModal,
-          calculateShippingCost: this.calculateShippingCost,
-          updateWithShippingCost: this.updateWithShippingCost,
           handleValueChange: this.handleValueChange,
         }}
       >

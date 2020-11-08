@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Single_Photo.css";
+import "./SinglePhoto.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../contexts/ProductContext";

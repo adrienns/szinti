@@ -1,20 +1,20 @@
 import React, { useState, useContext } from "react";
-import "./single_product_page.css";
-import SideImages from "./Side_Images";
+import "./SingleProduct.css";
+import SideImages from "./SideImages";
 import { ProductContext } from "../contexts/ProductContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
-
 import { Link } from "react-router-dom";
 
 const SingleProductPage = (props) => {
   const [material, SetMaterial] = useState("select");
   const [currentImage, setCurrentImage] = useState(0);
 
-  const { incrementCartProduct, products, openSideModal } = useContext(
-    ProductContext
-  );
-
-  const { total } = products;
+  const {
+    incrementCartProduct,
+    newPricewithMaterial,
+    changePriceandMaterial,
+    openSideModal,
+  } = useContext(ProductContext);
 
   const numberOfImages = props.productImages.length;
 
@@ -33,6 +33,7 @@ const SingleProductPage = (props) => {
   };
 
   const { name, info, id, price } = props;
+
   const imgSrc = props.productImages[currentImage];
 
   return (
@@ -143,10 +144,9 @@ const SingleProductPage = (props) => {
               {name} {material}
             </h1>
 
-            <h1> {info}</h1>
             <h1>
               {" "}
-              {price} and {total}
+              {info} <h1>{price + newPricewithMaterial}</h1>
             </h1>
           </div>
 
@@ -158,6 +158,9 @@ const SingleProductPage = (props) => {
                   value={material}
                   className="item-info"
                   id="select-material"
+                  onClick={(event) =>
+                    changePriceandMaterial(event.target.value)
+                  }
                   onChange={(event) => {
                     SetMaterial(event.target.value);
                   }}

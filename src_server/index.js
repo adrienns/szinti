@@ -65,7 +65,7 @@ app.use(express.json());
 
 app.post("/api/forma", (req, res) => {
   const { customername, email, message } = req.body;
-  console.log("Data: ", req.body);
+
   subject = `A new email from ${customername}:${email}`;
 
   sendMail(email, customername, message, (err, data) => {

@@ -1,9 +1,7 @@
 import React from "react";
-
-import SinglePhoto from "./Single_Photo";
+import SinglePhoto from "./SinglePhoto";
 import "./NecklaceProductsDisplay.css";
 import { useLocation, Link } from "react-router-dom";
-
 import { ProductConsumer } from "../contexts/ProductContext";
 
 const ProductsDisplay = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "./slider.jsx";
+import Slider from "./Slider.jsx";
 
 class MainImages extends React.Component {
   render() {

@@ -3,6 +3,7 @@ import "./AboutUs.css";
 import image1 from "../../images/cute2.jpg";
 import image2 from "../../images/pics1.jpg";
 import image3 from "../../images/cute3.jpg";
+import CurrencyConverter from "../../converter/CurrencyConverter";
 
 const AboutUs = () => {
   return (
@@ -15,6 +16,7 @@ const AboutUs = () => {
         </div>
         <div className="boxes" id="text-box1">
           <p> My story</p>
+          <CurrencyConverter />
         </div>
 
         <div className="boxes" id="text-box2">

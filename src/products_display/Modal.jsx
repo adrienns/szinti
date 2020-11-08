@@ -8,6 +8,8 @@ const Modal = () => {
 
   const {
     modalOpen,
+    newPricewithMaterial,
+    changePriceandMaterial,
     closeModal,
     incrementCartProduct,
     handleDetail,
@@ -17,7 +19,6 @@ const Modal = () => {
   } = useContext(ProductContext);
 
   const { id, name, firstImage, price } = modalProduct;
-  const { total } = products;
 
   return modalOpen ? (
     <div className="modal-container">
@@ -41,8 +42,7 @@ const Modal = () => {
               </div>
 
               <div>
-                <h3 className="item-info">${price}</h3>
-                <h3 className="item-info">${total}</h3>
+                <h3 className="item-info">${price + newPricewithMaterial}</h3>
               </div>
               <div>
                 <form>
@@ -50,6 +50,9 @@ const Modal = () => {
                     <div className="item-info">Select Material:</div>
                     <select
                       value={material}
+                      onClick={(event) =>
+                        changePriceandMaterial(event.target.value)
+                      }
                       onChange={(event) => {
                         SetMaterial(event.target.value);
                       }}

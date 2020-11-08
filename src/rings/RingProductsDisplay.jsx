@@ -1,6 +1,6 @@
 import React from "react";
 
-import SinglePhoto from "../products_display/Single_Photo";
+import SinglePhoto from "../products_display/SinglePhoto";
 import "./RingProductsDisplay.css";
 import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";

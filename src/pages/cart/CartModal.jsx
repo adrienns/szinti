@@ -6,43 +6,6 @@ import "react-sliding-pane/dist/react-sliding-pane.css";
 
 import { ProductContext } from "../../contexts/ProductContext";
 
-const createCartItems = (cart) => {
-  let cartItems = [];
-  cart.forEach((item) => {
-    if (item.count.gold > 0) {
-      cartItems.push({
-        id: item.id,
-        material: "gold",
-        firstImage: item.firstImage,
-        total: item.total.gold,
-        count: item.count.gold,
-        name: item.name,
-      });
-    }
-    if (item.count.silver > 0) {
-      cartItems.push({
-        id: item.id,
-        material: "silver",
-        firstImage: item.firstImage,
-        total: item.total.silver,
-        count: item.count.silver,
-        name: item.name,
-      });
-    }
-    if (item.count.bronze > 0) {
-      cartItems.push({
-        id: item.id,
-        material: "bronze",
-        firstImage: item.firstImage,
-        total: item.total.bronze,
-        count: item.count.bronze,
-        name: item.name,
-      });
-    }
-  });
-  return cartItems;
-};
-
 const CartModal = () => {
   const {
     cart,
@@ -51,6 +14,45 @@ const CartModal = () => {
     cartTotal,
     itemsTotal,
   } = useContext(ProductContext);
+
+  //create a cart item with a correct price when material is added
+
+  const createCartItems = (cart) => {
+    let cartItems = [];
+    cart.forEach((item) => {
+      if (item.count.gold > 0) {
+        cartItems.push({
+          id: item.id,
+          material: "gold",
+          firstImage: item.firstImage,
+          total: item.total.gold,
+          count: item.count.gold,
+          name: item.name,
+        });
+      }
+      if (item.count.silver > 0) {
+        cartItems.push({
+          id: item.id,
+          material: "silver",
+          firstImage: item.firstImage,
+          total: item.total.silver,
+          count: item.count.silver,
+          name: item.name,
+        });
+      }
+      if (item.count.bronze > 0) {
+        cartItems.push({
+          id: item.id,
+          material: "bronze",
+          firstImage: item.firstImage,
+          total: item.total.bronze,
+          count: item.count.bronze,
+          name: item.name,
+        });
+      }
+    });
+    return cartItems;
+  };
 
   const items = createCartItems(cart);
 
@@ -68,9 +70,15 @@ const CartModal = () => {
       >
         <div className="cart-modal-column">
           <div className="cart-modal-upper-row">
-            <div className="your-cart-text">
-              Your Shopping Bag ({itemsTotal} items)
-            </div>
+            {itemsTotal === 0 ? (
+              <p className="empty-shopping-cart-text">
+                Your shopping cart is currently empty
+              </p>
+            ) : (
+              <div className="your-cart-text">
+                Your Shopping Bag ({itemsTotal} items)
+              </div>
+            )}
 
             <span
               className="exit-cart-modal-btn"
