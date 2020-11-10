@@ -9,11 +9,10 @@ const ProductsDisplay = () => {
 
   return (
     <div>
-      <h5 className="location-param">
-        {" "}
+      <div className="location-param">
         <Link to="/">Home </Link>
         {pathname}
-      </h5>
+      </div>
       <ul className="necklace_container">
         <ProductConsumer>
           {(value) => {

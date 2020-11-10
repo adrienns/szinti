@@ -2,6 +2,7 @@
   margin: 9px;
   display: flex;
   flex-wrap: wrap;
+  margin-top: -37px;
 }
 
 @media only screen and (max-width: 1201px) {
@@ -17,5 +18,7 @@
 }
 
 .location-param {
-  margin-top: 70px;
+  margin-top: 71px;
+  text-transform: capitalize;
+  margin-left: 19px;
 }

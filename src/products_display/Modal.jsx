@@ -12,7 +12,7 @@ const Modal = () => {
     changePriceandMaterial,
     closeModal,
     incrementCartProduct,
-    handleDetail,
+    handleSingleProduct,
     modalProduct,
     products,
     openSideModal,
@@ -22,7 +22,7 @@ const Modal = () => {
 
   return modalOpen ? (
     <div className="modal-container">
-      <div className="image-container" onClick={() => handleDetail(id)}>
+      <div className="image-container" onClick={() => handleSingleProduct(id)}>
         <div className="modal-coloumns">
           <div className="modal-image-container">
             <img className="modal-image" src={firstImage} alt="Product" />

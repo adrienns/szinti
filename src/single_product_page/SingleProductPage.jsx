@@ -143,11 +143,9 @@ const SingleProductPage = (props) => {
               {" "}
               {name} {material}
             </h1>
+            <h5> {info}</h5>
 
-            <h1>
-              {" "}
-              {info} <h1>{price + newPricewithMaterial}</h1>
-            </h1>
+            <h1>{price + newPricewithMaterial}</h1>
           </div>
 
           <div>

@@ -1,21 +1,17 @@
 import React, { Component, createContext } from "react";
-import { necklaceProductList } from "../products_display/necklaceproductlist";
-// import { necklaceProductDetails } from "../single_product_page/NecklacesInfo";
-import { ringsProductList } from "../rings/RingsProductList";
-// import { ringProductDetails } from "../rings/RingsInfo";
+import {
+  necklaceProductList,
+  singleProduct,
+} from "../products_display/NecklacesData";
+import { ringsProductList } from "../rings/RingsData";
 
 export const ProductContext = createContext();
-
-// const productsArray = [...necklaceProductList, ...ringsProductList];
-// const productDetails = [...necklaceProductDetails, ...ringProductDetails];
-
-const productDetails = [...necklaceProductList, ...ringsProductList];
-
-// const productDetails = [...necklaceProductDetails, ...ringProductDetails];
+const productLists = [...necklaceProductList, ...ringsProductList];
 
 class ProductProvider extends Component {
   state = {
     selectedOption: "Hungary",
+    singleProduct: singleProduct,
     products: [],
     newPricewithMaterial: "",
     cart: [],
@@ -56,6 +52,7 @@ class ProductProvider extends Component {
     let shippingCost = this.calculateShippingCost();
     const { cartTotal } = this.state;
     debugger;
+
     if (cartTotal > 10000) {
       return this.setState(() => {
         return { finalTotal: cartTotal };
@@ -67,19 +64,19 @@ class ProductProvider extends Component {
     }
   };
 
-  UNSAFE_componentWillMount() {
-    localStorage.getItem("productDetails") &&
-      this.setState({
-        productDetails: JSON.parse(localStorage.getItem("productDetails")),
-      });
-  }
+  // UNSAFE_componentWillMount() {
+  //   localStorage.getItem("productDetails") &&
+  //     this.setState({
+  //       singleProduct: JSON.parse(localStorage.getItem("productDetails")),
+  //     });
+  // }
 
-  UNSAFE_componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem(
-      "productDetails",
-      JSON.stringify(nextState.productDetails)
-    );
-  }
+  // UNSAFE_componentWillUpdate(nextProps, nextState) {
+  //   localStorage.setItem(
+  //     "singleProduct",
+  //     JSON.stringify(nextState.productDetails)
+  //   );
+  // }
 
   componentDidMount() {
     this.setProducts();
@@ -88,11 +85,7 @@ class ProductProvider extends Component {
   setProducts = () => {
     let tempProducts = [];
 
-    // productsArray.forEach((item) => {
-    //   const singleItem = { ...item };
-    //   tempProducts = [...tempProducts, singleItem];
-    // });
-    productDetails.forEach((item) => {
+    productLists.forEach((item) => {
       const singleItem = { ...item };
       tempProducts = [...tempProducts, singleItem];
     });
@@ -107,17 +100,14 @@ class ProductProvider extends Component {
     return product;
   };
 
-  getItemProductDetails = (id) => {
-    const product = productDetails.find((item) => item.id === id);
-    return product;
-  };
-
-  handleDetail = (id) => {
+  handleSingleProduct = (id) => {
     const product = this.getItem(id);
     this.setState(() => {
-      return { productDetails: product };
+      return { singleProduct: product };
     });
   };
+
+  //Calculating price including material
 
   calculatePriceWithMaterial = (id, material) => {
     let tempProducts = [...this.state.products];
@@ -134,7 +124,6 @@ class ProductProvider extends Component {
     if (material === "silver") {
       return silver + price;
     }
-
     return bronze + price;
   };
 
@@ -151,6 +140,7 @@ class ProductProvider extends Component {
       },
       () => {
         this.addTotals();
+        this.updateWithShippingCost();
       }
     );
   };
@@ -184,7 +174,6 @@ class ProductProvider extends Component {
   };
 
   removeItem = (id, material) => {
-    // let tempProducts = [...this.state.products];
     let tempCart = [...this.state.cart];
     // tempCart = tempCart.filter((item) => item.id !== id );
     let removedProduct = tempCart.find((item) => item.id == id);
@@ -192,7 +181,10 @@ class ProductProvider extends Component {
     removedProduct.count[material] = 0;
 
     if (
-      Object.values(removedProduct).reduce((t, { value }) => t + value, 0) > 0
+      Object.values(removedProduct.count).reduce(
+        (t, { value }) => t + value,
+        0
+      ) > 0
     ) {
       return (removedProduct.inCart = false);
     }
@@ -206,18 +198,6 @@ class ProductProvider extends Component {
     );
   };
 
-  // clearCart = () => {
-  //   this.setState(
-  //     () => {
-  //       return { cart: [] };
-  //     },
-  //     () => {
-  //       // this.setProducts();
-  //       this.addTotals();
-  //     }
-  //   );
-  // };
-
   addTotals = () => {
     let cartTotal = 0;
 
@@ -229,7 +209,6 @@ class ProductProvider extends Component {
       Counter.bronze += item.total.bronze;
       cartTotal += item.total.gold + item.total.silver + item.total.bronze;
     });
-    debugger;
 
     this.setState(
       () => {
@@ -258,8 +237,10 @@ class ProductProvider extends Component {
   };
 
   addToCart = (id, material) => {
-    const index = this.getIndex(id);
-    let product = { ...this.state.products[index] };
+    let tempProducts = [...this.state.products];
+    const index = tempProducts.indexOf(this.getItem(id));
+    const product = tempProducts[index];
+
     product.inCart = true;
     product.count = { gold: 0, silver: 0, bronze: 0 };
     product.count[material] += 1;
@@ -270,6 +251,7 @@ class ProductProvider extends Component {
     this.setState(
       () => {
         return {
+          products: tempProducts,
           isAdded: true,
           cart: [...this.state.cart, product],
         };
@@ -329,7 +311,7 @@ class ProductProvider extends Component {
 
   changePriceandMaterial = (value) => {
     console.log(value);
-    productDetails.filter((item) => {
+    productLists.filter((item) => {
       const { selectedMaterial } = item;
       const { gold, silver, bronze } = selectedMaterial;
       if (value === "silver") {
@@ -348,7 +330,7 @@ class ProductProvider extends Component {
       <ProductContext.Provider
         value={{
           ...this.state,
-          handleDetail: this.handleDetail,
+          handleSingleProduct: this.handleSingleProduct,
           addToCart: this.addToCart,
           openModal: this.openModal,
           closeModal: this.closeModal,
