@@ -1,8 +1,8 @@
 {
   "name": "vewejewelery",
   "version": "1.0.0",
-  "description": "form",
-  "main": "src_server/index.js",
+  "description": "app",
+  "main": "src/server/index.js",
   "proxy": "http://localhost:1234",
   "scripts": {
     "format": "prettier \"src/**/*.{js,html}\" --write",
@@ -11,7 +11,8 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"parcel src/index.html\""
+   
+    "dev": "concurrently \"npm run server\" \"parcel src/client/index.html\""
   },
   "keywords": [],
   "author": "adri",
@@ -53,6 +54,8 @@
     "font-awesome": "^4.7.0",
     "google-maps-react": "^2.0.6",
     "jquery": "^3.5.1",
+    "mailgun": "^0.5.0",
+    "mailgun-js": "^0.22.0",
     "nodemailer": "^6.4.11",
     "nodemailer-mailgun-transport": "^2.0.0",
     "parcel-plugin-clean-dist": "0.0.6",

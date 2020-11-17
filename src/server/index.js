@@ -5,15 +5,16 @@ const mailGun = require("nodemailer-mailgun-transport");
 const cors = require("cors");
 const path = require("path");
 const auth = require("./mailgun-auth.js");
-import necklaceProductList from "./NecklacesData";
-import ringsProductList from "./RingsData";
 
-// sending the product details to front end
-const data = [...necklaceProductList, ringsProductList];
+// import necklaceProductList from "./NecklacesData";
+// import ringsProductList from "./RingsData";
 
-app.get("/api/products", (req, res) => {
-  res.send(data.products);
-});
+// // sending the product details to front end
+// const data = [...necklaceProductList, ringsProductList];
+
+// app.get("/api/products", (req, res) => {
+//   res.send(data.products);
+// });
 
 const transporter = nodemailer.createTransport(mailGun(auth));
 
