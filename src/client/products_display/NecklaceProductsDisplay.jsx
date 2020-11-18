@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import SinglePhoto from "./SinglePhoto";
 import "./NecklaceProductsDisplay.css";
 import { useLocation, Link } from "react-router-dom";
-import { ProductConsumer } from "../contexts/ProductContext";
+import { ProductContext } from "../contexts/ProductContext";
 
 const ProductsDisplay = () => {
   const { pathname } = useLocation();
+  const { products } = useContext(ProductContext);
+  console.log(products);
 
   return (
     <div>
@@ -14,27 +16,24 @@ const ProductsDisplay = () => {
         {pathname}
       </div>
       <ul className="necklace_container">
-        <ProductConsumer>
-          {(value) => {
-            return value.products
-              .filter((element) => element.type === "necklaces")
-              .map((element) => {
-                return (
-                  <SinglePhoto
-                    type={element.type}
-                    inCart={element.inCart}
-                    element={element}
-                    key={element.id}
-                    id={element.id}
-                    mainImg={element.firstImage}
-                    secondImg={element.secondImage}
-                    name={element.name}
-                    imgPrice={element.price}
-                  />
-                );
-              });
-          }}
-        </ProductConsumer>
+        {products
+          .filter((element) => element.type === "necklaces")
+          .map((element) => {
+            return (
+              <SinglePhoto
+                type={element.type}
+                inCart={element.inCart}
+                element={element}
+                key={element.id}
+                id={element.id}
+                mainImg={element.firstImage}
+                secondImg={element.secondImage}
+                name={element.name}
+                imgPrice={element.price}
+              />
+            );
+          })}
+        ;
       </ul>
     </div>
   );

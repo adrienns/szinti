@@ -14,7 +14,6 @@ const Modal = () => {
     incrementCartProduct,
     handleSingleProduct,
     modalProduct,
-    products,
     openSideModal,
   } = useContext(ProductContext);
 

@@ -1,43 +1,51 @@
-import React, { Component, createContext } from "react";
-import {
-  necklaceProductList,
-  singleProduct,
-} from "../products_display/NecklacesData";
-import { ringsProductList } from "../rings/RingsData";
+import axios from "axios";
+import React, { createContext, useState, useEffect } from "react";
+// import {
+//   necklaceProductList,
+//   singleProduct,
+// } from "../products_display/NecklacesData";
+// import { ringsProductList } from "../rings/RingsData";
+
+const FREE_SHIPPING_LIMIT = 10000;
 
 export const ProductContext = createContext();
-const productLists = [...necklaceProductList, ...ringsProductList];
+// const productLists = [...necklaceProductList, ...ringsProductList];
 
-class ProductProvider extends Component {
-  state = {
-    selectedOption: "Hungary",
-    singleProduct: singleProduct,
-    products: [],
-    newPricewithMaterial: "",
-    cart: [],
-    inCart: false,
-    modalOpen: false,
-    isSideModalOpen: false,
-    modalProduct: {},
-    cartTotal: 0,
-    itemsTotal: 0,
-    isAdded: false,
-    finalTotal: 0,
+const ProductProvider = (props) => {
+  const [productLists, setProductLists] = useState([]);
+  const [selectedOption, setSelectedOption] = useState("Hungary");
+  const [singleProduct, setSingleProduct] = useState({});
+  const [products, setProducts] = useState([]);
+  const [newPricewithMaterial, setnewPricewithMaterial] = useState("");
+  const [cart, setCart] = useState([]);
+  const [inCart, setinCart] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isSideModalOpen, setisSideModalOpen] = useState(false);
+  const [modalProduct, setModalProduct] = useState({});
+  const [cartTotal, setCartTotal] = useState(0);
+  const [itemsTotal, setItemsTotal] = useState(0);
+  const [finalTotal, setFinalTotal] = useState(0);
+  const [isAdded, setisAdded] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await axios.get("/api/necklaceProductList");
+      setProductLists(data);
+    };
+    console.log(productLists);
+    fetchData();
+  }, []);
+
+  const handleValueChange = (selectedShippingOption) => {
+    setSelectedOption(selectedShippingOption);
   };
+  useEffect(() => {
+    debugger;
+    updateWithShippingCost();
+  }, [selectedOption]);
 
-  handleValueChange = (selectedShippingOption) => {
-    this.setState(
-      {
-        selectedOption: selectedShippingOption,
-      },
-      () => {
-        this.updateWithShippingCost();
-      }
-    );
-  };
-
-  calculateShippingCost = () => {
-    const { selectedOption } = this.state;
+  const calculateShippingCost = () => {
+    debugger;
     let shippingCost = 0;
     if (selectedOption === "others") {
       shippingCost = 1000;
@@ -48,19 +56,13 @@ class ProductProvider extends Component {
     return shippingCost;
   };
 
-  updateWithShippingCost = () => {
-    let shippingCost = this.calculateShippingCost();
-    const { cartTotal } = this.state;
-    debugger;
+  const updateWithShippingCost = () => {
+    let shippingCost = calculateShippingCost();
 
-    if (cartTotal > 10000) {
-      return this.setState(() => {
-        return { finalTotal: cartTotal };
-      });
+    if (cartTotal > FREE_SHIPPING_LIMIT) {
+      return setFinalTotal(cartTotal);
     } else {
-      return this.setState(() => {
-        return { finalTotal: cartTotal + shippingCost };
-      });
+      return setFinalTotal(cartTotal + shippingCost);
     }
   };
 
@@ -78,11 +80,15 @@ class ProductProvider extends Component {
   //   );
   // }
 
-  componentDidMount() {
-    this.setProducts();
-  }
+  // componentDidMount() {
+  //   this.setProducts();
+  // }
 
-  setProducts = () => {
+  useEffect(() => {
+    setAllProducts();
+  }, []);
+
+  const setAllProducts = () => {
     let tempProducts = [];
 
     productLists.forEach((item) => {
@@ -90,28 +96,24 @@ class ProductProvider extends Component {
       tempProducts = [...tempProducts, singleItem];
     });
 
-    this.setState(() => {
-      return { products: tempProducts };
-    });
+    setProducts(tempProducts);
   };
 
-  getItem = (id) => {
-    const product = this.state.products.find((item) => item.id === id);
+  const getItem = (id) => {
+    const product = products.find((item) => item.id === id);
     return product;
   };
 
-  handleSingleProduct = (id) => {
-    const product = this.getItem(id);
-    this.setState(() => {
-      return { singleProduct: product };
-    });
+  const handleSingleProduct = (id) => {
+    const product = getItem(id);
+    setSingleProduct(product);
   };
 
   //Calculating price including material
 
-  calculatePriceWithMaterial = (id, material) => {
-    let tempProducts = [...this.state.products];
-    const index = this.getIndex(id);
+  const calculatePriceWithMaterial = (id, material) => {
+    let tempProducts = [...products];
+    const index = getIndex(id);
     const product = { ...tempProducts[index] };
     tempProducts[index] = product;
     const price = product.price;
@@ -127,54 +129,37 @@ class ProductProvider extends Component {
     return bronze + price;
   };
 
-  increment = (id, material) => {
-    let tempCart = [...this.state.cart];
+  const increment = (id, material) => {
+    let tempCart = [...cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
     selectedProduct.count[material] += 1;
-    const price = this.calculatePriceWithMaterial(id, material);
+    const price = calculatePriceWithMaterial(id, material);
     selectedProduct.total[material] += price;
 
-    this.setState(
-      () => {
-        return { cart: [...tempCart] };
-      },
-      () => {
-        this.addTotals();
-        this.updateWithShippingCost();
-      }
-    );
+    setCart([...tempCart]);
   };
 
-  decrement = (id, material) => {
-    let tempCart = [...this.state.cart];
+  const decrement = (id, material) => {
+    let tempCart = [...cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
 
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
     product.count[material] -= 1;
 
-    const price = this.calculatePriceWithMaterial(id, material);
+    const price = calculatePriceWithMaterial(id, material);
 
     if (product.count[material] === 0) {
-      this.removeItem(id, material);
+      removeItem(id, material);
     } else {
       product.total[material] = product.count[material] * price;
 
-      this.setState(
-        () => {
-          return { cart: tempCart };
-        },
-        () => {
-          this.addTotals();
-          this.calcUpdateTotalItems();
-          this.updateWithShippingCost();
-        }
-      );
+      setCart(tempCart);
     }
   };
 
-  removeItem = (id, material) => {
-    let tempCart = [...this.state.cart];
+  const removeItem = (id, material) => {
+    let tempCart = [...cart];
     // tempCart = tempCart.filter((item) => item.id !== id );
     let removedProduct = tempCart.find((item) => item.id == id);
     removedProduct.total[material] = 0;
@@ -188,167 +173,147 @@ class ProductProvider extends Component {
     ) {
       return (removedProduct.inCart = false);
     }
-    this.setState(
-      () => {
-        return { cart: [...tempCart] };
-      },
-      () => {
-        this.addTotals();
-      }
-    );
+    setCart([...tempCart]);
   };
 
-  addTotals = () => {
+  const addTotals = () => {
     let cartTotal = 0;
-
     let Counter = { gold: 0, silver: 0, bronze: 0 };
-
-    this.state.cart.forEach((item) => {
+    cart.forEach((item) => {
       Counter.gold += item.total.gold;
       Counter.silver += item.total.silver;
       Counter.bronze += item.total.bronze;
       cartTotal += item.total.gold + item.total.silver + item.total.bronze;
     });
 
-    this.setState(
-      () => {
-        return { cartTotal: cartTotal };
-      },
-      () => {
-        this.calcUpdateTotalItems();
-        this.updateWithShippingCost();
-      }
-    );
+    setCartTotal(cartTotal);
   };
 
-  getIndex = (id) => {
-    const index = this.state.products.findIndex((elem) => elem.id === id);
+  useEffect(() => {
+    calcUpdateTotalItems();
+    updateWithShippingCost();
+  }, [cartTotal]);
+
+  const getIndex = (id) => {
+    const index = products.findIndex((elem) => elem.id === id);
     return index;
   };
 
-  isInCart = (id) => {
-    const index = this.state.cart.findIndex((elem) => elem.id === id);
+  const isInCart = (id) => {
+    const index = cart.findIndex((elem) => elem.id === id);
     return index != -1;
   };
 
-  isInCart = (id) => {
-    const index = this.state.cart.findIndex((elem) => elem.id === id);
-    return index != -1;
-  };
-
-  addToCart = (id, material) => {
-    let tempProducts = [...this.state.products];
-    const index = tempProducts.indexOf(this.getItem(id));
+  const addToCart = (id, material) => {
+    let tempProducts = [...products];
+    const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
 
     product.inCart = true;
     product.count = { gold: 0, silver: 0, bronze: 0 };
     product.count[material] += 1;
 
-    const price = this.calculatePriceWithMaterial(id, material);
+    const price = calculatePriceWithMaterial(id, material);
     product.total[material] = price;
 
-    this.setState(
-      () => {
-        return {
-          products: tempProducts,
-          isAdded: true,
-          cart: [...this.state.cart, product],
-        };
-      },
-      () => {
-        this.addTotals();
-      }
-    );
+    setisAdded(true);
+    setProducts(tempProducts);
+    setCart([...cart, product]);
   };
 
-  calcUpdateTotalItems = () => {
+  useEffect(() => {
+    addTotals();
+    updateWithShippingCost();
+  }, [cart]);
+
+  const calcUpdateTotalItems = () => {
     let itemsTotal = 0;
     let Counter = { gold: 0, silver: 0, bronze: 0 };
-    this.state.cart.forEach((item) => {
+    cart.forEach((item) => {
       Counter.gold += item.count.gold;
       Counter.silver += item.count.silver;
       Counter.bronze += item.count.bronze;
       itemsTotal += item.count.gold + item.count.silver + item.count.bronze;
     });
-    this.setState(() => {
-      return { itemsTotal };
-    });
+    setItemsTotal(itemsTotal);
   };
 
-  openSideModal = () => {
-    this.setState(() => {
-      return { isSideModalOpen: true };
-    });
+  const openSideModal = () => {
+    setisSideModalOpen(true);
   };
 
-  closeSideModal = () => {
-    this.setState(() => {
-      return { isSideModalOpen: false };
-    });
+  const closeSideModal = () => {
+    setisSideModalOpen(false);
   };
 
-  openModal = (id) => {
-    const product = this.getItem(id);
-    this.setState(() => {
-      return { modalProduct: product, modalOpen: true };
-    });
+  const openModal = (id) => {
+    const product = getItem(id);
+    setModalProduct(product);
+    setModalOpen(true);
   };
 
-  closeModal = () => {
-    this.setState(() => {
-      return { modalOpen: false, isAdded: false };
-    });
+  const closeModal = () => {
+    setModalOpen(false);
+    setisAdded(false);
   };
 
-  incrementCartProduct = (id, material) => {
-    if (this.isInCart(id)) {
-      return this.increment(id, material);
+  const incrementCartProduct = (id, material) => {
+    if (isInCart(id)) {
+      return increment(id, material);
     } else {
-      return this.addToCart(id, material);
+      return addToCart(id, material);
     }
   };
 
-  changePriceandMaterial = (value) => {
-    console.log(value);
+  const changePriceandMaterial = (value) => {
     productLists.filter((item) => {
       const { selectedMaterial } = item;
       const { gold, silver, bronze } = selectedMaterial;
       if (value === "silver") {
-        return this.setState(() => ({ newPricewithMaterial: silver }));
+        return setnewPricewithMaterial(silver);
       }
 
       if (value === "bronze") {
-        return this.setState(() => ({ newPricewithMaterial: bronze }));
+        return setnewPricewithMaterial(bronze);
       }
-      return this.setState(() => ({ newPricewithMaterial: gold }));
+      return setnewPricewithMaterial(gold);
     });
   };
 
-  render() {
-    return (
-      <ProductContext.Provider
-        value={{
-          ...this.state,
-          handleSingleProduct: this.handleSingleProduct,
-          addToCart: this.addToCart,
-          openModal: this.openModal,
-          closeModal: this.closeModal,
-          increment: this.increment,
-          decrement: this.decrement,
-          removeItem: this.removeItem,
-          changePriceandMaterial: this.changePriceandMaterial,
-          closeSideModal: this.closeSideModal,
-          incrementCartProduct: this.incrementCartProduct,
-          openSideModal: this.openSideModal,
-          handleValueChange: this.handleValueChange,
-        }}
-      >
-        {this.props.children}
-      </ProductContext.Provider>
-    );
-  }
-}
+  return (
+    <ProductContext.Provider
+      value={{
+        selectedOption,
+        singleProduct,
+        products,
+        newPricewithMaterial,
+        cart,
+        inCart,
+        modalOpen,
+        isSideModalOpen,
+        modalProduct,
+        cartTotal,
+        itemsTotal,
+        isAdded,
+        finalTotal,
+        increment,
+        decrement,
+        closeModal,
+        openModal,
+        addToCart,
+        handleSingleProduct,
+        handleValueChange,
+        openSideModal,
+        incrementCartProduct,
+        closeSideModal,
+        changePriceandMaterial,
+        removeItem,
+      }}
+    >
+      {props.children}
+    </ProductContext.Provider>
+  );
+};
 
 const ProductConsumer = ProductContext.Consumer;
 
