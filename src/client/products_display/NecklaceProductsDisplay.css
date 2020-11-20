@@ -22,3 +22,13 @@
   text-transform: capitalize;
   margin-left: 19px;
 }
+
+.loading-msg {
+  padding-top: 150px;
+  padding-left: 50px;
+}
+
+.error-msg {
+  padding-top: 150px;
+  padding-left: 20px;
+}

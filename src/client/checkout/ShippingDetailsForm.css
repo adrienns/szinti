@@ -1,0 +1,8 @@
+.shipping-details-form-container {
+  padding-top: 200px;
+  box-sizing: border-box;
+}
+
+.shipping-details-form-row input {
+  width: 50%;
+}

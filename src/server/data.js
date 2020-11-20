@@ -1,13 +1,30 @@
-const image1 = "./images/cute3.jpg";
-const image2 = "./images/cute3.jpg";
-const image3 = "./images/pics_small1.jpg";
-const image4 = "./images/pics_small1bottom.jpg";
-const image5 = ".images/pics_small2.jpg";
-const image6 = ".images/pics_small2bottom.jpg";
-const image7 = "./images/cute4.jpg";
-const image8 = "./images/cute3.jpg";
-const image9 = "./images/cute4.jpg";
-const image10 = "./images/earingwithpearl.jpg";
+// import image1 from "./images/cute3.jpg";
+// import image2 from "./images/cute3.jpg";
+// import image3 from "./images/cute3.jpg";
+// import image4 from "./images/cute3.jpg";
+// import image5 from "./images/cute3.jpg";
+// import image6 from "./images/cute3.jpg";
+// import image7 from "./images/cute3.jpg";
+// import image8 from "./images/cute3.jpg";
+// import image9 from "./images/cute3.jpg";
+// import image10 from "./images/cute3.jpg";
+
+let host = "";
+if (process.env.NODE_ENV == "dev") {
+  // host = "http://localhost:8080";
+  host = "http://localhost:8080";
+}
+
+const image1 = `${host}/static/cute4.jpg`;
+const image2 = `${host}/static/cute4.jpg`;
+const image3 = `${host}/static/cute4.jpg`;
+const image4 = `${host}/static/cute4.jpg`;
+const image5 = `${host}/static/pics_small2.jpg`;
+const image6 = `${host}/static/cute4.jpg`;
+const image7 = `${host}/static/cute4.jpg`;
+const image8 = `${host}/static/cute3.jpg`;
+const image9 = `${host}/static/cute4.jpg`;
+const image10 = `${host}/static/earingwithpearl.jpg`;
 
 const data = {
   necklaceProductList: [

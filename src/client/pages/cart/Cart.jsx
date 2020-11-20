@@ -26,7 +26,7 @@ const Cart = () => {
                     <CartList val={val} />
                   </table>
                   <div className="responsive-cart-order-summary-wrapper">
-                    <div className="responive-cart-order-summary">
+                    <div className="responsive-cart-order-summary">
                       <h2 className="responsive-order-summary-text">
                         Order Summary
                       </h2>

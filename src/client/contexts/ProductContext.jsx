@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { createContext, useState, useEffect } from "react";
 // import {
 //   necklaceProductList,
@@ -11,13 +10,18 @@ const FREE_SHIPPING_LIMIT = 10000;
 export const ProductContext = createContext();
 // const productLists = [...necklaceProductList, ...ringsProductList];
 
+const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
+
 const ProductProvider = (props) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
   const [productLists, setProductLists] = useState([]);
   const [selectedOption, setSelectedOption] = useState("Hungary");
   const [singleProduct, setSingleProduct] = useState({});
   const [products, setProducts] = useState([]);
   const [newPricewithMaterial, setnewPricewithMaterial] = useState("");
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(cartFromLocalStorage);
   const [inCart, setinCart] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [isSideModalOpen, setisSideModalOpen] = useState(false);
@@ -27,25 +31,39 @@ const ProductProvider = (props) => {
   const [finalTotal, setFinalTotal] = useState(0);
   const [isAdded, setisAdded] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get("/api/necklaceProductList");
+  // Get product list from servers
+  const getData = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${window.api_url}/api/necklaceProductList`);
+      const data = await response.json();
+      setLoading(false);
       setProductLists(data);
-    };
-    console.log(productLists);
-    fetchData();
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getData();
   }, []);
+
+  // Temporary - to delete
+  useEffect(() => {
+    console.log(productLists);
+    setAllProducts();
+  }, [productLists]);
 
   const handleValueChange = (selectedShippingOption) => {
     setSelectedOption(selectedShippingOption);
   };
+
   useEffect(() => {
-    debugger;
     updateWithShippingCost();
   }, [selectedOption]);
 
   const calculateShippingCost = () => {
-    debugger;
     let shippingCost = 0;
     if (selectedOption === "others") {
       shippingCost = 1000;
@@ -66,38 +84,29 @@ const ProductProvider = (props) => {
     }
   };
 
-  // UNSAFE_componentWillMount() {
-  //   localStorage.getItem("productDetails") &&
-  //     this.setState({
-  //       singleProduct: JSON.parse(localStorage.getItem("productDetails")),
-  //     });
-  // }
-
-  // UNSAFE_componentWillUpdate(nextProps, nextState) {
-  //   localStorage.setItem(
-  //     "singleProduct",
-  //     JSON.stringify(nextState.productDetails)
-  //   );
-  // }
-
-  // componentDidMount() {
-  //   this.setProducts();
-  // }
+  // Creating local storage
 
   useEffect(() => {
-    setAllProducts();
-  }, []);
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
+  //Set up a fresh data order to not to change the original data.In order to get the value not the reference.
   const setAllProducts = () => {
     let tempProducts = [];
 
     productLists.forEach((item) => {
       const singleItem = { ...item };
+
       tempProducts = [...tempProducts, singleItem];
     });
 
+    console.log(productLists);
     setProducts(tempProducts);
   };
+
+  // useEffect(() => {
+  //   setAllProducts();
+  // }, []);
 
   const getItem = (id) => {
     const product = products.find((item) => item.id === id);
@@ -268,6 +277,7 @@ const ProductProvider = (props) => {
   const changePriceandMaterial = (value) => {
     productLists.filter((item) => {
       const { selectedMaterial } = item;
+
       const { gold, silver, bronze } = selectedMaterial;
       if (value === "silver") {
         return setnewPricewithMaterial(silver);
@@ -296,6 +306,8 @@ const ProductProvider = (props) => {
         itemsTotal,
         isAdded,
         finalTotal,
+        loading,
+        error,
         increment,
         decrement,
         closeModal,

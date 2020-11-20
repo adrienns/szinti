@@ -6,15 +6,16 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import "./global_vars";
 import Form from "./pages/form/Form";
 import "./reactapp.css";
 import HomePage from "./pages/Homepage";
-import NotFoundPage from "./pages/404.jsx";
+import NotFoundPage from "./pages/404";
 import NavBar from "./navbar/navbar";
-import AboutUs from "./pages/aboutus/AboutUs.jsx";
+import AboutUs from "./pages/aboutus/AboutUs";
 import FinalNecklacesDisplay from "./products_display/FinalNecklacesDisplay";
 import FinalRingsDisplay from "./rings/FinalRingsDisplay";
-import Footer from "./footer/Footer.jsx";
+import Footer from "./footer/Footer";
 import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
 import { ProductProvider } from "./contexts/ProductContext";
@@ -26,6 +27,7 @@ import TermsandConditions from "./pages/TermsAndConditions";
 import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
+import CheckoutPage from "./checkout/CheckoutPage";
 
 const LINKS = [
   defineMessages({
@@ -136,6 +138,7 @@ class ReactApp extends React.Component {
                   exact
                   component={TermsandConditions}
                 />
+                <Route path="/checkout" exact component={CheckoutPage} />
                 <Route path="/" exact component={Home} />
                 <Route component={NotFoundPage} />
                 <Redirect to="/404" />

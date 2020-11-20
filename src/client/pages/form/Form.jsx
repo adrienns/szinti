@@ -53,7 +53,7 @@ class Form extends Component {
     };
 
     axios
-      .post("http://localhost:8080/api/forma", data)
+      .post("/api/forma", data)
       .then((res) => {
         this.setState(
           {
