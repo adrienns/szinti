@@ -7,33 +7,35 @@ const ShippingAddressForm = () => {
     firstName: "",
     lastName: "",
     city: "",
-    address: "",
-    phone: "",
     zipcode: "",
+    email: "",
+    country: "",
+    phone: "",
   });
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //redirect user to payment screen
+    // props.history.push("/payment");
   };
 
-  const handleOnChange = (e) => {
-    let name = e.target.name;
-    let value = e.target.value;
-
-    setValues((values) => ({
-      ...values,
-      [name]: value,
-    }));
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setValues({ ...values, [name]: value });
   };
+
+  console.log(values);
   return (
     <div className="shipping-details-form-container">
-      <h2>Billing address</h2>
       <form className="shipping-details-form" onSubmit={handleSubmit}>
         <div className="shipping-details-form-row">
-          <label htmlFor="firstName">First name:</label>
+          <label htmlFor="firstName">First name</label>
           <input
             name="address"
             value={values.firstname}
-            onChange={handleOnChange}
+            onChange={handleChange}
             type="text"
             required
           />
@@ -43,25 +45,34 @@ const ShippingAddressForm = () => {
           <input
             name="lastName"
             value={values.lastName}
-            onChange={handleOnChange}
+            onChange={handleChange}
+          />{" "}
+        </div>
+        <div className="shipping-details-form-row">
+          <label htmlFor="email">Email</label>
+          <input
+            name="email"
+            value={values.email}
+            onChange={handleChange}
           />{" "}
         </div>
         <div className="shipping-details-form-row">
           <label htmlFor="country">Country</label>
           <input
             value={values.country}
-            onChange={handleOnChange}
+            onChange={handleChange}
+            name="country"
             type="text"
             required
           />
         </div>
         <div className="shipping-details-form-row">
           <label name="address" htmlFor="address">
-            Address:
+            Address
           </label>
           <input
             value={values.address}
-            onChange={handleOnChange}
+            onChange={handleChange}
             type="text"
             required
           />{" "}
@@ -71,7 +82,7 @@ const ShippingAddressForm = () => {
           <input
             name="city"
             value={values.city}
-            onChange={handleOnChange}
+            onChange={handleChange}
             type="text"
             required
           />{" "}
@@ -81,7 +92,7 @@ const ShippingAddressForm = () => {
           <input
             name="zipcode"
             value={values.zipcode}
-            onChange={handleOnChange}
+            onChange={handleChange}
             type="text"
             required
           />{" "}
@@ -91,7 +102,7 @@ const ShippingAddressForm = () => {
           <input
             name="phone"
             value={values.phone}
-            onChange={handleOnChange}
+            onChange={handleChange}
             type="text"
             required
           />{" "}

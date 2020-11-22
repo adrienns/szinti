@@ -1,18 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Arial&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap");
 * {
   color: rgb(68, 66, 66);
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Special Elite", sans-serif;
+  font-family: "Courier Prime", sans-serif;
   box-sizing: border-box;
   -webkit-user-select: none; /* Chrome/Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+ */
 
-  /* betutipus:  FuturaPT FuturaPT, Helvetica, Arial, sans-serif; Abel, IBM Plex, Oxygen, Varela  Quicksand
+  /* betutipus:  FuturaPT FuturaPT, Helvetica, Arial, sans-serif; Abel, IBM Plex, Oxygen, Varela  Quicksand, Work Sans
 */
 
   /* Rules below not implemented in browsers yet */

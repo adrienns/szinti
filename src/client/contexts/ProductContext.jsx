@@ -8,15 +8,16 @@ import React, { createContext, useState, useEffect } from "react";
 const FREE_SHIPPING_LIMIT = 10000;
 
 export const ProductContext = createContext();
-// const productLists = [...necklaceProductList, ...ringsProductList];
 
 const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 
 const ProductProvider = (props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
-  const [productLists, setProductLists] = useState([]);
+  const [productLists, setProductLists] = useState({
+    necklaces: [],
+    rings: [],
+  });
   const [selectedOption, setSelectedOption] = useState("Hungary");
   const [singleProduct, setSingleProduct] = useState({});
   const [products, setProducts] = useState([]);
@@ -31,14 +32,16 @@ const ProductProvider = (props) => {
   const [finalTotal, setFinalTotal] = useState(0);
   const [isAdded, setisAdded] = useState(false);
 
-  // Get product list from servers
-  const getData = async () => {
+  // Get product lists from server -should be 2 separate fetch data function?
+  const fetchData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`${window.api_url}/api/necklaceProductList`);
-      const data = await response.json();
+      const res1 = await fetch(`${window.api_url}/api/necklaceProductList`);
+      const necklacesData = await res1.json();
+      const res2 = await fetch(`${window.api_url}/api/ringsProductList`);
+      const ringsData = await res2.json();
       setLoading(false);
-      setProductLists(data);
+      setProductLists({ necklaces: necklacesData, rings: ringsData });
     } catch (err) {
       setError(err.message);
       setLoading(false);
@@ -46,12 +49,12 @@ const ProductProvider = (props) => {
   };
 
   useEffect(() => {
-    getData();
+    fetchData();
   }, []);
 
   // Temporary - to delete
   useEffect(() => {
-    console.log(productLists);
+    console.log(productLists.necklaces);
     setAllProducts();
   }, [productLists]);
 
@@ -76,9 +79,11 @@ const ProductProvider = (props) => {
 
   const updateWithShippingCost = () => {
     let shippingCost = calculateShippingCost();
-
     if (cartTotal > FREE_SHIPPING_LIMIT) {
       return setFinalTotal(cartTotal);
+    }
+    if (cartTotal == 0) {
+      return setSelectedOption("Hungary"), setFinalTotal(0);
     } else {
       return setFinalTotal(cartTotal + shippingCost);
     }
@@ -93,20 +98,16 @@ const ProductProvider = (props) => {
   //Set up a fresh data order to not to change the original data.In order to get the value not the reference.
   const setAllProducts = () => {
     let tempProducts = [];
+    let mergedproductList = [...productLists.necklaces, ...productLists.rings];
 
-    productLists.forEach((item) => {
+    mergedproductList.forEach((item) => {
       const singleItem = { ...item };
 
       tempProducts = [...tempProducts, singleItem];
     });
 
-    console.log(productLists);
     setProducts(tempProducts);
   };
-
-  // useEffect(() => {
-  //   setAllProducts();
-  // }, []);
 
   const getItem = (id) => {
     const product = products.find((item) => item.id === id);
@@ -275,7 +276,8 @@ const ProductProvider = (props) => {
   };
 
   const changePriceandMaterial = (value) => {
-    productLists.filter((item) => {
+    let mergedproductList = [...productLists.necklaces, ...productLists.rings];
+    mergedproductList.filter((item) => {
       const { selectedMaterial } = item;
 
       const { gold, silver, bronze } = selectedMaterial;
