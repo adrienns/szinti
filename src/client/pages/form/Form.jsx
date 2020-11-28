@@ -51,7 +51,6 @@ class Form extends Component {
       email: this.state.email,
       message: this.state.message,
     };
-    console.log(`${window.api_url}/api/form`);
     axios
       .post(`${window.api_url}/api/form`, data)
       .then((res) => {

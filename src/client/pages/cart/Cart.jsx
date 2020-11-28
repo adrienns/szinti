@@ -6,7 +6,7 @@ import { ProductConsumer } from "../../contexts/ProductContext";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 
-const Cart = () => {
+const Cart = (props) => {
   return (
     <div>
       <div className="responsive-cart-wrapper">
@@ -31,7 +31,7 @@ const Cart = () => {
                         Order Summary
                       </h2>
                       <table className="responsive-cart-total-table">
-                        <CartTotals val={val} />
+                        <CartTotals val={val} history={props.history} />
                       </table>
                     </div>
                   </div>

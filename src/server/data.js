@@ -184,6 +184,7 @@ const data = {
       count: { gold: 0, silver: 0, bronze: 0 },
       total: { gold: 0, silver: 0, bronze: 0 },
     },
+
     {
       id: 11,
       type: "rings",

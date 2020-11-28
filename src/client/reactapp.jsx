@@ -28,6 +28,8 @@ import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
 import CheckoutPage from "./checkout/CheckoutPage";
+import { MaterialProvider } from "./contexts/MaterialContext";
+import { ProductSizeProvider } from "./contexts/ProductSizeContext";
 
 const LINKS = [
   defineMessages({
@@ -89,68 +91,72 @@ class ReactApp extends React.Component {
   render() {
     return (
       <ProductProvider>
-        <Router>
-          <ScrollToTop />
-          <div className="app">
-            <header className="header">
-              <Topbar />
-              <NavBar
-                links={LINKS}
-                responsiveNavMenuHandler={this.responsiveNavMenuHandler}
-              />
-              <ResponsiveNavMenuOpen
-                show={this.state.responsiveNavMenuOpen}
-                links={LINKS}
-                closeResponsiveNavMenu={this.closeResponsiveNavMenu}
-              />
-            </header>
-            <div className="main-container">
-              <Switch>
-                <Route
-                  path={`/${LINKMAP["app.aboutus"]}`}
-                  exact
-                  component={AboutUs}
-                />
-                ``
-                <Route
-                  path="/organicproduct/:slug"
-                  exact
-                  component={OrganicProduct}
-                />
-                <Route
-                  path={`/${LINKMAP["app.ring"]}`}
-                  exact
-                  component={FinalRingsDisplay}
-                />
-                <Route
-                  path={`/${LINKMAP["app.necklace"]}`}
-                  exact
-                  component={FinalNecklacesDisplay}
-                />
-                <Route path="/cart" exact strict component={Cart} />
-                <Route
-                  path={`/${LINKMAP["app.contactus"]}`}
-                  exact
-                  component={Form}
-                />
-                <Route
-                  path="/terms&conditions"
-                  exact
-                  component={TermsandConditions}
-                />
-                <Route path="/checkout" exact component={CheckoutPage} />
-                <Route path="/" exact component={Home} />
-                <Route component={NotFoundPage} />
-                <Redirect to="/404" />
-              </Switch>
-              <CartModal />
-              <Modal />
-            </div>
-            <div className="footer">
-              <Footer />
-            </div>
-          </div>
-        </Router>
+        <MaterialProvider>
+          <ProductSizeProvider>
+            <Router>
+              <ScrollToTop />
+              <div className="app">
+                <header className="header">
+                  <Topbar />
+                  <NavBar
+                    links={LINKS}
+                    responsiveNavMenuHandler={this.responsiveNavMenuHandler}
+                  />
+                  <ResponsiveNavMenuOpen
+                    show={this.state.responsiveNavMenuOpen}
+                    links={LINKS}
+                    closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+                  />
+                </header>
+                <div className="main-container">
+                  <Switch>
+                    <Route
+                      path={`/${LINKMAP["app.aboutus"]}`}
+                      exact
+                      component={AboutUs}
+                    />
+                    ``
+                    <Route
+                      path="/organicproduct/:slug"
+                      exact
+                      component={OrganicProduct}
+                    />
+                    <Route
+                      path={`/${LINKMAP["app.ring"]}`}
+                      exact
+                      component={FinalRingsDisplay}
+                    />
+                    <Route
+                      path={`/${LINKMAP["app.necklace"]}`}
+                      exact
+                      component={FinalNecklacesDisplay}
+                    />
+                    <Route path="/cart" exact strict component={Cart} />
+                    <Route
+                      path={`/${LINKMAP["app.contactus"]}`}
+                      exact
+                      component={Form}
+                    />
+                    <Route
+                      path="/terms&conditions"
+                      exact
+                      component={TermsandConditions}
+                    />
+                    <Route path="/checkout" exact component={CheckoutPage} />
+                    <Route path="/" exact component={Home} />
+                    <Route component={NotFoundPage} />
+                    <Redirect to="/404" />
+                  </Switch>
+                  <CartModal />
+                  <Modal />
+                </div>
+                <div className="footer">
+                  <Footer />
+                </div>
+              </div>
+            </Router>
+          </ProductSizeProvider>
+        </MaterialProvider>
       </ProductProvider>
     );
   }

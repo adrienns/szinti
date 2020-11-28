@@ -2,14 +2,15 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./modal.css";
 import { ProductContext } from "../contexts/ProductContext";
+import { MaterialContext } from "../contexts/MaterialContext";
+import MaterialDropDown from "../single_product_page/MaterialDropDown";
 
 const Modal = () => {
-  const [material, SetMaterial] = useState("select");
+  const { material } = useContext(MaterialContext);
 
   const {
     modalOpen,
     newPricewithMaterial,
-    changePriceandMaterial,
     closeModal,
     incrementCartProduct,
     handleSingleProduct,
@@ -44,44 +45,7 @@ const Modal = () => {
                 <h3 className="item-info">${price + newPricewithMaterial}</h3>
               </div>
               <div>
-                <form>
-                  <label htmlFor="materials">
-                    <div className="item-info">Select Material:</div>
-                    <select
-                      value={material}
-                      onClick={(event) =>
-                        changePriceandMaterial(event.target.value)
-                      }
-                      onChange={(event) => {
-                        SetMaterial(event.target.value);
-                      }}
-                      className="item-info"
-                      id="select-material"
-                    >
-                      <option value="select">Please select material</option>
-                      <option value="gold">Gold</option>
-                      <option value="silver">Silver</option>
-                      <option value="bronze">Bronze</option>
-                    </select>
-                  </label>
-                  {/* 
-                  <label htmlFor="materials">
-                    <div className="item-info"> Select necklace length:</div>
-                    <select
-                      value={material}
-                      className="item-info"
-                      id="select-material"
-                      onChange={(event) => {
-                        SetMaterial(event.target.value);
-                      }}
-                    >
-                      <option value="select">Please select length</option>
-                      <option value="10cm">10 cm</option>
-                      <option value="20cm">20 cm</option>
-                      <option value="30cm">30 cm</option>
-                    </select>
-                  </label> */}
-                </form>
+                <MaterialDropDown />
               </div>
               <div>
                 <button

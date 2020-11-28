@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 import "./ShippingDetailsForm.css";
 
-const ShippingAddressForm = () => {
+const ShippingDetailsForm = () => {
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
@@ -26,7 +27,6 @@ const ShippingAddressForm = () => {
     setValues({ ...values, [name]: value });
   };
 
-  console.log(values);
   return (
     <div className="shipping-details-form-container">
       <form className="shipping-details-form" onSubmit={handleSubmit}>
@@ -107,10 +107,11 @@ const ShippingAddressForm = () => {
             required
           />{" "}
         </div>
+
         <button>Continue</button>
       </form>
     </div>
   );
 };
 
-export default ShippingAddressForm;
+export default ShippingDetailsForm;

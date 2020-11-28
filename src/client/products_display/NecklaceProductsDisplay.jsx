@@ -6,7 +6,11 @@ import { ProductContext } from "../contexts/ProductContext";
 
 const ProductsDisplay = () => {
   const { pathname } = useLocation();
-  const { products, loading, error } = useContext(ProductContext);
+  const { products, error, loading } = useContext(ProductContext);
+
+  // if (products == undefined) {
+  //   debugger;
+  // }
 
   return (
     <div>

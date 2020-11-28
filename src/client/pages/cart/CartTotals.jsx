@@ -1,15 +1,25 @@
 import React, { useState } from "react";
+
 import "./cart.css";
 import { Link } from "react-router-dom";
 
-const CartTotals = ({ val }) => {
-  const { cartTotal, finalTotal, selectedOption } = val;
+const CartTotals = ({ val, history }) => {
+  const {
+    cartTotal,
+    finalTotal,
+    selectedOption,
+    sendFinalPaymentDetails,
+  } = val;
   const { handleValueChange } = val;
 
   const onShippingChange = (event) => {
-    handleValueChange(event.target.value);
+    const value = event.target.value;
+    handleValueChange(value);
   };
 
+  const handleonClick = () => {
+    sendFinalPaymentDetails();
+  };
   return (
     <React.Fragment>
       <tbody>
@@ -73,7 +83,9 @@ const CartTotals = ({ val }) => {
         </tr>
       </tbody>
       <Link to="/checkout">
-        <button className="continue-payment-btn">Continue</button>
+        <button onClick={handleonClick} className="continue-payment-btn">
+          Continue
+        </button>
       </Link>
     </React.Fragment>
   );

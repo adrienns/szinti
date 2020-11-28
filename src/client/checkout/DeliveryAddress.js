@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ShippingAddressForm from "./ShippingDetailsForm";
+import ShippingDetailsForm from "./ShippingDetailsForm";
 
 const DeliveryAddress = () => {
   const [radio, setRadio] = useState("default address");
@@ -38,7 +38,7 @@ const DeliveryAddress = () => {
       </form>
       {radio === "alternative address" ? (
         <div>
-          <ShippingAddressForm />
+          <ShippingDetailsForm />
         </div>
       ) : null}
     </div>

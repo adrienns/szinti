@@ -98,4 +98,4 @@ SinglePhoto.propTypes = {
   }).isRequired,
 };
 
-export default SinglePhoto;
+export default React.memo(SinglePhoto);
