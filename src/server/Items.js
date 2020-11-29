@@ -26,8 +26,8 @@ const getItemDetails = (cartData) => {
             item = {
               name: `${name} - ${material}`,
               sku: `${id}${material}`,
-              price: itemPrice,
-              quantity: numberofItems,
+              price: JSON.stringify(itemPrice),
+              quantity: JSON.stringify(numberofItems),
               currency: "HUF",
             };
             items = [...items, item];

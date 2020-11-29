@@ -17,9 +17,6 @@ const CartTotals = ({ val, history }) => {
     handleValueChange(value);
   };
 
-  const handleonClick = () => {
-    sendFinalPaymentDetails();
-  };
   return (
     <React.Fragment>
       <tbody>
@@ -83,9 +80,7 @@ const CartTotals = ({ val, history }) => {
         </tr>
       </tbody>
       <Link to="/checkout">
-        <button onClick={handleonClick} className="continue-payment-btn">
-          Continue
-        </button>
+        <button>Continue</button>
       </Link>
     </React.Fragment>
   );

@@ -269,9 +269,15 @@ const ProductProvider = (props) => {
       .post(`${window.api_url}/api/payment`, cartData)
       .then((res) => {
         console.log("Data send");
+        if (res.status === 200) {
+          console.log(res.data);
+          window.location = res.data.forwardLink;
+        } else {
+          setIsError(true);
+        }
       })
       .catch(() => {
-        console.log("message not sent. please try it again");
+        console.log("data not sent. please try it again");
       });
   };
 

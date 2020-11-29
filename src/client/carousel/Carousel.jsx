@@ -10,13 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 
-import image1 from "../images/pics1.jpg";
-import image2 from "../images/pics2.jpg";
-import image3 from "../images/pics4.jpg";
-import image4 from "../images/pics_small1.jpg";
-import image5 from "../images/pics_small1bottom.jpg";
-import image6 from "../images/pics_small2.jpg";
-import image7 from "../images/pics_small2bottom.jpg";
+import image1 from "../images/greencheckmark.png";
+import image2 from "../images/greencheckmark.png";
+import image3 from "../images/greencheckmark.png";
+import image4 from "../images/greencheckmark.png";
+import image5 from "../images/greencheckmark.png";
+import image6 from "../images/greencheckmark.png";
+import image7 from "../images/greencheckmark.png";
 const IMAGES = [
   { firstImage: image1, secondImage: image2, id: 1 },
   { firstImage: image3, secondImage: image4, id: 2 },

@@ -8,10 +8,6 @@ const ProductsDisplay = () => {
   const { pathname } = useLocation();
   const { products, error, loading } = useContext(ProductContext);
 
-  // if (products == undefined) {
-  //   debugger;
-  // }
-
   return (
     <div>
       {loading ? (

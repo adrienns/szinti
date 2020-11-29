@@ -1,14 +1,3 @@
-// import image1 from "./images/cute3.jpg";
-// import image2 from "./images/cute3.jpg";
-// import image3 from "./images/cute3.jpg";
-// import image4 from "./images/cute3.jpg";
-// import image5 from "./images/cute3.jpg";
-// import image6 from "./images/cute3.jpg";
-// import image7 from "./images/cute3.jpg";
-// import image8 from "./images/cute3.jpg";
-// import image9 from "./images/cute3.jpg";
-// import image10 from "./images/cute3.jpg";
-
 let host = "";
 if (process.env.NODE_ENV == "dev") {
   // host = "http://localhost:8080";

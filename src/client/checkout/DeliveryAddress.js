@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ShippingDetailsForm from "./ShippingDetailsForm";
+import "./Checkout.css";
 
 const DeliveryAddress = () => {
   const [radio, setRadio] = useState("default address");

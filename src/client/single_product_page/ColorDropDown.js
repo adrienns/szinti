@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const ColorDropDown = () => {
-  const [color, setColor] = useState("select");
+  const [color, setColor] = useState("");
 
   return (
     <div>

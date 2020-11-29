@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-
 import "./ShippingDetailsForm.css";
 
 const ShippingDetailsForm = () => {
@@ -16,9 +15,6 @@ const ShippingDetailsForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    //redirect user to payment screen
-    // props.history.push("/payment");
   };
 
   const handleChange = (e) => {
@@ -33,7 +29,7 @@ const ShippingDetailsForm = () => {
         <div className="shipping-details-form-row">
           <label htmlFor="firstName">First name</label>
           <input
-            name="address"
+            name="firstName"
             value={values.firstname}
             onChange={handleChange}
             type="text"
@@ -46,6 +42,7 @@ const ShippingDetailsForm = () => {
             name="lastName"
             value={values.lastName}
             onChange={handleChange}
+            required
           />{" "}
         </div>
         <div className="shipping-details-form-row">
@@ -54,11 +51,13 @@ const ShippingDetailsForm = () => {
             name="email"
             value={values.email}
             onChange={handleChange}
+            required
           />{" "}
         </div>
         <div className="shipping-details-form-row">
           <label htmlFor="country">Country</label>
           <input
+            required
             value={values.country}
             onChange={handleChange}
             name="country"
@@ -107,8 +106,6 @@ const ShippingDetailsForm = () => {
             required
           />{" "}
         </div>
-
-        <button>Continue</button>
       </form>
     </div>
   );

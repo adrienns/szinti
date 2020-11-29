@@ -1,7 +1,7 @@
 import React from "react";
-import image1 from "../images/kezek.png";
-import image2 from "../images/kezek.png";
-import image3 from "../images/kezek.png";
+import image1 from "../images/greencheckmark.png";
+import image2 from "../images/greencheckmark.png";
+import image3 from "../images/greencheckmark.png";
 import { SliderImages } from "./SliderImages.jsx";
 import "./MainImages.css";
 

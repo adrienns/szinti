@@ -27,9 +27,10 @@ import TermsandConditions from "./pages/TermsAndConditions";
 import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
-import CheckoutPage from "./checkout/CheckoutPage";
+import ShippingDetails from "./checkout/ShippingDetails";
 import { MaterialProvider } from "./contexts/MaterialContext";
 import { ProductSizeProvider } from "./contexts/ProductSizeContext";
+import Payment from "./checkout/Payment";
 
 const LINKS = [
   defineMessages({
@@ -142,7 +143,8 @@ class ReactApp extends React.Component {
                       exact
                       component={TermsandConditions}
                     />
-                    <Route path="/checkout" exact component={CheckoutPage} />
+                    <Route path="/checkout" exact component={ShippingDetails} />
+                    <Route path="/payment" exact component={Payment} />
                     <Route path="/" exact component={Home} />
                     <Route component={NotFoundPage} />
                     <Redirect to="/404" />

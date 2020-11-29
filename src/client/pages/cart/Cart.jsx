@@ -5,7 +5,7 @@ import EmptyCart from "./EmptyCart";
 import { ProductConsumer } from "../../contexts/ProductContext";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
-
+import CheckoutSteps from "../../checkout/CheckoutSteps";
 const Cart = (props) => {
   return (
     <div>
@@ -44,6 +44,7 @@ const Cart = (props) => {
         </ProductConsumer>
       </div>
       <div className="cart_container">
+        <CheckoutSteps step1 />
         <ProductConsumer>
           {(val) => {
             const { cart } = val;

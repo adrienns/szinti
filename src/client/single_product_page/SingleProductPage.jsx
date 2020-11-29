@@ -17,7 +17,6 @@ const SingleProductPage = (props) => {
   const {
     incrementCartProduct,
     newPricewithMaterial,
-    changePriceandMaterial,
     openSideModal,
   } = useContext(ProductContext);
 
@@ -42,7 +41,7 @@ const SingleProductPage = (props) => {
   const imgSrc = props.productImages[currentImage];
 
   return (
-    <div>
+    <React.Fragment>
       <div className="product_wrapper">
         <div>
           <SideImages
@@ -77,32 +76,9 @@ const SingleProductPage = (props) => {
             <h1>{price + newPricewithMaterial}</h1>
           </div>
 
-          <div>
-            {/* <form>
-              <label htmlFor="materials">
-                <div className="item-info">Select Material:</div>
-                <select
-                  value={material}
-                  id="select-material"
-                  onClick={(event) =>
-                    changePriceandMaterial(event.target.value)
-                  }
-                  onChange={(event) => {
-                    SetMaterial(event.target.value);
-                  }}
-                >
-                  <option value="select">Please select material</option>
-                  <option value="gold">Gold</option>
-                  <option value="silver">Silver</option>
-                  <option value="bronze">Bronze</option>
-                </select>
-              </label>
-            </form> */}
-            <MaterialDropDown />
-            <SizeDropDown />
-
-            <ColorDropDown />
-          </div>
+          <MaterialDropDown />
+          <SizeDropDown />
+          <ColorDropDown />
 
           <div className="single_product_page_button_container">
             <div>
@@ -130,7 +106,7 @@ const SingleProductPage = (props) => {
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

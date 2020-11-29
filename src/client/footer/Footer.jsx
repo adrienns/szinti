@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -8,7 +7,6 @@ import {
   faFacebook,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-
 import "./Footer.css";
 
 library.add(fab, faFacebook, faInstagram);
@@ -20,7 +18,6 @@ class Footer extends React.Component {
         <section className="footer-nav">
           <div className="footer-section">
             <div className="footer-group-title">help</div>
-
             <ul>
               <li>
                 <Link to="/form">Contact us</Link>
@@ -30,12 +27,10 @@ class Footer extends React.Component {
 
           <div className="footer-section">
             <div className="footer-group-title">General</div>
-
             <ul>
               <li>
                 <Link to="/aboutus">About us</Link>
               </li>
-
               <li>
                 <a href="#">Collections</a>
               </li>
@@ -44,7 +39,6 @@ class Footer extends React.Component {
 
           <div className="footer-section">
             <div className="footer-group-title">Legal</div>
-
             <ul>
               <li>
                 <a href="#">Privacy & Cookies</a>

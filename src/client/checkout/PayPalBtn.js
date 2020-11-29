@@ -2,8 +2,6 @@ import React, { useRef, useEffect, useState, useContext } from "react";
 // import { ProductContext } from "../contexts/ProductContext";
 
 export const PayPalBtn = ({ finalTotal }) => {
-  // const { finalTotal } = useContext(ProductContext);
-  // const [sdkReady, setSdkReady] = useState(false);
   // const paypal = useRef();
 
   // useEffect(() => {
@@ -36,8 +34,6 @@ export const PayPalBtn = ({ finalTotal }) => {
     <div>
       <div>Payment</div>
       <h5>Please choose your payment method</h5>
-      <h1>{finalTotal}</h1>
-      <div ref={paypal}></div>
     </div>
   );
 };
