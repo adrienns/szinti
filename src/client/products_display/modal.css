@@ -30,7 +30,7 @@
   height: 450px;
 }
 .modal-btn {
-  background-color: rgb(88, 87, 87);
+  background-color: rgb(46, 45, 45);
   color: white;
   width: 250px;
   height: 40px;
@@ -40,8 +40,13 @@
   margin: 5px;
 }
 
+.modal-btn:hover {
+  background-color: rgb(87, 86, 86);
+  cursor: pointer;
+}
+
 .go-to-cart-btn {
-  background-color: rgb(88, 87, 87);
+  background-color: rgb(46, 45, 45);
   color: white;
   width: 250px;
   height: 40px;
@@ -49,6 +54,11 @@
   letter-spacing: 1px;
   font-weight: bold;
   margin: 5px;
+}
+
+.go-to-cart-btn:hover {
+  background-color: rgb(87, 86, 86);
+  cursor: pointer;
 }
 
 .item-info {

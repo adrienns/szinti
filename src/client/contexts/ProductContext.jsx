@@ -15,11 +15,6 @@ const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
 const ProductProvider = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  // const [mergedStateforProductLists, setmergedStateforProductLists] = useState({
-  //   productLists: [],
-  //   loading: true,
-  //   error: false,
-  // });
   const [productLists, setProductLists] = useState([]);
   const [selectedOption, setSelectedOption] = useState("Hungary");
   const [singleProduct, setSingleProduct] = useState({});
@@ -35,6 +30,8 @@ const ProductProvider = (props) => {
   const [finalTotal, setFinalTotal] = useState(0);
   const [isAdded, setisAdded] = useState(false);
   const [unmounted, setUnmounted] = useState(false);
+  const [billingAddress, setBillingAddress] = useState({});
+  const [alternativeAddress, setAlternativeAddress] = useState({});
 
   // Get product lists from server -should be 2 separate fetch data function?
 
@@ -46,17 +43,10 @@ const ProductProvider = (props) => {
         const { necklaceProductList, ringsProductList } = data;
         const productLists = [...necklaceProductList, ...ringsProductList];
         if (!unmounted) {
-          // setmergedStateforProductLists({
-          //   productLists: productLists,
-          //   loading: false,
-          // });
-
           setLoading(false);
           setProductLists(productLists);
         }
       } catch (err) {
-        // setmergedStateforProductLists({ error: true, loading: false });
-
         setError(err.message);
         setLoading(false);
       }
@@ -74,6 +64,14 @@ const ProductProvider = (props) => {
   //add shipping cost
   const handleValueChange = (selectedShippingOption) => {
     setSelectedOption(selectedShippingOption);
+  };
+
+  const handleBillingAddress = (values) => {
+    setBillingAddress(values);
+  };
+
+  const handleAlternativeAddress = (alternativeShippingAddress) => {
+    setAlternativeAddress(alternativeShippingAddress);
   };
 
   useEffect(() => {
@@ -249,11 +247,18 @@ const ProductProvider = (props) => {
     updateWithShippingCost();
   }, [cart]);
 
+  console.log(billingAddress);
   // sending data to sever side in order to calculate the the total sum and send it to paypal
 
   const sendFinalPaymentDetails = () => {
     let currentCart = [...cart];
-    console.log(currentCart);
+
+    let shippingDetails = [];
+    const billing = { billingAddress };
+    const alternative = { alternativeAddress };
+    shippingDetails.push(billing, alternative);
+    console.log(shippingDetails);
+
     let filteredCart = currentCart
       .filter(
         (item) =>
@@ -263,7 +268,7 @@ const ProductProvider = (props) => {
         const { id, count } = elem;
         return { id, count };
       });
-    const cartData = { filteredCart, selectedOption };
+    const cartData = { filteredCart, selectedOption, shippingDetails };
 
     axios
       .post(`${window.api_url}/api/payment`, cartData)
@@ -376,6 +381,8 @@ const ProductProvider = (props) => {
         changePriceandMaterial,
         removeItem,
         sendFinalPaymentDetails,
+        handleBillingAddress,
+        handleAlternativeAddress,
       }}
     >
       {props.children}

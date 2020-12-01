@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./cart.css";
 import { Link } from "react-router-dom";
 
 const CartTotals = ({ val, history }) => {
-  const {
-    cartTotal,
-    finalTotal,
-    selectedOption,
-    sendFinalPaymentDetails,
-  } = val;
+  const { cartTotal, finalTotal, selectedOption } = val;
   const { handleValueChange } = val;
 
   const onShippingChange = (event) => {

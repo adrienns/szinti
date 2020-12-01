@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import ShippingDetailsForm from "./ShippingDetailsForm";
 import "./Checkout.css";
 
-const DeliveryAddress = () => {
-  const [radio, setRadio] = useState("default address");
-
-  const handleRadio = (event) => {
-    setRadio(event.target.value);
-  };
-
+const ToggleDeliveryAddress = ({ handleRadio, radio }) => {
   return (
     <div>
       <form>
@@ -22,7 +16,9 @@ const DeliveryAddress = () => {
               value="default address"
               checked={radio === "default address"}
             />
-            <label htmlFor="default_address">Default Address</label>
+            <label id="default-address" htmlFor="default_address">
+              Default Address{" "}
+            </label>
           </li>
           <li id="alternative-delivery-address">
             <input
@@ -33,17 +29,13 @@ const DeliveryAddress = () => {
               checked={radio === "alternative address"}
               onChange={handleRadio}
             />{" "}
-            <label htmlFor="alternative_address">Alternative Address</label>
+            <label htmlFor="alternative_address"> Alternative Address</label>
           </li>
         </ul>
       </form>
-      {radio === "alternative address" ? (
-        <div>
-          <ShippingDetailsForm />
-        </div>
-      ) : null}
+      {radio === "alternative address" ? <div></div> : null}
     </div>
   );
 };
 
-export default DeliveryAddress;
+export default ToggleDeliveryAddress;

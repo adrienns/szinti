@@ -96,14 +96,6 @@
   display: none;
 }
 
-.continue-payment-btn {
-  background-color: rgb(41, 41, 41);
-  color: white;
-  text-transform: uppercase;
-  font-size: 19px;
-  padding: 13px 50px 10px 50px;
-}
-
 /*rESPONSIVE DESIGN*/
 
 @media only screen and (max-width: 800px) {

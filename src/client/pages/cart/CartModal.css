@@ -94,8 +94,18 @@
   margin: 0 11px 0 11px;
 }
 
+.cart-modal-btn:hover {
+  background-color: rgb(87, 86, 86);
+  cursor: pointer;
+}
+
 #cart-modal-continue-shopping-btn {
   margin-top: 10px;
+}
+
+#cart-modal-continue-shopping-btn:hover {
+  background-color: rgb(87, 86, 86);
+  cursor: pointer;
 }
 
 .empty-shopping-cart-text {

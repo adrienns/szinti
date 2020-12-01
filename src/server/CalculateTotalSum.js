@@ -1,7 +1,5 @@
 import data from "./data.js";
 
-const calculatePriceForProductOfSpesificMaterial = () => {};
-
 const calculateTotals = (cartData) => {
   const { filteredCart } = cartData;
   let idsObject = {};

@@ -7,6 +7,7 @@ import cors from "cors";
 import paypal from "paypal-rest-sdk";
 import updateWithShippingCost from "./CalculateWithShippingCost.js";
 import getItemDetails from "./Items.js";
+import GetShippingDetails from "./GetShippingDetails.js";
 
 //paypal integration
 
@@ -106,8 +107,11 @@ app.post("/api/form", (req, res) => {
 app.post("/api/payment", (req, res) => {
   const cartData = req.body;
   const finalSum = JSON.stringify(updateWithShippingCost(cartData));
+  const billingAddress = GetShippingDetails(cartData);
   const items = getItemDetails(cartData);
 
+  console.log(billingAddress);
+  console.log(items);
   const create_payment_json = JSON.stringify({
     intent: "sale",
     payer: {
@@ -120,15 +124,7 @@ app.post("/api/payment", (req, res) => {
     transactions: [
       {
         item_list: {
-          items: items,
-          shipping_address: {
-            recipient_name: "Kozma Palacsinta",
-            line1: "Nyiregyhaza",
-            city: "Mamamia",
-            country_code: "US",
-            postal_code: "95070",
-            state: "CA",
-          },
+          shipping: billingAddress,
         },
 
         amount: {
