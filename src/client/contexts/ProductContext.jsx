@@ -33,6 +33,8 @@ const ProductProvider = (props) => {
   const [billingAddress, setBillingAddress] = useState({});
   const [alternativeAddress, setAlternativeAddress] = useState({});
 
+  console.log(billingAddress);
+
   // Get product lists from server -should be 2 separate fetch data function?
 
   useEffect(() => {
@@ -383,6 +385,8 @@ const ProductProvider = (props) => {
         sendFinalPaymentDetails,
         handleBillingAddress,
         handleAlternativeAddress,
+        billingAddress,
+        alternativeAddress,
       }}
     >
       {props.children}

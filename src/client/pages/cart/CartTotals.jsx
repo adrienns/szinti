@@ -75,7 +75,7 @@ const CartTotals = ({ val, history }) => {
         </tr>
       </tbody>
       <Link to="/checkout">
-        <button>Continue</button>
+        <button disabled={finalTotal === 0}>Continue</button>
       </Link>
     </React.Fragment>
   );

@@ -112,77 +112,77 @@ app.post("/api/payment", (req, res) => {
 
   console.log(billingAddress);
   console.log(items);
-  const create_payment_json = JSON.stringify({
-    intent: "sale",
-    payer: {
-      payment_method: "paypal",
-    },
-    redirect_urls: {
-      return_url: `${client_path}/success`,
-      cancel_url: `${client_path}/cancel`,
-    },
-    transactions: [
-      {
-        item_list: {
-          shipping: billingAddress,
-        },
+  // const create_payment_json = JSON.stringify({
+  //   intent: "sale",
+  //   payer: {
+  //     payment_method: "paypal",
+  //   },
+  //   redirect_urls: {
+  //     return_url: `${client_path}/success`,
+  //     cancel_url: `${client_path}/cancel`,
+  //   },
+  //   transactions: [
+  //     {
+  //       item_list: {
+  //         shipping: billingAddress,
+  //       },
 
-        amount: {
-          total: finalSum,
-          currency: "HUF",
-          // details: {
-          //   subtotal: "30.00",
-          //   shipping: "1.00",
-          // }, =>not working
-        },
+  //       amount: {
+  //         total: finalSum,
+  //         currency: "HUF",
+  //         // details: {
+  //         //   subtotal: "30.00",
+  //         //   shipping: "1.00",
+  //         // }, =>not working
+  //       },
 
-        description: "This is the payment transaction description.",
-      },
-    ],
-  });
-
-  paypal.payment.create(create_payment_json, function (error, payment) {
-    if (error) {
-      throw error;
-    } else {
-      for (let i = 0; i < payment.links.length; i++) {
-        if (payment.links[i].rel === "approval_url") {
-          res.json({ forwardLink: payment.links[i].href });
-        }
-      }
-    }
-  });
+  //       description: "This is the payment transaction description.",
+  //     },
+  //   ],
 });
 
-app.get("/success", (req, res) => {
-  const payerId = req.query.PayerID;
-  const paymentId = req.query.paymentId;
-  const execute_payment_json = {
-    payer_id: payerId,
-    transactions: [
-      {
-        amount: {
-          currency: "HUF",
-          total: "1",
-        },
-      },
-    ],
-  };
-  paypal.payment.execute(paymentId, execute_payment_json, function (
-    error,
-    payment
-  ) {
-    if (error) {
-      console.log(error.response);
-      throw error;
-    } else {
-      console.log(JSON.stringify(payment));
-      res.send("Success");
-    }
-  });
-});
+//   paypal.payment.create(create_payment_json, function (error, payment) {
+//     if (error) {
+//       throw error;
+//     } else {
+//       for (let i = 0; i < payment.links.length; i++) {
+//         if (payment.links[i].rel === "approval_url") {
+//           res.json({ forwardLink: payment.links[i].href });
+//         }
+//       }
+//     }
+//   });
+// });
 
-app.get("./cancel", () => res.send("Cancelled"));
+// app.get("/success", (req, res) => {
+//   const payerId = req.query.PayerID;
+//   const paymentId = req.query.paymentId;
+//   const execute_payment_json = {
+//     payer_id: payerId,
+//     transactions: [
+//       {
+//         amount: {
+//           currency: "HUF",
+//           total: "1",
+//         },
+//       },
+//     ],
+//   };
+//   paypal.payment.execute(paymentId, execute_payment_json, function (
+//     error,
+//     payment
+//   ) {
+//     if (error) {
+//       console.log(error.response);
+//       throw error;
+//     } else {
+//       console.log(JSON.stringify(payment));
+//       res.send("Success");
+//     }
+//   });
+// });
+
+// app.get("./cancel", () => res.send("Cancelled"));
 
 // nyakik: meret szin
 // gyuruk meret szin

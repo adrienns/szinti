@@ -174,6 +174,7 @@ const ShippingDetailsForm = () => {
             {" "}
             <Link to="/payment">
               <button
+                // disabled={values.firstName === ""}
                 onClick={handleonClick}
                 onSubmit={handleSubmit}
                 className="continue-payment-btn"
