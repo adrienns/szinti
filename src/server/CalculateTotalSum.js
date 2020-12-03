@@ -25,7 +25,7 @@ const calculateTotals = (cartData) => {
     });
   }
 
-  return totalSum;
+  return totalSum.toFixed(1);
 };
 
 export default calculateTotals;

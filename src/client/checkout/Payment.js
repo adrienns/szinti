@@ -4,7 +4,6 @@ import React, { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
 import Axios from "axios";
-import { order } from "paypal-rest-sdk";
 
 const Payment = () => {
   const [isSent, setisSent] = useState(false);
@@ -12,6 +11,7 @@ const Payment = () => {
 
   const {
     cart,
+    calculateCartData,
     billingAddress,
     alternativeAddress,
     finalTotal,
@@ -19,6 +19,34 @@ const Payment = () => {
     cartTotal,
   } = useContext(ProductContext);
 
+  const cartData = calculateCartData();
+  const createOrder = () => {
+    return fetch(`${window.api_url}/api/payment`, {
+      method: "post",
+      body: JSON.stringify(cartData),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((data) => {
+        debugger;
+        console.log("error");
+      })
+      .then((data) => {
+        return data.orderID; // Use the same key name for order ID on the client and server
+      });
+  };
+
+  const onApprove = (data, actions) => {
+    // This function captures the funds from the transaction.
+    return actions.order.capture().then(function (details) {
+      // This function shows a transaction success message to your buyer.
+      alert("Transaction completed by " + details.payer.name.given_name);
+    });
+  };
   // const { firstName } = alternativeAddress;
 
   // const successPaymentHandler=() => {
@@ -26,7 +54,7 @@ const Payment = () => {
   // }
 
   // useEffect(() => {
-  //getting client ID (byPayPal) from my backend
+  //   // getting client ID (byPayPal) from my backend
 
   //   const addPayPalScript = async () => {
   //     const { data } = await Axios.get("/api/config/paypal");
@@ -39,18 +67,18 @@ const Payment = () => {
   //     };
   //     document.body.appendChild(script);
   //   };
-  //   if (!order_Id) {
-  //     return orderId;
+  //   // if (!order_Id) {
+  //   //   return orderId;
+  //   // } else {
+  //   //   if (!order.isPaid) {
+  //   if (!window.paypal) {
+  //     addPayPalScript();
   //   } else {
-  //     if (!order.isPaid) {
-  //       if (!window.paypal) {
-  //         addPayPalScript();
-  //       } else {
-  //         sdkReady(true);
-  //       }
-  //     }
+  //     setSdkReady(true);
   //   }
-  // }, [order, isPaid, orderId, sdkReady]);
+  //   //   }
+  //   // }
+  // }, []);
 
   // const handlePayment = () => {
   //   let data = { finalTotal: finalTotal, itemsTotal: itemsTotal };
@@ -66,32 +94,54 @@ const Payment = () => {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 />
+      <div className="order-summary-and-payment">
+        <div>
+          <h4>Billing Address</h4>
+          <ul>
+            <li>
+              {billingAddress.firstName} {billingAddress.lastName}
+            </li>
+            <li>
+              {billingAddress.zipcode}
+              {billingAddress.city} {billingAddress.address}
+            </li>
+            <li>{billingAddress.email}</li>
+            <li>{billingAddress.phone}</li>
+            <li></li>
+          </ul>
 
-      <h4>Billing Address</h4>
-      <h3>{billingAddress.firstName}</h3>
-      <h3>{billingAddress.lastName}</h3>
-      <h3>{billingAddress.phone}</h3>
-      <h3>{billingAddress.email}</h3>
-      <h3>{billingAddress.city}</h3>
-      <h3>{billingAddress.address}</h3>
+          <ul>
+            <li>
+              {alternativeAddress.firstName} {alternativeAddress.lastName}
+            </li>
+            <li>
+              {alternativeAddress.zipcode}
+              {alternativeAddress.city} {alternativeAddress.address}
+            </li>
+            <li>{alternativeAddress.email}</li>
+            <li>{alternativeAddress.phone}</li>
+            <li></li>
+          </ul>
+          <ul>
+            <li>Products price:{cartTotal}</li>
+            <li>
+              Shipping cost:
+              {selectedOption === "Hungary" ? "free shipping" : "100ft"}
+            </li>
 
-      <h4>Alternative Address</h4>
-      <h3>{alternativeAddress.firstName}</h3>
-      <h3>{alternativeAddress.lastName}</h3>
-      <h3>{alternativeAddress.phone}</h3>
-      <h3>{alternativeAddress.email}</h3>
-      <h3>{alternativeAddress.city}</h3>
-      <h3>{alternativeAddress.address}</h3>
-      <h3>Subtotal</h3>
-      <h3>{cartTotal}</h3>
-      <h4>Shipping:</h4>
-
-      <h3>{selectedOption === "Hungary" ? "free shipping" : "100ft"}</h3>
-
-      <h2>Total price: </h2>
-      <h3>{finalTotal}</h3>
-
-      <PayPalButton></PayPalButton>
+            <li>{cartTotal}</li>
+            <li>Total Price: {finalTotal}</li>
+          </ul>
+        </div>
+      </div>
+      <div className="paypal-btn-container">
+        <PayPalButton
+          // onClick={calculateCartData}
+          className="paypal-btn"
+          createOrder={createOrder}
+          onApprove={onApprove}
+        ></PayPalButton>
+      </div>
     </div>
   );
 };

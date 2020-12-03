@@ -11,6 +11,9 @@ const FREE_SHIPPING_LIMIT = 10000;
 export const ProductContext = createContext();
 
 const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
+// const billingAddressFromLocalStorage = JSON.parse(
+//   localStorage.getItem("billingAddress") || "{}"
+// );
 
 const ProductProvider = (props) => {
   const [loading, setLoading] = useState(true);
@@ -32,8 +35,6 @@ const ProductProvider = (props) => {
   const [unmounted, setUnmounted] = useState(false);
   const [billingAddress, setBillingAddress] = useState({});
   const [alternativeAddress, setAlternativeAddress] = useState({});
-
-  console.log(billingAddress);
 
   // Get product lists from server -should be 2 separate fetch data function?
 
@@ -69,7 +70,8 @@ const ProductProvider = (props) => {
   };
 
   const handleBillingAddress = (values) => {
-    setBillingAddress(values);
+    const billingDatails = values;
+    setBillingAddress(billingDatails);
   };
 
   const handleAlternativeAddress = (alternativeShippingAddress) => {
@@ -108,6 +110,10 @@ const ProductProvider = (props) => {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+
+  // useEffect(() => {
+  //   localStorage.setItem("billingAddress", JSON.stringify(billingAddress));
+  // }, [billingAddress]);
 
   //Set up a fresh data order to not to change the original data.In order to get the value not the reference.
 
@@ -249,18 +255,16 @@ const ProductProvider = (props) => {
     updateWithShippingCost();
   }, [cart]);
 
-  console.log(billingAddress);
   // sending data to sever side in order to calculate the the total sum and send it to paypal
 
-  const sendFinalPaymentDetails = () => {
+  const calculateCartData = () => {
     let currentCart = [...cart];
 
     let shippingDetails = [];
     const billing = { billingAddress };
     const alternative = { alternativeAddress };
     shippingDetails.push(billing, alternative);
-    console.log(shippingDetails);
-
+    console.log(billingAddress);
     let filteredCart = currentCart
       .filter(
         (item) =>
@@ -271,21 +275,21 @@ const ProductProvider = (props) => {
         return { id, count };
       });
     const cartData = { filteredCart, selectedOption, shippingDetails };
-
-    axios
-      .post(`${window.api_url}/api/payment`, cartData)
-      .then((res) => {
-        console.log("Data send");
-        if (res.status === 200) {
-          console.log(res.data);
-          window.location = res.data.forwardLink;
-        } else {
-          setIsError(true);
-        }
-      })
-      .catch(() => {
-        console.log("data not sent. please try it again");
-      });
+    return cartData;
+    // axios
+    //   .post(`${window.api_url}/api/payment`, cartData)
+    //   .then((res) => {
+    //     console.log("Data send");
+    //     if (res.status === 200) {
+    //       console.log(res.data);
+    //       window.location = res.data.forwardLink;
+    //     } else {
+    //       setIsError(true);
+    //     }
+    //   })
+    //   .catch(() => {
+    //     console.log("data not sent. please try it again");
+    //   });
   };
 
   const calcUpdateTotalItems = () => {
@@ -345,9 +349,9 @@ const ProductProvider = (props) => {
   };
 
   //  we need to reset the products as they are  copies when clearing the cart
-  // const clearCart = () => {
-  //   setCart([]);
-  // };
+  const clearCart = () => {
+    setCart([]);
+  };
   // useEffect(() => {
   //   setProducts(undefined);
   // }, [cart]);
@@ -382,11 +386,12 @@ const ProductProvider = (props) => {
         closeSideModal,
         changePriceandMaterial,
         removeItem,
-        sendFinalPaymentDetails,
+        calculateCartData,
         handleBillingAddress,
         handleAlternativeAddress,
         billingAddress,
         alternativeAddress,
+        clearCart,
       }}
     >
       {props.children}

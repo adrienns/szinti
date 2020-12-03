@@ -7,11 +7,9 @@ import ToggleDeliveryAddress from "./ToggleDeliveryAddress";
 import AlternativeAddress from "./AlternativeAddress";
 
 const ShippingDetailsForm = () => {
-  const {
-    sendFinalPaymentDetails,
-    handleBillingAddress,
-    handleAlternativeAddress,
-  } = useContext(ProductContext);
+  const { handleBillingAddress, handleAlternativeAddress } = useContext(
+    ProductContext
+  );
   const [radio, setRadio] = useState("default address");
   const [values, setValues] = useState({
     firstName: "",
@@ -50,11 +48,6 @@ const ShippingDetailsForm = () => {
   useEffect(() => {
     copyForm();
   }, [radio]);
-
-  sendFinalPaymentDetails;
-  const handleonClick = () => {
-    sendFinalPaymentDetails();
-  };
 
   useEffect(() => {
     handleBillingAddress(values);
@@ -175,7 +168,7 @@ const ShippingDetailsForm = () => {
             <Link to="/payment">
               <button
                 // disabled={values.firstName === ""}
-                onClick={handleonClick}
+
                 onSubmit={handleSubmit}
                 className="continue-payment-btn"
                 type="submit"

@@ -18,3 +18,15 @@
   padding-left: 10px;
   font-weight: bold;
 }
+
+/*payment.js*/
+
+.order-summary-and-payment {
+  text-align: center;
+  width: 600px;
+  margin: 50px 0 50px 0;
+}
+
+.paypal-btn-container {
+  text-align: center;
+}
