@@ -9,6 +9,7 @@ import paypal from "@paypal/checkout-server-sdk";
 import updateWithShippingCost from "./CalculateWithShippingCost.js";
 import getItemDetails from "./Items.js";
 import GetShippingDetails from "./GetShippingDetails.js";
+import calculateTotals from "./CalculateTotalSum.js";
 
 const clientId =
   "Aaw6AON0AFfJ_T-Mzq06vZTF9j5eYJ0j7CBd1mO9glFHduMIVLVKyUkVb9T8MqyKz9pS1U5zGwTADJf_";
@@ -104,10 +105,13 @@ app.post("/api/form", (req, res) => {
 app.post("/api/payment", async (req, res) => {
   try {
     const cartData = req.body;
-    const finalSum = JSON.stringify(updateWithShippingCost(cartData));
+    const finalSum = updateWithShippingCost(cartData);
+    const priceTotal = calculateTotals(cartData);
     const billingAddress = GetShippingDetails(cartData);
     const items = getItemDetails(cartData);
-    console.log(finalSum, billingAddress, items);
+    const shippingFee = finalSum - priceTotal;
+    const shipping = shippingFee.toFixed(2);
+    console.log(finalSum, billingAddress, items, shipping, priceTotal);
 
     // 3. Call PayPal to set up a transaction
     let request = new paypal.orders.OrdersCreateRequest();
@@ -115,79 +119,32 @@ app.post("/api/payment", async (req, res) => {
     request.requestBody({
       intent: "CAPTURE",
       application_context: {
-        return_url: "https://example.com",
+        return_url: `${client_path}/success`,
         cancel_url: "https://example.com",
-        brand_name: "EXAMPLE INC",
-        locale: "en-US",
+        brand_name: "Vewe Jewlery",
         landing_page: "BILLING",
-        shipping_preference: "SET_PROVIDED_ADDRESS",
         user_action: "CONTINUE",
       },
       purchase_units: [
         {
           reference_id: "PUHF",
-          description: "Sporting Goods",
-
-          custom_id: "CUST-HighFashions",
-          soft_descriptor: "HighFashions",
+          description: "payment for Vewe Jewlery",
+          soft_descriptor: "Jewlery Fashion",
           amount: {
-            currency_code: "USD",
-            value: "230.00",
+            currency_code: "HUF",
+            value: finalSum,
             breakdown: {
               item_total: {
-                currency_code: "USD",
-                value: "180.00",
+                currency_code: "HUF",
+                value: priceTotal,
               },
               shipping: {
-                currency_code: "USD",
-                value: "30.00",
-              },
-              handling: {
-                currency_code: "USD",
-                value: "10.00",
-              },
-              tax_total: {
-                currency_code: "USD",
-                value: "20.00",
-              },
-              shipping_discount: {
-                currency_code: "USD",
-                value: "10",
+                currency_code: "HUF",
+                value: shippingFee,
               },
             },
           },
-          items: [
-            {
-              name: "T-Shirt",
-              description: "Green XL",
-              sku: "sku01",
-              unit_amount: {
-                currency_code: "USD",
-                value: "90.00",
-              },
-              tax: {
-                currency_code: "USD",
-                value: "10.00",
-              },
-              quantity: "1",
-              category: "PHYSICAL_GOODS",
-            },
-            {
-              name: "Shoes",
-              description: "Running, Size 10.5",
-              sku: "sku02",
-              unit_amount: {
-                currency_code: "USD",
-                value: "45.00",
-              },
-              tax: {
-                currency_code: "USD",
-                value: "5.00",
-              },
-              quantity: "2",
-              category: "PHYSICAL_GOODS",
-            },
-          ],
+          items: items,
           shipping: {
             method: "United States Postal Service",
             address: {
@@ -207,11 +164,8 @@ app.post("/api/payment", async (req, res) => {
       ],
     });
 
-    let response = await client.execute(request);
-    debugger;
-
+    const response = await client.execute(request);
     console.log(`Response: ${JSON.stringify(response)}`);
-    // If call returns body in response, you can get the deserialized version from the result attribute of the response.
     const orderID = response.result.id;
     console.log(`Order: ${JSON.stringify(response.result)}`);
     const resJson = { orderID };
@@ -229,21 +183,24 @@ app.post("/api/payment", async (req, res) => {
   //   return res.send(500);
   // }
 
-  // 5. Return a successful response to the client with the order ID
-  // let captureOrder = async function (orderID) {
-  //   request = new paypal.orders.OrdersCaptureRequest(orderID);
-  //   request.requestBody({});
-  //   // Call API with your client and get a response for your call
-  //   let response = await client.execute(request);
-  //   console.log(`Response: ${JSON.stringify(response)}`);
-  //   debugger;
-  //   // If call returns body in response, you can get the deserialized version from the result attribute of the response.
-  //   console.log(`Capture: ${JSON.stringify(response.result)}`);
-  // };
-
   // const orderID = await orders.findById(req.params.id);
+});
 
-  // let capture = captureOrder();
+app.post("/api/paypal-transaction-complete", async (req, res) => {
+  const orderID = req.body.orderID;
+  const request = new paypal.orders.OrdersCaptureRequest(orderID);
+  request.requestBody({});
+  try {
+    const capture = await client.execute(request);
+    console.log(`Response: ${JSON.stringify(capture)}`);
+    debugger;
+    console.log(`Capture: ${JSON.stringify(capture.result)}`);
+  } catch (err) {
+    // 5. Handle any errors from the call
+    console.error(err);
+    return res.send(500);
+  }
+  res.send(200);
 });
 
 //   const create_payment_json = JSON.stringify({

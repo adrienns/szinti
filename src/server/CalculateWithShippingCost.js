@@ -14,7 +14,7 @@ const calculateShippingCost = (cartData) => {
 };
 
 const updateWithShippingCost = (cartData) => {
-  const cartTotal = calculateTotals(cartData);
+  const cartTotal = parseInt(calculateTotals(cartData));
   let shippingCost = calculateShippingCost(cartData);
   if (cartTotal > FREE_SHIPPING_LIMIT) {
     return cartTotal;

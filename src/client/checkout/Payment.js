@@ -5,7 +5,7 @@ import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
 import Axios from "axios";
 
-const Payment = () => {
+const Payment = (props) => {
   const [isSent, setisSent] = useState(false);
   const [sdkReady, setSdkReady] = useState(false);
 
@@ -22,7 +22,7 @@ const Payment = () => {
   const cartData = calculateCartData();
   const createOrder = () => {
     return fetch(`${window.api_url}/api/payment`, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify(cartData),
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,6 @@ const Payment = () => {
         return res.json();
       })
       .catch((data) => {
-        debugger;
         console.log("error");
       })
       .then((data) => {
@@ -41,12 +40,28 @@ const Payment = () => {
   };
 
   const onApprove = (data, actions) => {
-    // This function captures the funds from the transaction.
-    return actions.order.capture().then(function (details) {
-      // This function shows a transaction success message to your buyer.
-      alert("Transaction completed by " + details.payer.name.given_name);
-    });
+    return fetch(`${window.api_url}/api/paypal-transaction-complete`, {
+      headers: {
+        "content-type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        orderID: data.orderID,
+      }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .catch((details) => {
+        return props.history.push("/form");
+        debugger;
+        console.log("error");
+      })
+      .then((details) => {
+        return props.history.push("/success");
+      });
   };
+
   // const { firstName } = alternativeAddress;
 
   // const successPaymentHandler=() => {
@@ -80,17 +95,6 @@ const Payment = () => {
   //   // }
   // }, []);
 
-  // const handlePayment = () => {
-  //   let data = { finalTotal: finalTotal, itemsTotal: itemsTotal };
-  //   axios
-  //     .post(`${window.api_url}/api/pay`, data)
-  //     .then((res) => {
-  //       setisSent(true);
-  //     })
-  //     .catch(() => {
-  //       console.log("not successful. please try it again");
-  //     });
-  // };
   return (
     <div>
       <CheckoutSteps step1 step2 step3 />
@@ -136,7 +140,6 @@ const Payment = () => {
       </div>
       <div className="paypal-btn-container">
         <PayPalButton
-          // onClick={calculateCartData}
           className="paypal-btn"
           createOrder={createOrder}
           onApprove={onApprove}

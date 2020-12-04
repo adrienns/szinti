@@ -31,6 +31,7 @@ import ShippingDetails from "./checkout/ShippingDetails";
 import { MaterialProvider } from "./contexts/MaterialContext";
 import { ProductSizeProvider } from "./contexts/ProductSizeContext";
 import Payment from "./checkout/Payment";
+import SuccessfulPaymentPage from "./checkout/SuccessfulPaymentPage";
 
 const LINKS = [
   defineMessages({
@@ -146,6 +147,11 @@ class ReactApp extends React.Component {
                     <Route path="/checkout" exact component={ShippingDetails} />
                     <Route path="/payment" exact component={Payment} />
                     <Route path="/" exact component={Home} />
+                    <Route
+                      path="/success"
+                      exact
+                      component={SuccessfulPaymentPage}
+                    />
                     <Route component={NotFoundPage} />
                     <Redirect to="/404" />
                   </Switch>

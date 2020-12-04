@@ -4,25 +4,44 @@ if (process.env.NODE_ENV == "dev") {
   host = "http://localhost:8080";
 }
 
-const image1 = `${host}/static/cute4.jpg`;
-const image2 = `${host}/static/cute4.jpg`;
-const image3 = `${host}/static/cute4.jpg`;
-const image4 = `${host}/static/cute4.jpg`;
-const image5 = `${host}/static/pics_small2.jpg`;
-const image6 = `${host}/static/cute4.jpg`;
-const image7 = `${host}/static/cute4.jpg`;
-const image8 = `${host}/static/cute3.jpg`;
-const image9 = `${host}/static/cute4.jpg`;
-const image10 = `${host}/static/earingwithpearl.jpg`;
+//earrings
+const image1 = `${host}/static/100.jpg`;
+const image2 = `${host}/static/1.jpg`;
+const image3 = `${host}/static/2a.jpg`;
+const image4 = `${host}/static/2a.jpg`;
+const image5 = `${host}/static/2.jpg`;
+const image6 = `${host}/static/3a.jpg`;
+const image7 = `${host}/static/3.jpg`;
+const image8 = `${host}/static/4a.jpg`;
+const image9 = `${host}/static/4.jpg`;
+const image10 = `${host}/static/5a.jpg`;
+const image11 = `${host}/static/5.jpg`;
+const image12 = `${host}/static/6a.jpg`;
+const image13 = `${host}/static/6.jpg`;
+const image14 = `${host}/static/7a.jpg`;
+const image15 = `${host}/static/7.jpg`;
+const image16 = `${host}/static/8a.jpg`;
+const image17 = `${host}/static/8.jpg`;
+const image18 = `${host}/static/9.jpg`;
+const image19 = `${host}/static/10.jpg`;
+
+//necklaces
+const image20 = `${host}/static/13a.jpg`;
+const image21 = `${host}/static/13.jpg`;
+const image22 = `${host}/static/14a.jpg`;
+const image23 = `${host}/static/14.jpg`;
+const image24 = `${host}/static/15a.jpg`;
+const image25 = `${host}/static/15.jpg`;
+const image26 = `${host}/static/16.jpg`;
 
 const data = {
   necklaceProductList: [
     {
       id: 1,
       type: "necklaces",
-      firstImage: image1,
-      secondImage: image2,
-      images: [image1, image2, image3, image4],
+      firstImage: image20,
+      secondImage: image21,
+      images: [image21, image20, image3, image4],
       selectedMaterial: { gold: 0, silver: 22, bronze: 340444 },
       link: "organicnecklaceproduct",
       price: 200,
@@ -36,11 +55,11 @@ const data = {
     {
       id: 2,
       type: "necklaces",
-      firstImage: image4,
-      secondImage: image3,
+      firstImage: image22,
+      secondImage: image23,
       selectedMaterial: { gold: 0, silver: 22, bronze: 340444 },
       link: "organicnecklaceitem2",
-      images: [image2, image3, image3, image4],
+      images: [image22, image22, image3, image4],
       price: 220,
       name: "Item2",
       info: "sofrfjgklfgjflef",
@@ -52,11 +71,11 @@ const data = {
     {
       id: 3,
       type: "necklaces",
-      firstImage: image6,
-      secondImage: image5,
+      firstImage: image24,
+      secondImage: image25,
       link: "organicnecklaceitem3",
       selectedMaterial: { gold: 0, silver: 22, bronze: 340444 },
-      images: [image3, image2, image1, image4],
+      images: [image25, image24, image1, image4],
       price: 400,
       name: "Item3",
       info: "sofrfjgklfgjflef",
@@ -67,11 +86,11 @@ const data = {
     {
       id: 4,
       type: "necklaces",
-      firstImage: image2,
-      secondImage: image1,
+      firstImage: image26,
+      secondImage: image26,
       selectedMaterial: { gold: 0, silver: 22, bronze: 340444 },
 
-      images: [image1, image2, image3, image4],
+      images: [image26, image2, image3, image4],
       link: "organicnecklaceitem4",
       price: 330,
       name: "Item4",
