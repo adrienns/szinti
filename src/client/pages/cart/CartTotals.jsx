@@ -18,7 +18,7 @@ const CartTotals = ({ val, history }) => {
         <tr>
           <th className="cart-totals-table-inner-chart">Subtotal</th>
           <td className="cart-totals-table-inner-chart">
-            <span id="order-summery-text-right">{cartTotal} $</span>
+            <span id="order-summery-text-right">{cartTotal} HUF</span>
           </td>
         </tr>
         <tr>
@@ -70,7 +70,7 @@ const CartTotals = ({ val, history }) => {
             Total
           </th>
           <td className="order-summary-total" id="order-summery-text-right">
-            {finalTotal} $
+            {finalTotal} HUF
           </td>
         </tr>
       </tbody>

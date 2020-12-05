@@ -117,7 +117,7 @@ const CartModal = () => {
             <div className="cart-modal-subtotal-container">
               <div className="modal-total-cart-wrapper">
                 <div> SubTotal:</div>
-                <div> {cartTotal}$</div>
+                <div> {cartTotal}HUF</div>
               </div>
               <div className="modal-total-cart-wrapper">
                 <h5>Including V.A.T </h5>

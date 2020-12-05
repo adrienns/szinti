@@ -4,9 +4,9 @@ import React, { useState, useContext, useEffect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
 import Axios from "axios";
+import { idText } from "typescript";
 
 const Payment = (props) => {
-  const [isSent, setisSent] = useState(false);
   const [sdkReady, setSdkReady] = useState(false);
 
   const {
@@ -22,7 +22,7 @@ const Payment = (props) => {
   const cartData = calculateCartData();
   const createOrder = () => {
     return fetch(`${window.api_url}/api/payment`, {
-      method: "POST",
+      method: "post",
       body: JSON.stringify(cartData),
       headers: {
         "content-type": "application/json",
@@ -44,7 +44,7 @@ const Payment = (props) => {
       headers: {
         "content-type": "application/json",
       },
-      method: "POST",
+      method: "post",
       body: JSON.stringify({
         orderID: data.orderID,
       }),
@@ -53,11 +53,15 @@ const Payment = (props) => {
         return res.json();
       })
       .catch((details) => {
-        return props.history.push("/form");
-        debugger;
         console.log("error");
+        return props.history.push("/form");
       })
       .then((details) => {
+        const { result } = details;
+        const { id, payer, purchase_unit } = result;
+        console.log(
+          `Successful payment:${id} ${payer.name.given_name} ${payer.email}`
+        );
         return props.history.push("/success");
       });
   };
@@ -137,6 +141,14 @@ const Payment = (props) => {
             <li>Total Price: {finalTotal}</li>
           </ul>
         </div>
+        {/* <div>
+          {" "}
+          {paid ? (
+            <div>Payment successful!</div>
+          ) : (
+            <div>Error Occurred in processing payment! Please try again.</div>
+          )}{" "}
+        </div> */}
       </div>
       <div className="paypal-btn-container">
         <PayPalButton

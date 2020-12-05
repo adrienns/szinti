@@ -39,12 +39,12 @@ const SinglePhoto = (props) => {
       <ProductConsumer>
         {(value) => (
           <div>
-            <div
-              className="image-container"
-              onClick={() => value.handleSingleProduct(id)}
-            >
-              <Link to={`/organicproduct/${name}`}>
-                <div className="img-wrapper-single">
+            <Link to={`/organicproduct/${name}`}>
+              <div
+                className="img-wrapper-single"
+                onClick={() => value.handleSingleProduct(id)}
+              >
+                <div>
                   {transitions.map(({ item, key, props }) => (
                     <animated.img
                       key={key}
@@ -56,15 +56,12 @@ const SinglePhoto = (props) => {
                       url={imgUrl}
                       alt="product"
                     ></animated.img>
-                  ))}
+                  ))}{" "}
                 </div>
-              </Link>
-            </div>
-
-            <div onMouseEnter={handleMouseOn} onMouseLeave={handleMouseOff}>
-              <div>
                 {isHovered ? (
                   <button
+                    onMouseEnter={handleMouseOn}
+                    onMouseLeave={handleMouseOff}
                     className="cart_btn"
                     onClick={() => {
                       value.openModal(id);
@@ -76,10 +73,13 @@ const SinglePhoto = (props) => {
                   ""
                 )}
               </div>
+            </Link>
+
+            <div className="necklace-text-container">
               <p className="product-description">
                 <Link to={`/organicproduct/${name}`}>{name}</Link>
               </p>
-              <p className="product-description">{imgPrice}$</p>
+              <p className="product-description">{imgPrice} HUF</p>
             </div>
           </div>
         )}

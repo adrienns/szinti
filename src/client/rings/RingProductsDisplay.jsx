@@ -21,10 +21,10 @@ const RingProductsDisplay = () => {
         </h3>
       ) : (
         <React.Fragment>
-          <div className="location-param">
+          <h5 className="location-param">
             <Link to="/">Home </Link>
             {pathname}
-          </div>
+          </h5>
           <ul className="ring_container">
             {products
               .filter((element) => element.type === "rings")

@@ -193,14 +193,16 @@ app.post("/api/paypal-transaction-complete", async (req, res) => {
   try {
     const capture = await client.execute(request);
     console.log(`Response: ${JSON.stringify(capture)}`);
-    debugger;
     console.log(`Capture: ${JSON.stringify(capture.result)}`);
+    const result = capture.result;
+    const resJson = { result };
+    res.json(resJson);
+    // return capture.result;
   } catch (err) {
     // 5. Handle any errors from the call
     console.error(err);
     return res.send(500);
   }
-  res.send(200);
 });
 
 //   const create_payment_json = JSON.stringify({
