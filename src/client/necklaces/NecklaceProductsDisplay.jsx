@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import SinglePhoto from "./SinglePhoto";
+import SinglePhoto from "../products_display/SinglePhoto";
 import "./NecklaceProductsDisplay.css";
 import { useLocation, Link } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";

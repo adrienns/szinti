@@ -13,7 +13,8 @@ import HomePage from "./pages/Homepage";
 import NotFoundPage from "./pages/404";
 import NavBar from "./navbar/navbar";
 import AboutUs from "./pages/aboutus/AboutUs";
-import FinalNecklacesDisplay from "./products_display/FinalNecklacesDisplay";
+import FinalNecklacesDisplay from "./necklaces/FinalNecklacesDisplay";
+import FinalEaringsDisplay from "./earings/FinalEaringsDisplay";
 import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/Footer";
 import Cart from "./pages/cart/Cart";
@@ -132,6 +133,11 @@ class ReactApp extends React.Component {
                       path={`/${LINKMAP["app.necklace"]}`}
                       exact
                       component={FinalNecklacesDisplay}
+                    />
+                    <Route
+                      path={`/${LINKMAP["app.earing"]}`}
+                      exact
+                      component={FinalEaringsDisplay}
                     />
                     <Route path="/cart" exact strict component={Cart} />
                     <Route

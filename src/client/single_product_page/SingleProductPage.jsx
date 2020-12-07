@@ -41,72 +41,69 @@ const SingleProductPage = (props) => {
   const imgSrc = props.productImages[currentImage];
 
   return (
-    <React.Fragment>
-      <div className="product_wrapper">
+    <div className="product_wrapper">
+      <div>
+        <SideImages
+          currentImage={currentImage}
+          onChange={changeCurrentImageTo}
+          productImages={props.productImages}
+        />
+      </div>
+
+      <div className="img_container">
+        <span className="prev_btn" onClick={handlePrevImage}></span>
+        <SwitchTransition>
+          <CSSTransition
+            key={currentImage}
+            timeout={{ enter: 500, exit: 100 }}
+            classNames="fade"
+          >
+            <img src={imgSrc} className="sideImageClass" alt="product" />
+          </CSSTransition>
+        </SwitchTransition>
+        <span className="next_btn" onClick={handleNextImage}></span>
+      </div>
+
+      <div className="product_textbox">
         <div>
-          <SideImages
-            currentImage={currentImage}
-            onChange={changeCurrentImageTo}
-            productImages={props.productImages}
-          />
+          <h1>
+            {" "}
+            {name} {material}
+          </h1>
+          <h5> {info}</h5>
+
+          <h1>{price + newPricewithMaterial}</h1>
         </div>
 
-        <div className="img_container">
-          <button className="prev_btn" onClick={handlePrevImage}></button>
-          <SwitchTransition>
-            <CSSTransition
-              key={currentImage}
-              timeout={{ enter: 500, exit: 100 }}
-              classNames="fade"
-            >
-              <img src={imgSrc} className="sideImageClass" alt="product" />
-            </CSSTransition>
-          </SwitchTransition>
-          <button className="next_btn" onClick={handleNextImage}></button>
-        </div>
+        <MaterialDropDown />
+        <SizeDropDown />
+        <ColorDropDown />
 
-        <div className="product_textbox">
+        <div className="single_product_page_button_container">
           <div>
-            <h1>
-              {" "}
-              {name} {material}
-            </h1>
-            <h5> {info}</h5>
-
-            <h1>{price + newPricewithMaterial}</h1>
+            <button
+              disabled={material === "select" ? true : false}
+              onClick={() => {
+                incrementCartProduct(id, material);
+                openSideModal();
+              }}
+            >
+              Add to Shopping Bag
+            </button>
           </div>
-
-          <MaterialDropDown />
-          <SizeDropDown />
-          <ColorDropDown />
-
-          <div className="single_product_page_button_container">
-            <div>
-              <button
-                className="modal-btn"
-                disabled={material === "select" ? true : false}
-                onClick={() => {
-                  incrementCartProduct(id, material);
-                  openSideModal();
-                }}
-              >
-                Add to Shopping Bag
-              </button>
-            </div>
-            <div>
-              <Link to="/necklaces">
-                <button>Continue Shopping</button>{" "}
-              </Link>
-            </div>
-            <div>
-              <Link to="/cart">
-                <button>Pay Now</button>
-              </Link>
-            </div>
+          <div>
+            <Link to="/necklaces">
+              <button>Continue Shopping</button>{" "}
+            </Link>
+          </div>
+          <div>
+            <Link to="/cart">
+              <button>Pay Now</button>
+            </Link>
           </div>
         </div>
       </div>
-    </React.Fragment>
+    </div>
   );
 };
 

@@ -1,39 +1,21 @@
 .jewelery-item {
-  margin: 70px 0 70px 0;
+  margin: 70px 0 20px 0;
   list-style: none;
   position: relative;
-  height: 65vh;
-}
-
-.img-wrapper-single {
-  display: inline-block;
-
-  /* width: 325px; */
-  /* max-height: 100%; */
-  /* min-width: 100%; */
-  /* display: inline-block; */
+  height: 60vh;
+  overflow: hidden;
 }
 
 .necklaces-img {
   position: absolute;
-  /* width: 325px;
-  height: 400px; */
   max-width: 100%;
   height: auto;
-  top: 0;
-  bottom: 0;
 }
 
 .product-description {
-  padding: 20px 0 0 0;
-
+  margin-bottom: 10px;
   text-align: center;
 }
-
-/* .necklace-text-container {
-  width: 100%;
-
-} */
 
 .cart_btn {
   position: absolute;

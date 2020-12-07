@@ -3,7 +3,7 @@ import "./SinglePhoto.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../contexts/ProductContext";
-import { useSpring, useTransition, animated } from "react-spring";
+import { useTransition, animated } from "react-spring";
 
 const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
@@ -35,56 +35,60 @@ const SinglePhoto = (props) => {
   const { id, imgUrl, name, imgPrice, secondImg, mainImg } = props;
 
   return (
-    <li className="jewelery-item">
-      <ProductConsumer>
-        {(value) => (
-          <div>
-            <Link to={`/organicproduct/${name}`}>
-              <div
-                className="img-wrapper-single"
-                onClick={() => value.handleSingleProduct(id)}
-              >
-                <div>
-                  {transitions.map(({ item, key, props }) => (
-                    <animated.img
-                      key={key}
-                      style={props}
-                      className="necklaces-img"
-                      onMouseLeave={() => item && handleMouseOff()}
-                      onMouseEnter={() => !item && handleMouseOn()}
-                      src={item ? secondImg : mainImg}
-                      url={imgUrl}
-                      alt="product"
-                    ></animated.img>
-                  ))}{" "}
+    <div>
+      <li className="jewelery-item">
+        <ProductConsumer>
+          {(value) => (
+            <div>
+              <Link to={`/organicproduct/${name}`}>
+                <div
+                  className="img-wrapper-single"
+                  onClick={() => value.handleSingleProduct(id)}
+                >
+                  <div>
+                    {transitions.map(({ item, key, props }) => (
+                      <animated.img
+                        key={key}
+                        style={props}
+                        className="necklaces-img"
+                        onMouseLeave={() => item && handleMouseOff()}
+                        onMouseEnter={() => !item && handleMouseOn()}
+                        src={item ? secondImg : mainImg}
+                        url={imgUrl}
+                        alt="product"
+                      ></animated.img>
+                    ))}{" "}
+                    <div
+                      onMouseEnter={handleMouseOn}
+                      onMouseLeave={handleMouseOff}
+                    >
+                      {isHovered ? (
+                        <button
+                          className="cart_btn"
+                          onClick={() => {
+                            value.openModal(id);
+                          }}
+                        >
+                          <p className="button_text">ADD TO BAG</p>
+                        </button>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
                 </div>
-                {isHovered ? (
-                  <button
-                    onMouseEnter={handleMouseOn}
-                    onMouseLeave={handleMouseOff}
-                    className="cart_btn"
-                    onClick={() => {
-                      value.openModal(id);
-                    }}
-                  >
-                    <p className="button_text">ADD TO BAG</p>
-                  </button>
-                ) : (
-                  ""
-                )}
-              </div>
-            </Link>
-
-            <div className="necklace-text-container">
-              <p className="product-description">
-                <Link to={`/organicproduct/${name}`}>{name}</Link>
-              </p>
-              <p className="product-description">{imgPrice} HUF</p>
+              </Link>
             </div>
-          </div>
-        )}
-      </ProductConsumer>
-    </li>
+          )}
+        </ProductConsumer>
+      </li>
+      <div className="necklace-text-container">
+        <p className="product-description">
+          <Link to={`/organicproduct/${name}`}>{name}</Link>
+        </p>
+        <p className="product-description">{imgPrice}HUF</p>
+      </div>
+    </div>
   );
 };
 

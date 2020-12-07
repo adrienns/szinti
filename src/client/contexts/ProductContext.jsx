@@ -43,8 +43,11 @@ const ProductProvider = (props) => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`${window.api_url}/api/data`);
-        const { necklaceProductList, ringsProductList } = data;
-        const productLists = [...necklaceProductList, ...ringsProductList];
+        debugger;
+
+        const { necklaceProductList, earingProductList } = data;
+
+        const productLists = [...necklaceProductList, ...earingProductList];
         if (!unmounted) {
           setLoading(false);
           setProductLists(productLists);
@@ -257,7 +260,7 @@ const ProductProvider = (props) => {
 
   // sending data to sever side in order to calculate the the total sum and send it to paypal
 
-  const calculateCartData = () => {
+  const sendFinalPaymentDetails = () => {
     let currentCart = [...cart];
 
     let shippingDetails = [];
@@ -386,7 +389,7 @@ const ProductProvider = (props) => {
         closeSideModal,
         changePriceandMaterial,
         removeItem,
-        calculateCartData,
+        sendFinalPaymentDetails,
         handleBillingAddress,
         handleAlternativeAddress,
         billingAddress,
