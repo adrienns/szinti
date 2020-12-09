@@ -102,19 +102,20 @@ const Payment = (props) => {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 />
-      <div className="order-summary-and-payment">
-        <div>
-          <h4>Billing Address</h4>
+      <div className="order-summary-and-payment-container">
+        <div className="order-summary-and-payment">
+          <h3 className="final-order-details">Order details</h3>
+          <h4>Your shipping address:</h4>
           <ul>
             <li>
-              {billingAddress.firstName} {billingAddress.lastName}
+              {alternativeAddress.firstName} {alternativeAddress.lastName}
             </li>
             <li>
-              {billingAddress.zipcode}
-              {billingAddress.city} {billingAddress.address}
+              {alternativeAddress.zipcode}
+              {alternativeAddress.city} {alternativeAddress.address}
             </li>
-            <li>{billingAddress.email}</li>
-            <li>{billingAddress.phone}</li>
+            <li>{alternativeAddress.email}</li>
+            <li>{alternativeAddress.phone}</li>
             <li></li>
           </ul>
 
@@ -150,13 +151,13 @@ const Payment = (props) => {
           )}{" "}
         </div> */}
       </div>
-      <div className="paypal-btn-container">
+      <section className="paypal-btn-container">
         <PayPalButton
           className="paypal-btn"
           createOrder={createOrder}
           onApprove={onApprove}
         ></PayPalButton>
-      </div>
+      </section>
     </div>
   );
 };

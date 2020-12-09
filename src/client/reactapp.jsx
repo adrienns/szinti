@@ -19,7 +19,7 @@ import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/Footer";
 import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
-import { ProductProvider } from "./contexts/ProductContext";
+import { ProductProvider, ProductContext } from "./contexts/ProductContext";
 import CartModal from "./pages/cart/CartModal";
 import Modal from "./products_display/Modal";
 import OrganicProduct from "./single_product_page/OrganicProduct";
@@ -80,7 +80,6 @@ class ReactApp extends React.Component {
   state = {
     responsiveNavMenuOpen: false,
   };
-
   responsiveNavMenuHandler = () => {
     this.setState((prevState) => {
       return { responsiveNavMenuOpen: !prevState.responsiveNavMenuOpen };
@@ -99,75 +98,82 @@ class ReactApp extends React.Component {
             <Router>
               <ScrollToTop />
               <div className="app">
-                <header className="header">
-                  <Topbar />
-                  <NavBar
-                    links={LINKS}
-                    responsiveNavMenuHandler={this.responsiveNavMenuHandler}
-                  />
-                  <ResponsiveNavMenuOpen
-                    show={this.state.responsiveNavMenuOpen}
-                    links={LINKS}
-                    closeResponsiveNavMenu={this.closeResponsiveNavMenu}
-                  />
-                </header>
-                <div className="main-container">
-                  <Switch>
-                    <Route
-                      path={`/${LINKMAP["app.aboutus"]}`}
-                      exact
-                      component={AboutUs}
+                <React.Fragment>
+                  <header className="header">
+                    <Topbar />
+                    <NavBar
+                      links={LINKS}
+                      responsiveNavMenuHandler={this.responsiveNavMenuHandler}
                     />
-                    ``
-                    <Route
-                      path="/organicproduct/:slug"
-                      exact
-                      component={OrganicProduct}
+                    <ResponsiveNavMenuOpen
+                      show={this.state.responsiveNavMenuOpen}
+                      links={LINKS}
+                      closeResponsiveNavMenu={this.closeResponsiveNavMenu}
                     />
-                    <Route
-                      path={`/${LINKMAP["app.ring"]}`}
-                      exact
-                      component={FinalRingsDisplay}
-                    />
-                    <Route
-                      path={`/${LINKMAP["app.necklace"]}`}
-                      exact
-                      component={FinalNecklacesDisplay}
-                    />
-                    <Route
-                      path={`/${LINKMAP["app.earing"]}`}
-                      exact
-                      component={FinalEaringsDisplay}
-                    />
-                    <Route path="/cart" exact strict component={Cart} />
-                    <Route
-                      path={`/${LINKMAP["app.contactus"]}`}
-                      exact
-                      component={Form}
-                    />
-                    <Route
-                      path="/terms&conditions"
-                      exact
-                      component={TermsandConditions}
-                    />
-                    <Route path="/checkout" exact component={ShippingDetails} />
-                    <Route path="/payment" exact component={Payment} />
-                    <Route path="/" exact component={Home} />
-                    <Route
-                      path="/success"
-                      exact
-                      component={SuccessfulPaymentPage}
-                    />
-                    <Route component={NotFoundPage} />
-                    <Redirect to="/404" />
-                  </Switch>
-                  <CartModal />
-                  <Modal />
-                </div>
-                <div className="footer">
-                  <Footer />
-                </div>
+                  </header>
+                  <div className="main-container">
+                    <Switch>
+                      <Route
+                        path={`/${LINKMAP["app.aboutus"]}`}
+                        exact
+                        component={AboutUs}
+                      />
+                      ``
+                      <Route
+                        path="/organicproduct/:slug"
+                        exact
+                        component={OrganicProduct}
+                      />
+                      <Route
+                        path={`/${LINKMAP["app.ring"]}`}
+                        exact
+                        component={FinalRingsDisplay}
+                      />
+                      <Route
+                        path={`/${LINKMAP["app.necklace"]}`}
+                        exact
+                        component={FinalNecklacesDisplay}
+                      />
+                      <Route
+                        path={`/${LINKMAP["app.earing"]}`}
+                        exact
+                        component={FinalEaringsDisplay}
+                      />
+                      <Route path="/cart" exact strict component={Cart} />
+                      <Route
+                        path={`/${LINKMAP["app.contactus"]}`}
+                        exact
+                        component={Form}
+                      />
+                      <Route
+                        path="/terms&conditions"
+                        exact
+                        component={TermsandConditions}
+                      />
+                      <Route
+                        path="/checkout"
+                        exact
+                        component={ShippingDetails}
+                      />
+                      <Route path="/payment" exact component={Payment} />
+                      <Route path="/" exact component={Home} />
+                      <Route
+                        path="/success"
+                        exact
+                        component={SuccessfulPaymentPage}
+                      />
+                      <Route component={NotFoundPage} />
+                      <Redirect to="/404" />
+                    </Switch>
+                    <CartModal />
+                    <Modal />
+                  </div>
+                  <div className="footer">
+                    <Footer />
+                  </div>
+                </React.Fragment>
               </div>
+              ;
             </Router>
           </ProductSizeProvider>
         </MaterialProvider>

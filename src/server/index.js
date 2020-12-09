@@ -5,11 +5,11 @@ import express from "express";
 import data from "./data.js";
 import cors from "cors";
 import paypal from "@paypal/checkout-server-sdk";
-
 import updateWithShippingCost from "./CalculateWithShippingCost.js";
 import getItemDetails from "./Items.js";
 import GetShippingDetails from "./GetShippingDetails.js";
 import calculateTotals from "./CalculateTotalSum.js";
+import compression from "compression";
 
 const clientId =
   "Aaw6AON0AFfJ_T-Mzq06vZTF9j5eYJ0j7CBd1mO9glFHduMIVLVKyUkVb9T8MqyKz9pS1U5zGwTADJf_";
@@ -27,6 +27,7 @@ const client_path = "http://localhost:1234";
 // sending product data to frontend
 app.use("/static", express.static("src/server/images"));
 app.use(cors());
+app.use(compression({ level: 6 }));
 
 //enable CORS
 app.all("*", function (req, res, next) {
@@ -172,16 +173,8 @@ app.post("/api/payment", async (req, res) => {
     res.json(resJson);
   } catch (err) {
     console.error(err);
+    return res.send(500);
   }
-
-  // let order;
-  // try {
-  //   order = await client.execute(request);
-  // } catch (err) {
-  //   // 4. Handle any errors from the call
-  //   console.error(err);
-  //   return res.send(500);
-  // }
 
   // const orderID = await orders.findById(req.params.id);
 });
@@ -204,77 +197,6 @@ app.post("/api/paypal-transaction-complete", async (req, res) => {
     return res.send(500);
   }
 });
-
-//   const create_payment_json = JSON.stringify({
-//     intent: "sale",
-//     payer: {
-//       payment_method: "paypal",
-//     },
-//     redirect_urls: {
-//       return_url: `${client_path}/success`,
-//       cancel_url: `${client_path}/cancel`,
-//     },
-//     transactions: [
-//       {
-//         item_list: {
-//           items: items,
-//         },
-
-//         amount: {
-//           total: finalSum,
-//           currency: "HUF",
-//           // details: {
-//           //   subtotal: "30.00",
-//           //   shipping: "1.00",
-//           // }, =>not working
-//         },
-
-//         description: "This is the payment transaction description.",
-//       },
-//     ],
-//   });
-
-//   paypal.payment.create(create_payment_json, function (error, payment) {
-//     if (error) {
-//       throw error;
-//     } else {
-//       for (let i = 0; i < payment.links.length; i++) {
-//         if (payment.links[i].rel === "approval_url") {
-//           res.json({ forwardLink: payment.links[i].href });
-//         }
-//       }
-//     }
-//   });
-// });
-
-// app.get("/success", (req, res) => {
-//   const payerId = req.query.PayerID;
-//   const paymentId = req.query.paymentId;
-//   const execute_payment_json = {
-//     payer_id: payerId,
-//     transactions: [
-//       {
-//         amount: {
-//           currency: "HUF",
-//           total: "1",
-//         },
-//       },
-//     ],
-//   };
-//   paypal.payment.execute(paymentId, execute_payment_json, function (
-//     error,
-//     payment
-//   ) {
-//     if (error) {
-//       console.log(error.response);
-//       throw error;
-//     } else {
-//       console.log(JSON.stringify(payment));
-//       res.send("Success");
-//     }
-//   });
-
-// app.get("./cancel", () => res.send("Cancelled"));
 
 // nyakik: meret szin
 // gyuruk meret szin

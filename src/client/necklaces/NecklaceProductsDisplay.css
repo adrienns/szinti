@@ -8,10 +8,17 @@
   margin-top: -54px;
 }
 
-@media only screen and (max-width: 1201px) {
+@media only screen and (max-width: 1300px) {
   .necklace_container {
     margin-top: -54px;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .necklace_container {
+    margin-top: -54px;
+    grid-template-columns: 1fr 1fr;
   }
 }
 

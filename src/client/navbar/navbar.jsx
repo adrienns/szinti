@@ -69,6 +69,7 @@ const NavBar = (props) => {
             <ProductConsumer>
               {(value) => {
                 const { itemsTotal } = value;
+
                 const { openSideModal } = value;
                 return (
                   <div className="item-counter">

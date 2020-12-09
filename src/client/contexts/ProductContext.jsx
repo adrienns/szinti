@@ -36,18 +36,40 @@ const ProductProvider = (props) => {
   const [billingAddress, setBillingAddress] = useState({});
   const [alternativeAddress, setAlternativeAddress] = useState({});
 
-  // Get product lists from server -should be 2 separate fetch data function?
+  const cacheImages = async (srcArray) => {
+    const promises = await srcArray.map((src) => {
+      return new Promise(function (resolve, reject) {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve();
+        img.onerror = reject();
+      });
+    });
+
+    await Promise.all(promises);
+  };
 
   useEffect(() => {
     setUnmounted(false);
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`${window.api_url}/api/data`);
-        debugger;
-
         const { necklaceProductList, earingProductList } = data;
 
         const productLists = [...necklaceProductList, ...earingProductList];
+        console.log(productLists);
+        const imgs1 = productLists.map((el) => {
+          return el.firstImage;
+        });
+
+        const imgs2 = productLists.map((el) => {
+          return el.secondImage;
+        });
+
+        const images = [...imgs1, ...imgs2];
+
+        cacheImages(images);
+
         if (!unmounted) {
           setLoading(false);
           setProductLists(productLists);
@@ -260,7 +282,7 @@ const ProductProvider = (props) => {
 
   // sending data to sever side in order to calculate the the total sum and send it to paypal
 
-  const sendFinalPaymentDetails = () => {
+  const calculateCartData = () => {
     let currentCart = [...cart];
 
     let shippingDetails = [];
@@ -377,6 +399,7 @@ const ProductProvider = (props) => {
         finalTotal,
         loading,
         error,
+        alternativeAddress,
         increment,
         decrement,
         closeModal,
@@ -389,11 +412,11 @@ const ProductProvider = (props) => {
         closeSideModal,
         changePriceandMaterial,
         removeItem,
-        sendFinalPaymentDetails,
+        calculateCartData,
         handleBillingAddress,
         handleAlternativeAddress,
         billingAddress,
-        alternativeAddress,
+
         clearCart,
       }}
     >

@@ -1,0 +1,1 @@
+convert "images_original/*.jpg[250x]" -set filename:base "%[basename]" "images/%[filename:base].jpg"

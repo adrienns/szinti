@@ -36,7 +36,7 @@ const SinglePhoto = (props) => {
 
   return (
     <div>
-      <li className="jewelery-item">
+      <li className="jewelery-item" key={id}>
         <ProductConsumer>
           {(value) => (
             <div>
@@ -56,7 +56,7 @@ const SinglePhoto = (props) => {
                         src={item ? secondImg : mainImg}
                         url={imgUrl}
                         alt="product"
-                      ></animated.img>
+                      />
                     ))}{" "}
                     <div
                       onMouseEnter={handleMouseOn}
