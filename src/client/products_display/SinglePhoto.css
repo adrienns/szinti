@@ -43,6 +43,12 @@
   font-family: "Gill Sans MT", "Calibri", "Trebuchet MS", sans-serif;
 }
 
+.img-placeholder {
+  content: "Placeholder!";
+  width: 100%;
+  height: auto;
+  background-color: rgb(107, 101, 101);
+}
 /*CSS Transition Group*/
 
 .hover-transitions-enter {

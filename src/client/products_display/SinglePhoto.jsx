@@ -4,10 +4,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../contexts/ProductContext";
 import { useTransition, animated } from "react-spring";
-
+import Placeholder from "./Placeholder";
 const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
 
+  const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const transitions = useTransition(isHovered, null, {
     from: { opacity: 0 },
     enter: { opacity: 1 },
@@ -15,6 +16,9 @@ const SinglePhoto = (props) => {
     config: { tension: 220, friction: 120, duration: 300 },
   });
 
+  const handleImageLoaded = () => {
+    setImageIsLoaded(true);
+  };
   // const propsexample2 = useSpring({
   //   opacity: isHovered ? 0.6 : 1,
   //   config: { duration: 100, mass: 5, tension: 2000, friction: 200 },
@@ -46,18 +50,23 @@ const SinglePhoto = (props) => {
                   onClick={() => value.handleSingleProduct(id)}
                 >
                   <div>
-                    {transitions.map(({ item, key, props }) => (
-                      <animated.img
-                        key={key}
-                        style={props}
-                        className="necklaces-img"
-                        onMouseLeave={() => item && handleMouseOff()}
-                        onMouseEnter={() => !item && handleMouseOn()}
-                        src={item ? secondImg : mainImg}
-                        url={imgUrl}
-                        alt="product"
-                      />
-                    ))}{" "}
+                    {" "}
+                    <div>
+                      {!imageIsLoaded && <Placeholder />}
+                      {transitions.map(({ item, key, props }) => (
+                        <animated.img
+                          key={key}
+                          style={props}
+                          className="necklaces-img"
+                          onLoad={handleImageLoaded}
+                          onMouseLeave={() => item && handleMouseOff()}
+                          onMouseEnter={() => !item && handleMouseOn()}
+                          src={item ? secondImg : mainImg}
+                          url={imgUrl}
+                          alt="product"
+                        />
+                      ))}
+                    </div>
                     <div
                       onMouseEnter={handleMouseOn}
                       onMouseLeave={handleMouseOff}
