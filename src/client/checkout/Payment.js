@@ -1,13 +1,14 @@
 import CheckoutSteps from "../checkout/CheckoutSteps";
-import React, { useState, useContext, useEffect } from "react";
-
+import React, { useState, useContext, Redirect } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
-import Axios from "axios";
+import SuccessfulPaymentPage from "./SuccessfulPaymentPage";
 import { idText } from "typescript";
 
 const Payment = (props) => {
   const [sdkReady, setSdkReady] = useState(false);
+  const [paidFor, setPaidFor] = useState(false);
+  const [paymentError, setPaymentError] = useState(false);
 
   const {
     cart,
@@ -54,18 +55,30 @@ const Payment = (props) => {
       })
       .catch((details) => {
         console.log("error");
-        return props.history.push("/form");
+        return props.history.push("/error");
       })
       .then((details) => {
         const { result } = details;
-        const { id, payer, purchase_unit } = result;
+        const { id, payer, purchase_units, status } = result;
+        debugger;
         console.log(
-          `Successful payment:${id} ${payer.name.given_name} ${payer.email}`
+          `Successful payment:${id} status: ${status} Transaction ID:${purchase_units[0].payments.captures[0].id} ${purchase_units[0].payments.captures[0].create_time}`
         );
+        // return <SuccessfulPaymentPage payer_id={id} />;
         return props.history.push("/success");
       });
   };
 
+  const onCancel = (data) => {
+    // Show a cancel page, or return to cart
+  };
+
+  const onError = (err) => {
+    // Show an error page here, when an error occurs
+
+    setPaymentError(true);
+    console.log(err);
+  };
   // const { firstName } = alternativeAddress;
 
   // const successPaymentHandler=() => {
@@ -102,45 +115,38 @@ const Payment = (props) => {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 />
+      <h3 className="final-order-details">Order details</h3>
+
       <div className="order-summary-and-payment-container">
         <div className="order-summary-and-payment">
-          <h3 className="final-order-details">Order details</h3>
-          <h4>Your shipping address:</h4>
-          <ul>
-            <li>
-              {alternativeAddress.firstName} {alternativeAddress.lastName}
-            </li>
-            <li>
-              {alternativeAddress.zipcode}
-              {alternativeAddress.city} {alternativeAddress.address}
-            </li>
-            <li>{alternativeAddress.email}</li>
-            <li>{alternativeAddress.phone}</li>
-            <li></li>
-          </ul>
+          <div className="order-summary-column">
+            <h4>Shipping address:</h4>
+            <ul>
+              <li>
+                {alternativeAddress.firstName} {alternativeAddress.lastName}
+              </li>
+              <li>
+                {alternativeAddress.zipcode}
+                {alternativeAddress.city} {alternativeAddress.address}
+              </li>
+              <li>{alternativeAddress.email}</li>
+              <li>{alternativeAddress.phone}</li>
+              <li></li>
+            </ul>
+          </div>
+          <div className="order-summary-column1">
+            <h4>Order Review:</h4>
+            <ul>
+              <li>Products price:{cartTotal}</li>
+              <li>
+                Shipping cost:
+                {selectedOption === "Hungary" ? "free shipping" : "100ft"}
+              </li>
 
-          <ul>
-            <li>
-              {alternativeAddress.firstName} {alternativeAddress.lastName}
-            </li>
-            <li>
-              {alternativeAddress.zipcode}
-              {alternativeAddress.city} {alternativeAddress.address}
-            </li>
-            <li>{alternativeAddress.email}</li>
-            <li>{alternativeAddress.phone}</li>
-            <li></li>
-          </ul>
-          <ul>
-            <li>Products price:{cartTotal}</li>
-            <li>
-              Shipping cost:
-              {selectedOption === "Hungary" ? "free shipping" : "100ft"}
-            </li>
-
-            <li>{cartTotal}</li>
-            <li>Total Price: {finalTotal}</li>
-          </ul>
+              <li>{cartTotal}</li>
+              <li>Total Price: {finalTotal}</li>
+            </ul>
+          </div>
         </div>
         {/* <div>
           {" "}

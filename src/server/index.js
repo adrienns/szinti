@@ -190,6 +190,7 @@ app.post("/api/paypal-transaction-complete", async (req, res) => {
     const result = capture.result;
     const resJson = { result };
     res.json(resJson);
+    debugger;
     // return capture.result;
   } catch (err) {
     // 5. Handle any errors from the call

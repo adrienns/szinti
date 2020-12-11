@@ -19,7 +19,7 @@ import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/Footer";
 import Cart from "./pages/cart/Cart";
 import ScrollToTop from "./ScrollToTop";
-import { ProductProvider, ProductContext } from "./contexts/ProductContext";
+import { ProductProvider } from "./contexts/ProductContext";
 import CartModal from "./pages/cart/CartModal";
 import Modal from "./products_display/Modal";
 import OrganicProduct from "./single_product_page/OrganicProduct";
@@ -33,6 +33,7 @@ import { MaterialProvider } from "./contexts/MaterialContext";
 import { ProductSizeProvider } from "./contexts/ProductSizeContext";
 import Payment from "./checkout/Payment";
 import SuccessfulPaymentPage from "./checkout/SuccessfulPaymentPage";
+import PaymentError from "./checkout/PaymentError";
 
 const LINKS = [
   defineMessages({
@@ -161,7 +162,8 @@ class ReactApp extends React.Component {
                         path="/success"
                         exact
                         component={SuccessfulPaymentPage}
-                      />
+                      />{" "}
+                      <Route path="/error" exact component={PaymentError} />
                       <Route component={NotFoundPage} />
                       <Redirect to="/404" />
                     </Switch>

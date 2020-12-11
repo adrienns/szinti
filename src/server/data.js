@@ -43,7 +43,7 @@ const data = {
       images: [image21, image20],
       selectedMaterial: { gold: 0, silver: 22, bronze: 340444 },
       link: "organicnecklaceproduct",
-      price: 200,
+      price: 2,
       name: "Item1",
       info: "sofrfjgklfgjflef",
       inCart: false,
