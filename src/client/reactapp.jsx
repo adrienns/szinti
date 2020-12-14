@@ -159,7 +159,7 @@ class ReactApp extends React.Component {
                       <Route path="/payment" exact component={Payment} />
                       <Route path="/" exact component={Home} />
                       <Route
-                        path="/success"
+                        path="/success/:id"
                         exact
                         component={SuccessfulPaymentPage}
                       />{" "}
