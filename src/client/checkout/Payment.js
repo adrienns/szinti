@@ -3,22 +3,15 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
+import OrderSummaryChart from "./OrderSummaryChart";
 
 const Payment = (props) => {
-  const [sdkReady, setSdkReady] = useState(false);
-  const [paidFor, setPaidFor] = useState(false);
-  const [paymentError, setPaymentError] = useState(false);
+  // const [sdkReady, setSdkReady] = useState(false);
+  // const [paidFor, setPaidFor] = useState(false);
+  // const [paymentError, setPaymentError] = useState(false);
   const history = useHistory();
 
-  const {
-    cart,
-    calculateCartData,
-    billingAddress,
-    alternativeAddress,
-    finalTotal,
-    selectedOption,
-    cartTotal,
-  } = useContext(ProductContext);
+  const { calculateCartData } = useContext(ProductContext);
 
   const cartData = calculateCartData();
   const createOrder = () => {
@@ -125,47 +118,15 @@ const Payment = (props) => {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 />
-      <h3 className="final-order-details">Order details</h3>
-
-      <div className="order-summary-and-payment-container">
-        <div className="order-summary-and-payment">
-          <div className="order-summary-column1">
-            <h4 className="order-review-shipping-text">Shipping details:</h4>
-            <ul>
-              <li>
-                {alternativeAddress.firstName} {alternativeAddress.lastName}
-              </li>
-              <li>
-                {alternativeAddress.zipcode}
-                {alternativeAddress.city} {alternativeAddress.address}
-              </li>
-              <li>{alternativeAddress.email}</li>
-              <li>{alternativeAddress.phone}</li>
-              <li></li>
-            </ul>
-          </div>
-          <div className="order-summary-column2">
-            <h4 className="order-review-shipping-text">Order Review:</h4>
-            <ul>
-              <li>Products price: {cartTotal}</li>
-              <li>
-                Shipping cost:{" "}
-                {selectedOption === "Hungary" ? "free shipping" : "100ft"}
-              </li>
-
-              <li>Total Price: {finalTotal}</li>
-            </ul>
-          </div>
-        </div>
-        {/* <div>
-          {" "}
-          {paid ? (
-            <div>Payment successful!</div>
-          ) : (
-            <div>Error Occurred in processing payment! Please try again.</div>
-          )}{" "}
-        </div> */}
-      </div>
+      <OrderSummaryChart />
+      {/* <div>
+    {" "}
+    {paid ? (
+      <div>Payment successful!</div>
+    ) : (
+      <div>Error Occurred in processing payment! Please try again.</div>
+    )}{" "}
+  </div> */}
       <section className="paypal-btn-container">
         <PayPalButton
           className="paypal-btn"

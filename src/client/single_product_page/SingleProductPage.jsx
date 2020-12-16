@@ -20,6 +20,7 @@ const SingleProductPage = (props) => {
     openSideModal,
   } = useContext(ProductContext);
 
+  console.log(props);
   const numberOfImages = props.productImages.length;
 
   const handlePrevImage = () => {

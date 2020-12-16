@@ -73,10 +73,19 @@ const CartTotals = ({ val, history }) => {
             {finalTotal} HUF
           </td>
         </tr>
+        <tr className="continue-to-shipping-details-row">
+          <td colSpan="2">
+            <Link to="/checkout">
+              <p
+                className="continue-to-shipping-details-btn"
+                disabled={finalTotal === 0}
+              >
+                Continue
+              </p>
+            </Link>
+          </td>
+        </tr>
       </tbody>
-      <Link to="/checkout">
-        <button disabled={finalTotal === 0}>Continue</button>
-      </Link>
     </React.Fragment>
   );
 };

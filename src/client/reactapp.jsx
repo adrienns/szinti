@@ -121,7 +121,7 @@ class ReactApp extends React.Component {
                       />
                       ``
                       <Route
-                        path="/organicproduct/:slug"
+                        path="/organicproduct/:name"
                         exact
                         component={OrganicProduct}
                       />

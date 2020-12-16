@@ -4,16 +4,16 @@ import React, { createContext, useState, useEffect, useRef } from "react";
 //   necklaceProductList,
 //   singleProduct,
 // } from "../products_display/NecklacesData";
-// import { ringsProductList } from "../rings/RingsData";
 
 const FREE_SHIPPING_LIMIT = 10000;
 
 export const ProductContext = createContext();
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]");
-// const billingAddressFromLocalStorage = JSON.parse(
-//   localStorage.getItem("billingAddress") || "{}"
-// );
+const EXPIRATION_DURATION = 1000 * 60 * 2; // 1 min
+const objectFromLocalStorage = JSON.parse(localStorage.getItem("key")) || {};
+const currentDate = new Date().getTime().toString();
+const prevDate = objectFromLocalStorage.timestamp;
+console.log(objectFromLocalStorage);
 
 const ProductProvider = (props) => {
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,8 @@ const ProductProvider = (props) => {
   const [singleProduct, setSingleProduct] = useState({});
   const [products, setProducts] = useState([]);
   const [newPricewithMaterial, setnewPricewithMaterial] = useState("");
-  const [cart, setCart] = useState(cartFromLocalStorage);
+
+  const [cart, setCart] = useState(objectFromLocalStorage.cart || []);
   const [inCart, setinCart] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [isSideModalOpen, setisSideModalOpen] = useState(false);
@@ -32,56 +33,31 @@ const ProductProvider = (props) => {
   const [itemsTotal, setItemsTotal] = useState(0);
   const [finalTotal, setFinalTotal] = useState(0);
   const [isAdded, setisAdded] = useState(false);
-  const [unmounted, setUnmounted] = useState(false);
   const [billingAddress, setBillingAddress] = useState({});
   const [alternativeAddress, setAlternativeAddress] = useState({});
-
-  const cacheImages = async (srcArray) => {
-    const promises = await srcArray.map((src) => {
-      return new Promise(function (resolve, reject) {
-        const img = new Image();
-        img.src = src;
-        img.onload = resolve();
-        img.onerror = reject();
-      });
-    });
-
-    await Promise.all(promises);
-  };
+  const isFirstRun = useRef(true);
 
   useEffect(() => {
-    setUnmounted(false);
+    let unmounted = false;
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`${window.api_url}/api/data`);
         const { necklaceProductList, earingProductList } = data;
 
         const productLists = [...necklaceProductList, ...earingProductList];
-        console.log(productLists);
-        const imgs1 = productLists.map((el) => {
-          return el.firstImage;
-        });
-
-        const imgs2 = productLists.map((el) => {
-          return el.secondImage;
-        });
-
-        const images = [...imgs1, ...imgs2];
-
-        cacheImages(images);
 
         if (!unmounted) {
-          setLoading(false);
           setProductLists(productLists);
+          setLoading(false);
         }
       } catch (err) {
         setError(err.message);
-        setLoading(false);
+        // setLoading(false);
       }
     };
     fetchData();
     return () => {
-      setUnmounted(true);
+      unmounted = true;
     };
   }, []);
 
@@ -130,15 +106,25 @@ const ProductProvider = (props) => {
     }
   };
 
-  // Creating local storage
+  // Creating local storage with expatitation
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
+    if (cart.length > 0 && currentDate - prevDate > EXPIRATION_DURATION) {
+      const storedobject = { cart: [], timestamp: prevDate };
+      localStorage.setItem("key", JSON.stringify(storedobject));
+    } else {
+      const storedobject = { cart: cart, timestamp: currentDate };
+      localStorage.setItem("key", JSON.stringify(storedobject));
+      debugger;
+    }
   }, [cart]);
 
-  // useEffect(() => {
-  //   localStorage.setItem("billingAddress", JSON.stringify(billingAddress));
-  // }, [billingAddress]);
+  //   const dateString = objectFromLocalStorage.timestamp,
+  // const currentDate = new Date().getTime().toString();
+
+  // const compareTime =(dateString, currentDate) =>{
+
+  // }
 
   //Set up a fresh data order to not to change the original data.In order to get the value not the reference.
 
@@ -217,7 +203,6 @@ const ProductProvider = (props) => {
 
   const removeItem = (id, material) => {
     let tempCart = [...cart];
-    // tempCart = tempCart.filter((item) => item.id !== id );
     let removedProduct = tempCart.find((item) => item.id == id);
     removedProduct.total[material] = 0;
     removedProduct.count[material] = 0;
@@ -301,20 +286,6 @@ const ProductProvider = (props) => {
       });
     const cartData = { filteredCart, selectedOption, shippingDetails };
     return cartData;
-    // axios
-    //   .post(`${window.api_url}/api/payment`, cartData)
-    //   .then((res) => {
-    //     console.log("Data send");
-    //     if (res.status === 200) {
-    //       console.log(res.data);
-    //       window.location = res.data.forwardLink;
-    //     } else {
-    //       setIsError(true);
-    //     }
-    //   })
-    //   .catch(() => {
-    //     console.log("data not sent. please try it again");
-    //   });
   };
 
   const calcUpdateTotalItems = () => {

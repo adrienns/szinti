@@ -5,23 +5,23 @@ import { ProductConsumer } from "../contexts/ProductContext";
 const OrganicProduct = () => {
   const myFunc = (value) => {
     const { id, images, info, price, name, inCart } = value.singleProduct;
-    const { addToCart } = value;
-    const { openModal } = value;
-    const { incrementCartProduct } = value;
+    const { addToCart, loading, openModal, incrementCartProduct } = value;
 
     return (
-      <SingleProductPage
-        productImages={images}
-        incrementCartProduct={incrementCartProduct}
-        addToCart={addToCart}
-        openModal={openModal}
-        price={price}
-        inCart={inCart}
-        info={info}
-        name={name}
-        id={id}
-        key={id}
-      />
+      images && (
+        <SingleProductPage
+          productImages={images}
+          incrementCartProduct={incrementCartProduct}
+          addToCart={addToCart}
+          openModal={openModal}
+          price={price}
+          inCart={inCart}
+          info={info}
+          name={name}
+          id={id}
+          key={id}
+        />
+      )
     );
   };
 

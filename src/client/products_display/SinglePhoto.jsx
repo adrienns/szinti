@@ -7,7 +7,6 @@ import { useTransition, animated } from "react-spring";
 import Placeholder from "./Placeholder";
 const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
-
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
   const transitions = useTransition(isHovered, null, {
     from: { opacity: 0 },

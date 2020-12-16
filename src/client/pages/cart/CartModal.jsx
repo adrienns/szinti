@@ -19,6 +19,7 @@ const CartModal = () => {
 
   const createCartItems = (cart) => {
     let cartItems = [];
+
     cart.forEach((item) => {
       if (item.count.gold > 0) {
         cartItems.push({
