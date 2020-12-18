@@ -3,6 +3,7 @@ import SinglePhoto from "../products_display/SinglePhoto";
 import "./EaringProductsDisplay.css";
 import { useLocation, Link } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";
+import Loader from "../products_display/Loader";
 
 const EaringProductsDisplay = () => {
   const { pathname } = useLocation();
@@ -11,7 +12,7 @@ const EaringProductsDisplay = () => {
   return (
     <div>
       {loading ? (
-        <h2 className="loading-msg">Loading</h2>
+        <Loader />
       ) : error ? (
         <h3 className="error-msg">
           Something went wrong. Please contact us here :

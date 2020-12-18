@@ -71,32 +71,50 @@
 
 /*successful payment*/
 
-.checkmark-icon-container {
+.successful-payment-outer-wrapper {
   display: flex;
   justify-content: center;
+  background-color: rgb(230, 230, 230);
 }
 
-.successful-payment-text {
+.successful-payment-box {
   text-align: center;
+  background-color: white;
+  margin: 95px 0 100px 0;
+  width: 460px;
+  height: 488px;
 }
 
-.successful-payment-text h4 {
-  margin: 30px 0 20px 0;
+.successful-payment-box h3 {
+  margin: 0 0 20px 0;
 }
 
-.successful-payment-text h5 {
-  margin-bottom: 10px;
+.successful-payment-box h5 {
+  margin: 0 40px 18px 40px;
+  display: flex;
+  justify-content: space-between;
 }
 .checkmark-icon {
-  padding-top: 100px;
+  margin: 49px 0 20px 0;
   width: 90px;
   height: auto;
 }
 
-.successful-payment-order-id {
-  text-align: center;
+.payment-confirmation-details-text {
+  font-weight: lighter;
 }
 
+.payment-confirmation-long-text {
+  padding-bottom: 25px;
+}
+
+.transaction-status {
+  color: green;
+  padding: 1px 3px 1px 3px;
+  font-weight: lighter;
+  border: solid green;
+  border-width: 0.5px;
+}
 /*payment error page*/
 
 .payment-error-icon {

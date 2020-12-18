@@ -9,10 +9,16 @@ const FREE_SHIPPING_LIMIT = 10000;
 
 export const ProductContext = createContext();
 
-const EXPIRATION_DURATION = 1000 * 60 * 2; // 1 min
-const objectFromLocalStorage = JSON.parse(localStorage.getItem("key")) || {};
-const currentDate = new Date().getTime().toString();
+const EXPIRATION_DURATION = 1000 * 60 * 60 * 12; // 2 min
+
+let objectFromLocalStorage = JSON.parse(localStorage.getItem("key")) || {};
+
 const prevDate = objectFromLocalStorage.timestamp;
+const currentDate = new Date().getTime().toString();
+if (currentDate - prevDate > EXPIRATION_DURATION) {
+  localStorage.setItem("key", JSON.stringify({}));
+  objectFromLocalStorage = {};
+}
 console.log(objectFromLocalStorage);
 
 const ProductProvider = (props) => {
@@ -35,7 +41,6 @@ const ProductProvider = (props) => {
   const [isAdded, setisAdded] = useState(false);
   const [billingAddress, setBillingAddress] = useState({});
   const [alternativeAddress, setAlternativeAddress] = useState({});
-  const isFirstRun = useRef(true);
 
   useEffect(() => {
     let unmounted = false;
@@ -109,14 +114,9 @@ const ProductProvider = (props) => {
   // Creating local storage with expatitation
 
   useEffect(() => {
-    if (cart.length > 0 && currentDate - prevDate > EXPIRATION_DURATION) {
-      const storedobject = { cart: [], timestamp: prevDate };
-      localStorage.setItem("key", JSON.stringify(storedobject));
-    } else {
-      const storedobject = { cart: cart, timestamp: currentDate };
-      localStorage.setItem("key", JSON.stringify(storedobject));
-      debugger;
-    }
+    const currentDate = new Date().getTime().toString();
+    const storedobject = { cart: cart, timestamp: currentDate };
+    localStorage.setItem("key", JSON.stringify(storedobject));
   }, [cart]);
 
   //   const dateString = objectFromLocalStorage.timestamp,

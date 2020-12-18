@@ -58,8 +58,9 @@ app.get("/api/products", (req, res) => {
 });
 
 //setting up mailgun
-
 const transporter = nodemailer.createTransport(mailGun(auth));
+
+//setting up mailgun  for form
 
 const sendMail = (email, subject, text, cb) => {
   let mailOptions = {
@@ -78,6 +79,32 @@ const sendMail = (email, subject, text, cb) => {
   });
 };
 
+//setting up mailgun for transation confirmation
+// const sendEmail = (
+//   transactionDate,
+//   transactionId,
+//   status,
+//   address,
+//   email,
+//   name,
+//   cb
+// ) => {
+//   let mailOptions = {
+//     from: email,
+//     to: "vewejewelery@gmail.com",
+//     subject: "Confirmation or Email from customer",
+//     text: text || name + address + status + transactionDate + transactionId,
+//   };
+
+//   transporter.sendEmail(mailOptions, (err, data) => {
+//     if (err) {
+//       cb(err, null);
+//     } else {
+//       cb(null);
+//     }
+//   });
+// };
+
 //data parsing(configuring data)
 app.use(
   express.urlencoded({
@@ -87,21 +114,54 @@ app.use(
 
 app.use(express.json());
 
-//here we are expecting data from the client
+//here we are expecting  data from the client ==> for form
 app.post("/api/form", (req, res) => {
   console.log("Data:", req.body);
   const { customername, email, message } = req.body;
 
-  sendMail(email, customername, message, (err, data) => {
-    if (err) {
-      res.status(500).json({ message: "Internal Error" });
-    } else {
-      res.json({ message: "Email sent" });
+  sendMail(
+    email,
+    `You have received a new message from ${customername}`,
+    message,
+    (err, data) => {
+      if (err) {
+        res.status(500).json({ message: "Internal Error" });
+      } else {
+        res.json({ message: "Email sent" });
+      }
     }
-  });
+  );
 });
 
-//receive data from client,  creating API
+// expected data from client side ==> forsuccesful payment details
+
+app.post("/api/payment_details", (req, res) => {
+  console.log("Payment details dats:", req.body);
+  debugger;
+  const {
+    transactionDate,
+    transactionId,
+    status,
+    address,
+    email,
+    name,
+  } = req.body;
+  sendMail(
+    email,
+    `New transaction ${transactionId} from client ${name} (email: ${email}) made on ${transactionDate}`,
+    `You have received a ${status} transaction from a customer. `,
+
+    (err) => {
+      if (err) {
+        res.status(500).json({ message: "Internal Error" });
+      } else {
+        res.json({ message: "Email sent" });
+      }
+    }
+  );
+});
+
+//receive data from client for payment,  creating API
 
 app.post("/api/payment", async (req, res) => {
   try {
@@ -190,7 +250,7 @@ app.post("/api/paypal-transaction-complete", async (req, res) => {
     const result = capture.result;
     const resJson = { result };
     res.json(resJson);
-    debugger;
+
     // return capture.result;
   } catch (err) {
     // 5. Handle any errors from the call

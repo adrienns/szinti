@@ -21,6 +21,12 @@
   user-select: none;
 }
 
+#spin-loader-container {
+  display: flex;
+  justify-content: center;
+  padding: 150px 0 150px 0;
+}
+
 /* .boxes img {
   width: 100%;
   height: 100%;

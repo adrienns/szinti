@@ -5,6 +5,7 @@ import "./RingProductsDisplay.css";
 import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { useLocation, Link } from "react-router-dom";
+import Loader from "../products_display/Loader";
 
 const RingProductsDisplay = () => {
   const { pathname } = useLocation();
@@ -13,7 +14,7 @@ const RingProductsDisplay = () => {
   return (
     <div>
       {loading ? (
-        <h2 className="loading-msg">Loading</h2>
+        <Loader />
       ) : error ? (
         <h3 className="error-msg">
           Something went wrong. Please contact us here :

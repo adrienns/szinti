@@ -26,19 +26,20 @@ const SinglePhoto = (props) => {
   // const [animated, setAnimation] = useSpring({opacity:0})
 
   const handleMouseOn = () => {
-    setHover(() => ({ isHovered: true }));
+    setHover(true);
   };
 
   const handleMouseOff = () => {
-    setHover(() => {
-      !isHovered;
-    });
+    setHover(false);
   };
 
   const { id, imgUrl, name, imgPrice, secondImg, mainImg } = props;
 
   return (
-    <div>
+    <div
+      onMouseLeave={() => handleMouseOff()}
+      onMouseEnter={() => handleMouseOn()}
+    >
       <li className="jewelery-item" key={id}>
         <ProductConsumer>
           {(value) => (
@@ -49,7 +50,6 @@ const SinglePhoto = (props) => {
                   onClick={() => value.handleSingleProduct(id)}
                 >
                   <div>
-                    {" "}
                     <div>
                       {!imageIsLoaded && <Placeholder />}
                       {transitions.map(({ item, key, props }) => (
@@ -58,18 +58,13 @@ const SinglePhoto = (props) => {
                           style={props}
                           className="necklaces-img"
                           onLoad={handleImageLoaded}
-                          onMouseLeave={() => item && handleMouseOff()}
-                          onMouseEnter={() => !item && handleMouseOn()}
                           src={item ? secondImg : mainImg}
                           url={imgUrl}
                           alt="product"
                         />
                       ))}
                     </div>
-                    <div
-                      onMouseEnter={handleMouseOn}
-                      onMouseLeave={handleMouseOff}
-                    >
+                    <div>
                       {isHovered ? (
                         <button
                           className="cart_btn"

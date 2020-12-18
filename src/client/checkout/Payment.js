@@ -4,9 +4,11 @@ import { useHistory } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
 import OrderSummaryChart from "./OrderSummaryChart";
+import Loader from "../products_display/Loader";
 
 const Payment = (props) => {
   // const [sdkReady, setSdkReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // const [paidFor, setPaidFor] = useState(false);
   // const [paymentError, setPaymentError] = useState(false);
   const history = useHistory();
@@ -25,15 +27,19 @@ const Payment = (props) => {
       .then((res) => {
         return res.json();
       })
-      .catch((data) => {
+      .catch(() => {
         console.log("error");
+        alert(
+          "Payment process was cancelled. If ou wish complete the order please complete the payment"
+        );
       })
       .then((data) => {
         return data.orderID; // Use the same key name for order ID on the client and server
       });
   };
 
-  const onApprove = (data, actions) => {
+  const onApprove = (data) => {
+    setIsLoading(true);
     return fetch(`${window.api_url}/api/paypal-transaction-complete`, {
       headers: {
         "content-type": "application/json",
@@ -48,6 +54,7 @@ const Payment = (props) => {
       })
       .catch((details) => {
         console.log("error");
+        alert("Something went wrong suring the payment. -on approve");
         return history.push("/error");
       })
       .then((details) => {
@@ -56,7 +63,29 @@ const Payment = (props) => {
         const transactionId = purchase_units[0].payments.captures[0].id;
         const transactionDate =
           purchase_units[0].payments.captures[0].create_time;
-        debugger;
+        const name = payer.name.given_name + payer.name.surname;
+        const email = payer.email_address;
+        const address = payer.address.country_code;
+        setIsLoading(false);
+        fetch(`${window.api_url}/api/payment_details`, {
+          headers: { "content-type": "application/json" },
+          method: "post",
+          body: JSON.stringify({
+            transactionDate,
+            transactionId,
+            status,
+            address,
+            email,
+            name,
+          }),
+        })
+          .then((res) => {
+            console.log("message to the seller was sent");
+          })
+          .catch(() => {
+            console.log("message not sent");
+          });
+
         console.log(
           `Successful payment:${id} status: ${status} Transaction ID:${transactionId}${transactionDate}`
         );
@@ -67,6 +96,9 @@ const Payment = (props) => {
             transactionDate: transactionDate,
             transactionId: transactionId,
             status: status,
+            name: name,
+            email: email,
+            address: address,
           },
         });
       });
@@ -83,10 +115,6 @@ const Payment = (props) => {
     console.log(err);
   };
   // const { firstName } = alternativeAddress;
-
-  // const successPaymentHandler=() => {
-  //   amount={order.totalSum} onSuccess={successPaymentHandler}
-  // }
 
   // useEffect(() => {
   //   // getting client ID (byPayPal) from my backend
@@ -118,22 +146,21 @@ const Payment = (props) => {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 />
-      <OrderSummaryChart />
-      {/* <div>
-    {" "}
-    {paid ? (
-      <div>Payment successful!</div>
-    ) : (
-      <div>Error Occurred in processing payment! Please try again.</div>
-    )}{" "}
-  </div> */}
-      <section className="paypal-btn-container">
-        <PayPalButton
-          className="paypal-btn"
-          createOrder={createOrder}
-          onApprove={onApprove}
-        ></PayPalButton>
-      </section>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div>
+          <OrderSummaryChart />
+          <section className="paypal-btn-container">
+            <PayPalButton
+              className="paypal-btn"
+              createOrder={createOrder}
+              onApprove={onApprove}
+            ></PayPalButton>
+          </section>
+          )
+        </div>
+      )}
     </div>
   );
 };
