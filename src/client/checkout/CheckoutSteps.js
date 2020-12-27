@@ -13,11 +13,8 @@ const CheckoutSteps = (props) => {
         <div className={props.step1 ? "active" : ""} id="step1">
           Your Shopping Cart <FontAwesomeIcon icon={faChevronRight} />
         </div>
-        <div className={props.step2 ? "active" : ""} id="step2">
-          Shipping Address <FontAwesomeIcon icon={faChevronRight} />
-        </div>
         <div className={props.step3 ? "active" : ""} id="step3">
-          Payment
+          Shipping Address & Payment
         </div>
       </div>
     </div>

@@ -10,11 +10,11 @@ import getItemDetails from "./Items.js";
 import GetShippingDetails from "./GetShippingDetails.js";
 import calculateTotals from "./CalculateTotalSum.js";
 import compression from "compression";
+import dotenv from 'dotenv';
 
-const clientId =
-  "Aaw6AON0AFfJ_T-Mzq06vZTF9j5eYJ0j7CBd1mO9glFHduMIVLVKyUkVb9T8MqyKz9pS1U5zGwTADJf_";
-const clientSecret =
-  "EBSxkhJmuCUt1vjPz1pRQFQO2lSm7l4f2jMlODbfEoR0W6V7UruTCA-vgJRPMib5lUNxmYGNgbfv_Und";
+dotenv.config({path:'src/.env'});
+const clientId =process.env.PAYPAL_CLIENT_ID;
+const clientSecret =process.env.PAYPAL_SECRET_ID;
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
 

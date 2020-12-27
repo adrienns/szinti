@@ -116,32 +116,7 @@ const Payment = (props) => {
   };
   // const { firstName } = alternativeAddress;
 
-  // useEffect(() => {
-  //   // getting client ID (byPayPal) from my backend
 
-  //   const addPayPalScript = async () => {
-  //     const { data } = await Axios.get("/api/config/paypal");
-  //     const script = document.createElement("script");
-  //     script.type = "text/javascript";
-  //     script.src = `https://www.paypal.com/sdk/js?client-id=${data}&currency=HUF`;
-  //     script.async = true;
-  //     script.onload = () => {
-  //       setSdkReady(true);
-  //     };
-  //     document.body.appendChild(script);
-  //   };
-  //   // if (!order_Id) {
-  //   //   return orderId;
-  //   // } else {
-  //   //   if (!order.isPaid) {
-  //   if (!window.paypal) {
-  //     addPayPalScript();
-  //   } else {
-  //     setSdkReady(true);
-  //   }
-  //   //   }
-  //   // }
-  // }, []);
 
   return (
     <div>
