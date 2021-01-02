@@ -17,6 +17,8 @@ const SuccessfulPaymentPage = () => {
   const transactionId = history.location.state.transactionId;
   const status = history.location.state.status;
   const name = history.location.state.name;
+  const transactionAmount = history.location.state.transactionAmount;
+
 
   return (
     <div className="successful-payment-outer-wrapper">
@@ -49,7 +51,7 @@ const SuccessfulPaymentPage = () => {
           <p>{formattedDate(transactionDate)}</p>
         </h5>
         <h5>
-          <p className="payment-confirmation-details-text">Payment amount</p>{" "}
+          <p className="payment-confirmation-details-text">Payment amount</p><p>{transactionAmount} HUF</p>
         </h5>
       </div>
     </div>

@@ -1,7 +1,9 @@
 footer {
   margin-top: 100px;
   max-width: 100%;
-  background-color: rgb(226, 239, 255);
+  border-top: solid rgb(209, 207, 207);
+  border-width: 0.5px;
+  /* background-color: rgb(226, 239, 255); */
   overflow-x: hidden;
   max-height: 100%;
 }

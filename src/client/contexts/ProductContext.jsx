@@ -39,8 +39,6 @@ const ProductProvider = (props) => {
   const [itemsTotal, setItemsTotal] = useState(0);
   const [finalTotal, setFinalTotal] = useState(0);
   const [isAdded, setisAdded] = useState(false);
-  const [billingAddress, setBillingAddress] = useState({});
-  const [alternativeAddress, setAlternativeAddress] = useState({});
 
   useEffect(() => {
     let unmounted = false;
@@ -75,14 +73,7 @@ const ProductProvider = (props) => {
     setSelectedOption(selectedShippingOption);
   };
 
-  const handleBillingAddress = (values) => {
-    const billingDatails = values;
-    setBillingAddress(billingDatails);
-  };
-
-  const handleAlternativeAddress = (alternativeShippingAddress) => {
-    setAlternativeAddress(alternativeShippingAddress);
-  };
+ 
 
   useEffect(() => {
     updateWithShippingCost();
@@ -270,11 +261,6 @@ const ProductProvider = (props) => {
   const calculateCartData = () => {
     let currentCart = [...cart];
 
-    let shippingDetails = [];
-    const billing = { billingAddress };
-    const alternative = { alternativeAddress };
-    shippingDetails.push(billing, alternative);
-    console.log(billingAddress);
     let filteredCart = currentCart
       .filter(
         (item) =>
@@ -284,7 +270,7 @@ const ProductProvider = (props) => {
         const { id, count } = elem;
         return { id, count };
       });
-    const cartData = { filteredCart, selectedOption, shippingDetails };
+    const cartData = { filteredCart, selectedOption };
     return cartData;
   };
 
@@ -370,7 +356,6 @@ const ProductProvider = (props) => {
         finalTotal,
         loading,
         error,
-        alternativeAddress,
         increment,
         decrement,
         closeModal,
@@ -384,10 +369,7 @@ const ProductProvider = (props) => {
         changePriceandMaterial,
         removeItem,
         calculateCartData,
-        handleBillingAddress,
-        handleAlternativeAddress,
-        billingAddress,
-
+        
         clearCart,
       }}
     >

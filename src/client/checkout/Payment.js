@@ -66,6 +66,8 @@ const Payment = (props) => {
         const name = payer.name.given_name + payer.name.surname;
         const email = payer.email_address;
         const address = payer.address.country_code;
+        const transactionAmount = purchase_units[0].payments.captures[0].amount.value;
+
         setIsLoading(false);
         fetch(`${window.api_url}/api/payment_details`, {
           headers: { "content-type": "application/json" },
@@ -77,6 +79,7 @@ const Payment = (props) => {
             address,
             email,
             name,
+            transactionAmount
           }),
         })
           .then((res) => {
@@ -99,6 +102,7 @@ const Payment = (props) => {
             name: name,
             email: email,
             address: address,
+            transactionAmount:transactionAmount,
           },
         });
       });
@@ -114,13 +118,12 @@ const Payment = (props) => {
     setPaymentError(true);
     console.log(err);
   };
-  // const { firstName } = alternativeAddress;
 
 
 
   return (
     <div>
-      <CheckoutSteps step1 step2 step3 />
+      <CheckoutSteps step1 step2 />
       {isLoading ? (
         <Loader />
       ) : (
@@ -129,6 +132,7 @@ const Payment = (props) => {
           <section className="paypal-btn-container">
             <PayPalButton
               className="paypal-btn"
+
               createOrder={createOrder}
               onApprove={onApprove}
             ></PayPalButton>

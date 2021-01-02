@@ -3,7 +3,6 @@ import { ProductContext } from "../contexts/ProductContext";
 
 export const OrderSummaryChart = () => {
   const {
-    alternativeAddress,
     finalTotal,
     selectedOption,
     cartTotal,
@@ -14,19 +13,7 @@ export const OrderSummaryChart = () => {
       <div className="order-summary-and-payment-container">
         <div className="order-summary-and-payment">
           <div className="order-summary-column1">
-            <h4 className="order-review-shipping-text">Shipping details:</h4>
-            <ul>
-              <li>
-                {alternativeAddress.firstName} {alternativeAddress.lastName}
-              </li>
-              <li>
-                {alternativeAddress.zipcode}
-                {alternativeAddress.city} {alternativeAddress.address}
-              </li>
-              <li>{alternativeAddress.email}</li>
-              <li>{alternativeAddress.phone}</li>
-              <li></li>
-            </ul>
+          
           </div>
           <div className="order-summary-column2">
             <h4 className="order-review-shipping-text">Order Review:</h4>

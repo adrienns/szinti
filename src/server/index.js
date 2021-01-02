@@ -7,7 +7,6 @@ import cors from "cors";
 import paypal from "@paypal/checkout-server-sdk";
 import updateWithShippingCost from "./CalculateWithShippingCost.js";
 import getItemDetails from "./Items.js";
-import GetShippingDetails from "./GetShippingDetails.js";
 import calculateTotals from "./CalculateTotalSum.js";
 import compression from "compression";
 import dotenv from 'dotenv';
@@ -79,32 +78,6 @@ const sendMail = (email, subject, text, cb) => {
   });
 };
 
-//setting up mailgun for transation confirmation
-// const sendEmail = (
-//   transactionDate,
-//   transactionId,
-//   status,
-//   address,
-//   email,
-//   name,
-//   cb
-// ) => {
-//   let mailOptions = {
-//     from: email,
-//     to: "vewejewelery@gmail.com",
-//     subject: "Confirmation or Email from customer",
-//     text: text || name + address + status + transactionDate + transactionId,
-//   };
-
-//   transporter.sendEmail(mailOptions, (err, data) => {
-//     if (err) {
-//       cb(err, null);
-//     } else {
-//       cb(null);
-//     }
-//   });
-// };
-
 //data parsing(configuring data)
 app.use(
   express.urlencoded({
@@ -142,14 +115,14 @@ app.post("/api/payment_details", (req, res) => {
     transactionDate,
     transactionId,
     status,
-    address,
     email,
     name,
   } = req.body;
   sendMail(
     email,
     `New transaction ${transactionId} from client ${name} (email: ${email}) made on ${transactionDate}`,
-    `You have received a ${status} transaction from a customer. `,
+    `You have received a ${status} transaction from a customer. 
+    Shipping address: `,
 
     (err) => {
       if (err) {
@@ -168,11 +141,10 @@ app.post("/api/payment", async (req, res) => {
     const cartData = req.body;
     const finalSum = updateWithShippingCost(cartData);
     const priceTotal = calculateTotals(cartData);
-    const billingAddress = GetShippingDetails(cartData);
     const items = getItemDetails(cartData);
     const shippingFee = finalSum - priceTotal;
     const shipping = shippingFee.toFixed(2);
-    console.log(finalSum, billingAddress, items, shipping, priceTotal);
+    console.log(finalSum, items, shipping, priceTotal);
 
     // 3. Call PayPal to set up a transaction
     let request = new paypal.orders.OrdersCreateRequest();

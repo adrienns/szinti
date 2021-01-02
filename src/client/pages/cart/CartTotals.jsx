@@ -75,7 +75,7 @@ const CartTotals = ({ val, history }) => {
         </tr>
         <tr className="continue-to-shipping-details-row">
           <td colSpan="2">
-            <Link to="/checkout">
+            <Link to="/payment">
               <p
                 className="continue-to-shipping-details-btn"
                 disabled={finalTotal === 0}
