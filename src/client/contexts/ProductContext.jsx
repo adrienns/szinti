@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useState, useEffect, useRef } from "react";
+import React, { createContext, useState, useEffect } from "react";
 // import {
 //   necklaceProductList,
 //   singleProduct,
@@ -28,8 +28,6 @@ const ProductProvider = (props) => {
   const [selectedOption, setSelectedOption] = useState("Hungary");
   const [singleProduct, setSingleProduct] = useState({});
   const [products, setProducts] = useState([]);
-  const [newPricewithMaterial, setnewPricewithMaterial] = useState("");
-
   const [cart, setCart] = useState(objectFromLocalStorage.cart || []);
   const [inCart, setinCart] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -144,59 +142,40 @@ const ProductProvider = (props) => {
     setSingleProduct(product);
   };
 
-  // Calculating price including material
+ 
 
-  const calculatePriceWithMaterial = (id, material) => {
-    let tempProducts = [...products];
-    const index = getIndex(id);
-    const product = { ...tempProducts[index] };
-    tempProducts[index] = product;
-    const price = product.price;
-    const gold = product.selectedMaterial.gold;
-    const silver = product.selectedMaterial.silver;
-    const bronze = product.selectedMaterial.bronze;
-    if (material === "gold") {
-      return gold + price;
-    }
-    if (material === "silver") {
-      return silver + price;
-    }
-    return bronze + price;
-  };
-
-  const increment = (id, material) => {
+  const increment = (id) => {
     let tempCart = [...cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
-    selectedProduct.count[material] += 1;
-    const price = calculatePriceWithMaterial(id, material);
-    selectedProduct.total[material] += price;
+    selectedProduct.count += 1;
+    const price= selectedProduct.price;
+    selectedProduct.total = price* selectedProduct.count;
+    debugger;
+
     setCart([...tempCart]);
   };
 
-  const decrement = (id, material) => {
+  const decrement = (id) => {
     let tempCart = [...cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
-
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
-    product.count[material] -= 1;
+    product.count -= 1;
+ const price= product.price;
 
-    const price = calculatePriceWithMaterial(id, material);
-
-    if (product.count[material] === 0) {
-      removeItem(id, material);
+    if (product.count === 0) {
+      removeItem(id);
     } else {
-      product.total[material] = product.count[material] * price;
-
+      product.total= product.count * price;
       setCart(tempCart);
     }
   };
 
-  const removeItem = (id, material) => {
+  const removeItem = (id) => {
     let tempCart = [...cart];
     let removedProduct = tempCart.find((item) => item.id == id);
-    removedProduct.total[material] = 0;
-    removedProduct.count[material] = 0;
+    removedProduct.total = 0;
+    removedProduct.count = 0;
 
     if (
       Object.values(removedProduct.count).reduce(
@@ -211,12 +190,11 @@ const ProductProvider = (props) => {
 
   const addTotals = () => {
     let cartTotal = 0;
-    let Counter = { gold: 0, silver: 0, bronze: 0 };
-    cart.forEach((item) => {
-      Counter.gold += item.total.gold;
-      Counter.silver += item.total.silver;
-      Counter.bronze += item.total.bronze;
-      cartTotal += item.total.gold + item.total.silver + item.total.bronze;
+    let Counter =0;
+    cart.forEach((item) => 
+    {Counter += item.total;
+      cartTotal += item.total;
+    
     });
     setCartTotal(cartTotal);
   };
@@ -236,16 +214,14 @@ const ProductProvider = (props) => {
     return index != -1;
   };
 
-  const addToCart = (id, material) => {
+  const addToCart = (id) => {
     let tempProducts = [...products];
     const index = tempProducts.indexOf(getItem(id));
     const product = tempProducts[index];
     product.inCart = true;
-    product.count = { gold: 0, silver: 0, bronze: 0 };
-    product.count[material] += 1;
-    const price = calculatePriceWithMaterial(id, material);
-    product.total[material] = price;
-
+    product.count += 1;
+    const price = product.price;
+    product.total = price *product.count;
     setisAdded(true);
     setProducts(tempProducts);
     setCart([...cart, product]);
@@ -264,24 +240,23 @@ const ProductProvider = (props) => {
     let filteredCart = currentCart
       .filter(
         (item) =>
-          item.count.bronze > 0 || item.count.silver > 0 || item.count.gold > 0
+          item.count > 0 
       )
       .map((elem) => {
-        const { id, count } = elem;
-        return { id, count };
+        const { id, count, name, price } = elem;
+        return { id, count, name, price };
       });
     const cartData = { filteredCart, selectedOption };
+    debugger;
     return cartData;
   };
 
   const calcUpdateTotalItems = () => {
     let itemsTotal = 0;
-    let Counter = { gold: 0, silver: 0, bronze: 0 };
+    let Counter =0;
     cart.forEach((item) => {
-      Counter.gold += item.count.gold;
-      Counter.silver += item.count.silver;
-      Counter.bronze += item.count.bronze;
-      itemsTotal += item.count.gold + item.count.silver + item.count.bronze;
+      Counter+= item.count;
+      itemsTotal += item.count;
     });
 
     setItemsTotal(itemsTotal);
@@ -306,29 +281,15 @@ const ProductProvider = (props) => {
     setisAdded(false);
   };
 
-  const incrementCartProduct = (id, material) => {
+  const incrementCartProduct = (id) => {
     if (isInCart(id)) {
-      return increment(id, material);
+      return increment(id);
     } else {
-      return addToCart(id, material);
+      return addToCart(id);
     }
   };
 
-  const changePriceandMaterial = (value) => {
-    productLists.filter((item) => {
-      const { selectedMaterial } = item;
 
-      const { gold, silver, bronze } = selectedMaterial;
-      if (value === "silver") {
-        return setnewPricewithMaterial(silver);
-      }
-
-      if (value === "bronze") {
-        return setnewPricewithMaterial(bronze);
-      }
-      return setnewPricewithMaterial(gold);
-    });
-  };
 
   //  we need to reset the products as they are  copies when clearing the cart
   const clearCart = () => {
@@ -344,7 +305,6 @@ const ProductProvider = (props) => {
         selectedOption,
         singleProduct,
         products,
-        newPricewithMaterial,
         cart,
         inCart,
         modalOpen,
@@ -356,6 +316,7 @@ const ProductProvider = (props) => {
         finalTotal,
         loading,
         error,
+        clearCart,
         increment,
         decrement,
         closeModal,
@@ -366,11 +327,8 @@ const ProductProvider = (props) => {
         openSideModal,
         incrementCartProduct,
         closeSideModal,
-        changePriceandMaterial,
         removeItem,
         calculateCartData,
-        
-        clearCart,
       }}
     >
       {props.children}

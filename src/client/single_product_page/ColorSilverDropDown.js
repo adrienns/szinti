@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { ColorContext } from "../contexts/ProductColorContext";
 
-const ColorDropDown = () => {
-  const [color, setColor] = useState("");
+const ColorSilverDropDown = () => {
+  const { color, handleColor } = useContext(ColorContext);
 
   return (
     <div>
@@ -11,15 +12,14 @@ const ColorDropDown = () => {
           <select
             value={color}
             id="select-color"
-            onClick={(event) => changeColor(event.target.value)}
+            // onClick={(event) => changeColor(event.target.value)}
             onChange={(event) => {
-              setColor(event.target.value);
+              handleColor(event);
             }}
           >
             <option value="select">Please select color</option>
 
-            <option value="pink">Pink</option>
-            <option value="white">White</option>
+            <option value="rodium">Rodium</option>
           </select>
         </label>
       </form>
@@ -27,4 +27,4 @@ const ColorDropDown = () => {
   );
 };
 
-export default ColorDropDown;
+export default ColorSilverDropDown;

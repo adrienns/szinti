@@ -9,11 +9,11 @@ import updateWithShippingCost from "./CalculateWithShippingCost.js";
 import getItemDetails from "./Items.js";
 import calculateTotals from "./CalculateTotalSum.js";
 import compression from "compression";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
-dotenv.config({path:'src/.env'});
-const clientId =process.env.PAYPAL_CLIENT_ID;
-const clientSecret =process.env.PAYPAL_SECRET_ID;
+dotenv.config({ path: "src/.env" });
+const clientId = process.env.PAYPAL_CLIENT_ID;
+const clientSecret = process.env.PAYPAL_SECRET_ID;
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
 const client = new paypal.core.PayPalHttpClient(environment);
 
@@ -110,14 +110,7 @@ app.post("/api/form", (req, res) => {
 
 app.post("/api/payment_details", (req, res) => {
   console.log("Payment details dats:", req.body);
-  debugger;
-  const {
-    transactionDate,
-    transactionId,
-    status,
-    email,
-    name,
-  } = req.body;
+  const { transactionDate, transactionId, status, email, name } = req.body;
   sendMail(
     email,
     `New transaction ${transactionId} from client ${name} (email: ${email}) made on ${transactionDate}`,
@@ -139,12 +132,14 @@ app.post("/api/payment_details", (req, res) => {
 app.post("/api/payment", async (req, res) => {
   try {
     const cartData = req.body;
+    debugger;
+    console.log(cartData);
     const finalSum = updateWithShippingCost(cartData);
     const priceTotal = calculateTotals(cartData);
     const items = getItemDetails(cartData);
     const shippingFee = finalSum - priceTotal;
     const shipping = shippingFee.toFixed(2);
-    console.log(finalSum, items, shipping, priceTotal);
+    // console.log(finalSum, items, shipping, priceTotal);
 
     // 3. Call PayPal to set up a transaction
     let request = new paypal.orders.OrdersCreateRequest();
@@ -230,10 +225,3 @@ app.post("/api/paypal-transaction-complete", async (req, res) => {
     return res.send(500);
   }
 });
-
-// nyakik: meret szin
-// gyuruk meret szin
-// fulik anyag szin
-// de ezt igy eleg nehez
-// mert kesobb aranybol is szeretnek csinani ezt azt
-// es akkor a nyakinak nincs valasztasi lehetoseg

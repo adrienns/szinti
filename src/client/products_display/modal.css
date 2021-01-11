@@ -38,6 +38,7 @@
   letter-spacing: 1px;
   font-weight: bold;
   margin: 5px;
+  margin-top: 60px;
 }
 
 .modal-btn:hover {
@@ -62,27 +63,26 @@
 }
 
 .item-info {
-  margin: 10px;
+  margin: 20px 10px 10px 10px;
+  font-weight: lighter;
+  text-transform: uppercase;
 }
-
-.more-h-text {
+#modal-item-name {
+  font-weight: bolder;
+}
+.more-details-text {
   text-align: center;
-  padding-top: 60px;
+  padding-top: 50px;
 }
-
-#select-material {
-  width: 248px;
-  height: 40px;
-  background-color: white;
-  color: black;
-  border: solid rgb(65, 63, 63);
+#more-details-text:hover {
+  border-bottom: solid black;
+  border-width: 1px;
 }
 
 .exit-btn:before {
   content: "\00d7";
   font-size: 30px;
   margin-right: 8px;
-
   font-weight: 100;
 }
 

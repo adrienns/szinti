@@ -2,31 +2,31 @@ import React, { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 
 export const OrderSummaryChart = () => {
-  const {
-    finalTotal,
-    selectedOption,
-    cartTotal,
-  } = useContext(ProductContext);
+  const { finalTotal, selectedOption, cartTotal, itemsTotal } = useContext(
+    ProductContext
+  );
   return (
     <div>
-      <h3 className="final-order-details">Order details</h3>
-      <div className="order-summary-and-payment-container">
-        <div className="order-summary-and-payment">
-          <div className="order-summary-column1">
-          
-          </div>
-          <div className="order-summary-column2">
-            <h4 className="order-review-shipping-text">Order Review:</h4>
-            <ul>
-              <li>Products price: {cartTotal}</li>
-              <li>
-                Shipping cost:{" "}
-                {selectedOption === "Hungary" ? "free shipping" : "100ft"}
-              </li>
+      <h3 className="final-order-details">Order review</h3>
+      <div className="order-summary-and-payment">
+        <div className="order-summary-box">
+          <ul>
+            <li>
+              Products price:<p></p> <p>{cartTotal} HUF</p>
+            </li>
+            <li>
+              <p>Number of products:</p> <p>{itemsTotal} x</p>
+            </li>
+            <li>
+              <p cla>Shipping cost: </p>
+              <p>{selectedOption === "Hungary" ? "free shipping" : "100ft"}</p>
+            </li>
 
-              <li>Total Price: {finalTotal}</li>
-            </ul>
-          </div>
+            <li>
+              <p>Total Price: </p>
+              <p>{finalTotal} HUF</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

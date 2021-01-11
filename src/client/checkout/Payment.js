@@ -5,21 +5,20 @@ import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
 import OrderSummaryChart from "./OrderSummaryChart";
 import Loader from "../products_display/Loader";
+import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 const Payment = (props) => {
-  // const [sdkReady, setSdkReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const [paidFor, setPaidFor] = useState(false);
-  // const [paymentError, setPaymentError] = useState(false);
   const history = useHistory();
-
-  const { calculateCartData } = useContext(ProductContext);
+  const { calculateCartData, clearCart } = useContext(ProductContext);
 
   const cartData = calculateCartData();
   const createOrder = () => {
+    debugger;
     return fetch(`${window.api_url}/api/payment`, {
       method: "post",
       body: JSON.stringify(cartData),
+
       headers: {
         "content-type": "application/json",
       },
@@ -66,7 +65,8 @@ const Payment = (props) => {
         const name = payer.name.given_name + payer.name.surname;
         const email = payer.email_address;
         const address = payer.address.country_code;
-        const transactionAmount = purchase_units[0].payments.captures[0].amount.value;
+        const transactionAmount =
+          purchase_units[0].payments.captures[0].amount.value;
 
         setIsLoading(false);
         fetch(`${window.api_url}/api/payment_details`, {
@@ -79,7 +79,7 @@ const Payment = (props) => {
             address,
             email,
             name,
-            transactionAmount
+            transactionAmount,
           }),
         })
           .then((res) => {
@@ -92,6 +92,7 @@ const Payment = (props) => {
         console.log(
           `Successful payment:${id} status: ${status} Transaction ID:${transactionId}${transactionDate}`
         );
+        clearCart();
         return history.push({
           pathname: `/success/${purchase_units[0].payments.captures[0].id}`,
 
@@ -102,7 +103,7 @@ const Payment = (props) => {
             name: name,
             email: email,
             address: address,
-            transactionAmount:transactionAmount,
+            transactionAmount: transactionAmount,
           },
         });
       });
@@ -119,25 +120,23 @@ const Payment = (props) => {
     console.log(err);
   };
 
-
-
   return (
     <div>
       <CheckoutSteps step1 step2 />
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
-          <OrderSummaryChart />
-          <section className="paypal-btn-container">
-            <PayPalButton
-              className="paypal-btn"
-
-              createOrder={createOrder}
-              onApprove={onApprove}
-            ></PayPalButton>
-          </section>
-          )
+        <div className="paypal-outer-wrapper">
+          <div className="paypal-payment-wrapper">
+            <OrderSummaryChart />
+            <section className="paypal-btn-container">
+              <PayPalButton
+                className="paypal-btn"
+                createOrder={createOrder}
+                onApprove={onApprove}
+              ></PayPalButton>
+            </section>
+          </div>
         </div>
       )}
     </div>

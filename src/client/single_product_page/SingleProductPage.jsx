@@ -4,19 +4,14 @@ import SideImages from "./SideImages";
 import { ProductContext } from "../contexts/ProductContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
-import SizeDropDown from "./SizeDropDown";
-import ColorDropDown from "./ColorDropDown";
-import MaterialDropDown from "./MaterialDropDown";
-import { MaterialContext } from "../contexts/MaterialContext";
 
 const SingleProductPage = (props) => {
-  const { material } = useContext(MaterialContext);
+
 
   const [currentImage, setCurrentImage] = useState(0);
 
   const {
     incrementCartProduct,
-    newPricewithMaterial,
     openSideModal,
   } = useContext(ProductContext);
 
@@ -37,7 +32,7 @@ const SingleProductPage = (props) => {
     setCurrentImage(index);
   };
 
-  const { name, info, id, price } = props;
+  const { name, info, id, price, material } = props;
 
   const imgSrc = props.productImages[currentImage];
 
@@ -68,24 +63,19 @@ const SingleProductPage = (props) => {
       <div className="product_textbox">
         <div>
           <h1>
-            {" "}
-            {name} {material}
+            {name}
           </h1>
+          <h2>{material}</h2>
           <h5> {info}</h5>
 
-          <h1>{price + newPricewithMaterial}</h1>
+          <h1>{price }</h1>
         </div>
-
-        <MaterialDropDown />
-        <SizeDropDown />
-        <ColorDropDown />
-
         <div className="single_product_page_button_container">
           <div>
             <button
-              disabled={material === "select" ? true : false}
+           
               onClick={() => {
-                incrementCartProduct(id, material);
+                incrementCartProduct(id);
                 openSideModal();
               }}
             >

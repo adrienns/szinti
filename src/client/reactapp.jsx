@@ -28,7 +28,7 @@ import TermsandConditions from "./pages/TermsAndConditions";
 import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
-import { MaterialProvider } from "./contexts/MaterialContext";
+import { ColorProvider} from './contexts/ProductColorContext';
 import { ProductSizeProvider } from "./contexts/ProductSizeContext";
 import Payment from "./checkout/Payment";
 import SuccessfulPaymentPage from "./checkout/SuccessfulPaymentPage";
@@ -90,21 +90,30 @@ class ReactApp extends React.Component {
     this.setState({ responsiveNavMenuOpen: false });
   };
 
+
+
+
   render() {
+    // const { location } = this.props;
+
     return (
       <ProductProvider>
-        <MaterialProvider>
+        <ColorProvider>
           <ProductSizeProvider>
+
             <Router>
+
               <ScrollToTop />
               <div className="app">
                 <React.Fragment>
+
                   <header className="header">
                     <Topbar />
                     <NavBar
                       links={LINKS}
                       responsiveNavMenuHandler={this.responsiveNavMenuHandler}
                     />
+                    
                     <ResponsiveNavMenuOpen
                       show={this.state.responsiveNavMenuOpen}
                       links={LINKS}
@@ -118,7 +127,7 @@ class ReactApp extends React.Component {
                         exact
                         component={AboutUs}
                       />
-                      ``
+                    
                       <Route
                         path="/organicproduct/:name"
                         exact
@@ -157,7 +166,9 @@ class ReactApp extends React.Component {
                         path="/success/:id"
                         exact
                         component={SuccessfulPaymentPage}
-                      />{" "}
+                      />  
+                <Route path="/" render={ ( props ) => ( props.location.pathname !== "/") && <Header /> }/>
+
                       <Route path="/error" exact component={PaymentError} />
                       <Route component={NotFoundPage} />
                       <Redirect to="/404" />
@@ -172,7 +183,8 @@ class ReactApp extends React.Component {
               </div>
             </Router>
           </ProductSizeProvider>
-        </MaterialProvider>
+          </ColorProvider>
+
       </ProductProvider>
     );
   }

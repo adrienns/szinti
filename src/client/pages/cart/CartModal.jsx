@@ -21,36 +21,16 @@ const CartModal = () => {
     let cartItems = [];
 
     cart.forEach((item) => {
-      if (item.count.gold > 0) {
+      if (item.count > 0) {
         cartItems.push({
           id: item.id,
-          material: "gold",
           firstImage: item.firstImage,
-          total: item.total.gold,
-          count: item.count.gold,
+          total: item.total,
+          count: item.count,
           name: item.name,
         });
       }
-      if (item.count.silver > 0) {
-        cartItems.push({
-          id: item.id,
-          material: "silver",
-          firstImage: item.firstImage,
-          total: item.total.silver,
-          count: item.count.silver,
-          name: item.name,
-        });
-      }
-      if (item.count.bronze > 0) {
-        cartItems.push({
-          id: item.id,
-          material: "bronze",
-          firstImage: item.firstImage,
-          total: item.total.bronze,
-          count: item.count.bronze,
-          name: item.name,
-        });
-      }
+     
     });
     return cartItems;
   };

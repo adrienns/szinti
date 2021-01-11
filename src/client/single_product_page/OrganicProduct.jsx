@@ -4,8 +4,8 @@ import { ProductConsumer } from "../contexts/ProductContext";
 
 const OrganicProduct = () => {
   const myFunc = (value) => {
-    const { id, images, info, price, name, inCart } = value.singleProduct;
-    const { addToCart, loading, openModal, incrementCartProduct } = value;
+    const { id, images, info, price, name, inCart, material } = value.singleProduct;
+    const { addToCart, openModal, incrementCartProduct } = value;
 
     return (
       images && (
@@ -20,6 +20,7 @@ const OrganicProduct = () => {
           name={name}
           id={id}
           key={id}
+          material={material}
         />
       )
     );

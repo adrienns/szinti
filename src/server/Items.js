@@ -5,7 +5,7 @@ const getItemDetails = (cartData) => {
   let idsObject = {};
 
   filteredCart.forEach((cartItem) => {
-    idsObject[cartItem.id] = cartItem.count;
+    idsObject[cartItem.id] = cartItem;
   });
 
   let items = [];
@@ -15,27 +15,24 @@ const getItemDetails = (cartData) => {
       if (jewlery.id in idsObject) {
         const id = jewlery.id;
         const name = jewlery.name;
-        // const material = Object.keys(idsObject[id]);
-        // const itemPrice = jewlery.selectedMaterial[material] + jewlery.price;
-        for (const [material, count] of Object.entries(idsObject[id])) {
-          if (count > 0) {
-            let item = {};
-            const numberofItems = count;
-            const itemPrice =
-              jewlery.selectedMaterial[material] + jewlery.price;
-            item = {
-              name: `${name} - ${material}`,
-              sku: `${id}${material}`,
-              description: material,
-              unit_amount: {
-                currency_code: "HUF",
-                value: itemPrice.toFixed(2),
-              },
-              quantity: numberofItems,
-              currency: "HUF",
-            };
-            items = [...items, item];
-          }
+        const count = jewlery.count;
+
+        if (count > 0) {
+          let item = {};
+          const numberofItems = count;
+          const itemPrice = jewlery.price;
+          item = {
+            name: `${name} `,
+            sku: `${id}`,
+            description: `${name} `,
+            unit_amount: {
+              currency_code: "HUF",
+              value: itemPrice.toFixed(2),
+            },
+            quantity: numberofItems,
+            currency: "HUF",
+          };
+          items = [...items, item];
         }
       }
     });
