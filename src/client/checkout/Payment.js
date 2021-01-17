@@ -5,7 +5,6 @@ import { ProductContext } from "../contexts/ProductContext";
 import { PayPalButton } from "react-paypal-button-v2";
 import OrderSummaryChart from "./OrderSummaryChart";
 import Loader from "../products_display/Loader";
-import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
 
 const Payment = (props) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +15,7 @@ const Payment = (props) => {
   const createOrder = () => {
     debugger;
     return fetch(`${window.api_url}/api/payment`, {
-      method: "post",
+      method: "POST",
       body: JSON.stringify(cartData),
 
       headers: {
@@ -29,7 +28,7 @@ const Payment = (props) => {
       .catch(() => {
         console.log("error");
         alert(
-          "Payment process was cancelled. If ou wish complete the order please complete the payment"
+          "Payment process was cancelled. Please try it again, if you are still having  trouble, please sned us an email."
         );
       })
       .then((data) => {
@@ -43,7 +42,7 @@ const Payment = (props) => {
       headers: {
         "content-type": "application/json",
       },
-      method: "post",
+      method: "POST",
       body: JSON.stringify({
         orderID: data.orderID,
       }),

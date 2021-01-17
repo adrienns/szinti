@@ -52,6 +52,8 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Server start at ${server_path}`);
 });
+
+//sending product data to client
 app.get("/api/products", (req, res) => {
   res.send(data.products);
 });
@@ -127,19 +129,16 @@ app.post("/api/payment_details", (req, res) => {
   );
 });
 
-//receive data from client for payment,  creating API
+//receive data from client for payment
 
 app.post("/api/payment", async (req, res) => {
   try {
     const cartData = req.body;
-    debugger;
-    console.log(cartData);
     const finalSum = updateWithShippingCost(cartData);
     const priceTotal = calculateTotals(cartData);
     const items = getItemDetails(cartData);
     const shippingFee = finalSum - priceTotal;
-    const shipping = shippingFee.toFixed(2);
-    // console.log(finalSum, items, shipping, priceTotal);
+    console.log("hello itt a maki" + items);
 
     // 3. Call PayPal to set up a transaction
     let request = new paypal.orders.OrdersCreateRequest();
@@ -147,8 +146,6 @@ app.post("/api/payment", async (req, res) => {
     request.requestBody({
       intent: "CAPTURE",
       application_context: {
-        return_url: `${client_path}/success`,
-        cancel_url: "https://example.com",
         brand_name: "Vewe Jewlery",
         landing_page: "BILLING",
         user_action: "CONTINUE",
@@ -173,21 +170,6 @@ app.post("/api/payment", async (req, res) => {
             },
           },
           items: items,
-          shipping: {
-            method: "United States Postal Service",
-            address: {
-              name: {
-                full_name: "John",
-                surname: "Doe",
-              },
-              address_line_1: "123 Townsend St",
-              address_line_2: "Floor 6",
-              admin_area_2: "San Francisco",
-              admin_area_1: "CA",
-              postal_code: "94107",
-              country_code: "US",
-            },
-          },
         },
       ],
     });
@@ -202,8 +184,6 @@ app.post("/api/payment", async (req, res) => {
     console.error(err);
     return res.send(500);
   }
-
-  // const orderID = await orders.findById(req.params.id);
 });
 
 app.post("/api/paypal-transaction-complete", async (req, res) => {

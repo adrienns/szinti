@@ -45,7 +45,8 @@ const data = {
       price: 2,
       name: "Item1",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;flj ad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -61,7 +62,8 @@ const data = {
       price: 220,
       material: "925 Sterling Silver",
       name: "Item2",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;f jdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -77,7 +79,8 @@ const data = {
       price: 400,
       name: "Item3",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -92,7 +95,8 @@ const data = {
       price: 330,
       name: "Item4",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -109,7 +113,8 @@ const data = {
       price: 20,
       name: "Liliom",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -124,7 +129,8 @@ const data = {
       price: 30,
       name: "Liliom",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -139,7 +145,8 @@ const data = {
       price: 3454,
       name: "Liliom",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -154,7 +161,8 @@ const data = {
       price: 9576,
       name: "Liliom",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -169,7 +177,8 @@ const data = {
       price: 900,
       name: "Liliom",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -184,7 +193,8 @@ const data = {
       price: 500,
       name: "Liliom",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -201,7 +211,8 @@ const data = {
       price: 200,
       name: "Item1",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -216,7 +227,8 @@ const data = {
       price: 220,
       name: "Item2",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -231,7 +243,8 @@ const data = {
       price: 400,
       name: "Item3",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -247,7 +260,8 @@ const data = {
       price: 330,
       name: "Item4",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -262,7 +276,8 @@ const data = {
       price: 440,
       name: "Item5",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -277,7 +292,8 @@ const data = {
       price: 520,
       name: "Item6",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -292,7 +308,8 @@ const data = {
       price: 520,
       name: "Item6",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -307,7 +324,8 @@ const data = {
       price: 520,
       name: "Item6",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -322,7 +340,8 @@ const data = {
       price: 520,
       name: "Item6",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,
@@ -337,7 +356,8 @@ const data = {
       price: 520,
       name: "Item6",
       material: "925 Sterling Silver",
-      info: "sofrfjgklfgjflef",
+      info:
+        "lldfg gkjdfgfgi;gofgjzdfgkj fdglkfjglfdgjf;dgjfd;g jfdg;djfg;r gjdf;lgjfd;gjdf s;gjfd;gjfg;fsjg;sdgjsd;fjds;fjsd;fljad;frjsd;fjdlfjldkf",
       inCart: false,
       count: 0,
       total: 0,

@@ -28,7 +28,7 @@ import TermsandConditions from "./pages/TermsAndConditions";
 import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
-import { ColorProvider} from './contexts/ProductColorContext';
+import { ColorProvider } from "./contexts/ProductColorContext";
 import { ProductSizeProvider } from "./contexts/ProductSizeContext";
 import Payment from "./checkout/Payment";
 import SuccessfulPaymentPage from "./checkout/SuccessfulPaymentPage";
@@ -90,44 +90,50 @@ class ReactApp extends React.Component {
     this.setState({ responsiveNavMenuOpen: false });
   };
 
-
-
-
   render() {
-    // const { location } = this.props;
-
+    const { location, history } = this.props;
+    debugger;
     return (
       <ProductProvider>
         <ColorProvider>
           <ProductSizeProvider>
-
             <Router>
-
               <ScrollToTop />
               <div className="app">
-                <React.Fragment>
+                <header className="header">
+                  <Topbar />
+                  <NavBar
+                    links={LINKS}
+                    responsiveNavMenuHandler={this.responsiveNavMenuHandler}
+                  />
 
-                  <header className="header">
-                    <Topbar />
-                    <NavBar
-                      links={LINKS}
-                      responsiveNavMenuHandler={this.responsiveNavMenuHandler}
+                  <ResponsiveNavMenuOpen
+                    show={this.state.responsiveNavMenuOpen}
+                    links={LINKS}
+                    closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+                  />
+                </header>
+                <div className="main-container">
+                  <Switch>
+                    <Route path="/payment" exact component={Payment} />
+                    <Route
+                      path={`/${LINKMAP["app.contactus"]}`}
+                      exact
+                      component={Form}
                     />
-                    
-                    <ResponsiveNavMenuOpen
-                      show={this.state.responsiveNavMenuOpen}
-                      links={LINKS}
-                      closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+                    <Route
+                      path="/success/:id"
+                      exact
+                      component={SuccessfulPaymentPage}
                     />
-                  </header>
-                  <div className="main-container">
-                    <Switch>
+                    <Route path="/error" exact component={PaymentError} />
+                    <Route path="/cart" exact strict component={Cart} />
+                    <React.Fragment>
                       <Route
                         path={`/${LINKMAP["app.aboutus"]}`}
                         exact
                         component={AboutUs}
                       />
-                    
                       <Route
                         path="/organicproduct/:name"
                         exact
@@ -148,43 +154,27 @@ class ReactApp extends React.Component {
                         exact
                         component={FinalEaringsDisplay}
                       />
-                      <Route path="/cart" exact strict component={Cart} />
-                      <Route
-                        path={`/${LINKMAP["app.contactus"]}`}
-                        exact
-                        component={Form}
-                      />
                       <Route
                         path="/terms&conditions"
                         exact
                         component={TermsandConditions}
                       />
-                    
-                      <Route path="/payment" exact component={Payment} />
                       <Route path="/" exact component={Home} />
-                      <Route
-                        path="/success/:id"
-                        exact
-                        component={SuccessfulPaymentPage}
-                      />  
-                <Route path="/" render={ ( props ) => ( props.location.pathname !== "/") && <Header /> }/>
 
-                      <Route path="/error" exact component={PaymentError} />
-                      <Route component={NotFoundPage} />
-                      <Redirect to="/404" />
-                    </Switch>
-                    <CartModal />
-                    <Modal />
-                  </div>
-                  <div className="footer">
-                    <Footer />
-                  </div>
-                </React.Fragment>
+                      <div className="footer">
+                        <Footer />
+                      </div>
+                    </React.Fragment>
+                    <Route component={NotFoundPage} />
+                    <Redirect to="/404" />
+                  </Switch>
+                  <CartModal />
+                  <Modal />
+                </div>
               </div>
             </Router>
           </ProductSizeProvider>
-          </ColorProvider>
-
+        </ColorProvider>
       </ProductProvider>
     );
   }

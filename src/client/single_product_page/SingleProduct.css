@@ -98,14 +98,19 @@
 }
 
 .single_product_page_button_container button {
-  background-color: rgb(66, 65, 65);
+  background-color: rgb(46, 45, 45);
   color: white;
-  width: 390px;
-  height: 38px;
-  letter-spacing: 1.5px;
-  font-size: 15px;
-  margin-top: 5px;
-  text-transform: uppercase;
+  width: 360px;
+  height: 40px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.single_product_page_button_container button:hover {
+  background-color: rgb(87, 86, 86);
+  cursor: pointer;
 }
 
 .single_product_page_button_container {

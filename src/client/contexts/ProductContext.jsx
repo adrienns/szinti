@@ -71,8 +71,6 @@ const ProductProvider = (props) => {
     setSelectedOption(selectedShippingOption);
   };
 
- 
-
   useEffect(() => {
     updateWithShippingCost();
   }, [selectedOption]);
@@ -108,13 +106,6 @@ const ProductProvider = (props) => {
     localStorage.setItem("key", JSON.stringify(storedobject));
   }, [cart]);
 
-  //   const dateString = objectFromLocalStorage.timestamp,
-  // const currentDate = new Date().getTime().toString();
-
-  // const compareTime =(dateString, currentDate) =>{
-
-  // }
-
   //Set up a fresh data order to not to change the original data.In order to get the value not the reference.
 
   const setAllProducts = () => {
@@ -142,14 +133,12 @@ const ProductProvider = (props) => {
     setSingleProduct(product);
   };
 
- 
-
   const increment = (id) => {
     let tempCart = [...cart];
     const selectedProduct = tempCart.find((item) => item.id === id);
     selectedProduct.count += 1;
-    const price= selectedProduct.price;
-    selectedProduct.total = price* selectedProduct.count;
+    const price = selectedProduct.price;
+    selectedProduct.total = price * selectedProduct.count;
     debugger;
 
     setCart([...tempCart]);
@@ -161,12 +150,12 @@ const ProductProvider = (props) => {
     const index = tempCart.indexOf(selectedProduct);
     const product = tempCart[index];
     product.count -= 1;
- const price= product.price;
+    const price = product.price;
 
     if (product.count === 0) {
       removeItem(id);
     } else {
-      product.total= product.count * price;
+      product.total = product.count * price;
       setCart(tempCart);
     }
   };
@@ -190,11 +179,10 @@ const ProductProvider = (props) => {
 
   const addTotals = () => {
     let cartTotal = 0;
-    let Counter =0;
-    cart.forEach((item) => 
-    {Counter += item.total;
+    let Counter = 0;
+    cart.forEach((item) => {
+      Counter += item.total;
       cartTotal += item.total;
-    
     });
     setCartTotal(cartTotal);
   };
@@ -221,7 +209,7 @@ const ProductProvider = (props) => {
     product.inCart = true;
     product.count += 1;
     const price = product.price;
-    product.total = price *product.count;
+    product.total = price * product.count;
     setisAdded(true);
     setProducts(tempProducts);
     setCart([...cart, product]);
@@ -237,11 +225,12 @@ const ProductProvider = (props) => {
   const calculateCartData = () => {
     let currentCart = [...cart];
 
+    console.log(cart);
+
     let filteredCart = currentCart
-      .filter(
-        (item) =>
-          item.count > 0 
-      )
+
+      //filtering the cart as it is not removed from the local storage. what is the best practice?
+      .filter((item) => item.count > 0)
       .map((elem) => {
         const { id, count, name, price } = elem;
         return { id, count, name, price };
@@ -253,9 +242,9 @@ const ProductProvider = (props) => {
 
   const calcUpdateTotalItems = () => {
     let itemsTotal = 0;
-    let Counter =0;
+    let Counter = 0;
     cart.forEach((item) => {
-      Counter+= item.count;
+      Counter += item.count;
       itemsTotal += item.count;
     });
 
@@ -288,8 +277,6 @@ const ProductProvider = (props) => {
       return addToCart(id);
     }
   };
-
-
 
   //  we need to reset the products as they are  copies when clearing the cart
   const clearCart = () => {
