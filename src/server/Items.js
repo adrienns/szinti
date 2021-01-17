@@ -18,7 +18,6 @@ const getItemDetails = (cartData) => {
         const count = idsObject[id].count;
 
         if (count > 0) {
-          debugger;
           let item = {};
           const numberofItems = count;
           const itemPrice = jewlery.price;

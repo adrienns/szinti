@@ -8,6 +8,15 @@
   "app.weddingjewel": "esküvő",
   "app.aboutus": "rólam",
   "app.contactus": "kapcsolat",
-  "app.collection": "új!"
+  "app.collection": "új!",
+  "app.home":"Kezdőlap",
+  "app.yourshoppingcart":"Kosár",
+  "app.shippingaddress&payment":"Szállítási cím & Fizetés",
+  "app.productprice":"Termék ára:",
+  "app.numberofproducts":"Termékek száma:",
+  "app.shippingcost":"Szállítási költség:",
+  "app.totalprice":"Ár összesen:",
+  "app.orderreview":"Rendelés",
+  "app.freeshipping":" Ingyenes szálítás"
 }
 

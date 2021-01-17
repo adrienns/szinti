@@ -4,6 +4,7 @@ import "./EaringProductsDisplay.css";
 import { useLocation, Link } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";
 import Loader from "../products_display/Loader";
+import { FormattedMessage } from "react-intl";
 
 const EaringProductsDisplay = () => {
   const { pathname } = useLocation();
@@ -21,7 +22,9 @@ const EaringProductsDisplay = () => {
       ) : (
         <React.Fragment>
           <h5 className="location-param">
-            <Link to="/">Home </Link>
+            <Link to="/">
+              <FormattedMessage id="app.home" defaultMessage="Home" />
+            </Link>
             {pathname}
           </h5>
           <ul className="earing_container">

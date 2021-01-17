@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import { ProductConsumer } from "../contexts/ProductContext";
 import { useTransition, animated } from "react-spring";
 import Placeholder from "./Placeholder";
+
 const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
   const [imageIsLoaded, setImageIsLoaded] = useState(false);

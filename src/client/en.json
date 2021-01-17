@@ -9,5 +9,14 @@
   "app.aboutus": "about",
   "app.contactus": "contact",
   "app.collection": "new!",
-  "app.form": "form"
+  "app.form": "form",
+  "app.home":"home",
+  "yourshoppingcart":"Shopping cart",
+  "app.shippingaddress&payment":"Shopping address & payment",
+  "app.productprice":"Product price:",
+  "app.numberofproducts":"Number of products:",
+  "app.shippingcost":"Shipping cost:",
+  "app.totalprice":"Total price:",
+  "app.orderreview":"Order Review",
+  "app.freeshipping": "Free Shipping"
 }

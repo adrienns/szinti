@@ -13,7 +13,6 @@ const Payment = (props) => {
 
   const cartData = calculateCartData();
   const createOrder = () => {
-    debugger;
     return fetch(`${window.api_url}/api/payment`, {
       method: "POST",
       body: JSON.stringify(cartData),

@@ -29,7 +29,6 @@ import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
 import { ColorProvider } from "./contexts/ProductColorContext";
-import { ProductSizeProvider } from "./contexts/ProductSizeContext";
 import Payment from "./checkout/Payment";
 import SuccessfulPaymentPage from "./checkout/SuccessfulPaymentPage";
 import PaymentError from "./checkout/PaymentError";
@@ -91,89 +90,85 @@ class ReactApp extends React.Component {
   };
 
   render() {
-    const { location, history } = this.props;
-    debugger;
     return (
       <ProductProvider>
         <ColorProvider>
-          <ProductSizeProvider>
-            <Router>
-              <ScrollToTop />
-              <div className="app">
-                <header className="header">
-                  <Topbar />
-                  <NavBar
-                    links={LINKS}
-                    responsiveNavMenuHandler={this.responsiveNavMenuHandler}
-                  />
+          <Router>
+            <ScrollToTop />
+            <div className="app">
+              <header className="header">
+                <Topbar />
+                <NavBar
+                  links={LINKS}
+                  responsiveNavMenuHandler={this.responsiveNavMenuHandler}
+                />
 
-                  <ResponsiveNavMenuOpen
-                    show={this.state.responsiveNavMenuOpen}
-                    links={LINKS}
-                    closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+                <ResponsiveNavMenuOpen
+                  show={this.state.responsiveNavMenuOpen}
+                  links={LINKS}
+                  closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+                />
+              </header>
+              <div className="main-container">
+                <Switch>
+                  <Route path="/payment" exact component={Payment} />
+                  <Route
+                    path={`/${LINKMAP["app.contactus"]}`}
+                    exact
+                    component={Form}
                   />
-                </header>
-                <div className="main-container">
-                  <Switch>
-                    <Route path="/payment" exact component={Payment} />
+                  <Route
+                    path="/success/:id"
+                    exact
+                    component={SuccessfulPaymentPage}
+                  />
+                  <Route path="/error" exact component={PaymentError} />
+                  <Route path="/cart" exact strict component={Cart} />
+                  <React.Fragment>
                     <Route
-                      path={`/${LINKMAP["app.contactus"]}`}
+                      path={`/${LINKMAP["app.aboutus"]}`}
                       exact
-                      component={Form}
+                      component={AboutUs}
                     />
                     <Route
-                      path="/success/:id"
+                      path="/organicproduct/:name"
                       exact
-                      component={SuccessfulPaymentPage}
+                      component={OrganicProduct}
                     />
-                    <Route path="/error" exact component={PaymentError} />
-                    <Route path="/cart" exact strict component={Cart} />
-                    <React.Fragment>
-                      <Route
-                        path={`/${LINKMAP["app.aboutus"]}`}
-                        exact
-                        component={AboutUs}
-                      />
-                      <Route
-                        path="/organicproduct/:name"
-                        exact
-                        component={OrganicProduct}
-                      />
-                      <Route
-                        path={`/${LINKMAP["app.ring"]}`}
-                        exact
-                        component={FinalRingsDisplay}
-                      />
-                      <Route
-                        path={`/${LINKMAP["app.necklace"]}`}
-                        exact
-                        component={FinalNecklacesDisplay}
-                      />
-                      <Route
-                        path={`/${LINKMAP["app.earing"]}`}
-                        exact
-                        component={FinalEaringsDisplay}
-                      />
-                      <Route
-                        path="/terms&conditions"
-                        exact
-                        component={TermsandConditions}
-                      />
-                      <Route path="/" exact component={Home} />
+                    <Route
+                      path={`/${LINKMAP["app.ring"]}`}
+                      exact
+                      component={FinalRingsDisplay}
+                    />
+                    <Route
+                      path={`/${LINKMAP["app.necklace"]}`}
+                      exact
+                      component={FinalNecklacesDisplay}
+                    />
+                    <Route
+                      path={`/${LINKMAP["app.earing"]}`}
+                      exact
+                      component={FinalEaringsDisplay}
+                    />
+                    <Route
+                      path="/terms&conditions"
+                      exact
+                      component={TermsandConditions}
+                    />
+                    <Route path="/" exact component={Home} />
 
-                      <div className="footer">
-                        <Footer />
-                      </div>
-                    </React.Fragment>
-                    <Route component={NotFoundPage} />
-                    <Redirect to="/404" />
-                  </Switch>
-                  <CartModal />
-                  <Modal />
-                </div>
+                    <div className="footer">
+                      <Footer />
+                    </div>
+                  </React.Fragment>
+                  <Route component={NotFoundPage} />
+                  <Redirect to="/404" />
+                </Switch>
+                <CartModal />
+                <Modal />
               </div>
-            </Router>
-          </ProductSizeProvider>
+            </div>
+          </Router>
         </ColorProvider>
       </ProductProvider>
     );

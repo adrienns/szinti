@@ -139,7 +139,6 @@ const ProductProvider = (props) => {
     selectedProduct.count += 1;
     const price = selectedProduct.price;
     selectedProduct.total = price * selectedProduct.count;
-    debugger;
 
     setCart([...tempCart]);
   };
@@ -236,7 +235,6 @@ const ProductProvider = (props) => {
         return { id, count, name, price };
       });
     const cartData = { filteredCart, selectedOption };
-    debugger;
     return cartData;
   };
 

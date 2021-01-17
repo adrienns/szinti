@@ -1,36 +1,55 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./CarouselImage.css";
+import { useTransition, animated } from "react-spring";
+import Placeholder from "../products_display/Placeholder";
 
-class CarouselImage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isHover: false };
-  }
+const CarouselImage = (props) => {
+  const [isHovered, setHover] = useState(false);
+  const [imageIsLoaded, setImageIsLoaded] = useState(false);
+  const transitions = useTransition(isHovered, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { tension: 220, friction: 120, duration: 300 },
+  });
 
-  handleOnMouseEnter = () => {
-    this.setState({ isHover: true });
+  const { id, imgUrl, name, imgPrice, firstImage, secondImage } = props;
+
+  const handleImageLoaded = () => {
+    setImageIsLoaded(true);
   };
 
-  handleOnMouseLeave = () => {
-    this.setState({ isHover: false });
+  const handleMouseOn = () => {
+    setHover(true);
   };
 
-  render() {
-    const srcImg = this.state.isHover
-      ? this.props.firstImage
-      : this.props.secondImage;
-    return (
+  const handleMouseOff = () => {
+    setHover(false);
+  };
+
+  return (
+    <div
+      onMouseLeave={() => handleMouseOff()}
+      onMouseEnter={() => handleMouseOn()}
+    >
       <div>
-        <img
-          className="carousel_image"
-          onMouseEnter={this.handleOnMouseEnter}
-          onMouseLeave={this.handleOnMouseLeave}
-          src={srcImg}
-        />
-        <p>Price:100</p>
+        {!imageIsLoaded && <Placeholder />}
+        {transitions.map(({ item, key, props }) => (
+          <animated.img
+            key={key}
+            style={props}
+            className="carousel_image"
+            onLoad={handleImageLoaded}
+            src={item ? firstImage : secondImage}
+            url={imgUrl}
+            alt="product"
+          />
+        ))}
       </div>
-    );
-  }
-}
+
+      <p>Price:100</p>
+    </div>
+  );
+};
 
 export default CarouselImage;
