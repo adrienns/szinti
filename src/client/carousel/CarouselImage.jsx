@@ -13,7 +13,7 @@ const CarouselImage = (props) => {
     config: { tension: 220, friction: 120, duration: 300 },
   });
 
-  const { id, imgUrl, name, imgPrice, firstImage, secondImage } = props;
+  const { imgUrl, firstImage, secondImage } = props;
 
   const handleImageLoaded = () => {
     setImageIsLoaded(true);
@@ -29,6 +29,7 @@ const CarouselImage = (props) => {
 
   return (
     <div
+      className="carousel_image-wrapper"
       onMouseLeave={() => handleMouseOff()}
       onMouseEnter={() => handleMouseOn()}
     >
@@ -46,8 +47,6 @@ const CarouselImage = (props) => {
           />
         ))}
       </div>
-
-      <p>Price:100</p>
     </div>
   );
 };

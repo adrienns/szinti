@@ -84,9 +84,6 @@
 }
 
 @media only screen and (max-width: 325px) {
-  .img-wrapper-single {
-    width: 320px;
-  }
   .necklaces-img {
     width: 100%;
   }

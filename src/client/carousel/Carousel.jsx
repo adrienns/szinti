@@ -59,11 +59,17 @@ const Carousel = () => {
       <Slider {...settings}>
         {products.map((element) => {
           return (
-            <CarouselImage
-              firstImage={element.firstImage}
-              secondImage={element.secondImage}
-              key={element.id}
-            />
+            <div>
+              <CarouselImage
+                firstImage={element.firstImage}
+                secondImage={element.secondImage}
+                key={element.id}
+              />
+              <div>
+                <p>{element.name}</p>
+                <p>Price:{element.price}</p>
+              </div>
+            </div>
           );
         })}
       </Slider>

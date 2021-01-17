@@ -46,10 +46,7 @@ const SinglePhoto = (props) => {
           {(value) => (
             <div>
               <Link to={`/organicproduct/${name}`}>
-                <div
-                  className="img-wrapper-single"
-                  onClick={() => value.handleSingleProduct(id)}
-                >
+                <div onClick={() => value.handleSingleProduct(id)}>
                   <div>
                     <div>
                       {!imageIsLoaded && <Placeholder />}
