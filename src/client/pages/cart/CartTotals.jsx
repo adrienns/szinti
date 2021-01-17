@@ -1,7 +1,7 @@
 import React from "react";
-
 import "./cart.css";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 const CartTotals = ({ val, history }) => {
   const { cartTotal, finalTotal, selectedOption } = val;
@@ -16,13 +16,19 @@ const CartTotals = ({ val, history }) => {
     <React.Fragment>
       <tbody>
         <tr>
-          <th className="cart-totals-table-inner-chart">Subtotal</th>
+          <th className="cart-totals-table-inner-chart">
+            {" "}
+            <FormattedMessage id="app.subtotal" defaultMessage="SubTotal" />
+          </th>
           <td className="cart-totals-table-inner-chart">
             <span id="order-summery-text-right">{cartTotal} HUF</span>
           </td>
         </tr>
         <tr>
-          <th className="cart-totals-table-inner-chart">Shipping</th>
+          <th className="cart-totals-table-inner-chart">
+            {" "}
+            <FormattedMessage id="app.shipping" defaultMessage="Shipping" />
+          </th>
           <td className="cart-totals-table-inner-chart">
             {" "}
             <form>
@@ -80,7 +86,7 @@ const CartTotals = ({ val, history }) => {
                 className="continue-to-shipping-details-btn"
                 disabled={finalTotal === 0}
               >
-                Continue
+                <FormattedMessage id="app.continue" defaultMessage="Continue" />
               </p>
             </Link>
           </td>

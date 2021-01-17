@@ -4,16 +4,12 @@ import SideImages from "./SideImages";
 import { ProductContext } from "../contexts/ProductContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 const SingleProductPage = (props) => {
-
-
   const [currentImage, setCurrentImage] = useState(0);
 
-  const {
-    incrementCartProduct,
-    openSideModal,
-  } = useContext(ProductContext);
+  const { incrementCartProduct, openSideModal } = useContext(ProductContext);
 
   console.log(props);
   const numberOfImages = props.productImages.length;
@@ -62,34 +58,44 @@ const SingleProductPage = (props) => {
 
       <div className="product_textbox">
         <div>
-          <h1>
-            {name}
-          </h1>
+          <h1>{name}</h1>
           <h2>{material}</h2>
           <h5> {info}</h5>
 
-          <h1>{price }</h1>
+          <h1>{price}</h1>
         </div>
         <div className="single_product_page_button_container">
           <div>
             <button
-           
               onClick={() => {
                 incrementCartProduct(id);
                 openSideModal();
               }}
             >
-              Add to Shopping Bag
+              <FormattedMessage
+                id="app.addtoshoppingbag"
+                defaultMessage="Add to Shopping Bag"
+              />
             </button>
           </div>
           <div>
             <Link to="/necklaces">
-              <button>Continue Shopping</button>{" "}
+              <button>
+                <FormattedMessage
+                  id="app.continueshopping"
+                  defaultMessage="continue shopping"
+                />
+              </button>
             </Link>
           </div>
           <div>
             <Link to="/cart">
-              <button>Pay Now</button>
+              <button>
+                <FormattedMessage
+                  id="app.gotopayment"
+                  defaultMessage="Go to Payment"
+                />
+              </button>
             </Link>
           </div>
         </div>

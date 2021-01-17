@@ -18,5 +18,11 @@
   "app.shippingcost":"Shipping cost:",
   "app.totalprice":"Total price:",
   "app.orderreview":"Order Review",
-  "app.freeshipping": "Free Shipping"
+  "app.freeshipping": "Free Shipping",
+  "app.continue":"Continue",
+  "app.continueshopping":"continue shopping",
+  "app.gotopayment":"go to payment",
+  "app.addtoshoppingbag":"Add to Shopping Bag",
+  "app.subtotal":"SubTotal:",
+  "app.shipping":"Shipping",
 }

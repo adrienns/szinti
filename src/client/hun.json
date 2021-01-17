@@ -17,6 +17,12 @@
   "app.shippingcost":"Szállítási költség:",
   "app.totalprice":"Ár összesen:",
   "app.orderreview":"Rendelés",
-  "app.freeshipping":" Ingyenes szálítás"
+  "app.freeshipping":" Ingyenes szálítás",
+  "app.continue":"Tovább",
+  "app.continueshopping":"Vásárlás folytatása",
+  "app.gotopayment":"Fizetés",
+  "app.addtoshoppingbag":"Hozzáadás a kosárhoz",
+  "app.subtotal":"Részösszeg",
+  "app.shipping":"Szállítás",
 }
 

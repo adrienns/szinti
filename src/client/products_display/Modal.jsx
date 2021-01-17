@@ -2,11 +2,9 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./modal.css";
 import { ProductContext } from "../contexts/ProductContext";
-
+import { FormattedMessage } from "react-intl";
 
 const Modal = () => {
-
-
   const {
     modalOpen,
     closeModal,
@@ -33,17 +31,13 @@ const Modal = () => {
               </span>
             </div>
             <div id="modal-row">
-            
-                <h2 className="item-info" id="modal-item-name">
-                  {name}
-                </h2>
-                <h4  className="item-info"> {material}</h4>
- 
+              <h2 className="item-info" id="modal-item-name">
+                {name}
+              </h2>
+              <h4 className="item-info"> {material}</h4>
 
-            
-                <h4 className="item-info">{price} HUF</h4>
-             
-             
+              <h4 className="item-info">{price} HUF</h4>
+
               <div>
                 <button
                   className="modal-btn"
@@ -53,7 +47,10 @@ const Modal = () => {
                     closeModal();
                   }}
                 >
-                  Add To Shopping Cart
+                  <FormattedMessage
+                    id="app.addtoshoppingbag"
+                    defaultMessage="Add to Shopping Bag"
+                  />
                 </button>
               </div>
 
@@ -75,7 +72,7 @@ const Modal = () => {
                       closeModal();
                     }}
                   >
-                   <span id="more-details-text"> More details</span>
+                    <span id="more-details-text"> More details</span>
                   </div>
                 </Link>
               </div>

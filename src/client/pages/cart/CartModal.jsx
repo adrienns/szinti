@@ -3,7 +3,7 @@ import "./CartModal.css";
 import { Link } from "react-router-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
-
+import { FormattedMessage } from "react-intl";
 import { ProductContext } from "../../contexts/ProductContext";
 
 const CartModal = () => {
@@ -30,7 +30,6 @@ const CartModal = () => {
           name: item.name,
         });
       }
-     
     });
     return cartItems;
   };
@@ -97,7 +96,12 @@ const CartModal = () => {
           <div className="cart-modal-payment-summary">
             <div className="cart-modal-subtotal-container">
               <div className="modal-total-cart-wrapper">
-                <div> SubTotal:</div>
+                <div>
+                  <FormattedMessage
+                    id="app.subtotal"
+                    defaultMessage="SubTotal"
+                  />
+                </div>
                 <div> {cartTotal}HUF</div>
               </div>
               <div className="modal-total-cart-wrapper">
@@ -113,7 +117,10 @@ const CartModal = () => {
                     closeSideModal();
                   }}
                 >
-                  Go To Payment
+                  <FormattedMessage
+                    id="app.gotopayment"
+                    defaultMessage="go to payment"
+                  />
                 </div>
               </Link>
 
@@ -125,7 +132,10 @@ const CartModal = () => {
                     closeSideModal();
                   }}
                 >
-                  Continue shopping
+                  <FormattedMessage
+                    id="app.continueshopping"
+                    defaultMessage="continue shopping"
+                  />
                 </div>
               </Link>
             </div>
