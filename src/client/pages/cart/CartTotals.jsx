@@ -17,7 +17,6 @@ const CartTotals = ({ val, history }) => {
       <tbody>
         <tr>
           <th className="cart-totals-table-inner-chart">
-            {" "}
             <FormattedMessage id="app.subtotal" defaultMessage="SubTotal" />
           </th>
           <td className="cart-totals-table-inner-chart">
@@ -26,14 +25,11 @@ const CartTotals = ({ val, history }) => {
         </tr>
         <tr>
           <th className="cart-totals-table-inner-chart">
-            {" "}
             <FormattedMessage id="app.shipping" defaultMessage="Shipping" />
           </th>
           <td className="cart-totals-table-inner-chart">
-            {" "}
             <form>
               <ul className="shipping-method-list">
-                {" "}
                 <li id="order-summery-text-right-list">
                   <input
                     onChange={onShippingChange}

@@ -25,7 +25,6 @@ const RingProductsDisplay = () => {
         <React.Fragment>
           <h5 className="location-param">
             <Link to="/">
-              {" "}
               <FormattedMessage id="app.home" defaultMessage="Home" />
             </Link>
             {pathname}

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,19 +18,34 @@ class Footer extends React.Component {
       <footer className="footer">
         <section className="footer-nav">
           <div className="footer-section">
-            <div className="footer-group-title">help</div>
+            <div className="footer-group-title">
+              {" "}
+              <FormattedMessage id="app.help" defaultMessage="help" />
+            </div>
             <ul>
               <li>
-                <Link to="/form">Contact us</Link>
+                <Link to="/form">
+                  <FormattedMessage
+                    id="app.contactus"
+                    defaultMessage="Contact me"
+                  />
+                </Link>
               </li>
             </ul>
           </div>
 
           <div className="footer-section">
-            <div className="footer-group-title">General</div>
+            <div className="footer-group-title">
+              <FormattedMessage id="app.general" defaultMessage="general" />
+            </div>
             <ul>
               <li>
-                <Link to="/aboutus">About us</Link>
+                <Link to="/aboutus">
+                  <FormattedMessage
+                    id="app.aboutus"
+                    defaultMessage="about us"
+                  />{" "}
+                </Link>
               </li>
               <li>
                 <a href="#">Collections</a>
@@ -50,7 +66,9 @@ class Footer extends React.Component {
           </div>
         </section>
         <div>
-          <div className="follow_us_text">Follow us</div>
+          <div className="follow_us_text">
+            <FormattedMessage id="app.followme" defaultMessage="follow me" />
+          </div>
           <div className="social_media_icons">
             <ul>
               <li>
@@ -70,7 +88,7 @@ class Footer extends React.Component {
               </a></td></tr></table> </li> */}
             </ul>
           </div>
-                
+
           <p id="footer-company">© 2020 Vewe Ltd. Reg No 0000000</p>
         </div>
       </footer>

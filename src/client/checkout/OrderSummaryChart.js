@@ -49,7 +49,6 @@ export const OrderSummaryChart = () => {
                 )}
               </p>
             </li>
-
             <li>
               <p>
                 <FormattedMessage

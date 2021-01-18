@@ -9,6 +9,7 @@
 }
 
 .slick-next {
+  top: 173px !important;
   color: black !important;
   font-size: 40px !important;
 }
@@ -16,6 +17,7 @@
 .slick-prev {
   color: black !important;
   font-size: 40px !important;
+  top: 173px !important;
 }
 
 /*.framed_picture:hover{

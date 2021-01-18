@@ -25,7 +25,7 @@ import Modal from "./products_display/Modal";
 import OrganicProduct from "./single_product_page/OrganicProduct";
 import ResponsiveNavMenuOpen from "./navbar/ResponsiveNavMenuOpen";
 import TermsandConditions from "./pages/TermsAndConditions";
-import { defineMessages } from "react-intl";
+import { defineMessages, FormattedMessage } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
 import { ColorProvider } from "./contexts/ProductColorContext";
@@ -102,7 +102,6 @@ class ReactApp extends React.Component {
                   links={LINKS}
                   responsiveNavMenuHandler={this.responsiveNavMenuHandler}
                 />
-
                 <ResponsiveNavMenuOpen
                   show={this.state.responsiveNavMenuOpen}
                   links={LINKS}
@@ -123,7 +122,7 @@ class ReactApp extends React.Component {
                     component={SuccessfulPaymentPage}
                   />
                   <Route path="/error" exact component={PaymentError} />
-                  <Route path="/cart" exact strict component={Cart} />
+                  <Route path="/cart" exact component={Cart} />
                   <React.Fragment>
                     <Route
                       path={`/${LINKMAP["app.aboutus"]}`}

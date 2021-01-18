@@ -6,8 +6,8 @@
   "app.earing": "fülbevalók",
   "app.ring": "Gyűrűk",
   "app.weddingjewel": "esküvő",
-  "app.aboutus": "rólam",
-  "app.contactus": "kapcsolat",
+  "app.aboutus": "Rólam",
+  "app.contactus": "Kapcsolat",
   "app.collection": "új!",
   "app.home":"Kezdőlap",
   "app.yourshoppingcart":"Kosár",
@@ -24,5 +24,9 @@
   "app.addtoshoppingbag":"Hozzáadás a kosárhoz",
   "app.subtotal":"Részösszeg",
   "app.shipping":"Szállítás",
+  "app.help":"Segíthetek?",
+  "app.general":"általános",
+  "app.followme":"Itt tudsz követni:"
+
 }
 

@@ -9,20 +9,17 @@
 .necklaces-img {
   position: absolute;
   max-width: 100%;
-  height: auto;
 }
 
 .product-description {
   margin-bottom: 10px;
   text-align: center;
-  overflow: hidden;
 }
 
 .cart_btn {
   position: absolute;
   width: 100%;
   bottom: 0;
-  overflow: hidden;
   padding: 11px;
   background-color: white;
   color: black;
@@ -30,6 +27,7 @@
   opacity: 0.7;
   border: none;
   cursor: pointer;
+  height: 30px;
 }
 
 .cart_btn:hover {

@@ -6,7 +6,7 @@
   "app.earing": "earings",
   "app.ring": "rings",
   "app.weddingjewel": "wedding",
-  "app.aboutus": "about",
+  "app.aboutus": "about me",
   "app.contactus": "contact",
   "app.collection": "new!",
   "app.form": "form",
@@ -25,4 +25,8 @@
   "app.addtoshoppingbag":"Add to Shopping Bag",
   "app.subtotal":"SubTotal:",
   "app.shipping":"Shipping",
+  "app.help":"help",
+  "app.general":"general",
+  "app.followme":"follow me"
+ 
 }
