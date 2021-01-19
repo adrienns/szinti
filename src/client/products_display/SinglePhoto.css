@@ -2,13 +2,27 @@
   margin: 70px 0 20px 0;
   list-style: none;
   position: relative;
-  height: 60vh;
+  height: 100%;
   overflow: hidden;
+  width: 100%;
+  display: table;
 }
+/* .necklace-img-wrapper {
+  display: inline-block;
+  width: 100%;
+} */
 
+.necklace-text-container::before {
+  content: "";
+  display: table;
+  clear: both;
+}
 .necklaces-img {
   position: absolute;
   max-width: 100%;
+  top: 0;
+  bottom: 0;
+  display: table-row;
 }
 
 .product-description {
@@ -20,6 +34,9 @@
   position: absolute;
   width: 100%;
   bottom: 0;
+  left: 0;
+  right: 0;
+
   padding: 11px;
   background-color: white;
   color: black;
@@ -27,7 +44,6 @@
   opacity: 0.7;
   border: none;
   cursor: pointer;
-  height: 30px;
 }
 
 .cart_btn:hover {
