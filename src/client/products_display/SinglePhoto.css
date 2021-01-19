@@ -2,7 +2,8 @@
   margin: 70px 0 20px 0;
   list-style: none;
   position: relative;
-  height: 60vh;
+  height: 65vh;
+  border: solid black;
   overflow: hidden;
 }
 
@@ -10,6 +11,7 @@
   position: absolute;
   max-width: 100%;
   height: auto;
+  border: blue;
 }
 
 .product-description {
@@ -78,7 +80,7 @@
     margin: 70px 0 20px 0;
     list-style: none;
     position: relative;
-    height: 40vh;
+    height: 60vh;
     overflow: hidden;
   }
 }
