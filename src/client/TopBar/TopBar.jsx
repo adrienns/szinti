@@ -24,8 +24,8 @@ const TopBar = () => {
 
   const text = TEXTS[currentText];
   return (
-    <div>
-      <span className="topbar-container">{text}</span>
+    <div className="topbar-container">
+      <span className="topbar-text">{text}</span>
     </div>
   );
 };

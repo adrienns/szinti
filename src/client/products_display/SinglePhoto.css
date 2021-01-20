@@ -2,8 +2,7 @@
   margin: 70px 0 20px 0;
   list-style: none;
   position: relative;
-  height: 65vh;
-  border: solid black;
+  height: 60vh;
   overflow: hidden;
 }
 
@@ -11,20 +10,19 @@
   position: absolute;
   max-width: 100%;
   height: auto;
-  border: blue;
 }
 
 .product-description {
   margin-bottom: 10px;
   text-align: center;
-  overflow: hidden;
 }
 
 .cart_btn {
   position: absolute;
   width: 100%;
   bottom: 0;
-  overflow: hidden;
+  left: 0;
+  right: 0;
   padding: 11px;
   background-color: white;
   color: black;
@@ -32,7 +30,40 @@
   opacity: 0.7;
   border: none;
   cursor: pointer;
+  height: 30px;
 }
+
+/* 
+.jewelery-item {
+  margin: 70px 0 20px 0;
+  list-style: none;
+  border: solid black;
+  position: relative;
+  width: auto;
+  height: 65vh;
+  /* height: 65vh;
+  position: relative; */
+/* } */
+
+/* .image-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+} */
+
+/* .necklaces-img {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  border: solid rgb(255, 174, 0);
+}
+
+.image-wrapper {
+  position: relative;
+  border: solid rgb(77, 0, 128);
+  display: table-row;
+  width: auto;
+} */
 
 .cart_btn:hover {
   background-color: rgb(228, 242, 248) !important;
@@ -75,19 +106,18 @@
   opacity: 0.01;
 }
 
-@media only screen and (max-width: 1201px) {
+@media only screen and (max-width: 1164px) {
   .jewelery-item {
     margin: 70px 0 20px 0;
     list-style: none;
     position: relative;
     height: 60vh;
-    overflow: hidden;
   }
 }
 
 @media only screen and (max-width: 325px) {
   .img-wrapper-single {
-    width: 320px;
+    width: 10px;
   }
   .necklaces-img {
     width: 100%;

@@ -47,8 +47,8 @@ const SinglePhoto = (props) => {
             <div>
               <Link to={`/organicproduct/${name}`}>
                 <div onClick={() => value.handleSingleProduct(id)}>
-                  <div>
-                    <div>
+                  <div className="image-wrapper">
+                    <div className="image-placeholder">
                       {!imageIsLoaded && <Placeholder />}
                       {transitions.map(({ item, key, props }) => (
                         <animated.img
@@ -57,6 +57,8 @@ const SinglePhoto = (props) => {
                           className="necklaces-img"
                           onLoad={handleImageLoaded}
                           src={item ? secondImg : mainImg}
+                          width="596"
+                          height="788"
                           url={imgUrl}
                           alt="product"
                         />
@@ -87,7 +89,7 @@ const SinglePhoto = (props) => {
         <p className="product-description">
           <Link to={`/organicproduct/${name}`}>{name}</Link>
         </p>
-        <p className="product-description">{imgPrice}HUF</p>
+        <p className="product-description">{imgPrice.toLocaleString()} HUF</p>
       </div>
     </div>
   );
