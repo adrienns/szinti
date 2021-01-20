@@ -28,6 +28,15 @@
   "app.help":"help",
   "app.general":"general",
   "app.followme":"follow me",
+  "app.pickuppersonally":"You can pick up the product here:",
+  "app.send":"SEND",
+  "app.includingvat":"Including V.AT.",
+  "app.image":"image",
+  "app.details" :"details",
+  "app.quantity" :"quantity",
+  "app.price" :"price",
+  "app,remove":"remove"
+
 
  
 }

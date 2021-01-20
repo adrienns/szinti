@@ -26,7 +26,16 @@
   "app.shipping":"Szállítás",
   "app.help":"Segíthetek?",
   "app.general":"általános",
-  "app.followme":"Itt tudsz követni:"
+  "app.followme":"Itt tudsz követni:",
+  "app.pickuppersonally":"Személyesen itt veheted át a terméket:",
+  "app.send":"KÜLDÉS",
+  "app.includingvat":"Az ár az adót tartalmazza",
+  "app.image":"Kép",
+  "app.details":"",
+  "app.quantity" :"darabszám",
+  "app.price" :"ár",
+  "app,remove":"törlés"
+
 
 }
 

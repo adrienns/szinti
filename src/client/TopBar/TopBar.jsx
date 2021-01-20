@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./TopBar.css";
 import { useTransition, animated } from "react-spring";
-import { transform } from "typescript";
 
 const TEXTS = [
   "Személyes átvételi lehetőség Budapesten!",
-  "Ingyenes szállítás bárhova 19 000ft feletti rendelés esetén!",
+  "Ingyenes szállítás bárhova 19 000ft feletti rendelés esetén",
 ];
 
 const TopBar = () => {
@@ -30,7 +29,7 @@ const TopBar = () => {
     from: {
       opacity: 0,
       height: 0,
-      transform: "perspective(600px) rotateX(0deg)",
+      // transform: "perspective(600px) rotateX(0deg)",
     },
     enter: {
       opacity: 1,

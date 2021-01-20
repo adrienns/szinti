@@ -105,7 +105,13 @@ const CartModal = () => {
                 <div> {cartTotal}HUF</div>
               </div>
               <div className="modal-total-cart-wrapper">
-                <h5>Including V.A.T </h5>
+                <h5>
+                  {" "}
+                  <FormattedMessage
+                    id="app.includingvat"
+                    defaultMessage="Including V.A.T"
+                  />{" "}
+                </h5>
               </div>
             </div>
             <div>

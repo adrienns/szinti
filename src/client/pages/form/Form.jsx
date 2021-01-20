@@ -176,14 +176,20 @@ class Form extends Component {
 
                 <div className="form-row">
                   <button className="text" type="submit">
-                    SEND
+                    <FormattedMessage id="app.send" defaultMessage="SEND" />
                   </button>
                 </div>
               </form>
             </div>
           </div>
           <div className="google-maps">
-            <h5> Személyesen itt veheted át a terméket:</h5>
+            <h5>
+              {" "}
+              <FormattedMessage
+                id="app.pickuppersonally"
+                defaultMessage="You can pick up the product here:"
+              />
+            </h5>
             <h5> Budapest, 1016, Lollipop utca</h5>
             <iframe
               id="google-maps"
