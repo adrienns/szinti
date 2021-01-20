@@ -39,13 +39,15 @@ export const OrderSummaryChart = () => {
                 />
               </p>
               <p>
-                {selectedOption === "Hungary" ? (
+                {selectedOption === "pickup" ? (
                   <FormattedMessage
                     id="app.freeshipping"
                     defaultMessage="Free Shipping:"
                   />
+                ) : selectedOption === "Hungary" ? (
+                  "1,500 FT"
                 ) : (
-                  "100ft"
+                  "2,500 FT"
                 )}
               </p>
             </li>

@@ -3,7 +3,7 @@ import "./cart.css";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
-const CartTotals = ({ val, history }) => {
+const CartTotals = ({ val }) => {
   const { cartTotal, finalTotal, selectedOption } = val;
   const { handleValueChange } = val;
 
@@ -38,7 +38,7 @@ const CartTotals = ({ val, history }) => {
                     value="Hungary"
                     checked={selectedOption === "Hungary"}
                   />
-                  <label htmlFor="shipping-method">to Hungary: free </label>
+                  <label htmlFor="shipping-method">to Hungary: 1,500 FT</label>
                 </li>
                 <li id="order-summery-text-right-list">
                   <input
@@ -48,17 +48,17 @@ const CartTotals = ({ val, history }) => {
                     checked={selectedOption === "EU"}
                     onChange={onShippingChange}
                   />
-                  <label htmlFor="shipping-method">to EU: free </label>
+                  <label htmlFor="shipping-method">to EU: 2,500 FT</label>
                 </li>
                 <li id="order-summery-text-right-list">
                   <input
                     onChange={onShippingChange}
                     type="radio"
                     name="shipping-method"
-                    value="others"
-                    checked={selectedOption === "others"}
+                    value="pickup"
+                    checked={selectedOption === "pickup"}
                   />
-                  <label htmlFor="shipping-method">outside of EU: $40 </label>
+                  <label htmlFor="shipping-method">Pick up: free</label>
                 </li>
               </ul>
             </form>
@@ -69,7 +69,7 @@ const CartTotals = ({ val, history }) => {
             className="order-summary-total"
             id="order-summary-total-text-left"
           >
-            Total
+            <FormattedMessage id="app.totalprice" defaultMessage="Total" />
           </th>
           <td className="order-summary-total" id="order-summery-text-right">
             {finalTotal} HUF

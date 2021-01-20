@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./cart.css";
 import CartColumns from "./CartColumns";
 import EmptyCart from "./EmptyCart";
@@ -6,6 +6,8 @@ import { ProductConsumer } from "../../contexts/ProductContext";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 import CheckoutSteps from "../../checkout/CheckoutSteps";
+import { FormattedMessage } from "react-intl";
+
 const Cart = (props) => {
   return (
     <div>
@@ -28,7 +30,10 @@ const Cart = (props) => {
                   <div className="responsive-cart-order-summary-wrapper">
                     <div className="responsive-cart-order-summary">
                       <h2 className="responsive-order-summary-text">
-                        Order Summary
+                        <FormattedMessage
+                          id="app.shipping"
+                          defaultMessage="Shipping"
+                        />
                       </h2>
                       <table className="responsive-cart-total-table">
                         <CartTotals val={val} history={props.history} />
@@ -59,7 +64,13 @@ const Cart = (props) => {
                   </div>
                   <div className="cart-order-summary-wrapper">
                     <div className="cart-order-summary">
-                      <h2 className="order-summary-text">Order Summary</h2>
+                      <h2 className="order-summary-text">
+                        {" "}
+                        <FormattedMessage
+                          id="app.shipping"
+                          defaultMessage="Shipping"
+                        />
+                      </h2>
                       <table className="cart-total-table">
                         <CartTotals val={val} />
                       </table>

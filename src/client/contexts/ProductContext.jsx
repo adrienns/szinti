@@ -77,7 +77,7 @@ const ProductProvider = (props) => {
 
   const calculateShippingCost = () => {
     let shippingCost = 0;
-    if (selectedOption === "others") {
+    if (selectedOption === "Hungary") {
       shippingCost = 1000;
     }
     if (selectedOption === "EU") {
@@ -92,6 +92,7 @@ const ProductProvider = (props) => {
       return setFinalTotal(cartTotal);
     }
     if (cartTotal == 0) {
+      debugger;
       return setSelectedOption("Hungary"), setFinalTotal(0);
     } else {
       return setFinalTotal(cartTotal + shippingCost);

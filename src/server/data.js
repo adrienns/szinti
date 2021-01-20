@@ -42,23 +42,23 @@ const data = {
       secondImage: image20,
       images: [image21, image20],
       link: "organicnecklaceproduct",
-      price: 35000,
-      name: "Ezüst és édesvízi gyöngy nyaklánc karikával",
-      name: "Silver Nacklace with Sweetwater Pearl Beads and Hoop",
+      price: 15000,
+      name: " Ezüst és édesvízi gyöngy nyaklánc hullámos karikával",
+      name: "Silver Nacklace with Sweetwater Pearl Bead and Wavy Hoop",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl beads. ",
+        " The earings are made of 925 Sterling with rhodium coating and with sweetwater pearl. ",
       material_description_hun:
-        "Az ékszer 925 Sterling ezüstből készült, édesvízi gyöngysor kíséretében.  ",
+        "Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel, halványrózsaszín édesvízi gyöngy kíséretében.",
       material_cleaning:
         "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
-        "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
-      description:
-        "The earings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
-
+        " Vegyszermentes finom törlőkendővel alaposan áttörölni. Édesvízi gyöngysora miatt vegyszer, parfüm nem érheti! Száraz sötét helyen tartandó.",
       description_hun:
+        "Kézzel készült ezüst szemes nyaklánc, hullámos karika medállal és halványrózsaszín édesvízi gyöngy díszítéssel. Hétköznapokra és alkalmakra is tökéletes viselet. A modellen 42 cm-es hosszúságú lánc látható, de választható 45 cm-es hosszúságban is.",
+
+      description:
         "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
       count: 0,
@@ -78,7 +78,7 @@ const data = {
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl. ",
+        " The earings are made of 925 Sterling silver with sweetwater pearl beads.",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
       material_cleaning:
