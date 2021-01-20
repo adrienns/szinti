@@ -13,7 +13,7 @@ class CartColumns extends React.Component {
 
           <th className="products-information">
             {" "}
-            <FormattedMessage id="app.image" defaultMessage="image" />
+            <FormattedMessage id="app.name" defaultMessage="name" />
           </th>
           <th className="products-information">
             {" "}

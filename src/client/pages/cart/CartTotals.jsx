@@ -38,7 +38,13 @@ const CartTotals = ({ val }) => {
                     value="Hungary"
                     checked={selectedOption === "Hungary"}
                   />
-                  <label htmlFor="shipping-method">to Hungary: 1,500 FT</label>
+                  <label htmlFor="shipping-method">
+                    {" "}
+                    <FormattedMessage
+                      id="app.tohungary"
+                      defaultMessage="to Hungary: 1,500 FT"
+                    />
+                  </label>
                 </li>
                 <li id="order-summery-text-right-list">
                   <input
@@ -48,7 +54,13 @@ const CartTotals = ({ val }) => {
                     checked={selectedOption === "EU"}
                     onChange={onShippingChange}
                   />
-                  <label htmlFor="shipping-method">to EU: 2,500 FT</label>
+                  <label htmlFor="shipping-method">
+                    {" "}
+                    <FormattedMessage
+                      id="app.toeu"
+                      defaultMessage="to EU countries: 2,500 FT"
+                    />
+                  </label>
                 </li>
                 <li id="order-summery-text-right-list">
                   <input
@@ -58,7 +70,13 @@ const CartTotals = ({ val }) => {
                     value="pickup"
                     checked={selectedOption === "pickup"}
                   />
-                  <label htmlFor="shipping-method">Pick up: free</label>
+                  <label htmlFor="shipping-method">
+                    {" "}
+                    <FormattedMessage
+                      id="app.pickupfree"
+                      defaultMessage="pick up: free"
+                    />
+                  </label>
                 </li>
               </ul>
             </form>

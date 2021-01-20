@@ -35,7 +35,12 @@
   "app.details" :"details",
   "app.quantity" :"quantity",
   "app.price" :"price",
-  "app,remove":"remove"
+  "app,remove":"remove",
+  "app.name":"name",
+  "app.tohungary":"to Hungary: 1500 FT",
+  "app.toeu":"to EU countries: 2,500 FT",
+  "app.pickupfree":"Pick up: free"
+
 
 
  
