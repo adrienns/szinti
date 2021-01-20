@@ -7,7 +7,7 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 library.add(faTimes);
 
 export default function CartItem({ item, val }) {
-  const { total, id, name, count, firstImage, material} = item;
+  const { total, id, name, count, firstImage, material } = item;
   const { increment, decrement, removeItem } = val;
 
   return (
@@ -31,7 +31,7 @@ export default function CartItem({ item, val }) {
           +{" "}
         </span>
       </td>
-      <td className="cart-item">{total}$</td>
+      <td className="cart-item">{total} HUF</td>
       <td className="cart-item">
         <span onClick={() => removeItem(id)}>
           <FontAwesomeIcon className="shopping_bag" icon="times" />

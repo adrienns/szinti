@@ -38,7 +38,11 @@
   "app.name":"név",
   "app.tohungary":"Magyarországon: 1,500 FT",
   "app.toeu":"EU területén: 2,500 FT",
-  "app.pickupfree":"Személyes átvétel: Ingyenes"
+  "app.pickupfree":"Személyes átvétel: Ingyenes",
+  "app.material":"Anyag",
+  "app.yourshoppingcartisempty":"A kosarad jelenleg üres",
+  "app.items":"termék"
+
 
 
 }

@@ -39,7 +39,12 @@
   "app.name":"name",
   "app.tohungary":"to Hungary: 1500 FT",
   "app.toeu":"to EU countries: 2,500 FT",
-  "app.pickupfree":"Pick up: free"
+  "app.pickupfree":"Pick up: free",
+  "app.material":"Material",
+  "app.yourshoppingcartisempty":"Your Shopping Cart is empty",
+  "app.yourshoppingcart":"Your Shopping Cart",
+  "app.items":"items"
+
 
 
 

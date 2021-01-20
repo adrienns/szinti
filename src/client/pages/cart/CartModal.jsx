@@ -52,11 +52,19 @@ const CartModal = () => {
           <div className="cart-modal-upper-row">
             {itemsTotal === 0 ? (
               <p className="empty-shopping-cart-text">
-                Your shopping cart is currently empty
+                <FormattedMessage
+                  id="app.yourshoppingcartisempty"
+                  defaultMessage="Your Shopping Cart is empty"
+                />
               </p>
             ) : (
               <div className="your-cart-text">
-                Your Shopping Bag ({itemsTotal} items)
+                <FormattedMessage
+                  id="app.yourshoppingcart"
+                  defaultMessage="Your Shopping Cart"
+                />{" "}
+                ({itemsTotal}{" "}
+                <FormattedMessage id="app.items" defaultMessage="items" />)
               </div>
             )}
 
@@ -84,8 +92,11 @@ const CartModal = () => {
                       <div className="cart-modal-price"> {item.total}$</div>
                       <br />
                       <div className="cart-modal-material">
-                        {" "}
-                        Material: {item.material}
+                        <FormattedMessage
+                          id="app.material"
+                          defaultMessage="Material"
+                        />
+                        {item.material}
                       </div>
                     </div>
                   </div>
@@ -102,7 +113,7 @@ const CartModal = () => {
                     defaultMessage="SubTotal"
                   />
                 </div>
-                <div> {cartTotal}HUF</div>
+                <div> {cartTotal} HUF</div>
               </div>
               <div className="modal-total-cart-wrapper">
                 <h5>
