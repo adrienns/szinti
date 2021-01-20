@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./TopBar.css";
+import { useTransition, animated } from "react-spring";
+import { transform } from "typescript";
 
 const TEXTS = [
-  "Személyes átvételi lehetőség Budapesten",
-  "Ingyenes szallitas barhol 19 000ft felett",
+  "Személyes átvételi lehetőség Budapesten!",
+  "Ingyenes szállítás bárhova 19 000ft feletti rendelés esetén!",
 ];
 
 const TopBar = () => {
-  const [currentText, setCurrentText] = useState(0);
+  const [currentIndex, setCurrentText] = useState(0);
 
   const changeText = () => {
     const textlength = TEXTS.length;
-    const nextState = (currentText + 1) % textlength;
+    const nextState = (currentIndex + 1) % textlength;
     setCurrentText(nextState);
   };
 
@@ -20,12 +22,31 @@ const TopBar = () => {
       changeText();
     }, 3000);
     return () => clearInterval(interval);
-  }, [currentText]);
+  }, [currentIndex]);
 
-  const text = TEXTS[currentText];
+  const text = TEXTS[currentIndex];
+
+  const transitions = useTransition(text, currentIndex, {
+    from: {
+      opacity: 0,
+      height: 0,
+      transform: "perspective(600px) rotateX(0deg)",
+    },
+    enter: {
+      opacity: 1,
+      height: 15,
+      transform: "perspective(600px) rotateX(360deg)",
+    },
+    leave: { opacity: 0, height: 0, transform: "rotateX(0ddeg)" },
+  });
+
   return (
     <div className="topbar-container">
-      <span className="topbar-text">{text}</span>
+      {transitions.map(({ currentIndex, props, key }) => (
+        <animated.div className="topbar-text" key={key} style={{ ...props }}>
+          {text}
+        </animated.div>
+      ))}
     </div>
   );
 };

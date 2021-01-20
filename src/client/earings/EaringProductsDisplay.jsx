@@ -41,7 +41,7 @@ const EaringProductsDisplay = () => {
                     mainImg={element.firstImage}
                     secondImg={element.secondImage}
                     name={element.name}
-                    imgPrice={element.price}
+                    imgPrice={element.price.toLocaleString()}
                   />
                 );
               })}

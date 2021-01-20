@@ -89,7 +89,7 @@ const SinglePhoto = (props) => {
         <p className="product-description">
           <Link to={`/organicproduct/${name}`}>{name}</Link>
         </p>
-        <p className="product-description">{imgPrice.toLocaleString()} HUF</p>
+        <p className="product-description">{imgPrice} HUF</p>
       </div>
     </div>
   );
