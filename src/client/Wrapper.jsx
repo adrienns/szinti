@@ -28,7 +28,7 @@ const Wrapper = (props) => {
   };
 
   return (
-    <WrapperContext.Provider value={{ switchEnglish, switchHungarian }}>
+    <WrapperContext.Provider value={{ switchEnglish, switchHungarian, locale }}>
       <IntlProvider messages={messages} locale={locale} defaultLocale="en">
         {props.children}
       </IntlProvider>

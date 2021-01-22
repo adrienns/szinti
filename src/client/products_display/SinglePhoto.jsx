@@ -35,53 +35,44 @@ const SinglePhoto = (props) => {
   };
 
   const { id, imgUrl, name, imgPrice, secondImg, mainImg } = props;
-
   return (
     <div
+      className="jewelery-item"
       onMouseLeave={() => handleMouseOff()}
       onMouseEnter={() => handleMouseOn()}
     >
-      <li className="jewelery-item" key={id}>
+      <li key={id}>
         <ProductConsumer>
           {(value) => (
-            <div>
-              <Link to={`/organicproduct/${name}`}>
-                <div onClick={() => value.handleSingleProduct(id)}>
-                  <div className="image-wrapper">
-                    <div className="image-placeholder">
-                      {!imageIsLoaded && <Placeholder />}
-                      {transitions.map(({ item, key, props }) => (
-                        <animated.img
-                          key={key}
-                          style={props}
-                          className="necklaces-img"
-                          onLoad={handleImageLoaded}
-                          src={item ? secondImg : mainImg}
-                          width="596"
-                          height="788"
-                          url={imgUrl}
-                          alt="product"
-                        />
-                      ))}
-                    </div>
-                    <div>
-                      {isHovered ? (
-                        <button
-                          className="cart_btn"
-                          onClick={() => {
-                            value.openModal(id);
-                          }}
-                        >
-                          <p className="button_text">ADD TO BAG</p>
-                        </button>
-                      ) : (
-                        ""
-                      )}
-                    </div>
+            <Link to={`/organicproduct/${name}`}>
+              <div onClick={() => value.handleSingleProduct(id)}>
+                <div className="image-wrapper">
+                  <div className="image-placeholder">
+                    {!imageIsLoaded && <Placeholder />}
+                    {transitions.map(({ item, key, props }) => (
+                      <animated.img
+                        key={key}
+                        style={props}
+                        className={"necklaces-img"}
+                        onLoad={handleImageLoaded}
+                        src={item ? secondImg : mainImg}
+                        alt="product"
+                      />
+                    ))}
                   </div>
+                  {isHovered && (
+                    <button
+                      className="cart_btn"
+                      onClick={() => {
+                        value.openModal(id);
+                      }}
+                    >
+                      <p className="button_text">ADD TO BAG</p>
+                    </button>
+                  )}
                 </div>
-              </Link>
-            </div>
+              </div>
+            </Link>
           )}
         </ProductConsumer>
       </li>

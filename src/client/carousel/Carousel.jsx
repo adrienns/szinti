@@ -65,9 +65,11 @@ const Carousel = () => {
                 secondImage={element.secondImage}
                 key={element.id}
               />
-              <div>
-                <p>{element.name}</p>
-                <p>Price:{element.price}</p>
+              <div className="carousel-text-wrapper">
+                <p className="carousel-text">{element.name}</p>
+                <p className="carousel-price">
+                  {element.price.toLocaleString()} HUF
+                </p>
               </div>
             </div>
           );

@@ -92,7 +92,6 @@ const ProductProvider = (props) => {
       return setFinalTotal(cartTotal);
     }
     if (cartTotal == 0) {
-      debugger;
       return setSelectedOption("Hungary"), setFinalTotal(0);
     } else {
       return setFinalTotal(cartTotal + shippingCost);

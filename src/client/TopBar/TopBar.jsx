@@ -26,6 +26,8 @@ const TopBar = () => {
   const text = TEXTS[currentIndex];
 
   const transitions = useTransition(text, currentIndex, {
+    config: { mass: 5, tension: 2000, friction: 200 },
+
     from: {
       opacity: 0,
       height: 0,
@@ -33,10 +35,11 @@ const TopBar = () => {
     },
     enter: {
       opacity: 1,
+      x: 20,
       height: 15,
       transform: "perspective(600px) rotateX(360deg)",
     },
-    leave: { opacity: 0, height: 0, transform: "rotateX(0ddeg)" },
+    leave: { opacity: 0, height: 0, x: 0, transform: "rotateX(0ddeg)" },
   });
 
   return (

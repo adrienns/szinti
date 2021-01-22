@@ -43,7 +43,7 @@ const data = {
       images: [image21, image20],
       link: "organicnecklaceproduct",
       price: 15000,
-      name: " Ezüst és édesvízi gyöngy nyaklánc hullámos karikával",
+      name_hun: " Ezüst és édesvízi gyöngy nyaklánc hullámos karikával",
       name: "Silver Nacklace with Sweetwater Pearl Bead and Wavy Hoop",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
@@ -52,7 +52,7 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel, halványrózsaszín édesvízi gyöngy kíséretében.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "PLes do not clean the jewelery with chemicals and do you spay parfum on it as it can cause damage to the sweetwater pearl. With a cloth gently rub it. Store it in a dry and dark place.",
       material_cleaning_hun:
         " Vegyszermentes finom törlőkendővel alaposan áttörölni. Édesvízi gyöngysora miatt vegyszer, parfüm nem érheti! Száraz sötét helyen tartandó.",
       description_hun:
@@ -72,24 +72,24 @@ const data = {
       secondImage: image22,
       link: "organicnecklaceitem2",
       images: [image22, image23],
-      price: 220,
-      name: "Ezüst fülbevaló– Édesvízi gyöngy",
-      name: "Silver Earings -  Sweetwater Pearl",
+      price: 15000,
+      name_hun: "Ezüst lencse nyaklánc ",
+      name: "Silver Necklace- Lentil",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl beads.",
+        " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
-        "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
+        " Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel.",
       material_cleaning:
         "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        "This hand-made nacklace has a special lentil shape medal that give the necklace a special shine. It perfectly fits to every outfit.",
 
       description_hun:
-        "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
+        "KKézzel készült ezüst szemes nyaklánc, tömör lencse medállal különleges fényű matt csiszolással. Hétköznapokra és alkalmakra is tökéletes viselet. A képen látható modellen 42 cm-es hosszúságú lánc van, de választható 45 cm-es hosszúságban is.",
       inCart: false,
       count: 0,
       total: 0,
@@ -102,24 +102,24 @@ const data = {
       secondImage: image24,
       link: "organicnecklaceitem3",
       images: [image25, image24],
-      price: 400,
-      name: "Ezüst fülbevaló– Édesvízi gyöngy",
+      price: 15000,
+      name_hun: " Ezüst karika nyaklánc",
       name: "Silver Earings -  Sweetwater Pearl",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl. ",
+        " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
-        "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
+        " Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel.",
       material_cleaning:
         "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
-        "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
+        "Szappanos vízzel és fogkefével átdörzsölni majd szárazra törölni. Száraz sötét helyen, dobozában tartandó.",
       description:
-        "The earings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        "The necklace is hand-made with a uniquely formed hoop medal. On the picture the lenght of the necklace is 42 cm, however you can choose the lenght to be 45 cm. ",
 
       description_hun:
-        "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
+        "Kézzel készült ezüst szemes nyaklánc, különleges fényű,matt csiszolású karika medállal. Hétköznapokra és alkalmakra is tökéletes viselet. A modellen 42 cm-es hosszúságú lánc látható, de választható 45 cm-es hosszúságban is.",
       inCart: false,
       count: 0,
       total: 0,
@@ -131,15 +131,15 @@ const data = {
       secondImage: image26,
       images: [image26],
       link: "organicnecklaceitem4",
-      price: 330,
-      name: "Ezüst fülbevaló– Édesvízi gyöngy",
-      name: "Silver Earings -  Sweetwater Pearl",
+      price: 35000,
+      name_hun: " Ezüst és édesvízi gyöngy nyaklánc karikával",
+      name: "Silver Earings with Sweetwater Pearl",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl. ",
+        " The earings are made of 925 Sterling silver with sweetwater pearl beads.",
       material_description_hun:
-        "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
+        "Az ékszer 925 Sterling ezüstből készült, édesvízi gyöngysor kíséretében.",
       material_cleaning:
         "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
@@ -301,7 +301,7 @@ const data = {
       link: "organicnecklaceitem2",
       images: [image5, image4],
       price: 15000,
-      name: "Ezüst fülbevaló – Organikus négyszög",
+      name_hun: "Ezüst fülbevaló – Organikus négyszög",
       name: "Silver Earings - Organic Square",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
@@ -329,7 +329,7 @@ const data = {
       link: "organicnecklaceitem3",
       images: [image7, image6],
       price: 7000,
-      name: "Ezüst fülbevaló – Organikus mini háromszög",
+      name_hun: "Ezüst fülbevaló – Organikus mini háromszög",
       name: "Silver Earings - Organic Mini Triangle",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
@@ -358,7 +358,7 @@ const data = {
       images: [image9, image8],
       link: "organicnecklaceitem4",
       price: 15000,
-      name: "Ezüst fülbevaló – Hullámos karika",
+      name_hun: "Ezüst fülbevaló – Hullámos karika",
       name: "Silver Earings - Wavy Hoop",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
@@ -386,7 +386,7 @@ const data = {
       images: [image11, image10],
       link: "organicnecklaceitem5",
       price: 12000,
-      name: " Ezüst fülbevaló – Organikus huzal",
+      name_hun: " Ezüst fülbevaló – Organikus huzal",
       name: "Silver Earings - Organic Wire",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
@@ -414,7 +414,7 @@ const data = {
       images: [image13, image12],
       link: "organicnecklaceitem6",
       price: 15000,
-      name:
+      name_hun:
         " Ezüst fülbevaló, arany bevonattal – Organikus huzal édesvízi gyönggyel",
       name:
         "Silver Earings with Gold Coating - Organic Wire with Sweetwater Pearl",
@@ -443,7 +443,7 @@ const data = {
       images: [image15, image14],
       link: "organicnecklaceitem6",
       price: 6000,
-      name: "Ezüst fülbevaló– Édesvízi gyöngy",
+      name_hun: "Ezüst fülbevaló– Édesvízi gyöngy",
       name: "Silver Earings -  Sweetwater Pearl",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",
@@ -529,7 +529,7 @@ const data = {
       images: [image19],
       link: "organicnecklaceitem6",
       price: 18000,
-      name: " Ezüst fülbevaló – Lencse, gyöngyház kagylóval",
+      name_hun: " Ezüst fülbevaló – Lencse, gyöngyház kagylóval",
       name: "Silver Earings -  Lentil shaped Nacre Pearl ",
       material: "925 Sterling ezüst",
       material_hun: "925 Sterling Silver",

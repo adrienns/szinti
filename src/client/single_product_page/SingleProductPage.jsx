@@ -5,9 +5,11 @@ import { ProductContext } from "../contexts/ProductContext";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
+import { WrapperContext } from "../Wrapper";
 
 const SingleProductPage = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const { locale } = useContext(WrapperContext);
 
   const { incrementCartProduct, openSideModal } = useContext(ProductContext);
 
@@ -28,9 +30,24 @@ const SingleProductPage = (props) => {
     setCurrentImage(index);
   };
 
-  const { name, info, id, price, material } = props;
+  const {
+    name,
+    info,
+    id,
+    price,
+    material,
+    name_hun,
+    description_hun,
+    description,
+    material_cleaning_hun,
+    material_cleaning,
+    material_description_hun,
+    material_description,
+  } = props;
 
   const imgSrc = props.productImages[currentImage];
+
+  console.log(locale);
 
   return (
     <div className="product_wrapper">
@@ -58,9 +75,9 @@ const SingleProductPage = (props) => {
 
       <div className="product_textbox">
         <div>
-          <h1>{name}</h1>
-          <h2>{material}</h2>
-          <h5> {info}</h5>
+          <h1>{locale === "en" ? name : name_hun}</h1>
+          <h2>{locale === "en" ? name : name_hun}</h2>
+          <h5> {locale === "en" ? name : name_hun}</h5>
 
           <h1>{price}</h1>
         </div>

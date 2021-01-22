@@ -1,4 +1,4 @@
-.necklace_container {
+/* .necklace_container {
   box-sizing: border-box;
   margin-left: 10px;
   margin-right: 12px;
@@ -6,9 +6,19 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 24px;
   margin-top: -54px;
+  font-family: "Raleway", "sans-serif;";
+} */
+
+.necklace_container {
+  margin: 0 3vw 0 3vw;
+  display: flex;
+  justify-content: space-between;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
 }
 
-@media only screen and (max-width: 1300px) {
+/* @media only screen and (max-width: 1300px) {
   .necklace_container {
     margin-top: -54px;
     grid-template-columns: 1fr 1fr 1fr;
@@ -34,7 +44,7 @@
     margin-top: -54px;
     grid-template-columns: 1fr;
   }
-}
+} */
 
 .location-param {
   margin-top: 71px;

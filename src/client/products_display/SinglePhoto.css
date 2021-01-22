@@ -1,29 +1,44 @@
+:root {
+  --respo-height: 40vw;
+  --respo-width: 30.257vw;
+}
+
 .jewelery-item {
-  margin: 70px 0 20px 0;
+  margin: 70px 0 110px 0;
   list-style: none;
   position: relative;
-  height: 60vh;
-  overflow: hidden;
+  height: var(--respo-height);
+  width: var(--respo-width);
+  display: flex;
+  flex-direction: column;
+  /* margin: 1vw; */
+}
+
+.image-wrapper {
+  position: relative;
+  height: var(--respo-height);
+  width: var(--respo-width);
 }
 
 .necklaces-img {
   position: absolute;
-  max-width: 100%;
-  height: auto;
+  height: var(--respo-height);
+  width: var(--respo-width);
 }
 
 .product-description {
+  margin-top: 30px;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .cart_btn {
   position: absolute;
-  width: 100%;
+  width: var(--respo-width);
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 11px;
+  padding: 15px 0 25px 0;
   background-color: white;
   color: black;
   text-align: center;
@@ -31,6 +46,11 @@
   border: none;
   cursor: pointer;
   height: 30px;
+}
+
+.cart_btn:hover {
+  background-color: rgb(228, 242, 248) !important;
+  opacity: 1;
 }
 
 /* 
@@ -58,17 +78,8 @@
   border: solid rgb(255, 174, 0);
 }
 
-.image-wrapper {
-  position: relative;
-  border: solid rgb(77, 0, 128);
-  display: table-row;
-  width: auto;
-} */
 
-.cart_btn:hover {
-  background-color: rgb(228, 242, 248) !important;
-  opacity: 1;
-}
+
 
 .button_text {
   color: black;
@@ -106,20 +117,24 @@
   opacity: 0.01;
 }
 
-@media only screen and (max-width: 1164px) {
+@media only screen and (min-width: 1000px) {
   .jewelery-item {
-    margin: 70px 0 20px 0;
-    list-style: none;
-    position: relative;
-    height: 60vh;
+    height: 649px !important;
+    width: 490px !important;
+  }
+  .necklaces-img {
+    height: 649px !important;
+    width: 490px !important;
+  }
+  .image-wrapper {
+    height: 649px !important;
+    width: 490px !important;
+  }
+
+  .cart_btn {
+    width: 490px !important;
   }
 }
 
 @media only screen and (max-width: 325px) {
-  .img-wrapper-single {
-    width: 10px;
-  }
-  .necklaces-img {
-    width: 100%;
-  }
 }

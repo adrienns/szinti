@@ -20,6 +20,24 @@
   top: 173px !important;
 }
 
+.carousel-text-wrapper {
+  font-family: "Raleway", "sans-serif;";
+}
+
+.carousel-text {
+  margin-bottom: 16px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 400;
+
+  text-transform: uppercase;
+}
+
+.carousel-price {
+  font-weight: lighter;
+  font-size: 14.5px;
+}
+
 /*.framed_picture:hover{
     -webkit-transform: scale(1.3);
         -ms-transform: scale(1.3);

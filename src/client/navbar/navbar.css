@@ -20,7 +20,7 @@
 .navbar-container {
   display: flex;
   justify-content: center;
-  font-family: "Courier Prime", "Quicksand", sans-serif;
+  font-family: "Courier Prime", "Quicksand", sans-serif !important;
 }
 
 .menu-navigation ul {
