@@ -1,5 +1,5 @@
-import React, { useState, useContext } from "react";
-import { Icon, InlineIcon } from "@iconify/react";
+import React from "react";
+import { Icon } from "@iconify/react";
 import menuIcon from "@iconify/icons-bytesize/menu";
 
 import "./navbar.css";
