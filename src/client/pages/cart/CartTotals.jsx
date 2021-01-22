@@ -10,6 +10,7 @@ const CartTotals = ({ val }) => {
   const onShippingChange = (event) => {
     const value = event.target.value;
     handleValueChange(value);
+    console.log(value);
   };
 
   return (
@@ -20,7 +21,9 @@ const CartTotals = ({ val }) => {
             <FormattedMessage id="app.subtotal" defaultMessage="SubTotal" />
           </th>
           <td className="cart-totals-table-inner-chart">
-            <span id="order-summery-text-right">{cartTotal} HUF</span>
+            <span id="order-summery-text-right">
+              {cartTotal.toLocaleString()} HUF
+            </span>
           </td>
         </tr>
         <tr>
@@ -30,6 +33,22 @@ const CartTotals = ({ val }) => {
           <td className="cart-totals-table-inner-chart">
             <form>
               <ul className="shipping-method-list">
+                <li id="order-summery-text-right-list">
+                  <input
+                    onChange={onShippingChange}
+                    type="radio"
+                    name="shipping-method"
+                    value="pickup"
+                    checked={selectedOption === "pickup"}
+                  />
+                  <label htmlFor="shipping-method">
+                    {" "}
+                    <FormattedMessage
+                      id="app.pickupfree"
+                      defaultMessage="pick up: free"
+                    />
+                  </label>
+                </li>
                 <li id="order-summery-text-right-list">
                   <input
                     onChange={onShippingChange}
@@ -62,22 +81,6 @@ const CartTotals = ({ val }) => {
                     />
                   </label>
                 </li>
-                <li id="order-summery-text-right-list">
-                  <input
-                    onChange={onShippingChange}
-                    type="radio"
-                    name="shipping-method"
-                    value="pickup"
-                    checked={selectedOption === "pickup"}
-                  />
-                  <label htmlFor="shipping-method">
-                    {" "}
-                    <FormattedMessage
-                      id="app.pickupfree"
-                      defaultMessage="pick up: free"
-                    />
-                  </label>
-                </li>
               </ul>
             </form>
           </td>
@@ -90,7 +93,7 @@ const CartTotals = ({ val }) => {
             <FormattedMessage id="app.totalprice" defaultMessage="Total" />
           </th>
           <td className="order-summary-total" id="order-summery-text-right">
-            {finalTotal} HUF
+            {finalTotal.toLocaleString()} HUF
           </td>
         </tr>
         <tr className="continue-to-shipping-details-row">

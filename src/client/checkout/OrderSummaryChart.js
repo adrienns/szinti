@@ -19,7 +19,7 @@ export const OrderSummaryChart = () => {
                 id="app.productprice"
                 defaultMessage="Product price:"
               />
-              <p></p> <p>{cartTotal} HUF</p>
+              <p></p> <p>{cartTotal.toLocaleString()} HUF</p>
             </li>
             <li>
               <p>
@@ -58,7 +58,7 @@ export const OrderSummaryChart = () => {
                   defaultMessage="Total price:"
                 />{" "}
               </p>
-              <p>{finalTotal} HUF</p>
+              <p>{finalTotal.toLocaleString()} HUF</p>
             </li>
           </ul>
         </div>

@@ -5,7 +5,7 @@ import React, { createContext, useState, useEffect } from "react";
 //   singleProduct,
 // } from "../products_display/NecklacesData";
 
-const FREE_SHIPPING_LIMIT = 10000;
+const FREE_SHIPPING_LIMIT = 19000;
 
 export const ProductContext = createContext();
 
@@ -19,7 +19,6 @@ if (currentDate - prevDate > EXPIRATION_DURATION) {
   localStorage.setItem("key", JSON.stringify({}));
   objectFromLocalStorage = {};
 }
-console.log(objectFromLocalStorage);
 
 const ProductProvider = (props) => {
   const [loading, setLoading] = useState(true);
@@ -78,21 +77,22 @@ const ProductProvider = (props) => {
   const calculateShippingCost = () => {
     let shippingCost = 0;
     if (selectedOption === "Hungary") {
-      shippingCost = 1000;
+      shippingCost = 1500;
     }
     if (selectedOption === "EU") {
-      shippingCost = 100;
+      shippingCost = 2500;
     }
     return shippingCost;
   };
 
   const updateWithShippingCost = () => {
     let shippingCost = calculateShippingCost();
+
     if (cartTotal > FREE_SHIPPING_LIMIT) {
       return setFinalTotal(cartTotal);
     }
     if (cartTotal == 0) {
-      return setSelectedOption("Hungary"), setFinalTotal(0);
+      return setSelectedOption("pickup"), setFinalTotal(0);
     } else {
       return setFinalTotal(cartTotal + shippingCost);
     }
@@ -223,8 +223,6 @@ const ProductProvider = (props) => {
 
   const calculateCartData = () => {
     let currentCart = [...cart];
-
-    console.log(cart);
 
     let filteredCart = currentCart
 

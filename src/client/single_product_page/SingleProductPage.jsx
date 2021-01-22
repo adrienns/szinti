@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./SingleProduct.css";
 import SideImages from "./SideImages";
 import { ProductContext } from "../contexts/ProductContext";
@@ -6,14 +6,26 @@ import { SwitchTransition, CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import { WrapperContext } from "../Wrapper";
+import ResponsiveSingleProductPage from "./ResponsiveSingleProductPage";
 
 const SingleProductPage = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const { locale } = useContext(WrapperContext);
+  const [size, setSize] = useState(window.innerWidth);
+
+  const checkSize = () => {
+    setSize(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", checkSize);
+    return () => {
+      window.removeEventListener("resize", checkSize);
+    };
+  });
 
   const { incrementCartProduct, openSideModal } = useContext(ProductContext);
 
-  console.log(props);
   const numberOfImages = props.productImages.length;
 
   const handlePrevImage = () => {
@@ -32,10 +44,8 @@ const SingleProductPage = (props) => {
 
   const {
     name,
-    info,
     id,
     price,
-    material,
     name_hun,
     description_hun,
     description,
@@ -47,77 +57,92 @@ const SingleProductPage = (props) => {
 
   const imgSrc = props.productImages[currentImage];
 
-  console.log(locale);
-
   return (
-    <div className="product_wrapper">
-      <div>
-        <SideImages
-          currentImage={currentImage}
-          onChange={changeCurrentImageTo}
-          productImages={props.productImages}
-        />
-      </div>
-
-      <div className="img_container">
-        <span className="prev_btn" onClick={handlePrevImage}></span>
-        <SwitchTransition>
-          <CSSTransition
-            key={currentImage}
-            timeout={{ enter: 500, exit: 100 }}
-            classNames="fade"
-          >
-            <img src={imgSrc} className="sideImageClass" alt="product" />
-          </CSSTransition>
-        </SwitchTransition>
-        <span className="next_btn" onClick={handleNextImage}></span>
-      </div>
-
-      <div className="product_textbox">
+    <React.Fragment>
+      {size < 1100 ? (
         <div>
-          <h1>{locale === "en" ? name : name_hun}</h1>
-          <h2>{locale === "en" ? name : name_hun}</h2>
-          <h5> {locale === "en" ? name : name_hun}</h5>
+          <ResponsiveSingleProductPage
+            currentImage={currentImage}
+            props={props}
+            changeCurrentImageTo={changeCurrentImageTo}
+          />
+        </div>
+      ) : (
+        <div className="product_wrapper">
+          <div>
+            <SideImages
+              currentImage={currentImage}
+              onChange={changeCurrentImageTo}
+              productImages={props.productImages}
+            />
+          </div>
 
-          <h1>{price}</h1>
-        </div>
-        <div className="single_product_page_button_container">
-          <div>
-            <button
-              onClick={() => {
-                incrementCartProduct(id);
-                openSideModal();
-              }}
-            >
-              <FormattedMessage
-                id="app.addtoshoppingbag"
-                defaultMessage="Add to Shopping Bag"
-              />
-            </button>
+          <div className="img_container">
+            <SwitchTransition>
+              <CSSTransition
+                key={currentImage}
+                timeout={{ enter: 500, exit: 100 }}
+                classNames="fade"
+              >
+                <img src={imgSrc} className="sideImageClass" alt="product" />
+              </CSSTransition>
+            </SwitchTransition>
           </div>
-          <div>
-            <Link to="/necklaces">
-              <button>
+
+          <div className="product_textbox">
+            <div>
+              <h2 className="product_textbox_product_name">
+                {locale === "en" ? name : name_hun}
+              </h2>
+
+              <h4>{price.toLocaleString()} HUF</h4>
+            </div>
+
+            <section className="product_textbook_descriptions">
+              <p>
+                <strong>Anyaga: </strong>
+                {locale === "en"
+                  ? material_description
+                  : material_description_hun}
+              </p>
+              <p>
+                <strong>Termékleírás: </strong>
+                {locale === "en" ? description : description_hun}
+              </p>
+              <p>
+                <strong>Tisztítása: </strong>
+                {locale === "en" ? material_cleaning : material_cleaning_hun}
+              </p>
+              <strong className="more-info-about-shipping">
+                Szállítással kapcsolatos tudnivalók{" "}
+              </strong>
+            </section>
+            <div className="single_product_page_button_container">
+              <button
+                onClick={() => {
+                  incrementCartProduct(id);
+                  openSideModal();
+                }}
+              >
                 <FormattedMessage
-                  id="app.continueshopping"
-                  defaultMessage="continue shopping"
+                  id="app.addtoshoppingbag"
+                  defaultMessage="Add to Shopping Bag"
                 />
               </button>
-            </Link>
-          </div>
-          <div>
-            <Link to="/cart">
-              <button>
-                <FormattedMessage
-                  id="app.gotopayment"
-                  defaultMessage="Go to Payment"
-                />
-              </button>
-            </Link>
+
+              <Link to="/cart">
+                <button>
+                  <FormattedMessage
+                    id="app.gotopayment"
+                    defaultMessage="Pay Now"
+                  />
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </React.Fragment>
   );
 };
 

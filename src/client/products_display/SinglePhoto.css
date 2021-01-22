@@ -4,14 +4,13 @@
 }
 
 .jewelery-item {
-  margin: 70px 0 110px 0;
+  margin: 15px 0 170px 0;
   list-style: none;
   position: relative;
   height: var(--respo-height);
   width: var(--respo-width);
   display: flex;
   flex-direction: column;
-  /* margin: 1vw; */
 }
 
 .image-wrapper {
@@ -117,22 +116,22 @@
   opacity: 0.01;
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1460px) {
   .jewelery-item {
-    height: 649px !important;
-    width: 490px !important;
+    height: 649px;
+    width: 490px;
   }
   .necklaces-img {
-    height: 649px !important;
-    width: 490px !important;
+    height: 649px;
+    width: 490px;
   }
   .image-wrapper {
-    height: 649px !important;
-    width: 490px !important;
+    height: 649px;
+    width: 490px;
   }
 
   .cart_btn {
-    width: 490px !important;
+    width: 490px;
   }
 }
 

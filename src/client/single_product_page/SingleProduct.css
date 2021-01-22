@@ -1,59 +1,41 @@
-.responsive-product_wrapper {
-  display: none;
-}
-
 .product_wrapper {
   display: flex;
   justify-content: center;
-  margin-top: 81px;
+  margin: 81px 30px 20px 30px;
 }
 
 .product_textbox {
-  width: 430px;
+  margin-left: -24px;
+  width: 382px;
   height: 550px;
   text-align: left;
+  font-family: "Raleway", "sans-serif";
+  /* position: relative; */
 }
 
-.prev_btn {
-  width: 55px;
-  height: 55px;
-  margin-left: 20px;
-  position: absolute;
-  top: 48%;
+.product_textbox_product_name {
+  font-size: 16px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 26px;
+  margin-top: -7px;
 }
 
-.prev_btn:after {
-  content: "";
-  display: inline-block;
-  margin-left: 10px;
-  width: 30px;
-  height: 30px;
-  border-top: 0.15em solid rgb(51, 51, 51);
-  border-right: 0.15em solid rgb(51, 51, 51);
-  -moz-transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
-  transform: rotate(-135deg);
+.product_textbook_descriptions {
+  font-weight: lighter;
+  margin-top: 15px;
+  font-size: 15px;
+  line-height: 23px;
 }
 
-.next_btn {
-  margin-left: -85px;
-  width: 55px;
-  height: 55px;
-  position: absolute;
-  top: 48%;
+.product_textbook_descriptions p {
+  margin-bottom: 10px;
 }
 
-.next_btn:after {
-  content: "";
-  display: inline-block;
-  margin-left: -10px;
-  width: 30px;
-  height: 30px;
-  border-top: 0.15em solid rgb(51, 51, 51);
-  border-right: 0.15em solid rgb(51, 51, 51);
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+.more-info-about-shipping:hover {
+  border-bottom: solid black;
+  border-width: 1px;
 }
 
 /*CSS Transition Group*/
@@ -100,12 +82,13 @@
 .single_product_page_button_container button {
   background-color: rgb(46, 45, 45);
   color: white;
-  width: 360px;
+  width: 359px;
   height: 40px;
   font-size: 13px;
   letter-spacing: 1px;
   font-weight: bold;
-  margin: 5px;
+  margin: 5px 0 5px 0;
+  border-radius: 3px;
 }
 
 .single_product_page_button_container button:hover {
@@ -114,30 +97,16 @@
 }
 
 .single_product_page_button_container {
-  padding-top: 50px;
+  padding-top: 13px;
+  /* position: absolute; */
+  /* bottom: 16px; */
 }
 
-@media only screen and (max-width: 1201px) {
-  .product_wrapper {
-    display: none;
-  }
-
-  .responsive-product_wrapper {
-  }
+.side-images-and-image-container {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
-@media only screen and (max-width: 421px) {
-  .product_wrapper {
-    display: none;
-  }
-
-  .responsive-img_container {
-    width: 150px;
-    height: 100px;
-  }
-
-  .product_wrapper {
-    display: flex;
-    flex-direction: column;
-  }
+.responsive-side-images {
+  flex-direction: row;
 }

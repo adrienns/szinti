@@ -36,7 +36,7 @@ const Modal = () => {
               </h2>
               <h4 className="item-info"> {material}</h4>
 
-              <h4 className="item-info">{price} HUF</h4>
+              <h4 className="item-info">{price.toLocaleString()} HUF</h4>
 
               <div>
                 <button

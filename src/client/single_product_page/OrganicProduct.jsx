@@ -31,7 +31,6 @@ const OrganicProduct = () => {
           openModal={openModal}
           price={price}
           inCart={inCart}
-          info={info}
           name={name}
           name_hun={name_hun}
           description_hun={description_hun}

@@ -1,8 +1,36 @@
-{
-  /* <div className="responsive-product_wrapper">
-        <div className="responsive-img_container">
-          <button className="prev_btn" onClick={handlePrevImage}></button>
-          <button className="next_btn" onClick={handleNextImage}></button>
+import React, { useContext } from "react";
+import "./SingleProduct.css";
+import SideImages from "./SideImages";
+import { ProductContext } from "../contexts/ProductContext";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
+import { WrapperContext } from "../Wrapper";
+
+const ResponsiveSingleProductpage = ({
+  currentImage,
+  changeCurrentImageTo,
+  props,
+}) => {
+  const { incrementCartProduct, openSideModal } = useContext(ProductContext);
+  const { locale } = useContext(WrapperContext);
+
+  console.log(props.name);
+
+  const imgSrc = props.productImages[currentImage];
+
+  return (
+    <div className="responsive_product_wrapper">
+      <div className="side-images-and-image-container">
+        <div className="responsive-side-images">
+          <SideImages
+            currentImage={currentImage}
+            onChange={changeCurrentImageTo}
+            productImages={props.productImages}
+          />
+        </div>
+
+        <div className="responsive_img_container">
           <SwitchTransition>
             <CSSTransition
               key={currentImage}
@@ -13,68 +41,60 @@
             </CSSTransition>
           </SwitchTransition>
         </div>
+      </div>
+
+      <div className="product_textbox">
         <div>
-          <SideImages
-            currentImage={currentImage}
-            onChange={changeCurrentImageTo}
-            productImages={props.productImages}
-          />
+          <h2 className="product_textbox_product_name">
+            {locale === "en" ? props.name : props.name_hun}
+          </h2>
+
+          <h4>{props.price} HUF</h4>
         </div>
-        <div className="responsive-product_textbox">
-          <div>
-            <h1> {name}</h1>
 
-            <h1> {info}</h1>
-            <h1> {price}</h1>
-          </div>
+        <section className="product_textbook_descriptions">
+          <p>
+            <strong>Anyaga: </strong>
+            {locale === "en"
+              ? props.material_description
+              : props.material_description_hun}
+          </p>
+          <p>
+            <strong>Termékleírás: </strong>
+            {locale === "en" ? props.description : props.description_hun}
+          </p>
+          <p>
+            <strong>Tisztítása: </strong>
+            {locale === "en"
+              ? props.material_cleaning
+              : props.material_cleaning_hun}
+          </p>
+          <strong className="more-info-about-shipping">
+            Szállítással kapcsolatos tudnivalók{" "}
+          </strong>
+        </section>
+        <div className="single_product_page_button_container">
+          <button
+            onClick={() => {
+              incrementCartProduct(id);
+              openSideModal();
+            }}
+          >
+            <FormattedMessage
+              id="app.addtoshoppingbag"
+              defaultMessage="Add to Shopping Bag"
+            />
+          </button>
 
-          <div>
-            <form>
-              <label htmlFor="materials">
-                <div className="item-info">Select Material:</div>
-                <select
-                  value={material}
-                  className="item-info"
-                  id="select-material"
-                  onChange={(event) => {
-                    SetMaterial(event.target.value);
-                  }}
-                >
-                  <option value="select">Please select material</option>
-                  <option value="gold">Gold</option>
-                  <option value="silver">Silver</option>
-                  <option value="bronze">Bronze</option>
-                </select>
-              </label>
-            </form>
-          </div> */
-}
-
-{
-  /* <div className="single_product_page_button_container">
-            <div>
-              <button
-                className="modal-btn"
-                disabled={material === "select" ? true : false}
-                onClick={() => {
-                  incrementCartProduct(id, material);
-                  openSideModal();
-                }}
-              >
-                Add to Shopping Bag
-              </button>
-            </div>
-            <div>
-              <Link to="/necklaces">
-                <button>Continue Shopping</button>{" "}
-              </Link>
-            </div>
-            <div>
-              <Link to="/cart">
-                <button>Pay Now</button>
-              </Link>
-            </div>
-          </div>
+          <Link to="/cart">
+            <button>
+              <FormattedMessage id="app.gotopayment" defaultMessage="Pay Now" />
+            </button>
+          </Link>
         </div>
-      </div> */
-}
+      </div>
+    </div>
+  );
+};
+
+export default ResponsiveSingleProductpage;

@@ -41,7 +41,7 @@ const ProductsDisplay = () => {
                     mainImg={element.firstImage}
                     secondImg={element.secondImage}
                     name={element.name}
-                    imgPrice={element.price.toLocaleString()}
+                    imgPrice={element.price}
                   />
                 );
               })}
