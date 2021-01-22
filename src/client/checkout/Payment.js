@@ -107,17 +107,6 @@ const Payment = (props) => {
       });
   };
 
-  const onCancel = (data) => {
-    // Show a cancel page, or return to cart
-  };
-
-  const onError = (err) => {
-    // Show an error page here, when an error occurs
-
-    setPaymentError(true);
-    console.log(err);
-  };
-
   return (
     <div>
       <CheckoutSteps step1 step2 />

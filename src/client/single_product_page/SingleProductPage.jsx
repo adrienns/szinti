@@ -98,7 +98,7 @@ const SingleProductPage = (props) => {
               <h4>{price.toLocaleString()} HUF</h4>
             </div>
 
-            <section className="product_textbook_descriptions">
+            <section className="product_textbox_descriptions">
               <p>
                 <strong>Anyaga: </strong>
                 {locale === "en"

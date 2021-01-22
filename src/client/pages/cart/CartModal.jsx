@@ -5,6 +5,7 @@ import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { FormattedMessage } from "react-intl";
 import { ProductContext } from "../../contexts/ProductContext";
+import { WrapperContext } from "../../Wrapper";
 
 const CartModal = () => {
   const {
@@ -14,6 +15,8 @@ const CartModal = () => {
     cartTotal,
     itemsTotal,
   } = useContext(ProductContext);
+
+  const { locale } = useContext(WrapperContext);
 
   //create a cart item with a correct price when material is added
 
@@ -28,6 +31,9 @@ const CartModal = () => {
           total: item.total,
           count: item.count,
           name: item.name,
+          name_hun: item.name_hun,
+          material_hun: item.material_hun,
+          material: item.material,
         });
       }
     });
@@ -80,23 +86,23 @@ const CartModal = () => {
             <div>
               {items.map((item) => {
                 return (
-                  <div
-                    className="cart-modal-item"
-                    key={`${item.id} ${item.material}`}
-                  >
+                  <div className="cart-modal-item" key={item.id}>
                     <img className="cart-modal-img" src={item.firstImage} />
                     <div className="cart-modal-product-info">
                       <div className="cart-modal-name">
-                        {item.name} x {item.count}
+                        {locale == "en" ? item.name : item.name_hun} x{" "}
+                        {item.count}
                       </div>
-                      <div className="cart-modal-price"> {item.total}$</div>
+                      <div className="cart-modal-price">
+                        {item.total.toLocaleString()} HUF
+                      </div>
                       <br />
                       <div className="cart-modal-material">
                         <FormattedMessage
                           id="app.material"
                           defaultMessage="Material"
                         />
-                        {item.material}
+                        {locale == "en" ? item.material : item.material_hun}
                       </div>
                     </div>
                   </div>
@@ -113,7 +119,7 @@ const CartModal = () => {
                     defaultMessage="SubTotal"
                   />
                 </div>
-                <div> {cartTotal} HUF</div>
+                <div> {cartTotal.toLocaleString()} HUF</div>
               </div>
               <div className="modal-total-cart-wrapper">
                 <h5>

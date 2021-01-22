@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./TopBar.css";
 import { useTransition, animated } from "react-spring";
 
-const TEXTS = [
-  "Személyes átvételi lehetőség Budapesten!",
-  "Ingyenes szállítás bárhova 19 000ft feletti rendelés esetén",
-];
+const TEXTS = ["Személyes átvételi !", "Ingyenes szállítás"];
+
+// 19 000ft feletti rendelés esetén!
+// lehetőség Budapesten
 
 const TopBar = () => {
   const [currentIndex, setCurrentText] = useState(0);
@@ -19,7 +19,7 @@ const TopBar = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       changeText();
-    }, 3000);
+    }, 6000);
     return () => clearInterval(interval);
   }, [currentIndex]);
 

@@ -45,8 +45,8 @@ const data = {
       price: 15000,
       name_hun: " Ezüst és édesvízi gyöngy nyaklánc hullámos karikával",
       name: "Silver Nacklace with Sweetwater Pearl Bead and Wavy Hoop",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling with rhodium coating and with sweetwater pearl. ",
       material_description_hun:
@@ -75,8 +75,8 @@ const data = {
       price: 15000,
       name_hun: "Ezüst lencse nyaklánc ",
       name: "Silver Necklace- Lentil",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
@@ -89,7 +89,7 @@ const data = {
         "This hand-made nacklace has a special lentil shape medal that give the necklace a special shine. It perfectly fits to every outfit.",
 
       description_hun:
-        "KKézzel készült ezüst szemes nyaklánc, tömör lencse medállal különleges fényű matt csiszolással. Hétköznapokra és alkalmakra is tökéletes viselet. A képen látható modellen 42 cm-es hosszúságú lánc van, de választható 45 cm-es hosszúságban is.",
+        "Kézzel készült ezüst szemes nyaklánc, tömör lencse medállal különleges fényű matt csiszolással. Hétköznapokra és alkalmakra is tökéletes viselet. A képen látható modellen 42 cm-es hosszúságú lánc van, de választható 45 cm-es hosszúságban is.",
       inCart: false,
       count: 0,
       total: 0,
@@ -105,8 +105,8 @@ const data = {
       price: 15000,
       name_hun: " Ezüst karika nyaklánc",
       name: "Silver Earings -  Sweetwater Pearl",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
@@ -134,8 +134,8 @@ const data = {
       price: 35000,
       name_hun: " Ezüst és édesvízi gyöngy nyaklánc karikával",
       name: "Silver Earings with Sweetwater Pearl",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with sweetwater pearl beads.",
       material_description_hun:
@@ -275,8 +275,8 @@ const data = {
       price: 15000,
       name_hun: "Ezüst fülbevaló – Organikus háromszög",
       name: "Silver Earings - Organic Triangle",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
@@ -303,8 +303,8 @@ const data = {
       price: 15000,
       name_hun: "Ezüst fülbevaló – Organikus négyszög",
       name: "Silver Earings - Organic Square",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
@@ -331,8 +331,8 @@ const data = {
       price: 7000,
       name_hun: "Ezüst fülbevaló – Organikus mini háromszög",
       name: "Silver Earings - Organic Mini Triangle",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
@@ -360,8 +360,8 @@ const data = {
       price: 15000,
       name_hun: "Ezüst fülbevaló – Hullámos karika",
       name: "Silver Earings - Wavy Hoop",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
@@ -388,8 +388,8 @@ const data = {
       price: 12000,
       name_hun: " Ezüst fülbevaló – Organikus huzal",
       name: "Silver Earings - Organic Wire",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
@@ -418,8 +418,8 @@ const data = {
         " Ezüst fülbevaló, arany bevonattal – Organikus huzal édesvízi gyönggyel",
       name:
         "Silver Earings with Gold Coating - Organic Wire with Sweetwater Pearl",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with gold plate. ",
       material_description_hun:
@@ -445,8 +445,8 @@ const data = {
       price: 6000,
       name_hun: "Ezüst fülbevaló– Édesvízi gyöngy",
       name: "Silver Earings -  Sweetwater Pearl",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with sweetwater pearl. ",
       material_description_hun:
@@ -531,8 +531,8 @@ const data = {
       price: 18000,
       name_hun: " Ezüst fülbevaló – Lencse, gyöngyház kagylóval",
       name: "Silver Earings -  Lentil shaped Nacre Pearl ",
-      material: "925 Sterling ezüst",
-      material_hun: "925 Sterling Silver",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with rhodium coating amd nackre pearl",
       material_description_hun:

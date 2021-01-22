@@ -21,38 +21,37 @@ const ResponsiveSingleProductpage = ({
 
   return (
     <div className="responsive_product_wrapper">
-      <div className="side-images-and-image-container">
-        <div className="responsive-side-images">
-          <SideImages
-            currentImage={currentImage}
-            onChange={changeCurrentImageTo}
-            productImages={props.productImages}
-          />
-        </div>
+      {/* <div className="side-images-and-image-container"> */}
 
-        <div className="responsive_img_container">
-          <SwitchTransition>
-            <CSSTransition
-              key={currentImage}
-              timeout={{ enter: 500, exit: 100 }}
-              classNames="fade"
-            >
-              <img src={imgSrc} className="sideImageClass" alt="product" />
-            </CSSTransition>
-          </SwitchTransition>
-        </div>
+      <div className="responsive_img_container">
+        <SwitchTransition>
+          <CSSTransition
+            key={currentImage}
+            timeout={{ enter: 500, exit: 100 }}
+            classNames="fade"
+          >
+            <img src={imgSrc} className="sideImageClass" alt="product" />
+          </CSSTransition>
+        </SwitchTransition>
       </div>
 
-      <div className="product_textbox">
-        <div>
+      <SideImages
+        className="responsive-side-images"
+        currentImage={currentImage}
+        onChange={changeCurrentImageTo}
+        productImages={props.productImages}
+      />
+      {/* </div> */}
+
+      <div className="responsive_textbox_wrapper">
+        <section className="responsive_product_textbook_descriptions">
           <h2 className="product_textbox_product_name">
             {locale === "en" ? props.name : props.name_hun}
           </h2>
+          <h4 className="responsive_textbox-price">
+            {props.price.toLocaleString()} HUF
+          </h4>
 
-          <h4>{props.price} HUF</h4>
-        </div>
-
-        <section className="product_textbook_descriptions">
           <p>
             <strong>Anyaga: </strong>
             {locale === "en"
@@ -72,26 +71,30 @@ const ResponsiveSingleProductpage = ({
           <strong className="more-info-about-shipping">
             Szállítással kapcsolatos tudnivalók{" "}
           </strong>
-        </section>
-        <div className="single_product_page_button_container">
-          <button
-            onClick={() => {
-              incrementCartProduct(id);
-              openSideModal();
-            }}
-          >
-            <FormattedMessage
-              id="app.addtoshoppingbag"
-              defaultMessage="Add to Shopping Bag"
-            />
-          </button>
 
-          <Link to="/cart">
-            <button>
-              <FormattedMessage id="app.gotopayment" defaultMessage="Pay Now" />
+          <div className="single_product_page_button_container">
+            <button
+              onClick={() => {
+                incrementCartProduct(id);
+                openSideModal();
+              }}
+            >
+              <FormattedMessage
+                id="app.addtoshoppingbag"
+                defaultMessage="Add to Shopping Bag"
+              />
             </button>
-          </Link>
-        </div>
+
+            <Link to="/cart">
+              <button>
+                <FormattedMessage
+                  id="app.gotopayment"
+                  defaultMessage="Pay Now"
+                />
+              </button>
+            </Link>
+          </div>
+        </section>
       </div>
     </div>
   );

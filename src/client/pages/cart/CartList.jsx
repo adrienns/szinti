@@ -10,7 +10,10 @@ const createCartItems = (cart) => {
         firstImage: item.firstImage,
         total: item.total,
         count: item.count,
+        name_hun: item.name_hun,
         name: item.name,
+        material: item.material,
+        material_hun: item.material_hun,
       });
     }
   });
@@ -18,13 +21,13 @@ const createCartItems = (cart) => {
 };
 
 export default function CartList({ val }) {
-  const { cart, increment } = val;
+  const { cart } = val;
 
   const items = createCartItems(cart);
   return (
     <tbody className="coloumns-container">
       {items.map((item) => (
-        <CartItem key={`${item.id} `} item={item} val={val} />
+        <CartItem key={item.id} item={item} val={val} />
       ))}
     </tbody>
   );
