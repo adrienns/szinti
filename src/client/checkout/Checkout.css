@@ -132,13 +132,49 @@
 }
 /*payment error page*/
 
+.payment-error-page {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(230, 230, 230);
+}
+
+.payment-error-container {
+  background-color: white;
+  margin: 160px 0 100px 0;
+  width: 500px;
+  height: 230px;
+}
+
+.payment-error-text-and-image-container {
+  display: flex;
+  flex-direction: row;
+  margin: 40px 25px 40px 25px;
+}
+
 .payment-error-icon {
-  margin-top: 100px;
   width: 70px;
-  height: auto;
+  height: 65px;
+}
+
+.payment-error-text-wrapper {
+  margin: 0 0 0 25px;
+}
+
+.payment-error-upper-text {
+  margin-bottom: 10px;
+}
+
+.payment-error-lower-text {
+  margin-bottom: 20px;
 }
 
 .payment-error-icon-container {
   display: flex;
   justify-content: center;
+}
+
+.payment-error-text-go-back {
+  border-bottom: solid rgb(6, 113, 252);
+  color: rgb(6, 113, 252);
+  border-width: 0.5px;
 }

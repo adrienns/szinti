@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 import checkmark from "../images/greencheckmark.png";
 
@@ -27,30 +28,68 @@ const SuccessfulPaymentPage = () => {
           className="checkmark-icon"
           alt="Successful payment image"
         />
-        <h3>Successful payment!</h3>
+        <h3>
+          {" "}
+          <FormattedMessage
+            id="app.successfulpayment"
+            defaultMessage="Successful payment!"
+          />
+        </h3>
         <h5 className="payment-confirmation-long-text">
-          Thank you for your purchase! We are processing your order and will
-          send you the confirmation shortly.{" "}
+          {" "}
+          <FormattedMessage
+            id="app.successfulpaymenttext"
+            defaultMessage="Thank you for your purchase! We are processing your order and will
+            send you the confirmation shortly."
+          />
         </h5>
 
         <h5>
-          <p className="payment-confirmation-details-text">Name</p>
+          <p className="payment-confirmation-details-text">
+            {" "}
+            <FormattedMessage id="name" defaultMessage="Name" />
+          </p>
           <p>{name} </p>
         </h5>
         <h5>
-          <p className="payment-confirmation-details-text">Order Number</p>
+          <p className="payment-confirmation-details-text">
+            {" "}
+            <FormattedMessage
+              id="app.ordernumber"
+              defaultMessage=" Order Number"
+            />
+          </p>
           <p>{transactionId} </p>
         </h5>
         <h5>
-          <p className="payment-confirmation-details-text">Payment Status</p>
+          <p className="payment-confirmation-details-text">
+            {" "}
+            <FormattedMessage
+              id="app.paymentstatus"
+              defaultMessage="Payment Status"
+            />
+          </p>
           <p className="transaction-status">{status}</p>
         </h5>
         <h5>
-          <p className="payment-confirmation-details-text">Date</p>
+          <p className="payment-confirmation-details-text">
+            {" "}
+            <FormattedMessage
+              id="app.successfulpayment"
+              defaultMessage="Successful payment!"
+            />
+            Date
+          </p>
           <p>{formattedDate(transactionDate)}</p>
         </h5>
         <h5>
-          <p className="payment-confirmation-details-text">Payment Amount</p>
+          <p className="payment-confirmation-details-text">
+            {" "}
+            <FormattedMessage
+              id="app.paymentamount"
+              defaultMessage="Payment Amount"
+            />
+          </p>
           <p>{transactionAmount} HUF</p>
         </h5>
       </div>

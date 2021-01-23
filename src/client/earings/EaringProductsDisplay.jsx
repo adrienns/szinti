@@ -16,8 +16,11 @@ const EaringProductsDisplay = () => {
         <Loader />
       ) : error ? (
         <h3 className="error-msg">
-          Something went wrong. Please contact us here :
-          adrienn.sepa@outlook.com
+          <FormattedMessage
+            id="app.somethingwentwrong"
+            defaultMessage="Something went wrong. Please contact us here :
+          adrienn.sepa@outlook.com"
+          />
         </h3>
       ) : (
         <React.Fragment>
@@ -34,13 +37,13 @@ const EaringProductsDisplay = () => {
                 return (
                   <SinglePhoto
                     type={element.type}
-                    inCart={element.inCart}
                     element={element}
                     key={element.id}
                     id={element.id}
                     mainImg={element.firstImage}
                     secondImg={element.secondImage}
                     name={element.name}
+                    name_hun={element.name_hun}
                     imgPrice={element.price}
                   />
                 );

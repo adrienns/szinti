@@ -6,7 +6,7 @@ import { PayPalButton } from "react-paypal-button-v2";
 import OrderSummaryChart from "./OrderSummaryChart";
 import Loader from "../products_display/Loader";
 
-const Payment = (props) => {
+const Payment = () => {
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
   const { calculateCartData, clearCart } = useContext(ProductContext);
@@ -80,7 +80,8 @@ const Payment = (props) => {
             transactionAmount,
           }),
         })
-          .then((res) => {
+          //sending conformation email to seller about completed transaction
+          .then(() => {
             console.log("message to the seller was sent");
           })
           .catch(() => {

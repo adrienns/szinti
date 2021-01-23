@@ -11,16 +11,19 @@ const ProductsDisplay = () => {
   const { products, error, loading } = useContext(ProductContext);
 
   return (
-    <div>
+    <React.Fragment>
       {loading ? (
         <Loader />
       ) : error ? (
         <h3 className="error-msg">
-          Something went wrong. Please contact us here :
-          adrienn.sepa@outlook.com
+          <FormattedMessage
+            id="app.somethingwentwrong"
+            defaultMessage="Something went wrong. Please contact us here :
+          adrienn.sepa@outlook.com"
+          />
         </h3>
       ) : (
-        <React.Fragment>
+        <div>
           <h5 className="location-param">
             <Link to="/">
               <FormattedMessage id="app.home" defaultMessage="Home" />
@@ -34,7 +37,7 @@ const ProductsDisplay = () => {
                 return (
                   <SinglePhoto
                     type={element.type}
-                    inCart={element.inCart}
+                    name_hun={element.name_hun}
                     element={element}
                     key={element.id}
                     id={element.id}
@@ -46,9 +49,9 @@ const ProductsDisplay = () => {
                 );
               })}
           </ul>
-        </React.Fragment>
+        </div>
       )}
-    </div>
+    </React.Fragment>
   );
 };
 

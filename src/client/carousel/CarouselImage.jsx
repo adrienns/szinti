@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CarouselImage.css";
+import "./Carousel.css";
 import { useTransition, animated } from "react-spring";
 import Placeholder from "../products_display/Placeholder";
 
@@ -13,7 +13,7 @@ const CarouselImage = (props) => {
     config: { tension: 220, friction: 120, duration: 300 },
   });
 
-  const { imgUrl, firstImage, secondImage } = props;
+  const { firstImage, secondImage } = props;
 
   const handleImageLoaded = () => {
     setImageIsLoaded(true);
@@ -33,23 +33,17 @@ const CarouselImage = (props) => {
       onMouseLeave={() => handleMouseOff()}
       onMouseEnter={() => handleMouseOn()}
     >
-      <div>
-        {!imageIsLoaded && <Placeholder />}
-        {transitions.map(({ item, key, props }) => (
-          <animated.img
-            key={key}
-            style={props}
-            className="carousel_image"
-            onLoad={handleImageLoaded}
-            src={item ? firstImage : secondImage}
-            url={imgUrl}
-            alt="product"
-          />
-        ))}
-        <div className="carousel-text-wrapper">
-          <p className="carousel-text">hello</p>
-        </div>
-      </div>
+      {!imageIsLoaded && <Placeholder />}
+      {transitions.map(({ item, key, props }) => (
+        <animated.img
+          key={key}
+          style={props}
+          className="carousel_image"
+          onLoad={handleImageLoaded}
+          src={item ? firstImage : secondImage}
+          alt="product image"
+        />
+      ))}
     </div>
   );
 };

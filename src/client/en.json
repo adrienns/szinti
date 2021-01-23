@@ -43,7 +43,18 @@
   "app.material":"Material: ",
   "app.yourshoppingcartisempty":"Your Shopping Cart is empty",
   "app.yourshoppingcart":"Your Shopping Cart",
-  "app.items":"items"
+  "app.items":"items",
+  "app.paymentunsuccessfultext":"Payment was unsuccessful. Your credit card was not charged. Please try again.",
+  "app.goback":"Go back and try again",
+  "app.paymenterror":"Payment Error",
+  "app.somethingwentwrong":" Something went wrong. Please contact us here : adrienn.sepa@outlook.com",
+  "app.successfulpayment":"Successful Payment!",
+  "app.successfulpaymenttext":" Thank you for your purchase! I am processing your order and will send you the confirmation shortly.",
+  "name":"Name",
+  "app.ordernumber":"Order Number",
+  "app.paymentstatus":"Payment Status",
+  "app.paymentamount":"Payment Amount"
+
 
 
 

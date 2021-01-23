@@ -34,6 +34,7 @@
   margin-top: 30px;
   margin-bottom: 10px;
   text-align: center;
+  line-height: 28px;
 }
 
 .cart_btn {
@@ -66,41 +67,6 @@
   height: auto;
   background-color: rgb(107, 101, 101);
 }
-
-/* 
-.jewelery-item {
-  margin: 70px 0 20px 0;
-  list-style: none;
-  border: solid black;
-  position: relative;
-  width: auto;
-  height: 65vh;
-  /* height: 65vh;
-  position: relative; */
-/* } */
-
-/* .image-wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-} */
-
-/* .necklaces-img {
-  position: absolute;
-  max-width: 100%;
-  height: auto;
-  border: solid rgb(255, 174, 0);
-}
-
-
-
-
-.button_text {
-  color: black;
-  font-weight: 900;
-  font-family: "Gill Sans MT", "Calibri", "Trebuchet MS", sans-serif;
-}
-
 
 /*CSS Transition Group*/
 

@@ -41,7 +41,17 @@
   "app.pickupfree":"Személyes átvétel: Ingyenes",
   "app.material":"Anyag: ",
   "app.yourshoppingcartisempty":"A kosarad jelenleg üres",
-  "app.items":"termék"
+  "app.items":"termék",
+  "app.paymentunsuccessfultext": "A fizetés sikertelen volt. Kérlek próbáld meg még egyszer.",
+  "app.goback":"Vissza a fizetéshez",
+  "app.paymenterror":"Fizetési hiba",
+  "app.somethingwentwrong":"Hiba történt az oldal betöltésénél. Kérlek küldj egy email erre az email címre: adrienn.sepa@outlook.com",
+  "app.successfulpayment":"Sikeres Fizetés!",
+  "app.successfulpaymenttext":"Kószönöm ,hogy nálam vásárolt! A rendelésed feldolgozás alatt van, nemsokára megkapod a visszaigazoló emailt.",
+  "name":"Név",
+  "ordernumber":"Rendelési szám",
+  "app.paymentstatus":"Tranzakció",
+  "app.paymentamount":"Fizetett összeg"
 
 
 

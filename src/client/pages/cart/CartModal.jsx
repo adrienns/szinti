@@ -68,7 +68,7 @@ const CartModal = () => {
                 <FormattedMessage
                   id="app.yourshoppingcart"
                   defaultMessage="Your Shopping Cart"
-                />{" "}
+                />
                 ({itemsTotal}{" "}
                 <FormattedMessage id="app.items" defaultMessage="items" />)
               </div>

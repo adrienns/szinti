@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./SinglePhoto.css";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../contexts/ProductContext";
 import { useTransition, animated } from "react-spring";
 import Placeholder from "./Placeholder";
+import { WrapperContext } from "../Wrapper";
 
 const SinglePhoto = (props) => {
   const [isHovered, setHover] = useState(false);
@@ -15,16 +16,11 @@ const SinglePhoto = (props) => {
     leave: { opacity: 0 },
     config: { tension: 220, friction: 120, duration: 300 },
   });
+  const { locale } = useContext(WrapperContext);
 
   const handleImageLoaded = () => {
     setImageIsLoaded(true);
   };
-  // const propsexample2 = useSpring({
-  //   opacity: isHovered ? 0.6 : 1,
-  //   config: { duration: 100, mass: 5, tension: 2000, friction: 200 },
-  // });
-
-  // const [animated, setAnimation] = useSpring({opacity:0})
 
   const handleMouseOn = () => {
     setHover(true);
@@ -34,7 +30,7 @@ const SinglePhoto = (props) => {
     setHover(false);
   };
 
-  const { id, imgUrl, name, imgPrice, secondImg, mainImg } = props;
+  const { id, name, name_hun, imgPrice, secondImg, mainImg } = props;
   return (
     <div
       className="jewelery-item"
@@ -78,7 +74,10 @@ const SinglePhoto = (props) => {
       </li>
       <div className="necklace-text-container">
         <p className="product-description">
-          <Link to={`/organicproduct/${name}`}>{name}</Link>
+          <Link to={`/organicproduct/${name}`}>
+            {" "}
+            {locale == "en" ? name : name_hun}
+          </Link>
         </p>
         <p className="product-description">{imgPrice.toLocaleString()} HUF</p>
       </div>

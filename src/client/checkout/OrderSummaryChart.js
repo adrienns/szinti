@@ -56,7 +56,7 @@ export const OrderSummaryChart = () => {
                 <FormattedMessage
                   id="app.totalprice"
                   defaultMessage="Total price:"
-                />{" "}
+                />
               </p>
               <p>{finalTotal.toLocaleString()} HUF</p>
             </li>

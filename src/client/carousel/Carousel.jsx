@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { ProductContext } from "../contexts/ProductContext";
+import { Link } from "react-router-dom";
 
 library.add(faChevronLeft, faChevronRight);
 
@@ -30,7 +31,7 @@ const Carousel = () => {
 
     responsive: [
       {
-        breakpoint: 1030,
+        breakpoint: 1045,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -42,13 +43,6 @@ const Carousel = () => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 510,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
         },
       },
     ],
@@ -65,6 +59,14 @@ const Carousel = () => {
                 secondImage={element.secondImage}
                 key={element.id}
               />
+              {/* <Link to={`/organicproduct/${element.name}`}> */}
+              <div className="carousel-text-wrapper">
+                <p className="carousel-text">{element.name}</p>
+                <p className="carousel-price">
+                  {element.price.toLocaleString()} HUF
+                </p>
+              </div>
+              {/* </Link> */}
             </div>
           );
         })}
