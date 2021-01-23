@@ -416,8 +416,7 @@ const data = {
       price: 15000,
       name_hun:
         " Ezüst fülbevaló, arany bevonattal – Organikus huzal édesvízi gyönggyel",
-      name:
-        "Silver Earings with Gold Coating - Organic Wire with Sweetwater Pearl",
+      name: "Silver Earings / Gold Plated - Organic Wire with Sweetwater Pearl",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
@@ -473,10 +472,10 @@ const data = {
       link: "organicnecklaceitem6",
       price: 12000,
       name_hun: "Ezüst fülbevaló, arany bevonattal – Organikus huzal",
-      name: "Silver Earings, with Gold Coating -  Organic Wire",
+      name: "Silver Earings / Gold Plated -  Organic Wire",
 
-      material: "925 Sterling ezüst, gold coating",
-      material_hun: "925 Sterling e",
+      material: "925 Sterling Silver, Gold Plated",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with sweetwater pearl. ",
       material_description_hun:
@@ -504,8 +503,8 @@ const data = {
       price: 7000,
       name_hun: "Ezüst fülbevaló párban – Áthúzós lánc",
       name: "Double Silver Earings  - Fine Chain",
-      material: "925 Sterling ezüst, gold coating",
-      material_hun: "925 Sterling ezüst arany bevonattal",
+      material: "925 Sterling Silver",
+      material_hun: "925 Sterling ezüst",
       material_description:
         " The earings are made of 925 Sterling silver with sweetwater pearl. ",
       material_description_hun:

@@ -46,6 +46,9 @@ const CarouselImage = (props) => {
             alt="product"
           />
         ))}
+        <div className="carousel-text-wrapper">
+          <p className="carousel-text">hello</p>
+        </div>
       </div>
     </div>
   );

@@ -59,18 +59,12 @@ const Carousel = () => {
       <Slider {...settings}>
         {products.map((element) => {
           return (
-            <div>
+            <div className="carousel-wrapper">
               <CarouselImage
                 firstImage={element.firstImage}
                 secondImage={element.secondImage}
                 key={element.id}
               />
-              <div className="carousel-text-wrapper">
-                <p className="carousel-text">{element.name}</p>
-                <p className="carousel-price">
-                  {element.price.toLocaleString()} HUF
-                </p>
-              </div>
             </div>
           );
         })}

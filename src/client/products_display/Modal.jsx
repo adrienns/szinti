@@ -31,9 +31,9 @@ const Modal = () => {
               </span>
             </div>
             <div id="modal-row">
-              <h2 className="item-info" id="modal-item-name">
+              <h3 className="item-info" id="modal-item-name">
                 {name}
-              </h2>
+              </h3>
               <h4 className="item-info"> {material}</h4>
 
               <h4 className="item-info">{price.toLocaleString()} HUF</h4>

@@ -1,9 +1,14 @@
 :root {
   --respo-height: 40vw;
   --respo-width: 30.257vw;
+  --respo-height-large: 30.76vw;
+  --respo-width-large: 23.274vw;
+  --respo-height-small: 56.26vw;
+  --respo-width-small: 43.274vw;
 }
 
 .jewelery-item {
+  box-shadow: 2px 2px 11px #ccc;
   margin: 15px 0 170px 0;
   list-style: none;
   position: relative;
@@ -40,6 +45,7 @@
   padding: 15px 0 25px 0;
   background-color: white;
   color: black;
+  font-weight: bold;
   text-align: center;
   opacity: 0.7;
   border: none;
@@ -48,7 +54,10 @@
 }
 
 .cart_btn:hover {
-  background-color: rgb(228, 242, 248) !important;
+  background-color: #cbcad6 !important;
+  box-shadow: inset 5px 5px 25px #b1b0bb;
+  color: white;
+
   opacity: 1;
 }
 .img-placeholder {
@@ -117,24 +126,40 @@
   opacity: 0.01;
 }
 
-@media only screen and (min-width: 1260px) {
+@media only screen and (min-width: 1200px) {
   .jewelery-item {
-    height: 428px !important;
-    width: 323px !important;
+    height: var(--respo-height-large) !important;
+    width: var(--respo-width-large) !important;
   }
   .necklaces-img {
-    height: 428px !important;
-    width: 323px;
+    height: var(--respo-height-large) !important;
+    width: var(--respo-width-large);
   }
   .image-wrapper {
-    height: 428px !important;
-    width: 323px !important;
+    height: var(--respo-height-large) !important;
+    width: var(--respo-width-large) !important;
   }
 
   .cart_btn {
-    width: 490px;
+    width: var(--respo-width-large);
   }
 }
 
-@media only screen and (max-width: 325px) {
+@media only screen and (min-width: 300px) and (max-width: 565px) {
+  .jewelery-item {
+    height: var(--respo-height-small);
+    width: var(--respo-width-small);
+  }
+  .necklaces-img {
+    height: var(--respo-height-small);
+    width: var(--respo-width-small);
+  }
+  .image-wrapper {
+    height: var(--respo-height-small);
+    width: var(--respo-width-small);
+  }
+
+  .cart_btn {
+    display: none;
+  }
 }
