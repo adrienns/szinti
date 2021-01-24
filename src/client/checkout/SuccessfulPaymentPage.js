@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
-
 import checkmark from "../images/greencheckmark.png";
 
 const formattedDate = (transactionDate) => {
@@ -36,18 +35,17 @@ const SuccessfulPaymentPage = () => {
           />
         </h3>
         <h5 className="payment-confirmation-long-text">
-          {" "}
           <FormattedMessage
             id="app.successfulpaymenttext"
             defaultMessage="Thank you for your purchase! We are processing your order and will
-            send you the confirmation shortly."
+          send you the confirmation shortly."
           />
         </h5>
 
         <h5>
           <p className="payment-confirmation-details-text">
             {" "}
-            <FormattedMessage id="name" defaultMessage="Name" />
+            <FormattedMessage id="app.name" defaultMessage="Name" />
           </p>
           <p>{name} </p>
         </h5>
@@ -56,7 +54,7 @@ const SuccessfulPaymentPage = () => {
             {" "}
             <FormattedMessage
               id="app.ordernumber"
-              defaultMessage=" Order Number"
+              defaultMessage="Order Number"
             />
           </p>
           <p>{transactionId} </p>
@@ -74,17 +72,12 @@ const SuccessfulPaymentPage = () => {
         <h5>
           <p className="payment-confirmation-details-text">
             {" "}
-            <FormattedMessage
-              id="app.successfulpayment"
-              defaultMessage="Successful payment!"
-            />
-            Date
+            <FormattedMessage id="app.date" defaultMessage="Date" />
           </p>
           <p>{formattedDate(transactionDate)}</p>
         </h5>
         <h5>
           <p className="payment-confirmation-details-text">
-            {" "}
             <FormattedMessage
               id="app.paymentamount"
               defaultMessage="Payment Amount"

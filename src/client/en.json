@@ -53,7 +53,13 @@
   "name":"Name",
   "app.ordernumber":"Order Number",
   "app.paymentstatus":"Payment Status",
-  "app.paymentamount":"Payment Amount"
+  "app.paymentamount":"Payment Amount",
+  "app.date":"Date",
+  "app.pagenotfound":"Opps! Page not found!",
+  "app.couldnotfoundpage":"Sorry we couldn’t find your page.",
+  "app.backtohomepage":"Back to Home Page"
+  
+
 
 
 

@@ -184,7 +184,6 @@ class Form extends Component {
           </div>
           <div className="google-maps">
             <h5>
-              {" "}
               <FormattedMessage
                 id="app.pickuppersonally"
                 defaultMessage="You can pick up the product here:"

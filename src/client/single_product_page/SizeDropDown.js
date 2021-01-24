@@ -1,9 +1,6 @@
 import React, { useContext } from "react";
-import { ProductSizeContext } from "../contexts/ProductSizeContext";
 
 const SizeDropDown = () => {
-  const { size, handleSize } = useContext(ProductSizeContext);
-
   return (
     <div>
       <form>

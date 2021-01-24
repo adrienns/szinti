@@ -14,7 +14,6 @@ const MobileNavBar = (props) => {
           <HamburgerButton click={props.responsiveNavMenuHandler} />
         </li>
         <li>
-          {" "}
           <Link to="/">
             <img
               id="site-logo-image"

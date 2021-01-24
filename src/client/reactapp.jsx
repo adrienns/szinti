@@ -25,10 +25,9 @@ import Modal from "./products_display/Modal";
 import OrganicProduct from "./single_product_page/OrganicProduct";
 import ResponsiveNavMenuOpen from "./navbar/ResponsiveNavMenuOpen";
 import TermsandConditions from "./pages/TermsAndConditions";
-import { defineMessages, FormattedMessage } from "react-intl";
+import { defineMessages } from "react-intl";
 import Topbar from "./TopBar/TopBar";
 import Wrapper from "./Wrapper";
-import { ColorProvider } from "./contexts/ProductColorContext";
 import Payment from "./checkout/Payment";
 import SuccessfulPaymentPage from "./checkout/SuccessfulPaymentPage";
 import PaymentError from "./checkout/PaymentError";
@@ -92,83 +91,83 @@ class ReactApp extends React.Component {
   render() {
     return (
       <ProductProvider>
-        <ColorProvider>
-          <Router>
-            <ScrollToTop />
-            <div className="app">
-              <header className="header">
-                <Topbar />
-                <NavBar
-                  links={LINKS}
-                  responsiveNavMenuHandler={this.responsiveNavMenuHandler}
+        <Router>
+          <ScrollToTop />
+          <div className="app">
+            <header className="header">
+              <Topbar />
+              <NavBar
+                links={LINKS}
+                responsiveNavMenuHandler={this.responsiveNavMenuHandler}
+              />
+              <ResponsiveNavMenuOpen
+                show={this.state.responsiveNavMenuOpen}
+                links={LINKS}
+                closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+              />
+            </header>
+            <div className="main-container">
+              <Switch>
+                <Route path="/payment" exact component={Payment} />
+                <Route
+                  path={`/${LINKMAP["app.contactus"]}`}
+                  exact
+                  component={Form}
                 />
-                <ResponsiveNavMenuOpen
-                  show={this.state.responsiveNavMenuOpen}
-                  links={LINKS}
-                  closeResponsiveNavMenu={this.closeResponsiveNavMenu}
+                <Route
+                  path="/success/:id"
+                  exact
+                  component={SuccessfulPaymentPage}
                 />
-              </header>
-              <div className="main-container">
-                <Switch>
-                  <Route path="/payment" exact component={Payment} />
-                  <Route
-                    path={`/${LINKMAP["app.contactus"]}`}
-                    exact
-                    component={Form}
-                  />
-                  <Route
-                    path="/success/:id"
-                    exact
-                    component={SuccessfulPaymentPage}
-                  />
-                  <Route path="/error" exact component={PaymentError} />
-                  <Route path="/cart" exact component={Cart} />
-                  <React.Fragment>
-                    <Route
-                      path={`/${LINKMAP["app.aboutus"]}`}
-                      exact
-                      component={AboutUs}
-                    />
-                    <Route
-                      path="/organicproduct/:name"
-                      exact
-                      component={OrganicProduct}
-                    />
-                    <Route
-                      path={`/${LINKMAP["app.ring"]}`}
-                      exact
-                      component={FinalRingsDisplay}
-                    />
-                    <Route
-                      path={`/${LINKMAP["app.necklace"]}`}
-                      exact
-                      component={FinalNecklacesDisplay}
-                    />
-                    <Route
-                      path={`/${LINKMAP["app.earing"]}`}
-                      exact
-                      component={FinalEaringsDisplay}
-                    />
-                    <Route
-                      path="/terms&conditions"
-                      exact
-                      component={TermsandConditions}
-                    />
-                    <Route path="/" exact component={Home} />
+                <Route path="/error" exact component={PaymentError} />
+                <Route path="/cart" exact component={Cart} />
 
-                    <div className="footer">
-                      <Footer />
-                    </div>
-                  </React.Fragment>
+                <React.Fragment>
+                  <Route
+                    path={`/${LINKMAP["app.aboutus"]}`}
+                    exact
+                    component={AboutUs}
+                  />
+                  <Route
+                    path="/organicproduct/:name"
+                    exact
+                    component={OrganicProduct}
+                  />
+                  <Route
+                    path={`/${LINKMAP["app.ring"]}`}
+                    exact
+                    component={FinalRingsDisplay}
+                  />
+                  <Route
+                    path={`/${LINKMAP["app.necklace"]}`}
+                    exact
+                    component={FinalNecklacesDisplay}
+                  />
+                  <Route
+                    path={`/${LINKMAP["app.earing"]}`}
+                    exact
+                    component={FinalEaringsDisplay}
+                  />
+                  <Route
+                    path="/terms&conditions"
+                    exact
+                    component={TermsandConditions}
+                  />
+                  <Route path="/" exact component={Home} />
+
                   <Route component={NotFoundPage} />
                   <Redirect to="/404" />
-                </Switch>
-                <CartModal />
-                <Modal />
-              </div>
+
+                  <div className="footer">
+                    <Footer />
+                  </div>
+                </React.Fragment>
+              </Switch>
+              <CartModal />
+              <Modal />
             </div>
-          </Router>
-        </ColorProvider>
+          </div>
+        </Router>
       </ProductProvider>
     );
   }

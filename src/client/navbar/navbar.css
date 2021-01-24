@@ -20,7 +20,7 @@
 .navbar-container {
   display: flex;
   justify-content: center;
-  font-family: "Courier Prime", "Quicksand", sans-serif !important;
+  font-family: "Courier Prime", "Quicksand", sans-serif;
 }
 
 .menu-navigation ul {
@@ -45,36 +45,6 @@
   position: relative;
   z-index: 1;
 }
-
-/* 
-.menu-navigation ul li a::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 0;
-  height: 0.5px;
-  background-color: rgb(39, 37, 37);
-  transition: 0.5s;
-} */
-
-/* .menu-navigation ul li:hover a::before {
-  width: 100%; }*/
-
-/* .menu-navigation ul li a::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0.5px;
-  background-color: rgb(39, 37, 37);
-  transition: 0.5s;
-}
-
-.menu-navigation ul li:hover a::after {
-  width: 100%;
-} */
 
 .menu-navigation ul li span:hover {
   color: rgb(255, 72, 0);
@@ -123,11 +93,6 @@
 .en-btn:hover {
   color: black;
 }
-
-/* .en-btn {
-  border-left: solid black;
-  padding-left: 4px;
-} */
 
 .shopping_bag {
   font-size: 19px !important;

@@ -35,7 +35,6 @@
   "app.quantity" :"darabszám",
   "app.price" :"ár",
   "app.remove":"törlés",
-  "app.name":"név",
   "app.tohungary":"Magyarországon: 1,500 FT",
   "app.toeu":"EU területén: 2,500 FT",
   "app.pickupfree":"Személyes átvétel: Ingyenes",
@@ -47,11 +46,15 @@
   "app.paymenterror":"Fizetési hiba",
   "app.somethingwentwrong":"Hiba történt az oldal betöltésénél. Kérlek küldj egy email erre az email címre: adrienn.sepa@outlook.com",
   "app.successfulpayment":"Sikeres Fizetés!",
-  "app.successfulpaymenttext":"Kószönöm ,hogy nálam vásárolt! A rendelésed feldolgozás alatt van, nemsokára megkapod a visszaigazoló emailt.",
-  "name":"Név",
-  "ordernumber":"Rendelési szám",
+  "app.successfulpaymenttext":"Köszönöm ,hogy nálam vásárolt! A rendelésed feldolgozás alatt van, nemsokára megkapod a visszaigazoló emailt.",
+  "app.name":"Név",
+  "app.ordernumber":"Rendelési szám",
   "app.paymentstatus":"Tranzakció",
-  "app.paymentamount":"Fizetett összeg"
+  "app.paymentamount":"Fizetett összeg",
+  "app.date":"Fizetés időpontja",
+  "app.pagenotfound":"Az oldal nem található!",
+  "app.couldnotfoundpage":"Sajnos nem találtuk meg a keresett oldalt.",
+  "app.backtohomepage":"Vissza a főoldalra"
 
 
 

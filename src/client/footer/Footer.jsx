@@ -19,7 +19,6 @@ class Footer extends React.Component {
         <section className="footer-nav">
           <div className="footer-section">
             <div className="footer-group-title">
-              {" "}
               <FormattedMessage id="app.help" defaultMessage="help" />
             </div>
             <ul>
