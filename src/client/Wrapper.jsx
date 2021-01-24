@@ -5,10 +5,20 @@ import English from "./en.json";
 
 export const WrapperContext = React.createContext();
 
+const ENG = "en";
+const HUN = "hu";
+
+const DEFAULT_LOCALE = navigator.language.includes(HUN) ? HUN : ENG;
+
+const langFromStorage =
+  JSON.parse(localStorage.getItem("lang")) || DEFAULT_LOCALE;
+
+console.log(langFromStorage);
+
 const Wrapper = (props) => {
-  const local = navigator.language;
+  const local = langFromStorage;
   let lang;
-  if (local === "en") {
+  if (local === ENG) {
     lang = English;
   } else {
     lang = Hungarian;
@@ -19,17 +29,23 @@ const Wrapper = (props) => {
 
   const switchEnglish = () => {
     setMessages(English);
-    setLocale("en");
+    localStorage.setItem("lang", JSON.stringify(ENG));
+    setLocale(ENG);
   };
 
   const switchHungarian = () => {
     setMessages(Hungarian);
-    setLocale("hun");
+    localStorage.setItem("lang", JSON.stringify(HUN));
+    setLocale(HUN);
   };
 
   return (
     <WrapperContext.Provider value={{ switchEnglish, switchHungarian, locale }}>
-      <IntlProvider messages={messages} locale={locale} defaultLocale="en">
+      <IntlProvider
+        messages={messages}
+        locale={locale}
+        defaultLocale={langFromStorage}
+      >
         {props.children}
       </IntlProvider>
     </WrapperContext.Provider>

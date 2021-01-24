@@ -21,7 +21,7 @@ const ProductProvider = (props) => {
   const [error, setError] = useState(false);
   const [productLists, setProductLists] = useState([]);
   const [selectedOption, setSelectedOption] = useState("Hungary");
-  const [singleProduct, setSingleProduct] = useState({});
+
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(objectFromLocalStorage.cart || []);
   const [inCart, setinCart] = useState(false);
@@ -32,6 +32,8 @@ const ProductProvider = (props) => {
   const [itemsTotal, setItemsTotal] = useState(0);
   const [finalTotal, setFinalTotal] = useState(0);
   const [isAdded, setisAdded] = useState(false);
+
+  const [currentSelectProduct, setSelected] = useState(undefined);
 
   useEffect(() => {
     let unmounted = false;
@@ -81,6 +83,11 @@ const ProductProvider = (props) => {
     return shippingCost;
   };
 
+  const getCurrentProduct = () => {
+    const id = currentSelectProduct;
+    return getItem(id) || {};
+  };
+
   const updateWithShippingCost = () => {
     let shippingCost = calculateShippingCost();
 
@@ -122,11 +129,6 @@ const ProductProvider = (props) => {
   const getItem = (id) => {
     const product = products.find((item) => item.id === id);
     return product;
-  };
-
-  const handleSingleProduct = (id) => {
-    const product = getItem(id);
-    setSingleProduct(product);
   };
 
   const increment = (id) => {
@@ -278,7 +280,6 @@ const ProductProvider = (props) => {
     <ProductContext.Provider
       value={{
         selectedOption,
-        singleProduct,
         products,
         cart,
         inCart,
@@ -297,13 +298,14 @@ const ProductProvider = (props) => {
         closeModal,
         openModal,
         addToCart,
-        handleSingleProduct,
+        setSelected,
         handleValueChange,
         openSideModal,
         incrementCartProduct,
         closeSideModal,
         removeItem,
         calculateCartData,
+        getCurrentProduct,
       }}
     >
       {props.children}

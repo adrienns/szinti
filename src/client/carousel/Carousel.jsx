@@ -71,7 +71,7 @@ const Carousel = () => {
                 key={id}
                 id={id}
               />
-              <Link to={`/organicproduct/${name}`}>
+              <Link to={`/organicproduct/${id}`}>
                 <div className="carousel-text-wrapper">
                   <p className="carousel-text">
                     {locale == "en" ? name : name_hun}

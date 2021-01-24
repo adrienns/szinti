@@ -11,8 +11,10 @@ const SingleProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [size, setSize] = useState(window.innerWidth);
   const { productname } = useParams();
-  const { singleProduct } = useContext(ProductContext);
+  const { getCurrentProduct, setSelected } = useContext(ProductContext);
+  console.log(getCurrentProduct());
 
+  const currentProduct = getCurrentProduct();
   const {
     id,
     images,
@@ -27,11 +29,15 @@ const SingleProductPage = () => {
     material_cleaning,
     material_description_hun,
     material_description,
-  } = singleProduct;
+  } = currentProduct;
 
   const checkSize = () => {
     setSize(window.innerWidth);
   };
+
+  useEffect(() => {
+    setSelected(parseInt(productname));
+  });
 
   useEffect(() => {
     window.addEventListener("resize", checkSize);
@@ -44,13 +50,10 @@ const SingleProductPage = () => {
     setCurrentImage(index);
   };
 
-  const imgSrc = images[currentImage];
-  console.log(inCart);
-
-  console.log(imgSrc);
+  const imgSrc = images && images[currentImage];
 
   return (
-    images && (
+    id == productname && (
       <React.Fragment>
         {size < 1100 ? (
           <div>

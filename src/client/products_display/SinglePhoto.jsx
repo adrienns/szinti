@@ -40,8 +40,8 @@ const SinglePhoto = (props) => {
       <li key={id}>
         <ProductConsumer>
           {(value) => (
-            <Link to={`/organicproduct/${name}`}>
-              <div onClick={() => value.handleSingleProduct(id)}>
+            <Link to={`/organicproduct/${id}`}>
+              <div onClick={() => value.setSelected(id)}>
                 <div className="image-wrapper">
                   <div className="image-placeholder">
                     {!imageIsLoaded && <Placeholder />}

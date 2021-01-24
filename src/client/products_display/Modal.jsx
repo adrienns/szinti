@@ -9,7 +9,7 @@ const Modal = () => {
     modalOpen,
     closeModal,
     incrementCartProduct,
-    handleSingleProduct,
+    setSelected,
     modalProduct,
     openSideModal,
   } = useContext(ProductContext);
@@ -18,7 +18,7 @@ const Modal = () => {
 
   return modalOpen ? (
     <div className="modal-container">
-      <div className="image-container" onClick={() => handleSingleProduct(id)}>
+      <div className="image-container" onClick={() => setSelected(id)}>
         <div className="modal-coloumns">
           <div className="modal-image-container">
             <img className="modal-image" src={firstImage} alt="Product" />
@@ -59,7 +59,7 @@ const Modal = () => {
                   Go to Your Cart
                 </button>
               </Link>
-              <Link to={`/organicproduct/${name}`}>
+              <Link to={`/organicproduct/${id}`}>
                 <div
                   className="more-details-text"
                   onClick={() => {
