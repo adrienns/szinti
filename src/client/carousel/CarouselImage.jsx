@@ -26,6 +26,7 @@ const CarouselImage = (props) => {
   const handleMouseOff = () => {
     setHover(false);
   };
+  console.log(props);
 
   return (
     <div

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { css } from "@emotion/core";
 import MoonLoader from "react-spinners/MoonLoader";
 
 export const Loader = () => {

@@ -52,21 +52,23 @@ const Carousel = () => {
     <div className="carousel">
       <Slider {...settings}>
         {products.map((element) => {
+          debugger;
           return (
             <div className="carousel-wrapper">
               <CarouselImage
                 firstImage={element.firstImage}
                 secondImage={element.secondImage}
                 key={element.id}
+                id={element.id}
               />
-              {/* <Link to={`/organicproduct/${element.name}`}> */}
-              <div className="carousel-text-wrapper">
-                <p className="carousel-text">{element.name}</p>
-                <p className="carousel-price">
-                  {element.price.toLocaleString()} HUF
-                </p>
-              </div>
-              {/* </Link> */}
+              <Link to={`/organicproduct/${element.name}`}>
+                <div className="carousel-text-wrapper">
+                  <p className="carousel-text">{element.name}</p>
+                  <p className="carousel-price">
+                    {element.price.toLocaleString()} HUF
+                  </p>
+                </div>
+              </Link>
             </div>
           );
         })}

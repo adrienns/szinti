@@ -155,13 +155,12 @@ class ReactApp extends React.Component {
                   />
                   <Route path="/" exact component={Home} />
 
-                  <Route component={NotFoundPage} />
-                  <Redirect to="/404" />
-
                   <div className="footer">
                     <Footer />
                   </div>
                 </React.Fragment>
+                <Route component={NotFoundPage} />
+                <Redirect to="/404" />
               </Switch>
               <CartModal />
               <Modal />

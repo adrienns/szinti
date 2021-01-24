@@ -52,7 +52,7 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel, halványrózsaszín édesvízi gyöngy kíséretében.",
       material_cleaning:
-        "PLes do not clean the jewelery with chemicals and do you spay parfum on it as it can cause damage to the sweetwater pearl. With a cloth gently rub it. Store it in a dry and dark place.",
+        "Please do not clean the jewelery with chemicals and do you spay parfum on it as it can cause damage to the sweetwater pearl. With a cloth gently rub it. Store it in a dry and dark place.",
       material_cleaning_hun:
         " Vegyszermentes finom törlőkendővel alaposan áttörölni. Édesvízi gyöngysora miatt vegyszer, parfüm nem érheti! Száraz sötét helyen tartandó.",
       description_hun:

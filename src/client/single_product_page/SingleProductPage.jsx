@@ -100,13 +100,25 @@ const SingleProductPage = (props) => {
 
             <section className="product_textbox_descriptions">
               <p>
-                <strong>Anyaga: </strong>
+                <strong>
+                  {" "}
+                  <FormattedMessage
+                    id="app.material"
+                    defaultMessage="Material"
+                  />
+                </strong>
                 {locale === "en"
                   ? material_description
                   : material_description_hun}
               </p>
               <p>
-                <strong>Termékleírás: </strong>
+                <strong>
+                  {" "}
+                  <FormattedMessage
+                    id="app.description"
+                    defaultMessage="Description"
+                  />
+                </strong>
                 {locale === "en" ? description : description_hun}
               </p>
               <p>

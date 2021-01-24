@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./modal.css";
 import { ProductContext } from "../contexts/ProductContext";
@@ -35,47 +35,40 @@ const Modal = () => {
                 {name}
               </h3>
               <h4 className="item-info"> {material}</h4>
-
               <h4 className="item-info">{price.toLocaleString()} HUF</h4>
-
-              <div>
+              <button
+                className="modal-btn"
+                onClick={() => {
+                  incrementCartProduct(id);
+                  openSideModal();
+                  closeModal();
+                }}
+              >
+                <FormattedMessage
+                  id="app.addtoshoppingbag"
+                  defaultMessage="Add to Shopping Bag"
+                />
+              </button>
+              <Link to="/cart">
                 <button
-                  className="modal-btn"
+                  className="go-to-cart-btn"
                   onClick={() => {
-                    incrementCartProduct(id);
-                    openSideModal();
                     closeModal();
                   }}
                 >
-                  <FormattedMessage
-                    id="app.addtoshoppingbag"
-                    defaultMessage="Add to Shopping Bag"
-                  />
+                  Go to Your Cart
                 </button>
-              </div>
-
-              <div>
-                <Link to="/cart">
-                  <button
-                    className="go-to-cart-btn"
-                    onClick={() => {
-                      closeModal();
-                    }}
-                  >
-                    Go to Your Cart
-                  </button>
-                </Link>
-                <Link to={`/organicproduct/${name}`}>
-                  <div
-                    className="more-details-text"
-                    onClick={() => {
-                      closeModal();
-                    }}
-                  >
-                    <span id="more-details-text"> More details</span>
-                  </div>
-                </Link>
-              </div>
+              </Link>
+              <Link to={`/organicproduct/${name}`}>
+                <div
+                  className="more-details-text"
+                  onClick={() => {
+                    closeModal();
+                  }}
+                >
+                  <span id="more-details-text"> More details</span>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

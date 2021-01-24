@@ -15,10 +15,7 @@ class HomePage extends React.Component {
     return (
       <div className="main-container">
         <MainImages />
-
-        <div>
-          <Carousel />
-        </div>
+        <Carousel />
       </div>
     );
   }
