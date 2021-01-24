@@ -1,9 +1,5 @@
 import axios from "axios";
 import React, { createContext, useState, useEffect } from "react";
-// import {
-//   necklaceProductList,
-//   singleProduct,
-// } from "../products_display/NecklacesData";
 
 const FREE_SHIPPING_LIMIT = 19000;
 
@@ -191,13 +187,9 @@ const ProductProvider = (props) => {
     updateWithShippingCost();
   }, [cartTotal]);
 
-  const getIndex = (id) => {
-    const index = products.findIndex((elem) => elem.id === id);
-    return index;
-  };
-
   const isInCart = (id) => {
     const index = cart.findIndex((elem) => elem.id === id);
+    debugger;
     return index != -1;
   };
 

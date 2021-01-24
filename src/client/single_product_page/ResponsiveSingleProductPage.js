@@ -10,24 +10,31 @@ import { WrapperContext } from "../Wrapper";
 const ResponsiveSingleProductpage = ({
   currentImage,
   changeCurrentImageTo,
-  props,
+  name,
+  name_hun,
+  description_hun,
+  description,
+  material_cleaning_hun,
+  material_cleaning,
+  material_description_hun,
+  material_description,
 }) => {
   const { incrementCartProduct, openSideModal } = useContext(ProductContext);
   const { locale } = useContext(WrapperContext);
 
-  // const numberOfImages = props.productImages.length;
+  const numberOfImages = productImages.length;
 
-  // const handlePrevImage = () => {
-  //   const prevState = (currentImage + numberOfImages - 1) % numberOfImages;
-  //   changeCurrentImageTo(prevState);
-  // };
+  const handlePrevImage = () => {
+    const prevState = (currentImage + numberOfImages - 1) % numberOfImages;
+    changeCurrentImageTo(prevState);
+  };
 
-  // const handleNextImage = () => {
-  //   const nextState = (currentImage + 1) % numberOfImages;
-  //   changeCurrentImageTo(nextState);
-  // };
+  const handleNextImage = () => {
+    const nextState = (currentImage + 1) % numberOfImages;
+    changeCurrentImageTo(nextState);
+  };
 
-  const imgSrc = props.productImages[currentImage];
+  const imgSrc = productImages[currentImage];
 
   return (
     <div className="responsive_product_wrapper">
@@ -49,34 +56,30 @@ const ResponsiveSingleProductpage = ({
         className="responsive-side-images"
         currentImage={currentImage}
         onChange={changeCurrentImageTo}
-        productImages={props.productImages}
+        productImages={productImages}
       />
       {/* </div> */}
 
       <div className="responsive_textbox_wrapper">
         <section className="responsive_product_textbook_descriptions">
           <h2 className="product_textbox_product_name">
-            {locale === "en" ? props.name : props.name_hun}
+            {locale === "en" ? name : name_hun}
           </h2>
           <h4 className="responsive_textbox-price">
-            {props.price.toLocaleString()} HUF
+            {price.toLocaleString()} HUF
           </h4>
 
           <p>
             <strong>Anyaga: </strong>
-            {locale === "en"
-              ? props.material_description
-              : props.material_description_hun}
+            {locale === "en" ? material_description : material_description_hun}
           </p>
           <p>
             <strong>Termékleírás: </strong>
-            {locale === "en" ? props.description : props.description_hun}
+            {locale === "en" ? description : description_hun}
           </p>
           <p>
             <strong>Tisztítása: </strong>
-            {locale === "en"
-              ? props.material_cleaning
-              : props.material_cleaning_hun}
+            {locale === "en" ? material_cleaning : material_cleaning_hun}
           </p>
           <strong className="more-info-about-shipping">
             Szállítással kapcsolatos tudnivalók{" "}

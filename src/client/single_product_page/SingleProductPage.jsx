@@ -1,13 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./SingleProduct.css";
 import SideImages from "./SideImages";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
 import ResponsiveSingleProductPage from "./ResponsiveSingleProductPage";
 import ProductDescription from "./ProductDescription";
+import { ProductContext } from "../contexts/ProductContext";
+import { useParams } from "react-router-dom";
 
-const SingleProductPage = (props) => {
+const SingleProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [size, setSize] = useState(window.innerWidth);
+  const { productname } = useParams();
+  const { singleProduct } = useContext(ProductContext);
+
+  const {
+    id,
+    images,
+    price,
+    inCart,
+    material,
+    name,
+    name_hun,
+    description_hun,
+    description,
+    material_cleaning_hun,
+    material_cleaning,
+    material_description_hun,
+    material_description,
+  } = singleProduct;
 
   const checkSize = () => {
     setSize(window.innerWidth);
@@ -24,43 +44,73 @@ const SingleProductPage = (props) => {
     setCurrentImage(index);
   };
 
-  const imgSrc = props.productImages[currentImage];
+  const imgSrc = images[currentImage];
+  console.log(inCart);
+
+  console.log(imgSrc);
 
   return (
-    <React.Fragment>
-      {size < 1100 ? (
-        <div>
-          <ResponsiveSingleProductPage
-            currentImage={currentImage}
-            props={props}
-            changeCurrentImageTo={changeCurrentImageTo}
-          />
-        </div>
-      ) : (
-        <div className="product_wrapper">
+    images && (
+      <React.Fragment>
+        {size < 1100 ? (
           <div>
-            <SideImages
+            <ResponsiveSingleProductPage
+              id={id}
+              inCart={inCart}
               currentImage={currentImage}
-              onChange={changeCurrentImageTo}
-              productImages={props.productImages}
+              images={images}
+              price={price}
+              material={material}
+              name={name}
+              name_hun={name_hun}
+              description_hun={description_hun}
+              description={description}
+              material_cleaning_hun={material_cleaning_hun}
+              material_cleaning={material_cleaning}
+              material_description_hun={material_description_hun}
+              material_description={material_description}
+              changeCurrentImageTo={changeCurrentImageTo}
             />
           </div>
+        ) : (
+          <div className="product_wrapper">
+            <div>
+              <SideImages
+                currentImage={currentImage}
+                onChange={changeCurrentImageTo}
+                productImages={images}
+              />
+            </div>
 
-          <div className="img_container">
-            <SwitchTransition>
-              <CSSTransition
-                key={currentImage}
-                timeout={{ enter: 500, exit: 100 }}
-                classNames="fade"
-              >
-                <img src={imgSrc} className="sideImageClass" alt="product" />
-              </CSSTransition>
-            </SwitchTransition>
+            <div className="img_container">
+              <SwitchTransition>
+                <CSSTransition
+                  key={currentImage}
+                  timeout={{ enter: 500, exit: 100 }}
+                  classNames="fade"
+                >
+                  <img src={imgSrc} className="sideImageClass" alt="product" />
+                </CSSTransition>
+              </SwitchTransition>
+            </div>
+            <ProductDescription
+              id={id}
+              price={price}
+              inCart={inCart}
+              material={material}
+              name={name}
+              name_hun={name_hun}
+              description_hun={description_hun}
+              description={description}
+              material_cleaning_hun={material_cleaning_hun}
+              material_cleaning={material_cleaning}
+              material_description_hun={material_description_hun}
+              material_description={material_description}
+            />
           </div>
-          <ProductDescription props={props} />
-        </div>
-      )}
-    </React.Fragment>
+        )}
+      </React.Fragment>
+    )
   );
 };
 

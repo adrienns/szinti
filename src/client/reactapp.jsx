@@ -10,7 +10,7 @@ import "./global_vars";
 import Form from "./form/Form";
 import "./index.css";
 import HomePage from "./Homepage";
-import NotFoundPage from "../404/404";
+import NotFoundPage from "./404/404";
 import NavBar from "./navbar/navbar";
 import AboutUs from "./aboutus/AboutUs";
 import FinalNecklacesDisplay from "./necklaces/FinalNecklacesDisplay";
@@ -22,7 +22,7 @@ import ScrollToTop from "./ScrollToTop";
 import { ProductProvider } from "./contexts/ProductContext";
 import CartModal from "./cart/CartModal";
 import Modal from "./products_display/Modal";
-import OrganicProduct from "./single_product_page/OrganicProduct";
+import SingleProductPage from "./single_product_page/SingleProductPage";
 import ResponsiveNavMenuOpen from "./navbar/ResponsiveNavMenuOpen";
 import TermsandConditions from "../terms&conditions/TermsAndConditions";
 import { defineMessages } from "react-intl";
@@ -129,9 +129,8 @@ class ReactApp extends React.Component {
                     component={AboutUs}
                   />
                   <Route
-                    path="/organicproduct/:name"
-                    exact
-                    component={OrganicProduct}
+                    path="/organicproduct/:productname"
+                    component={SingleProductPage}
                   />
                   <Route
                     path={`/${LINKMAP["app.ring"]}`}

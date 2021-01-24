@@ -75,7 +75,6 @@ const SinglePhoto = (props) => {
       <div className="necklace-text-container">
         <p className="product-description">
           <Link to={`/organicproduct/${name}`}>
-            {" "}
             {locale == "en" ? name : name_hun}
           </Link>
         </p>

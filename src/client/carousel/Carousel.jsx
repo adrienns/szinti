@@ -10,11 +10,14 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { ProductContext } from "../contexts/ProductContext";
 import { Link } from "react-router-dom";
+import { WrapperContext } from "../Wrapper";
 
 library.add(faChevronLeft, faChevronRight);
 
 const Carousel = () => {
   const { products } = useContext(ProductContext);
+  const { locale } = useContext(WrapperContext);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -52,20 +55,28 @@ const Carousel = () => {
     <div className="carousel">
       <Slider {...settings}>
         {products.map((element) => {
+          const {
+            id,
+            firstImage,
+            secondImage,
+            name,
+            name_hun,
+            price,
+          } = element;
           return (
             <div className="carousel-wrapper">
               <CarouselImage
-                firstImage={element.firstImage}
-                secondImage={element.secondImage}
-                key={element.id}
-                id={element.id}
+                firstImage={firstImage}
+                secondImage={secondImage}
+                key={id}
+                id={id}
               />
-              <Link to={`/organicproduct/${element.name}`}>
+              <Link to={`/organicproduct/${name}`}>
                 <div className="carousel-text-wrapper">
-                  <p className="carousel-text">{element.name}</p>
-                  <p className="carousel-price">
-                    {element.price.toLocaleString()} HUF
+                  <p className="carousel-text">
+                    {locale == "en" ? name : name_hun}
                   </p>
+                  <p className="carousel-price">{price.toLocaleString()} HUF</p>
                 </div>
               </Link>
             </div>

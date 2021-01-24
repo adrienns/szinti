@@ -4,22 +4,21 @@ import React, { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { WrapperContext } from "../Wrapper";
 
-const ProductDescription = ({ props }) => {
+const ProductDescription = ({
+  inCart,
+  name,
+  id,
+  price,
+  name_hun,
+  description_hun,
+  description,
+  material_cleaning_hun,
+  material_cleaning,
+  material_description_hun,
+  material_description,
+}) => {
   const { locale } = useContext(WrapperContext);
   const { incrementCartProduct, openSideModal } = useContext(ProductContext);
-
-  const {
-    name,
-    id,
-    price,
-    name_hun,
-    description_hun,
-    description,
-    material_cleaning_hun,
-    material_cleaning,
-    material_description_hun,
-    material_description,
-  } = props;
 
   return (
     <div className="product_textbox">
