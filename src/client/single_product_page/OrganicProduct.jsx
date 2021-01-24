@@ -7,7 +7,6 @@ const OrganicProduct = () => {
     const {
       id,
       images,
-      info,
       price,
       inCart,
       material,

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./AboutUs.css";
-import image1 from "../../images/greencheckmark.png";
-import image2 from "../../images/greencheckmark.png";
-import image3 from "../../images/greencheckmark.png";
+import image1 from "../images/greencheckmark.png";
+import image2 from "../images/greencheckmark.png";
+import image3 from "../images/greencheckmark.png";
 
 const AboutUs = () => {
   return (

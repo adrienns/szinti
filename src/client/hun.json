@@ -55,7 +55,9 @@
   "app.pagenotfound":"Az oldal nem található!",
   "app.couldnotfoundpage":"Sajnos nem találtuk meg a keresett oldalt.",
   "app.backtohomepage":"Vissza a főoldalra",
-  "app.description":"Termékleírás:", 
+  "app.description":"Termékleírás: ",
+  "app.cleaning":"Tisztítása: ",
+  "app.moreinfoaboutshipping":"Szállítással kapcsolatos tudnivalók"
 
 
 

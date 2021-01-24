@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { FormattedMessage } from "react-intl";
-import { ProductContext } from "../../contexts/ProductContext";
-import { WrapperContext } from "../../Wrapper";
+import { ProductContext } from "../contexts/ProductContext";
+import { WrapperContext } from "../Wrapper";
 
 const CartModal = () => {
   const {

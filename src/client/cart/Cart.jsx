@@ -2,10 +2,10 @@ import React from "react";
 import "./cart.css";
 import CartColumns from "./CartColumns";
 import EmptyCart from "./EmptyCart";
-import { ProductConsumer } from "../../contexts/ProductContext";
+import { ProductConsumer } from "../contexts/ProductContext";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
-import CheckoutSteps from "../../checkout/CheckoutSteps";
+import CheckoutSteps from "../checkout/CheckoutSteps";
 import { FormattedMessage } from "react-intl";
 
 const Cart = (props) => {

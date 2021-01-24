@@ -58,7 +58,9 @@
   "app.pagenotfound":"Opps! Page not found!",
   "app.couldnotfoundpage":"Sorry we couldn’t find your page.",
   "app.backtohomepage":"Back to Home Page",
-  "app.description":"Description"
+  "app.description":"Description: ",
+  "app.cleaning":"Cleaning: ",
+  "app.moreinfoaboutshipping":"More info about shipping"
   
 
 

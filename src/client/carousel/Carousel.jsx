@@ -52,7 +52,6 @@ const Carousel = () => {
     <div className="carousel">
       <Slider {...settings}>
         {products.map((element) => {
-          debugger;
           return (
             <div className="carousel-wrapper">
               <CarouselImage

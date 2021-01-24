@@ -10,7 +10,6 @@ const CartTotals = ({ val }) => {
   const onShippingChange = (event) => {
     const value = event.target.value;
     handleValueChange(value);
-    console.log(value);
   };
 
   return (

@@ -15,7 +15,17 @@ const ResponsiveSingleProductpage = ({
   const { incrementCartProduct, openSideModal } = useContext(ProductContext);
   const { locale } = useContext(WrapperContext);
 
-  console.log(props.name);
+  // const numberOfImages = props.productImages.length;
+
+  // const handlePrevImage = () => {
+  //   const prevState = (currentImage + numberOfImages - 1) % numberOfImages;
+  //   changeCurrentImageTo(prevState);
+  // };
+
+  // const handleNextImage = () => {
+  //   const nextState = (currentImage + 1) % numberOfImages;
+  //   changeCurrentImageTo(nextState);
+  // };
 
   const imgSrc = props.productImages[currentImage];
 

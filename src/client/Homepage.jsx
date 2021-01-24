@@ -1,6 +1,6 @@
 import React from "react";
-import MainImages from "../main_images/MainImages";
-import Carousel from "../carousel/Carousel.jsx";
+import MainImages from "./main_images/MainImages";
+import Carousel from "./carousel/Carousel.jsx";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faShoppingBag,

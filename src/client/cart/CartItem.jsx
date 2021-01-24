@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { WrapperContext } from "../../Wrapper";
+import { WrapperContext } from "../Wrapper";
 
 library.add(faTimes);
 
