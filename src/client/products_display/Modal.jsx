@@ -56,7 +56,10 @@ const Modal = () => {
                     closeModal();
                   }}
                 >
-                  Go to Your Cart
+                  <FormattedMessage
+                    id="app.gotopayment"
+                    defaultMessage="Go to Cart"
+                  />
                 </button>
               </Link>
               <Link to={`/organicproduct/${id}`}>
@@ -66,7 +69,13 @@ const Modal = () => {
                     closeModal();
                   }}
                 >
-                  <span id="more-details-text"> More details</span>
+                  <span id="more-details-text">
+                    {" "}
+                    <FormattedMessage
+                      id="app.moredetails"
+                      defaultMessage="More details"
+                    />
+                  </span>
                 </div>
               </Link>
             </div>

@@ -9,10 +9,18 @@
   --carausel-width-medium-large: 42vw;
 }
 
+.jeweleries_for_you {
+  text-align: center;
+  margin-top: 100px;
+  font-family: sans-serif;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 .carousel {
   box-sizing: border-box;
   width: 80%;
-  margin: 450px auto;
+  margin: 30px auto;
 }
 
 .product-item-box {
@@ -64,7 +72,8 @@
   position: absolute;
   height: var(--carausel-height);
   width: var(--carausel-width);
-  padding: 20px;
+  padding: 8px;
+  box-sizing: border-box;
 }
 
 .carousel_image-wrapper {
@@ -96,6 +105,9 @@
 }
 
 @media only screen and (min-width: 0px) and (max-width: 534px) {
+  .carousel {
+    margin-top: 0;
+  }
   .carousel-wrapper {
     height: var(--carausel-height-small);
     width: var(--carausel-width-small);

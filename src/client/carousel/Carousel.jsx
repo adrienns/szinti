@@ -29,6 +29,7 @@ const Carousel = () => {
     className: "product-item-box",
     swipe: true,
     touchMove: true,
+    margin: "0 -15px",
     nextArrow: <FontAwesomeIcon icon={faChevronRight} className="slick-next" />,
     prevArrow: <FontAwesomeIcon icon={faChevronLeft} className="slick-prev" />,
 

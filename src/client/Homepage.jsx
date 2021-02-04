@@ -15,6 +15,7 @@ class HomePage extends React.Component {
     return (
       <div className="main-container">
         <MainImages />
+        <div className="jeweleries_for_you"> Ékszerek neked</div>
         <Carousel />
       </div>
     );

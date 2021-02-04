@@ -1,6 +1,6 @@
 .main-pictures {
-  display: grid;
-  grid-template-columns: 50% 50%;
+  width: 100%;
+  height: auto;
   margin: 0;
   height: calc(100vh - 143px);
 }

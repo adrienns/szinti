@@ -13,14 +13,12 @@ const MobileNavBar = (props) => {
         <li className="hamburger-menu">
           <HamburgerButton click={props.responsiveNavMenuHandler} />
         </li>
-        <li>
+        <li className="site-logo-container">
           <Link to="/">
             <img
               id="site-logo-image"
               src={logo}
               alt="VeWe Handcrafted Jewelry"
-              width=" 160"
-              height="90"
             />
           </Link>
         </li>
