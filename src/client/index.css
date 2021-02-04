@@ -9,16 +9,16 @@
   text-decoration: none;
   /* font-family: "Quicksand", sans-serif; */
   box-sizing: border-box;
-  -webkit-user-select: none; /* Chrome/Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+ */
+  /* -webkit-user-select: none; /* Chrome/Safari */
+  /* -moz-user-select: none;
+  -ms-user-select: none; */
 
   /* betutipus:  FuturaPT FuturaPT, Helvetica, Arial, sans-serif; Abel, IBM Plex, Oxygen, Varela  Quicksand, Work Sans, 'Lato', 'Roboto', 'Helvetica', 'Arial', sans-serif;
 */
 
   /* Rules below not implemented in browsers yet */
-  -o-user-select: none;
-  user-select: none;
+  /* -o-user-select: none;
+  user-select: none; */
 }
 
 #spin-loader-container {
@@ -32,10 +32,10 @@
   position: fixed;
   width: 100%;
   top: 0;
+  height: 150px;
   z-index: 999;
   box-sizing: border-box;
   background-color: white;
-  padding-bottom: 10px;
 }
 
 .main-container {

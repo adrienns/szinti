@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import SinglePhoto from "../products_display/SinglePhoto";
-import "./EaringProductsDisplay.css";
+import "./EarringProductsDisplay.css";
 import { useLocation, Link } from "react-router-dom";
 import { ProductContext } from "../contexts/ProductContext";
 import Loader from "../products_display/Loader";
 import { FormattedMessage } from "react-intl";
 
-const EaringProductsDisplay = () => {
+const EarringProductsDisplay = () => {
   const { pathname } = useLocation();
   const { products, error, loading } = useContext(ProductContext);
 
@@ -30,9 +30,9 @@ const EaringProductsDisplay = () => {
             </Link>
             {pathname}
           </h5>
-          <ul className="earing_container">
+          <ul className="earring_container">
             {products
-              .filter((element) => element.type === "earings")
+              .filter((element) => element.type === "earrings")
               .map((element) => {
                 return (
                   <SinglePhoto
@@ -55,4 +55,4 @@ const EaringProductsDisplay = () => {
   );
 };
 
-export default EaringProductsDisplay;
+export default EarringProductsDisplay;

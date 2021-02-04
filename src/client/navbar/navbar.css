@@ -1,14 +1,22 @@
+.site-logo-image-wrapper {
+  width: 190px;
+}
+
 #site-logo-image {
   width: 170px;
   margin-right: 20px;
   margin-left: 20px;
   padding-right: 20px;
   padding-left: 20px;
+  /* position: absolute;
+  top: 26%;
+  left: 42.5%; */
 }
 
 .navbar-list-item {
   margin: 20px 0px 0px 0px;
   padding-top: 15px;
+  justify-content: center;
 }
 
 .shopping-bag-container {
@@ -129,6 +137,7 @@
 
   #site-logo-image {
     margin-top: -9px;
+    position: static;
   }
 
   /* Doesnt show the navbar in responsive design*/

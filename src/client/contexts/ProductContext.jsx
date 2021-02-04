@@ -40,9 +40,9 @@ const ProductProvider = (props) => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(`${window.api_url}/api/data`);
-        const { necklaceProductList, earingProductList } = data;
+        const { necklaceProductList, earringProductList } = data;
 
-        const productLists = [...necklaceProductList, ...earingProductList];
+        const productLists = [...necklaceProductList, ...earringProductList];
 
         if (!unmounted) {
           setProductLists(productLists);

@@ -48,7 +48,7 @@ const data = {
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling with rhodium coating and with sweetwater pearl. ",
+        " The earrings are made of 925 Sterling with rhodium coating and with sweetwater pearl. ",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel, halványrózsaszín édesvízi gyöngy kíséretében.",
       material_cleaning:
@@ -78,7 +78,7 @@ const data = {
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating. ",
+        " The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel.",
       material_cleaning:
@@ -104,11 +104,11 @@ const data = {
       images: [image25, image24],
       price: 15000,
       name_hun: " Ezüst karika nyaklánc",
-      name: "Silver Earings -  Sweetwater Pearl",
+      name: "Silver Earrings -  Sweetwater Pearl",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating. ",
+        " The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel.",
       material_cleaning:
@@ -133,11 +133,11 @@ const data = {
       link: "organicnecklaceitem4",
       price: 35000,
       name_hun: " Ezüst és édesvízi gyöngy nyaklánc karikával",
-      name: "Silver Earings with Sweetwater Pearl",
+      name: "Silver Earrings with Sweetwater Pearl",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl beads.",
+        " The earrings are made of 925 Sterling silver with sweetwater pearl beads.",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült, édesvízi gyöngysor kíséretében.",
       material_cleaning:
@@ -145,7 +145,7 @@ const data = {
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        "The earrings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
 
       description_hun:
         "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
@@ -264,21 +264,21 @@ const data = {
       total: 0,
     },
   ],
-  earingProductList: [
+  earringProductList: [
     {
       id: 13,
-      type: "earings",
+      type: "earrings",
       firstImage: image2,
       secondImage: image1,
       images: [image2, image1],
       link: "organicnecklaceproduct",
       price: 15000,
       name_hun: "Ezüst fülbevaló – Organikus háromszög",
-      name: "Silver Earings - Organic Triangle",
+      name: "Silver Earrings - Organic Triangle",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating. ",
+        " The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
@@ -286,7 +286,7 @@ const data = {
       material_cleaning_hun:
         "Elhasznált fogkefével, szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Nedves, párás helyen nem tárolandó!",
       description:
-        "The earings are hand-made organic and triagled shaped. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earings organic shape and minimlist sporty looking makes your looking very special and unique.",
+        "The earrings are hand-made organic and triagled shaped. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earrings organic shape and minimlist sporty looking makes your looking very special and unique.",
       description_hun:
         "Kézzel készült organikus formájú, háromszög fülbevaló. Mattra csiszolt felülete miatt nagyszerűen játszik a fényekkel, így könnyen észrevehető. Formájából adódóan felvéve többféleképpen forgatható, állítható. Organikusan tompa formája és minimalista sportossága teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
@@ -295,18 +295,18 @@ const data = {
     },
     {
       id: 14,
-      type: "earings",
+      type: "earrings",
       firstImage: image5,
       secondImage: image4,
       link: "organicnecklaceitem2",
       images: [image5, image4],
       price: 15000,
       name_hun: "Ezüst fülbevaló – Organikus négyszög",
-      name: "Silver Earings - Organic Square",
+      name: "Silver Earrings - Organic Square",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating. ",
+        " The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
@@ -314,7 +314,7 @@ const data = {
       material_cleaning_hun:
         "Elhasznált fogkefével, szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Nedves, párás helyen nem tárolandó!",
       description:
-        "The earings are hand-made organic and square shaped. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earings organic shape and minimlist sporty looking makes your looking very special and unique.",
+        "The earrings are hand-made organic and square shaped. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earrings organic shape and minimlist sporty looking makes your looking very special and unique.",
       description_hun:
         "Kézzel készült organikus formájú, háromszög fülbevaló. Mattra csiszolt felülete miatt nagyszerűen játszik a fényekkel, így könnyen észrevehető. Formájából adódóan felvéve többféleképpen forgatható, állítható. Organikusan tompa formája és minimalista sportossága teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
@@ -323,18 +323,18 @@ const data = {
     },
     {
       id: 15,
-      type: "earings",
+      type: "earrings",
       firstImage: image7,
       secondImage: image6,
       link: "organicnecklaceitem3",
       images: [image7, image6],
       price: 7000,
       name_hun: "Ezüst fülbevaló – Organikus mini háromszög",
-      name: "Silver Earings - Organic Mini Triangle",
+      name: "Silver Earrings - Organic Mini Triangle",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating. ",
+        " The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
@@ -342,7 +342,7 @@ const data = {
       material_cleaning_hun:
         "Elhasznált fogkefével, szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Nedves, párás helyen nem tárolandó!",
       description:
-        "The earings are hand-made organic and mini triagled shaped. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earings organic shape and minimlist sporty looking makes your looking very special and unique.",
+        "The earrings are hand-made organic and mini triagled shaped. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earrings organic shape and minimlist sporty looking makes your looking very special and unique.",
       description_hun:
         "Kézzel készült organikus formájú, háromszög fülbevaló. Mattra csiszolt felülete miatt nagyszerűen játszik a fényekkel, így könnyen észrevehető. Formájából adódóan felvéve többféleképpen forgatható, állítható. Organikusan tompa formája és minimalista sportossága teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
@@ -351,7 +351,7 @@ const data = {
     },
     {
       id: 16,
-      type: "earings",
+      type: "earrings",
       firstImage: image9,
       secondImage: image8,
 
@@ -359,11 +359,11 @@ const data = {
       link: "organicnecklaceitem4",
       price: 15000,
       name_hun: "Ezüst fülbevaló – Hullámos karika",
-      name: "Silver Earings - Wavy Hoop",
+      name: "Silver Earrings - Wavy Hoop",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating. ",
+        " The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
@@ -371,7 +371,7 @@ const data = {
       material_cleaning_hun:
         "Elhasznált fogkefével, szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Nedves, párás helyen nem tárolandó!",
       description:
-        "The earings are hand-made organic  shaped. they are beutifly formed as waves from two directions. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earings organic shape and minimlist sporty looking makes your looking very special and unique.",
+        "The earrings are hand-made organic  shaped. they are beutifly formed as waves from two directions. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earrings organic shape and minimlist sporty looking makes your looking very special and unique.",
       description_hun:
         "Kézzel készült organikus formájú, két irányból hullámosra kalapált karika fülbevaló. Egyik vége a fülcimpa mögé bújik. Mattra csiszolt felülete miatt nagyszerűen játszik a fényekkel, így könnyen észrevehető. Formájából adódóan felvéve többféleképpen forgatható, állítható. Organikusan tompa formája és minimalista sportossága teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
@@ -380,18 +380,18 @@ const data = {
     },
     {
       id: 17,
-      type: "earings",
+      type: "earrings",
       firstImage: image11,
       secondImage: image10,
       images: [image11, image10],
       link: "organicnecklaceitem5",
       price: 12000,
       name_hun: " Ezüst fülbevaló – Organikus huzal",
-      name: "Silver Earings - Organic Wire",
+      name: "Silver Earrings - Organic Wire",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating. ",
+        " The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
@@ -399,7 +399,7 @@ const data = {
       material_cleaning_hun:
         "Elhasznált fogkefével, szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Nedves, párás helyen nem tárolandó!",
       description:
-        "The earings are hand-made organic  shaped. they are beutifly formed as waves from two directions. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earings organic shape and minimlist sporty looking makes your looking very special and unique.",
+        "The earrings are hand-made organic  shaped. they are beutifly formed as waves from two directions. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earrings organic shape and minimlist sporty looking makes your looking very special and unique.",
       description_hun:
         "Kézzel készült organikus formájú tompa hatszög. Mattra csiszolt felülete miatt nagyszerűen játszik a fényekkel, így könnyen észrevehető. Formájából adódóan felvéve többféleképpen forgatható, állítható. Organikusan tompa formája és minimalista sportossága teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
@@ -408,7 +408,7 @@ const data = {
     },
     {
       id: 18,
-      type: "earings",
+      type: "earrings",
       firstImage: image13,
       secondImage: image12,
       images: [image13, image12],
@@ -416,11 +416,12 @@ const data = {
       price: 15000,
       name_hun:
         " Ezüst fülbevaló, arany bevonattal – Organikus huzal édesvízi gyönggyel",
-      name: "Silver Earings / Gold Plated - Organic Wire with Sweetwater Pearl",
+      name:
+        "Silver Earrings / Gold Plated - Organic Wire with Sweetwater Pearl",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with gold plate. ",
+        " The earrings are made of 925 Sterling silver with gold plate. ",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült arany bevonattal. ",
       material_cleaning:
@@ -428,7 +429,7 @@ const data = {
       material_cleaning_hun:
         "Szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The organic shape earings are hand-made with a light pink sweetwater pearl. the earings organic shape and the delicacy of the pearl makes your looking special and unique. ",
+        "The organic shape earrings are hand-made with a light pink sweetwater pearl. the earrings organic shape and the delicacy of the pearl makes your looking special and unique. ",
       description_hun:
         "Kézzel készült organikus formájú fülbevaló, közepén halványrózsaszín édesvízi gyönggyel.Organikusan formája és a gyöngy finomsága teszi egyedivé, különlegessé viselőjét.",
       count: 0,
@@ -436,18 +437,18 @@ const data = {
     },
     {
       id: 19,
-      type: "earings",
+      type: "earrings",
       firstImage: image15,
       secondImage: image14,
       images: [image15, image14],
       link: "organicnecklaceitem6",
       price: 6000,
       name_hun: "Ezüst fülbevaló– Édesvízi gyöngy",
-      name: "Silver Earings -  Sweetwater Pearl",
+      name: "Silver Earrings -  Sweetwater Pearl",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl. ",
+        " The earrings are made of 925 Sterling silver with sweetwater pearl. ",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
       material_cleaning:
@@ -455,7 +456,7 @@ const data = {
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        "The earrings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
 
       description_hun:
         "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
@@ -465,19 +466,19 @@ const data = {
     },
     {
       id: 20,
-      type: "earings",
+      type: "earrings",
       firstImage: image17,
       secondImage: image16,
       images: [image17, image16],
       link: "organicnecklaceitem6",
       price: 12000,
       name_hun: "Ezüst fülbevaló, arany bevonattal – Organikus huzal",
-      name: "Silver Earings / Gold Plated -  Organic Wire",
+      name: "Silver Earrings / Gold Plated -  Organic Wire",
 
       material: "925 Sterling Silver, Gold Plated",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl. ",
+        " The earrings are made of 925 Sterling silver with sweetwater pearl. ",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
       material_cleaning:
@@ -485,7 +486,7 @@ const data = {
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earings are hand-made organic  shaped. they are beutifly formed as waves from two directions. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earings organic shape and minimlist sporty looking makes your looking very special and unique.",
+        "The earrings are hand-made organic  shaped. they are beutifly formed as waves from two directions. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earrings organic shape and minimlist sporty looking makes your looking very special and unique.",
       description_hun:
         "Kézzel készült organikus formájú tompa hatszög. Mattra csiszolt felülete miatt nagyszerűen játszik a fényekkel, így könnyen észrevehető. Formájából adódóan felvéve többféleképpen forgatható, állítható. Organikusan tompa formája és minimalista sportossága teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
@@ -495,18 +496,18 @@ const data = {
     },
     {
       id: 21,
-      type: "earings",
+      type: "earrings",
       firstImage: image18,
       secondImage: image18,
       images: [image18],
       link: "organicnecklaceitem6",
       price: 7000,
       name_hun: "Ezüst fülbevaló párban – Áthúzós lánc",
-      name: "Double Silver Earings  - Fine Chain",
+      name: "Double Silver Earrings  - Fine Chain",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with sweetwater pearl. ",
+        " The earrings are made of 925 Sterling silver with sweetwater pearl. ",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
       material_cleaning:
@@ -514,7 +515,7 @@ const data = {
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        "The earrings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
       description_hun:
         "Kézzel készült, füllyukon áthúzható, apró négyzetes láncszemekből álló lógós fülbevaló, végén 1 cm merev egyenes résszel. Könnyű, kényelmes, mutatós darab, hosszúsága állítható. Minimalista sportossága vagy éppen finomsága teszi különlegessé viselőjét.",
       count: 0,
@@ -522,18 +523,18 @@ const data = {
     },
     {
       id: 22,
-      type: "earings",
+      type: "earrings",
       firstImage: image19,
       secondImage: image19,
       images: [image19],
       link: "organicnecklaceitem6",
       price: 18000,
       name_hun: " Ezüst fülbevaló – Lencse, gyöngyház kagylóval",
-      name: "Silver Earings -  Lentil shaped Nacre Pearl ",
+      name: "Silver Earrings -  Lentil shaped Nacre Pearl ",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earings are made of 925 Sterling silver with rhodium coating amd nackre pearl",
+        " The earrings are made of 925 Sterling silver with rhodium coating amd nackre pearl",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült ródium bevonattal és gyöngyház kagylóval.",
       material_cleaning:
@@ -541,7 +542,7 @@ const data = {
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earings are hand-made half lentil shaped with a unique pattern real pearl. The jewelery can be woren in different ways. The delicacy and shine of the pearl makes your looking speacial and unique. ",
+        "The earrings are hand-made half lentil shaped with a unique pattern real pearl. The jewelery can be woren in different ways. The delicacy and shine of the pearl makes your looking speacial and unique. ",
 
       description_hun:
         " Kézzel készült tömör ezüst félgömb fülbevaló, hátulról rácsatlakoztatható különleges mintájú és fényű igazi kagylóval. A fülbevaló variálható, több féle képen viselhető. A kagyló fényének ereje és finomsága teszi egyedivé, különlegessé viselőjét.  ",

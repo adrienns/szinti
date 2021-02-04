@@ -3,7 +3,7 @@
   "app.messagesent": "Thank you! Your message has been sent! I'll contact you shortly :)",
   "app.longtxt": "Contact me via email or by filling out the following simple contact form.",
   "app.necklace": "necklaces",
-  "app.earing": "earings",
+  "app.earring": "earrings",
   "app.ring": "rings",
   "app.weddingjewel": "wedding",
   "app.aboutus": "About me",
@@ -60,7 +60,7 @@
   "app.backtohomepage":"Back to Home Page",
   "app.description":"Description: ",
   "app.cleaning":"Cleaning: ",
-  "app.moreinfoaboutshipping":"More info about shipping",
+  "app.moreinfoaboutshipping":"Shipping Info",
   "app.moredetails":"More details"
   
 

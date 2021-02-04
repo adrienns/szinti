@@ -54,13 +54,16 @@ const NavBar = (props) => {
         <nav className="menu-navigation">
           <ul>
             {linksMarkup}
-            <Link to="/">
-              <img
-                id="site-logo-image"
-                src={logo}
-                alt="VeWe Handcrafted Jewelry"
-              />
-            </Link>
+            <div className="site-logo-image-wrapper">
+              <Link to="/">
+                <img
+                  id="site-logo-image"
+                  src={logo}
+                  alt="VeWe Handcrafted Jewelry"
+                />
+              </Link>
+            </div>
+
             {linksMarkup2}
           </ul>
         </nav>

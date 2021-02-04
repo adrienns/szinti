@@ -12,7 +12,7 @@ export class SliderImages extends React.Component {
           muted={true}
           url={video1}
           playing
-          loop={true}
+          // loop={true}
           playIcon={<button>Play</button>}
           className="framed_picture"
           // alt="VeWe Handcrafted Jewelry"

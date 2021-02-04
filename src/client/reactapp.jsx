@@ -14,7 +14,7 @@ import NotFoundPage from "./404/404";
 import NavBar from "./navbar/navbar";
 import AboutUs from "./aboutus/AboutUs";
 import FinalNecklacesDisplay from "./necklaces/FinalNecklacesDisplay";
-import FinalEaringsDisplay from "./earings/FinalEaringsDisplay";
+import FinalEarringsDisplay from "./earrings/FinalEarringsDisplay";
 import FinalRingsDisplay from "./rings/FinalRingsDisplay";
 import Footer from "./footer/Footer";
 import Cart from "./cart/Cart";
@@ -38,8 +38,8 @@ const LINKS = [
     link: "necklaces",
   }),
   defineMessages({
-    label: { defaultMessage: "Earings", id: "app.earing" },
-    link: "earings",
+    label: { defaultMessage: "Earrings", id: "app.earring" },
+    link: "earrings",
   }),
   defineMessages({
     label: { defaultMessage: "Rings", id: "app.ring" },
@@ -143,9 +143,9 @@ class ReactApp extends React.Component {
                     component={FinalNecklacesDisplay}
                   />
                   <Route
-                    path={`/${LINKMAP["app.earing"]}`}
+                    path={`/${LINKMAP["app.earring"]}`}
                     exact
-                    component={FinalEaringsDisplay}
+                    component={FinalEarringsDisplay}
                   />
                   <Route
                     path="/terms&conditions"
