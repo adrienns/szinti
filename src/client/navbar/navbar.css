@@ -1,22 +1,33 @@
-.site-logo-image-wrapper {
-  width: 190px;
-}
-
 #site-logo-image {
   width: 170px;
-  margin-right: 20px;
-  margin-left: 20px;
   padding-right: 20px;
+  margin: 0 5px 0 5px;
   padding-left: 20px;
+
   /* position: absolute;
   top: 26%;
   left: 42.5%; */
 }
 
-.navbar-list-item {
-  margin: 20px 0px 0px 0px;
-  padding-top: 15px;
+.box {
+  flex: 1;
+  display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.box:first-child {
+  flex-grow: 5;
+  justify-content: flex-end;
+}
+
+.box:last-child {
+  flex-grow: 5;
+  justify-content: flex-start;
+}
+
+.box:nth-child(2) {
+  flex-grow: 1;
 }
 
 .shopping-bag-container {
@@ -27,8 +38,13 @@
 
 .navbar-container {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   font-family: "Courier Prime", "Quicksand", sans-serif;
+}
+
+.menu-navigation {
+  flex-grow: 17;
+  margin: 0 80px 0 80px;
 }
 
 .menu-navigation ul {
@@ -56,10 +72,6 @@
 
 .menu-navigation ul li span:hover {
   color: rgb(255, 72, 0);
-}
-
-.menu-navigation {
-  flex-grow: 1;
 }
 
 .menu-navigation ul li a:before {
@@ -90,7 +102,6 @@
   font-size: 13.5px;
   letter-spacing: 2px;
   margin-bottom: 6px;
-
   cursor: pointer;
 }
 
