@@ -31,6 +31,8 @@ import Wrapper from "./Wrapper";
 import Payment from "./checkout/Payment";
 import SuccessfulPaymentPage from "./checkout/SuccessfulPaymentPage";
 import PaymentError from "./checkout/PaymentError";
+import NewCollection from "./new!/new!";
+import WeddingJewelry from "./wedding_jewelery/WeddingJeweleryProductList";
 
 const LINKS = [
   defineMessages({
@@ -136,6 +138,17 @@ class ReactApp extends React.Component {
                     path={`/${LINKMAP["app.ring"]}`}
                     exact
                     component={FinalRingsDisplay}
+                  />
+
+                  <Route
+                    path={`/${LINKMAP["app.collection"]}`}
+                    exact
+                    component={NewCollection}
+                  />
+                  <Route
+                    path={`/${LINKMAP["app.weddingjewel"]}`}
+                    exact
+                    component={WeddingJewelry}
                   />
                   <Route
                     path={`/${LINKMAP["app.necklace"]}`}

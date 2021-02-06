@@ -144,13 +144,17 @@
     align-self: flex-start;
     cursor: pointer;
     font-size: 25px;
+    margin-top: 7px;
   }
 
   #site-logo-image {
-    margin-top: -9px;
-    position: static;
+    margin: -52px 5px 0 5px;
+    padding: 45px;
   }
 
+  .mobile-shopping-bag-container {
+    margin-top: 7px;
+  }
   /* Doesnt show the navbar in responsive design*/
 
   .navbar-container {

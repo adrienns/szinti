@@ -1,7 +1,7 @@
 import React from "react";
 import ComingSoonText from "../products_display/ComingSoonText";
 
-const WeddingJewelry = () => {
+const NewCollection = () => {
   return (
     <div>
       <ComingSoonText />
@@ -9,4 +9,4 @@ const WeddingJewelry = () => {
   );
 };
 
-export default WeddingJewelry;
+export default NewCollection;

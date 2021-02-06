@@ -19,12 +19,43 @@
   font-size: 60px;
   line-height: 100px;
   letter-spacing: 10px;
-  padding: 150px 170px 170px 170px;
+  padding: 120px 90px 90px 90px;
   text-align: center;
 }
 
+@media only screen and (max-width: 1025px) {
+  #text-box1 {
+    font-size: 50px;
+    line-height: 70px;
+    letter-spacing: 10px;
+    padding: 70px 40px 30px 40px;
+    text-align: center;
+  }
+
+  #text-box2 {
+    text-align: center;
+    padding: 90px 30px 60px 30px;
+    line-height: 50px;
+
+    font-size: 30px;
+  }
+}
 @media only screen and (max-width: 421px) {
   .about-us-wrapper {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  #text-box1 {
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: 10px;
+    padding: 20px 10px 10px 10px;
+    text-align: center;
+  }
+
+  #text-box2 {
+    text-align: center;
+    padding: 20px 10px 10px 20px;
+    font-size: 16px;
   }
 }

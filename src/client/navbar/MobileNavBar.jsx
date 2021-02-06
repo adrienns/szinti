@@ -22,7 +22,7 @@ const MobileNavBar = (props) => {
             />
           </Link>
         </li>
-        <li>
+        <li className="mobile-shopping-bag-container">
           <ProductConsumer>
             {(value) => {
               const { itemsTotal } = value;

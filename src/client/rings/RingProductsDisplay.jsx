@@ -1,12 +1,10 @@
 import React from "react";
-
-import SinglePhoto from "../products_display/SinglePhoto";
-import "./RingProductsDisplay.css";
 import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductContext";
 import { useLocation, Link } from "react-router-dom";
 import Loader from "../products_display/Loader";
 import { FormattedMessage } from "react-intl";
+import ComingSoonText from "../products_display/ComingSoonText";
 
 const RingProductsDisplay = () => {
   const { pathname } = useLocation();
@@ -29,25 +27,7 @@ const RingProductsDisplay = () => {
             </Link>
             {pathname}
           </h5>
-          <ul className="ring_container">
-            {products
-              .filter((element) => element.type === "rings")
-              .map((element) => {
-                return (
-                  <SinglePhoto
-                    type={element.type}
-                    inCart={element.inCart}
-                    element={element}
-                    key={element.id}
-                    id={element.id}
-                    mainImg={element.firstImage}
-                    secondImg={element.secondImage}
-                    name={element.name}
-                    imgPrice={element.price}
-                  />
-                );
-              })}
-          </ul>
+          <ComingSoonText />
         </React.Fragment>
       )}
     </div>

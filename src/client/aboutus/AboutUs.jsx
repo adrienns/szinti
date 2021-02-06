@@ -14,15 +14,15 @@ const AboutUs = () => {
         </div>
         <div className="boxes" id="text-box1">
           <p>
-            <FormattedMessage id="app.mystrory" defaultMessage="My story" />{" "}
+            <FormattedMessage id="app.mystrory" defaultMessage="My story" />
           </p>
         </div>
       </div>
       <div id="text-box2">
         <p>
-          Hello! I finished goldsmith school in Hungary and I love designing and
-          creating creative jewelries. I create my unique jewelries in a cute
-          studio based in Budapest.
+          Hello! I graduated from goldsmith school in Hungary. I love designing
+          creative jewelries. I create my unique pieces in a cute studio based
+          in Budapest.
         </p>
       </div>
     </main>
