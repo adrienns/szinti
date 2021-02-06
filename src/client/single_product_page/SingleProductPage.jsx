@@ -12,7 +12,6 @@ const SingleProductPage = () => {
   const [size, setSize] = useState(window.innerWidth);
   const { productname } = useParams();
   const { getCurrentProduct, setSelected } = useContext(ProductContext);
-  console.log(getCurrentProduct());
 
   const currentProduct = getCurrentProduct();
   const {
@@ -58,10 +57,10 @@ const SingleProductPage = () => {
         {size < 1100 ? (
           <div>
             <ResponsiveSingleProductPage
+              productImages={images}
               id={id}
               inCart={inCart}
               currentImage={currentImage}
-              images={images}
               price={price}
               material={material}
               name={name}

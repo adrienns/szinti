@@ -1,6 +1,6 @@
 import calculateTotals from "./CalculateTotalSum.js";
 
-const FREE_SHIPPING_LIMIT = 10000;
+const FREE_SHIPPING_LIMIT = 19000;
 const calculateShippingCost = (cartData) => {
   const { selectedOption } = cartData;
   let shippingCost = 0;

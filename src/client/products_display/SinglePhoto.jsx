@@ -72,6 +72,7 @@ const SinglePhoto = (props) => {
           )}
         </ProductConsumer>
       </li>
+
       <div className="necklace-text-container">
         <p className="product-description">
           <Link to={`/organicproduct/${name}`}>

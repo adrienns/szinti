@@ -1,10 +1,8 @@
 import "./TopBar.css";
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 // const TEXTS = ["Free Shipping!", "Ingyenes szállítás"];
-
-// 19 000ft feletti rendelés esetén!
-// lehetőség Budapesten
 
 const TopBar = () => {
   // const [currentIndex, setCurrentText] = useState(0);
@@ -43,7 +41,13 @@ const TopBar = () => {
 
   return (
     <div className="topbar-container">
-      <span className="topbar-text">Free shipping over 19 000FT!</span>
+      <span className="topbar-text">
+        {" "}
+        <FormattedMessage
+          id="app.freeshippingover"
+          defaultMessage="Free shipping over 19 000FT!"
+        />
+      </span>
     </div>
   );
 };

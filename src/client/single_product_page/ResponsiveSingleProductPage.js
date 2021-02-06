@@ -8,9 +8,11 @@ import { FormattedMessage } from "react-intl";
 import { WrapperContext } from "../Wrapper";
 
 const ResponsiveSingleProductpage = ({
+  productImages,
   currentImage,
   changeCurrentImageTo,
   name,
+  price,
   name_hun,
   description_hun,
   description,

@@ -53,8 +53,8 @@ const NavBar = (props) => {
         </ul>
         <nav className="menu-navigation">
           <ul>
-            <div class="box">{linksMarkup}</div>
-            <div className="box">
+            <div className="nav-bar-element">{linksMarkup}</div>
+            <div className="nav-bar-element">
               <Link to="/">
                 <img
                   id="site-logo-image"
@@ -63,7 +63,7 @@ const NavBar = (props) => {
                 />
               </Link>
             </div>
-            <div className="box">{linksMarkup2}</div>
+            <div className="nav-bar-element">{linksMarkup2}</div>
           </ul>
         </nav>
         <div className="shopping-bag-container">

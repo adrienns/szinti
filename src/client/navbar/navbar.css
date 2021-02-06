@@ -9,24 +9,24 @@
   left: 42.5%; */
 }
 
-.box {
+.nav-bar-element {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.box:first-child {
+.nav-bar-element:first-child {
   flex-grow: 5;
   justify-content: flex-end;
 }
 
-.box:last-child {
+.nav-bar-element:last-child {
   flex-grow: 5;
   justify-content: flex-start;
 }
 
-.box:nth-child(2) {
+.nav-bar-element:nth-child(2) {
   flex-grow: 1;
 }
 

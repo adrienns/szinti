@@ -18,6 +18,17 @@
   font-size: 16px;
   text-transform: uppercase;
 }
+
+.jeweleries_for_you::after {
+  position: absolute;
+  left: 49%;
+  content: "";
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: #333;
+  margin-top: 19px;
+}
 .carousel {
   box-sizing: border-box;
   width: 80%;

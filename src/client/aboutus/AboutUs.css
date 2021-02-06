@@ -1,23 +1,25 @@
 .boxes img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .about-us-wrapper {
   display: grid;
   grid-template-columns: 50% 50%;
+  font-family: "Courier Prime" "sa";
 }
 
 #text-box2 {
   text-align: center;
-  padding: 60px;
+  padding: 90px 300px 60px 300px;
   font-size: 30px;
 }
 
 #text-box1 {
-  font-size: 90px;
+  font-size: 60px;
+  line-height: 100px;
   letter-spacing: 10px;
-  padding: 170px;
+  padding: 150px 170px 170px 170px;
   text-align: center;
 }
 

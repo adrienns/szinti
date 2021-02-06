@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import "./AboutUs.css";
-import image1 from "../images/greencheckmark.png";
-import image2 from "../images/greencheckmark.png";
-import image3 from "../images/greencheckmark.png";
+import image1 from "../images/aboutmephoto.jpg";
+import { FormattedMessage } from "react-intl";
 
 const AboutUs = () => {
   return (
@@ -10,43 +9,21 @@ const AboutUs = () => {
       <div className="about-us-wrapper">
         <div className="boxes">
           <a href="#">
-            <img src={image3} alt="Cute Dog2" width="450" />
+            <img src={image1} alt="Photo" width="450" />
           </a>
         </div>
         <div className="boxes" id="text-box1">
-          <p> My story</p>
-        </div>
-
-        <div className="boxes" id="text-box2">
           <p>
-            Few stories are as widely read and as universally cherished by
-            children and adults alike as The Little Prince. Richard Howard's
-            translation of the beloved classic beautifully reflects
-            Saint-Exupéry's unique and gifted style. Howard, an acclaimed poet
-            and one of the preeminent translators of our time.
+            <FormattedMessage id="app.mystrory" defaultMessage="My story" />{" "}
           </p>
         </div>
-
-        <div className="boxes">
-          <a href="#">
-            <img src={image1} alt="Cute Dog3" width="450" />
-          </a>
-        </div>
-
-        <div className="boxes">
-          <a href="#">
-            <img src={image2} alt="Cute Dog4" width="450" />
-          </a>
-        </div>
-        <div className="boxes" id="text-box2">
-          <p>
-            Few stories are as widely read and as universally cherished by
-            children and adults alike as The Little Prince. Richard Howard's
-            translation of the beloved classic beautifully reflects
-            Saint-Exupéry's unique and gifted style. Howard, an acclaimed poet
-            and one of the preeminent translators of our time.
-          </p>
-        </div>
+      </div>
+      <div id="text-box2">
+        <p>
+          Hello! I finished goldsmith school in Hungary and I love designing and
+          creating creative jewelries. I create my unique jewelries in a cute
+          studio based in Budapest.
+        </p>
       </div>
     </main>
   );

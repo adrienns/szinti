@@ -189,10 +189,10 @@ class Form extends Component {
                 defaultMessage="You can pick up the product here:"
               />
             </h5>
-            <h5> Budapest, 1016, Lollipop utca</h5>
+            <h5> Budapest, 1016, Szent István körút 2.</h5>
             <iframe
               id="google-maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2695.1008165121007!2d19.06910075088867!3d47.507427802715036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc7071814bb5%3A0xe03cc9a3800b4546!2sBudapest%2C%20Sz%C3%ADv%20u.%204%2C%201068!5e0!3m2!1sen!2shu!4v1600783601560!5m2!1sen!2shu"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.800512491245!2d19.046351650924468!3d47.513276079076455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc0f6cebdd8f%3A0x22d8f1cfe3631a0!2sBudapest%2C%20Szent%20Istv%C3%A1n%20krt.%202%2C%201137%20Hungary!5e0!3m2!1sen!2sil!4v1612554951594!5m2!1sen!2sil"
             ></iframe>
           </div>
         </div>
