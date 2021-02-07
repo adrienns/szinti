@@ -55,9 +55,14 @@
   margin-bottom: -4px;
 }
 
-@media only screen and (max-width: 541px) {
+@media only screen and (max-width: 780px) {
+  .header {
+    height: 90px;
+  }
+
   .main-video {
-    width: 540px;
-    height: 480px;
+  }
+  .main-container {
+    margin-top: -58px;
   }
 }

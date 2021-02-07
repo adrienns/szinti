@@ -6,6 +6,7 @@ import "react-sliding-pane/dist/react-sliding-pane.css";
 import { FormattedMessage } from "react-intl";
 import { ProductContext } from "../contexts/ProductContext";
 import { WrapperContext } from "../Wrapper";
+import { createCartItems } from "../cart/CreateCartItems";
 
 const CartModal = () => {
   const {
@@ -19,26 +20,6 @@ const CartModal = () => {
   const { locale } = useContext(WrapperContext);
 
   //create a cart item with a correct price when material is added
-
-  const createCartItems = (cart) => {
-    let cartItems = [];
-
-    cart.forEach((item) => {
-      if (item.count > 0) {
-        cartItems.push({
-          id: item.id,
-          firstImage: item.firstImage,
-          total: item.total,
-          count: item.count,
-          name: item.name,
-          name_hun: item.name_hun,
-          material_hun: item.material_hun,
-          material: item.material,
-        });
-      }
-    });
-    return cartItems;
-  };
 
   const items = createCartItems(cart);
 
