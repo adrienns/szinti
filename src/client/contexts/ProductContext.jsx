@@ -191,7 +191,6 @@ const ProductProvider = (props) => {
 
   const isInCart = (id) => {
     const index = cart.findIndex((elem) => elem.id === id);
-    debugger;
     return index != -1;
   };
 

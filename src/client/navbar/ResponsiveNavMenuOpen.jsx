@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
@@ -38,7 +38,7 @@ const ResponsiveNavMenuOpen = (props) => {
                 className="responsive-nav-list-item"
                 id="responsive-nav-home-btn"
               >
-                home
+                <FormattedMessage id="app.home" defaultMessage="home" />
               </li>
               <li
                 className="responsive-nav-list-item"

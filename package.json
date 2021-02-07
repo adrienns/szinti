@@ -66,6 +66,7 @@
     "client": "parcel src/client/index.html",
     "proxy": "nodemon src/setupProxy.js",
     "dev": "concurrently \"npm run server_dev\" \"npm run client\"",
+    "prod": "concurrently \"npm run server_prod\" \"npm run client\"",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },

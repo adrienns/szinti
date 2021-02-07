@@ -17,6 +17,7 @@
 #get_in_touch {
   padding-bottom: 14px;
   letter-spacing: 1px;
+  max-width: 390px;
 }
 
 .google-maps h5 {
@@ -74,9 +75,10 @@
   color: white;
 }
 
-@media only screen and (max-width: 421px) {
+@media only screen and (max-width: 540px) {
   .contact-wrapper {
-    width: 359px;
+    flex-direction: column;
+    margin: 10px;
   }
 }
 
@@ -84,6 +86,7 @@
   .contact-wrapper {
     width: 319px;
     margin-top: 66px;
+    flex-direction: column;
   }
 
   .text {

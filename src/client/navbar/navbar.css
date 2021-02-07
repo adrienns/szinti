@@ -3,10 +3,6 @@
   padding-right: 20px;
   margin: 0 5px 0 5px;
   padding-left: 20px;
-
-  /* position: absolute;
-  top: 26%;
-  left: 42.5%; */
 }
 
 .nav-bar-element {
@@ -38,7 +34,6 @@
 
 .navbar-container {
   display: flex;
-  /* justify-content: center; */
   font-family: "Courier Prime", "Quicksand", sans-serif;
 }
 
@@ -80,11 +75,9 @@
   bottom: -6px;
   left: 0;
   width: 0;
-  /* height: 125%; */
   height: 80%;
   background: url(redline5.png);
 
-  /* background-size: cover; */
   transform-origin: left;
   transition: 0.5s;
 }
@@ -98,6 +91,7 @@
   display: flex;
   align-self: center;
   margin-left: 21px;
+  margin-right: -52px;
   flex-grow: 1;
   font-size: 13.5px;
   letter-spacing: 2px;

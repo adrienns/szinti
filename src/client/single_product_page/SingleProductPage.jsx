@@ -30,13 +30,13 @@ const SingleProductPage = () => {
     material_description,
   } = currentProduct;
 
-  const checkSize = () => {
-    setSize(window.innerWidth);
-  };
-
   useEffect(() => {
     setSelected(parseInt(productname));
   });
+
+  const checkSize = () => {
+    setSize(window.innerWidth);
+  };
 
   useEffect(() => {
     window.addEventListener("resize", checkSize);

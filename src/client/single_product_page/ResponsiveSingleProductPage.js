@@ -20,6 +20,7 @@ const ResponsiveSingleProductpage = ({
   material_cleaning,
   material_description_hun,
   material_description,
+  id,
 }) => {
   const { incrementCartProduct, openSideModal } = useContext(ProductContext);
   const { locale } = useContext(WrapperContext);

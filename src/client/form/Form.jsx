@@ -94,7 +94,7 @@ class Form extends Component {
                 {" "}
                 <FormattedMessage
                   id="app.longtxt"
-                  defaultMessage="Contact us via email or by filling out our simple contact form."
+                  defaultMessage="Contact us via email or by filling out our contact form."
                 />
               </h5>
               <h5 id="get_in_touch">
