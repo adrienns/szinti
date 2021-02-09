@@ -80,12 +80,12 @@
   border-collapse: collapse;
 }
 
-#order-summery-text-right {
+#order-summary-text-right {
   display: flex;
   justify-content: flex-end;
 }
 
-#order-summery-text-right-list label {
+#order-summary-text-right-list label {
   margin-right: 11px;
 }
 
