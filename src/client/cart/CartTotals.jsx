@@ -20,7 +20,7 @@ const CartTotals = ({ val }) => {
             <FormattedMessage id="app.subtotal" defaultMessage="SubTotal" />
           </th>
           <td className="cart-totals-table-inner-chart">
-            <span id="order-summery-text-right">
+            <span id="order-summary-text-right">
               {cartTotal.toLocaleString()} HUF
             </span>
           </td>
@@ -32,7 +32,7 @@ const CartTotals = ({ val }) => {
           <td className="cart-totals-table-inner-chart">
             <form>
               <ul className="shipping-method-list">
-                <li id="order-summery-text-right-list">
+                <li id="order-summary-text-right-list">
                   <input
                     onChange={onShippingChange}
                     type="radio"
@@ -48,7 +48,7 @@ const CartTotals = ({ val }) => {
                     />
                   </label>
                 </li>
-                <li id="order-summery-text-right-list">
+                <li id="order-summary-text-right-list">
                   <input
                     onChange={onShippingChange}
                     type="radio"
@@ -64,7 +64,7 @@ const CartTotals = ({ val }) => {
                     />
                   </label>
                 </li>
-                <li id="order-summery-text-right-list">
+                <li id="order-summary-text-right-list">
                   <input
                     type="radio"
                     value="EU"
@@ -91,7 +91,7 @@ const CartTotals = ({ val }) => {
           >
             <FormattedMessage id="app.totalprice" defaultMessage="Total" />
           </th>
-          <td className="order-summary-total" id="order-summery-text-right">
+          <td className="order-summary-total" id="order-summary-text-right">
             {finalTotal.toLocaleString()} HUF
           </td>
         </tr>

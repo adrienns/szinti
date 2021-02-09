@@ -35,7 +35,7 @@ const MobileNavBar = (props) => {
                     onClick={() => {
                       openSideModal();
                     }}
-                    className="shopping_bag"
+                    className="nav_bar_shopping_bag"
                     icon={bagIcon}
                   />
                 </div>

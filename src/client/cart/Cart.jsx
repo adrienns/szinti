@@ -25,7 +25,7 @@ const Cart = () => {
 
   return (
     <React.Fragment>
-      {size < 780 ? (
+      {size < 650 ? (
         <ResponsiveCart />
       ) : (
         <div className="cart_container">

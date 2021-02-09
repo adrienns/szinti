@@ -51,7 +51,7 @@ const ResponsiveCartItem = ({ item, val }) => {
 
       <div className="responsive-cart-item" id="responsive-remove-btn">
         <span onClick={() => removeItem(id)}>
-          <FontAwesomeIcon className="shopping_bag" icon="times" />
+          <FontAwesomeIcon className="remove-btn" icon="times" />
         </span>
       </div>
     </div>

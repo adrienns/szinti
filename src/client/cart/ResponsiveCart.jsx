@@ -16,13 +16,11 @@ const ResponsiveCart = () => {
           if (cart.length > 0) {
             return (
               <div className="responsive-cart-container">
-                <div className="responsive-cart-checkoutsteps">
-                  <CheckoutSteps step1 />
-                </div>
+                <CheckoutSteps step1 />
                 <div className="responsive-cart-list-container">
                   <ResponsiveCartList val={val} />
-                  <div className="responsive-cart-order-summary">
-                    <h2 className="responsive-order-summary-text">
+                  <div className="cart-order-summary">
+                    <h2 className="order-summary-text">
                       <FormattedMessage
                         id="app.shipping"
                         defaultMessage="Shipping"

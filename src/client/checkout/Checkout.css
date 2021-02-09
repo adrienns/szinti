@@ -5,14 +5,12 @@
 }
 .checkout-steps > div {
   font-size: 14px;
-  margin-top: 90px;
   padding-left: 11px;
   color: gray;
   display: inline-block;
 }
 
 .checkout-steps > div.active {
-  margin-top: 80px;
   color: black;
   display: inline-block;
   padding-left: 10px;

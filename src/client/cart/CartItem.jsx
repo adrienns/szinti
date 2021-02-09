@@ -44,7 +44,7 @@ export default function CartItem({ item, val }) {
       <td className="cart-item">{total.toLocaleString()} HUF</td>
       <td className="cart-item">
         <span onClick={() => removeItem(id)}>
-          <FontAwesomeIcon className="shopping_bag" icon="times" />
+          <FontAwesomeIcon className="remove-btn" icon="times" />
         </span>
       </td>
     </tr>
