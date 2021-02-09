@@ -1,12 +1,13 @@
 node_modules/
 .DS_Store
 /.cache/
+/public/
 /dist/
 coverage/
 .vscode/
-.env
 src/server/mailgun-auth.js
 my-app/.cache/
 my-app/dist/
 my-app/node_modules/
 package-lock.json
+src/.env
