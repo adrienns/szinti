@@ -55,6 +55,7 @@
 .cart-order-summary {
   background-color: rgb(248, 246, 246);
   border-radius: 5px;
+  width: 430px;
 }
 
 .order-summary-text {
@@ -73,7 +74,7 @@
 
 .order-summary-total {
   background-color: rgb(236, 235, 235);
-  padding: 20px 40px 20px 10px;
+  padding: 20px 40px 20px 20px;
 }
 
 .cart-total-table {
@@ -111,19 +112,40 @@
 
 /*RESPONSIVE DESIGN*/
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 805px) {
   .cart-item {
     /* border-top: solid rgb(56, 54, 54);
     border-width: 1.5px; */
     width: 14%;
   }
+}
 
+@media only screen and (max-width: 420px) {
+  .cart-order-summary-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .cart-order-summary {
+    width: 380px;
+  }
   .cart-totals-table-inner-chart {
-    padding: 10px 7px 10px 0px;
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .cart-order-summary-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .cart-order-summary {
+    width: 330px;
+  }
+  .order-summary-total-row {
+    width: 30px;
   }
 
-  .order-summary-total {
-    padding-right: 7px;
-    text-align: start;
+  .cart-totals-table-inner-chart {
+    padding: 10px;
   }
 }

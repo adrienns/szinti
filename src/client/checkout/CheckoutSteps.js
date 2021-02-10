@@ -16,7 +16,7 @@ const CheckoutSteps = (props) => {
             id="app.yourshoppingcart"
             defaultMessage="Shopping cart"
           />
-          <FontAwesomeIcon icon={faChevronRight} />
+          <FontAwesomeIcon icon={faChevronRight} className="greater-icon" />
         </div>
         <div className={props.step2 ? "active" : ""} id="step2">
           <FormattedMessage

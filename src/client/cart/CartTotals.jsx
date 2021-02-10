@@ -84,7 +84,7 @@ const CartTotals = ({ val }) => {
             </form>
           </td>
         </tr>
-        <tr>
+        <tr className="order-summary-total-row">
           <th
             className="order-summary-total"
             id="order-summary-total-text-left"

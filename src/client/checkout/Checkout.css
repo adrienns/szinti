@@ -1,5 +1,8 @@
 /*Checkout steps*/
 
+.greater-icon {
+  margin-left: 4px;
+}
 .checkout-steps-container {
   margin-left: 10px;
 }
