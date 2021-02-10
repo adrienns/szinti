@@ -11,3 +11,4 @@ my-app/dist/
 my-app/node_modules/
 package-lock.json
 src/.env
+nginx_signing.key
