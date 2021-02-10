@@ -55,7 +55,7 @@
 .cart-order-summary {
   background-color: rgb(248, 246, 246);
   border-radius: 5px;
-  width: 430px;
+  width: 410px;
 }
 
 .order-summary-text {
@@ -66,37 +66,35 @@
 .shipping-method-list {
   list-style: none;
   direction: rtl;
-}
-
-.shipping-method-list li {
-  margin: 20px 0 20px 0;
-}
-
-.order-summary-total {
-  background-color: rgb(236, 235, 235);
-  padding: 20px 40px 20px 20px;
-}
-
-.cart-total-table {
-  border-collapse: collapse;
-}
-
-#order-summary-text-right {
-  display: flex;
-  justify-content: flex-end;
-}
-
-#order-summary-text-right-list label {
-  margin-right: 11px;
+  margin: 20px 0 20px 20px;
 }
 
 .cart-totals-table-inner-chart {
-  padding: 33px 40px 33px 40px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.cart-totals-shipping-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+#order-summary-text-right-list {
+  margin-top: 29px;
+}
+
+#order-summary-text-right-list label {
+  margin-right: 10px;
 }
 
 .continue-to-shipping-details-btn:hover {
   background-color: rgb(87, 86, 86);
   cursor: pointer;
+}
+
+.cart-totals-shipping-text {
+  margin-top: 23px;
 }
 
 .continue-to-shipping-details-btn {
@@ -126,26 +124,16 @@
     justify-content: center;
   }
   .cart-order-summary {
-    width: 380px;
-  }
-  .cart-totals-table-inner-chart {
-    padding: 10px;
+    width: 99%;
   }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 376px) {
   .cart-order-summary-wrapper {
     display: flex;
     justify-content: center;
   }
   .cart-order-summary {
-    width: 330px;
-  }
-  .order-summary-total-row {
-    width: 30px;
-  }
-
-  .cart-totals-table-inner-chart {
-    padding: 10px;
+    width: 99%;
   }
 }

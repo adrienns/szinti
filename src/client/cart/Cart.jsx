@@ -50,9 +50,8 @@ const Cart = () => {
                             defaultMessage="Shipping"
                           />
                         </h2>
-                        <table className="cart-total-table">
-                          <CartTotals val={val} />
-                        </table>
+
+                        <CartTotals val={val} />
                       </div>
                     </div>
                   </div>
