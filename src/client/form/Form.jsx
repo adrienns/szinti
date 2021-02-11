@@ -189,10 +189,10 @@ class Form extends Component {
                 defaultMessage="You can pick up the product here:"
               />
             </h5>
-            <h5> Budapest, 1016, Szent István körút 2.</h5>
+            <h5> Budapest,1082 Kisfaludy utca 28a </h5>
             <iframe
               id="google-maps"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2694.800512491245!2d19.046351650924468!3d47.513276079076455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc0f6cebdd8f%3A0x22d8f1cfe3631a0!2sBudapest%2C%20Szent%20Istv%C3%A1n%20krt.%202%2C%201137%20Hungary!5e0!3m2!1sen!2sil!4v1612554951594!5m2!1sen!2sil"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2696.1349120404775!2d19.070146015266484!3d47.48728510420638!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4741dc587a10ca81%3A0x3b3957da7e009ec2!2sBudapest%2C%20Kisfaludy%20u.%2028a%2C%201082%20Hungary!5e0!3m2!1sen!2sil!4v1613054898827!5m2!1sen!2sil"
             ></iframe>
           </div>
         </div>

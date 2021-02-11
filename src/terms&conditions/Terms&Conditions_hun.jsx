@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./TermsAndConditions.css";
 
-const TermsandConditions = () => {
+const TermsandConditionsHun = () => {
   return (
     <div className="terms-and-conditions">
       <h2 className="terms-and-conditions-header">Terms and Conditions </h2>
@@ -63,21 +63,21 @@ const TermsandConditions = () => {
         (collectively, the “Content”).{" "}
       </p>
       <p>
-        Purchases <br></br> If you wish to purchase any product or service made
-        available through Vewe Jewelery, you may be asked to supply certain
-        information relevant to your Purchase including, without limitation,
-        your … Szállítás: (ez a rész mindenhova mehet) Csomag tartalma: Fehér
-        ajándékdoboz, megrendelt ékszer, külső sérülésmentes csomagolás Magyar
-        Posta -Magyarországon 1500 Ft, Rendeléstől számított 4-8 munkanap
-        (19.000 Ft feletti vásárlás esetén ingyenes szállítás) *Megrendelés
-        után, ha az ékszer készleten van egyből postára adom és elsőbbségivel
-        küldöm ez körülbelül 4 munkanap, ha az ékszer jelenleg nincs készleten
-        egy hét várakozási időt számítok fel az ékszer elkészüléséig majd
-        elsőbbségivel postára adom ebben az esetben érdemes 8 munkanappal
-        számolni. -Eu-n belüli országokban 2500 Ft, Rendeléstől számított 4-14
-        munkanap (19.000 Ft feletti vásárlás esetén ingyenes szállítás)
-        Személyes átvétel: Corvin Pláza melletti műhelyemben hétköznapokon.
-        Kérem, a megrendelést követően üzenetben érdeklődjenek.
+        Szállítás <br></br> Csomag tartalma: Fehér ajándékdoboz, megrendelt
+        ékszer, külső sérülésmentes csomagolás. A szállítás ára Magyarországon
+        1500 Ft, az Európai Unió területén belül 2500Ft. A csomag a rendeléstől
+        számított 4-8 munkanapon belül érkezik a vásárlóhoz. 19.000 Ft feletti
+        vásárlás esetén ingyenes szállítás Magyarországon. Megrendelés után, ha
+        az ékszer készleten van, egyből feladásra kerül és elsőbbségivel kerül
+        kiküldére, ami körülbelül 4 munkanap alatt érkezik meg. Amennyiben az
+        ékszer nincs készleten egy hét várakozási idő kerül felszámításra, majd
+        elsőbbségivel postára adással körülbelül 8 munkanapon belül érkezik meg.
+        Az Európai Unió területén belül 2500Ft a szállítás. Rendeléstől
+        számított 4-14 munkanapon belül érkezik meg a vásárlóhoz. 19.000 Ft
+        feletti vásárlás esetén ingyenes szállítás. Személyes átvétel: Corvin
+        Pláza melletti műhelyemben hétköznapokon lehet átvenni a megrendelt
+        ékszert. A műhelyemben címe: 1082 Budapest, Kisfaludy utca 28a Kérem, a
+        megrendelést követően üzenetben érdeklődjenek.
       </p>
       <p>
         Links To Other Web Sites<br></br> Our Service may contain links to
@@ -106,4 +106,4 @@ const TermsandConditions = () => {
   );
 };
 
-export default TermsandConditions;
+export default TermsandConditionsHun;
