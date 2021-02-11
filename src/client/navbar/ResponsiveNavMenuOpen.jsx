@@ -32,14 +32,16 @@ const ResponsiveNavMenuOpen = (props) => {
         <div>
           <div className="responsive-nav-menu-list">
             <ul className="responsive-nav-items-container">
-              {linksMarkup}{" "}
-              <li
-                onClick={props.closeResponsiveNavMenu}
-                className="responsive-nav-list-item"
-                id="responsive-nav-home-btn"
-              >
-                <FormattedMessage id="app.home" defaultMessage="home" />
-              </li>
+              {linksMarkup}
+              <Link to="/">
+                <li
+                  onClick={props.closeResponsiveNavMenu}
+                  className="responsive-nav-list-item"
+                  id="responsive-nav-home-btn"
+                >
+                  <FormattedMessage id="app.home" defaultMessage="home" />
+                </li>
+              </Link>
               <li
                 className="responsive-nav-list-item"
                 id="responsive-language-options"

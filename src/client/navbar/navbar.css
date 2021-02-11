@@ -34,7 +34,6 @@
 
 .navbar-container {
   display: flex;
-  font-family: "Courier Prime", "Quicksand", sans-serif;
 }
 
 .menu-navigation {
@@ -101,10 +100,12 @@
 
 .hun-btn:hover {
   color: black;
+  font-weight: bolder;
 }
 
 .en-btn:hover {
   color: black;
+  font-weight: bolder;
 }
 
 .nav_bar_shopping_bag {

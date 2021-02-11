@@ -73,17 +73,41 @@
   color: white;
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (min-width: 541px) and (max-width: 950px) {
+  /* .google-maps {
+    width: 40%;
+  }
+  .contact-form-wrapper {
+    width: 40%;
+  } */
 }
 
 @media only screen and (max-width: 540px) {
+  .contact-form-container {
+    margin: 200px 4px 10px 4px;
+  }
   .contact-wrapper {
     flex-direction: column;
-    margin: 10px;
   }
 
   .contact-form-wrapper {
-    width: 50%;
+    width: 100%;
+  }
+
+  .google-maps {
+    width: 100%;
+    margin: 4px;
+  }
+
+  #google-maps {
+    height: 350px;
+    width: 97%;
+  }
+  .google-maps h5:nth-child(1) {
+    padding-top: 30px;
+  }
+  .google-maps h5 {
+    margin-left: 2px;
   }
 }
 

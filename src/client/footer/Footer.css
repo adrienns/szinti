@@ -32,6 +32,10 @@ footer {
   font-size: 12px;
 }
 
+.footer-section li a:hover {
+  font-weight: bolder;
+}
+
 .footer-group-title a {
   line-height: 30px;
   font-size: 12px;

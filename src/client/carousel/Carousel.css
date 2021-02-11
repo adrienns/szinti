@@ -12,7 +12,6 @@
 .jeweleries_for_you {
   text-align: center;
   margin-top: 65px;
-  font-family: "Raleway" sans-serif;
   font-weight: lighter;
   letter-spacing: 1px;
   font-size: 16px;
@@ -52,7 +51,6 @@
 }
 
 .carousel-text-wrapper {
-  font-family: "Raleway", "sans-serif;";
   margin-bottom: 30px;
   line-height: 27px;
 }

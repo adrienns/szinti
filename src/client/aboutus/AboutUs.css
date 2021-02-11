@@ -6,7 +6,6 @@
 .about-us-wrapper {
   display: grid;
   grid-template-columns: 50% 50%;
-  font-family: "Courier Prime" "sa";
 }
 
 #text-box2 {
@@ -43,6 +42,7 @@
 @media only screen and (max-width: 421px) {
   .about-us-wrapper {
     grid-template-columns: repeat(1, 1fr);
+    margin-top: 155px;
   }
 
   #text-box1 {
