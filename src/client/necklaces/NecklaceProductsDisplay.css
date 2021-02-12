@@ -23,3 +23,9 @@
   padding-top: 150px;
   padding-left: 20px;
 }
+
+@media only screen and (max-width: 780px) {
+  .location-param {
+    padding-top: 90px;
+  }
+}

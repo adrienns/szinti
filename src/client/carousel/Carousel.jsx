@@ -18,6 +18,13 @@ const Carousel = () => {
   const { products } = useContext(ProductContext);
   const { locale } = useContext(WrapperContext);
 
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <FontAwesomeIcon {...props} icon={faChevronLeft} className="slick-prev" />
+  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <FontAwesomeIcon {...props} icon={faChevronRight} className="slick-next" />
+  );
+
   const settings = {
     dots: false,
     infinite: true,
@@ -30,8 +37,8 @@ const Carousel = () => {
     swipe: true,
     touchMove: true,
     margin: "0 -15px",
-    nextArrow: <FontAwesomeIcon icon={faChevronRight} className="slick-next" />,
-    prevArrow: <FontAwesomeIcon icon={faChevronLeft} className="slick-prev" />,
+    nextArrow: <SlickArrowRight />,
+    prevArrow: <SlickArrowLeft />,
 
     responsive: [
       {
@@ -65,11 +72,10 @@ const Carousel = () => {
             price,
           } = element;
           return (
-            <div className="carousel-wrapper">
+            <div key={id} className="carousel-wrapper">
               <CarouselImage
                 firstImage={firstImage}
                 secondImage={secondImage}
-                key={id}
                 id={id}
               />
               <Link to={`/organicproduct/${id}`}>
