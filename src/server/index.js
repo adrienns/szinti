@@ -11,7 +11,7 @@ import calculateTotals from "./CalculateTotalSum.js";
 import compression from "compression";
 import dotenv from "dotenv";
 
-dotenv.config({ path: "src/.env" });πcss.
+dotenv.config({ path: "src/.env" });
 const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_SECRET_ID;
 const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
