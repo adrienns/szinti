@@ -4,8 +4,22 @@
 
 .terms-and-conditions {
   margin: 150px;
+  text-align: justify;
 }
 
 .terms-and-conditions p {
   margin-top: 30px;
+}
+
+.terms-conditions-bold-text {
+  font-weight: bolder;
+  border-bottom: solid black;
+  border-width: 2px;
+}
+
+@media only screen and (max-width: 750px) {
+  .terms-and-conditions {
+    margin: 170px 25px 60px 24px;
+    text-align: justify;
+  }
 }

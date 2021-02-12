@@ -9,7 +9,7 @@ const TermsandConditionsHun = () => {
 
       <p>
         Please read these Terms and Conditions carefully every time before using
-        the http://www.vewe.com website("Service") operated by{" "}
+        the http://www.vewe.com website operated by{" "}
         <strong>Vewe Jewelery Ltd</strong>. These terms of use are subject to
         modifications, so we advise you to check back regularly.
       </p>
@@ -34,33 +34,29 @@ const TermsandConditionsHun = () => {
       </p>
 
       <p>
-        ACCEPTANCE OF YOUR ORDER When you submit an order to us on our website
-        you will receive a ‘bounce back’ confirmatory email of this order saying
-        that we are processing your order. You will then receive a second email
-        from us acknowledging your order and giving you estimated timescales for
-        delivery. All orders placed through our website will be subject to our
-        acceptance of the order. Once an order is placed you will receive a
-        confirmation acknowledging your details and processing your order. This
-        is an acknowledgement of your details and is not a confirmation of your
+        ACCEPTANCE OF YOUR ORDER When you submit an order sucessfully to me on
+        the website you will receive an Order Number acknowledging your details.
+        This is an acknowledgement of your details and is not a confirmation of
+        your order. Then I will process your order and will send you a
+        confirmation email, giving you estimated timescales for delivery. All
+        orders placed through this website will be subject to my acceptance of
+        the order. The credit card is charged at the moment of submitting the
         order. A contract between you and Vewe Jewelery is confirmed once you
-        receive an email with your tracking information. You should check both
-        emails for accuracy and let us know immediately if there are any errors.
-        We reserve the right not to accept your order if the item is out of
-        stock, does not pass our quality checking stage, or if we are unable to
-        obtain authorization for payment. All orders are subject to availability
-        and confirmation of e order price.
+        receive an email with your delivery information. You should check the
+        email for accuracy and let me know immediately if there are any errors.
+        I reserve the right not to accept your order if the item is out of stock
+        or if I am unable to obtain authorization for payment. All orders are
+        subject to availability and confirmation of the order price.
       </p>
 
       <p>
-        Ez meg nem tuti, hogy kell The Site may provide you with comprehensive
-        information and news regarding Vewe, company overview, news regarding
-        our company including any other content related thereto such as contact
-        information, videos, text, files, logos, button icons, images, data
-        compilations, links, other specialized content, technical data,
-        documentation, know-how, specifications materials, designs, data, the
-        “look and feel” of the Site, algorithms, source and object code,
-        interface, GUI, and other features obtained from or through the Site
-        (collectively, the “Content”).{" "}
+        The Site may provide you with comprehensive information and news
+        regarding Vewe, company overview, news regarding the company including
+        any other content related thereto such as contact information, videos,
+        text, files, logos, button icons, images, data compilations, links,
+        other specialized content, documentation, know-how, specifications
+        materials, designs, data, source and object code, interface, and other
+        features obtained from or through the Site.
       </p>
       <p>
         Szállítás <br></br> Csomag tartalma: Fehér ajándékdoboz, megrendelt
@@ -92,15 +88,12 @@ const TermsandConditionsHun = () => {
         services.
       </p>
       <p>
-        Changes<br></br> We reserve the right, at our sole discretion, to modify
-        or replace these Terms at any time. If a revision is material we will
-        try to provide at least 30 (change this) days' notice prior to any new
-        terms taking effect. What constitutes a material change will be
-        determined at our sole discretion.
+        Changes<br></br> I reserve the right to modify or replace these Terms at
+        any time.
       </p>
       <p>
         Contact Us <br></br>If you have any questions (or comments) about these
-        Terms, please feel free to contact us.
+        Terms, please feel free to contact me.
       </p>
     </div>
   );
