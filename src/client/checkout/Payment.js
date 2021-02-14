@@ -13,7 +13,7 @@ const Payment = () => {
 
   const cartData = calculateCartData();
   const createOrder = () => {
-    return fetch(`${window.api_url}/api/payment`, {
+    return fetch(`/api/payment`, {
       method: "POST",
       body: JSON.stringify(cartData),
 
@@ -37,7 +37,7 @@ const Payment = () => {
 
   const onApprove = (data) => {
     setIsLoading(true);
-    return fetch(`${window.api_url}/api/paypal-transaction-complete`, {
+    return fetch(`$/api/paypal-transaction-complete`, {
       headers: {
         "content-type": "application/json",
       },
@@ -67,7 +67,7 @@ const Payment = () => {
           purchase_units[0].payments.captures[0].amount.value;
 
         setIsLoading(false);
-        fetch(`${window.api_url}/api/payment_details`, {
+        fetch(`/api/payment_details`, {
           headers: { "content-type": "application/json" },
           method: "post",
           body: JSON.stringify({

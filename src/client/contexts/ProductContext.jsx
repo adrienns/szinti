@@ -16,6 +16,19 @@ if (currentDate - prevDate > EXPIRATION_DURATION) {
   objectFromLocalStorage = {};
 }
 
+const cacheImages = async (srcArray) => {
+  const promises = await srcArray.map((src) => {
+    return new Promise(function (resolve, reject) {
+      const img = new Image();
+      img.src = src;
+      img.onload = resolve();
+      img.onerror = reject();
+    });
+  });
+
+  await Promise.all(promises);
+};
+
 const ProductProvider = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -39,10 +52,22 @@ const ProductProvider = (props) => {
     let unmounted = false;
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`${window.api_url}/api/data`);
+        const { data } = await axios.get(`/api/data`);
         const { necklaceProductList, earringProductList } = data;
 
         const productLists = [...necklaceProductList, ...earringProductList];
+
+        const imgs1 = productLists.map((el) => {
+          return el.firstImage;
+        });
+
+        const imgs2 = productLists.map((el) => {
+          return el.secondImage;
+        });
+
+        const images = [...imgs1, ...imgs2];
+
+        cacheImages(images);
 
         if (!unmounted) {
           setProductLists(productLists);

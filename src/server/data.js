@@ -133,7 +133,7 @@ const data = {
       link: "organicnecklaceitem4",
       price: 35000,
       name_hun: " Ezüst és édesvízi gyöngy nyaklánc karikával",
-      name: "Silver Earrings with Sweetwater Pearl",
+      name: "Silver Necklace with Sweetwater Pearl",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:

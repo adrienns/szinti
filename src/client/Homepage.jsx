@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Video from "./main_images/Video";
 import Carousel from "./carousel/Carousel";
 import { FormattedMessage } from "react-intl";
@@ -11,23 +11,24 @@ import {
 
 library.add(faShoppingBag, faChevronLeft, faChevronRight);
 
-class HomePage extends React.Component {
-  render() {
-    return (
-      <div className="main-container">
-        <Video />
-        <div className="sub-container">
-          <div className="jeweleries_for_you">
-            <FormattedMessage
-              id="app.jewleriesforyou"
-              defaultMessage="Jewelry for You"
-            />
-          </div>
-          <Carousel />
+const HomePage = () => {
+  const carouselRef = useRef();
+  console.log(carouselRef);
+
+  return (
+    <div className="main-container">
+      <Video carouselRef={carouselRef} />
+      <div className="sub-container">
+        <div className="jeweleries_for_you" ref={carouselRef}>
+          <FormattedMessage
+            id="app.jewleriesforyou"
+            defaultMessage="Jewelry for You"
+          />
         </div>
+        <Carousel />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default HomePage;

@@ -3,11 +3,27 @@ import video1 from "../images/VEWEcover_04.0.mp4";
 import ReactPlayer from "react-player";
 import "./MainImages.css";
 import video2 from "../images/VEWEcover_04.0_mobile.mp4";
+import { useSpring, animated } from "react-spring";
 
 const style = { height: "368px", width: "350px", padding: "20px" };
 
-const Video = () => {
+const Video = ({ carouselRef }) => {
   const [size, setSize] = useState(window.innerWidth);
+  const [text, setText] = useState("");
+
+  console.log(carouselRef.current);
+
+  const props = useSpring({ opacity: 1, from: { opacity: 0 } });
+
+  const FadeIn = () => {
+    const text = "SHOP NOW";
+    const popupText = setText(text);
+    return popupText;
+  };
+
+  const handleCarousel = () => {
+    carouselRef.current.scrollIntoView({ block: "center" });
+  };
 
   const checkSize = () => {
     setSize(window.innerWidth);
@@ -26,6 +42,7 @@ const Video = () => {
         <ReactPlayer
           muted={true}
           url={video1}
+          onEnded={FadeIn}
           playing
           playIcon={<button>Play</button>}
           className="main-video"
@@ -38,6 +55,7 @@ const Video = () => {
           muted={true}
           url={video2}
           playing
+          onEnded={FadeIn}
           playIcon={<button>Play</button>}
           className="main-video"
           alt="VeWe Handcrafted Jewelry"
@@ -45,7 +63,13 @@ const Video = () => {
           width="100%"
         />
       )}
-      <span className="shopnow-text"> SHOP NOW</span>
+      <animated.span
+        className={text ? "shopnow-text" : "shopnow-text-none"}
+        style={props}
+        onClick={handleCarousel}
+      >
+        {text}
+      </animated.span>
     </React.Fragment>
   );
 };
