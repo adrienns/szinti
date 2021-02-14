@@ -46,18 +46,12 @@ class Footer extends React.Component {
                   />{" "}
                 </Link>
               </li>
-              <li>
-                <a href="#">Collections</a>
-              </li>
             </ul>
           </div>
 
           <div className="footer-section">
             <div className="footer-group-title">Legal</div>
             <ul>
-              <li>
-                <a href="#">Privacy & Cookies</a>
-              </li>
               <li>
                 <Link to="/terms&conditions">Terms & Conditions</Link>
               </li>

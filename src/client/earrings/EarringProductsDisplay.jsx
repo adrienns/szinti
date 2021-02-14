@@ -48,6 +48,8 @@ const EarringProductsDisplay = () => {
                   />
                 );
               })}
+            <li className="extra_listitem"></li>
+            <li className="extra_listitem"></li>
           </ul>
         </React.Fragment>
       )}

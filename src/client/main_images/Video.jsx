@@ -11,8 +11,6 @@ const Video = ({ carouselRef }) => {
   const [size, setSize] = useState(window.innerWidth);
   const [text, setText] = useState("");
 
-  console.log(carouselRef.current);
-
   const props = useSpring({ opacity: 1, from: { opacity: 0 } });
 
   const FadeIn = () => {
@@ -22,7 +20,7 @@ const Video = ({ carouselRef }) => {
   };
 
   const handleCarousel = () => {
-    carouselRef.current.scrollIntoView({ block: "center" });
+    carouselRef.current.scrollIntoView({ block: "start" });
   };
 
   const checkSize = () => {

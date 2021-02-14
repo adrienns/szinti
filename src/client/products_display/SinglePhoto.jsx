@@ -56,6 +56,7 @@ const SinglePhoto = (props) => {
                       />
                     ))}
                   </div>
+
                   {isHovered && (
                     <button
                       className="cart_btn"

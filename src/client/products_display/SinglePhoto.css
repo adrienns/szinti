@@ -7,6 +7,10 @@
   --respo-width-small: 43.274vw;
 }
 
+.extra_listitem {
+  width: 24%;
+  list-style: none;
+}
 .jewelery-item {
   box-shadow: 2px 2px 11px #ccc;
   margin: 15px 0 170px 0;

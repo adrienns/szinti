@@ -62,33 +62,37 @@ const Carousel = () => {
   return (
     <div className="carousel">
       <Slider {...settings}>
-        {products.map((element) => {
-          const {
-            id,
-            firstImage,
-            secondImage,
-            name,
-            name_hun,
-            price,
-          } = element;
-          return (
-            <div key={id} className="carousel-wrapper">
-              <CarouselImage
-                firstImage={firstImage}
-                secondImage={secondImage}
-                id={id}
-              />
-              <Link to={`/organicproduct/${id}`}>
-                <div className="carousel-text-wrapper">
-                  <p className="carousel-text">
-                    {locale == "en" ? name : name_hun}
-                  </p>
-                  <p className="carousel-price">{price.toLocaleString()} HUF</p>
-                </div>
-              </Link>
-            </div>
-          );
-        })}
+        {products
+          .filter((element) => element.id !== 4)
+          .map((element) => {
+            const {
+              id,
+              firstImage,
+              secondImage,
+              name,
+              name_hun,
+              price,
+            } = element;
+            return (
+              <div key={id} className="carousel-wrapper">
+                <CarouselImage
+                  firstImage={firstImage}
+                  secondImage={secondImage}
+                  id={id}
+                />
+                <Link to={`/organicproduct/${id}`}>
+                  <div className="carousel-text-wrapper">
+                    <p className="carousel-text">
+                      {locale == "en" ? name : name_hun}
+                    </p>
+                    <p className="carousel-price">
+                      {price.toLocaleString()} HUF
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            );
+          })}
       </Slider>
     </div>
   );
