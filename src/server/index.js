@@ -21,7 +21,6 @@ const app = express();
 const port = process.env.PORT || 8080;
 
 const server_path = `http://localhost:${port}`;
-const client_path = "http://localhost:1234";
 
 // sending product data to frontend
 app.use("/static", express.static("src/server/images"));
@@ -136,9 +135,11 @@ app.post("/api/payment", async (req, res) => {
     const cartData = req.body;
     const finalSum = updateWithShippingCost(cartData);
     const priceTotal = calculateTotals(cartData);
+    console.log(cartData);
     const items = getItemDetails(cartData);
     const shippingFee = finalSum - priceTotal;
     console.log("hello itt a maki" + items);
+    console.log("hello itt a maki" + shippingFee);
 
     // 3. Call PayPal to set up a transaction
     let request = new paypal.orders.OrdersCreateRequest();
@@ -146,15 +147,15 @@ app.post("/api/payment", async (req, res) => {
     request.requestBody({
       intent: "CAPTURE",
       application_context: {
-        brand_name: "Vewe Jewlery",
+        brand_name: "Vewe Jewelry",
         landing_page: "BILLING",
         user_action: "CONTINUE",
       },
       purchase_units: [
         {
           reference_id: "PUHF",
-          description: "payment for Vewe Jewlery",
-          soft_descriptor: "Jewlery Fashion",
+          description: "payment for Vewe Jewelry",
+          soft_descriptor: "Jewelry Fashion",
           amount: {
             currency_code: "HUF",
             value: finalSum,

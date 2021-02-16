@@ -4,11 +4,11 @@ const FREE_SHIPPING_LIMIT = 19000;
 const calculateShippingCost = (cartData) => {
   const { selectedOption } = cartData;
   let shippingCost = 0;
-  if (selectedOption === "others") {
-    shippingCost = 1000;
+  if (selectedOption === "Hungary") {
+    shippingCost = 1500;
   }
   if (selectedOption === "EU") {
-    shippingCost = 100;
+    shippingCost = 2500;
   }
   return shippingCost;
 };

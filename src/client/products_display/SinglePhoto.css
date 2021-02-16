@@ -27,9 +27,9 @@
   border: none;
 }
 
-.jewelery-item:after {
+/* .jewelery-item:after {
   height: 0px;
-}
+} */
 
 .image-wrapper {
   position: relative;
@@ -43,9 +43,14 @@
   width: var(--respo-width);
 }
 
-.product-description {
+.product-description:first-child {
   margin-top: 30px;
-  margin-bottom: 10px;
+  text-align: center;
+  line-height: 28px;
+}
+
+.product-description:last-child {
+  margin-top: 10px;
   text-align: center;
   line-height: 28px;
 }
@@ -128,6 +133,7 @@
   .jewelery-item {
     height: var(--respo-height-small);
     width: var(--respo-width-small);
+    font-size: 14px;
   }
   .necklaces-img {
     height: var(--respo-height-small);

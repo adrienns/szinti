@@ -44,7 +44,7 @@ const data = {
       link: "organicnecklaceproduct",
       price: 15000,
       name_hun: " Ezüst és édesvízi gyöngy nyaklánc hullámos karikával",
-      name: "Silver Nacklace with Sweetwater Pearl Bead and Wavy Hoop",
+      name: "Silver Nacklace with Sweetwater Pearl and Wavy Hoop",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
@@ -363,9 +363,9 @@ const data = {
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earrings are made of 925 Sterling silver with rhodium coating. ",
+        "The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
-        " Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
+        "Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
         "With a used toothbrush, water with soap rub the jewelery, then wash the soap off and dry it with a cloth",
       material_cleaning_hun:
@@ -386,14 +386,14 @@ const data = {
       images: [image11, image10],
       link: "organicnecklaceitem5",
       price: 12000,
-      name_hun: " Ezüst fülbevaló – Organikus huzal",
+      name_hun: "Ezüst fülbevaló – Organikus huzal",
       name: "Silver Earrings - Organic Wire",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earrings are made of 925 Sterling silver with rhodium coating. ",
+        "The earrings are made of 925 Sterling silver with rhodium coating. ",
       material_description_hun:
-        " Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
+        "Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
         "With a used toothbrush, water with soap rub the jewelery, then wash the soap off and dry it with a cloth",
       material_cleaning_hun:
@@ -415,13 +415,12 @@ const data = {
       link: "organicnecklaceitem6",
       price: 15000,
       name_hun:
-        " Ezüst fülbevaló, arany bevonattal – Organikus huzal édesvízi gyönggyel",
-      name:
-        "Silver Earrings / Gold Plated - Organic Wire with Sweetwater Pearl",
+        "Ezüst fülbevaló arany bevonattal – Organikus huzal édesvízi gyönggyel",
+      name: "Gold Plated Silver Earrings - Organic Wire with Sweetwater Pearl",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earrings are made of 925 Sterling silver with gold plate. ",
+        "The earrings are made of 925 Sterling silver with gold plate. ",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült arany bevonattal. ",
       material_cleaning:

@@ -7,12 +7,13 @@ export const ProductContext = createContext();
 
 const EXPIRATION_DURATION = 1000 * 60 * 60 * 12; // 2 min
 
-let objectFromLocalStorage = JSON.parse(localStorage.getItem("key")) || {};
+let objectFromLocalStorage =
+  JSON.parse(localStorage.getItem("shopping_cart")) || {};
 
 const prevDate = objectFromLocalStorage.timestamp;
 const currentDate = new Date().getTime().toString();
 if (currentDate - prevDate > EXPIRATION_DURATION) {
-  localStorage.setItem("key", JSON.stringify({}));
+  localStorage.setItem("shopping_cart", JSON.stringify({}));
   objectFromLocalStorage = {};
 }
 
@@ -33,8 +34,9 @@ const ProductProvider = (props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [productLists, setProductLists] = useState([]);
-  const [selectedOption, setSelectedOption] = useState("Hungary");
-
+  const [selectedOption, setSelectedOption] = useState(
+    objectFromLocalStorage.selectedOption
+  );
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState(objectFromLocalStorage.cart || []);
   const [inCart, setinCart] = useState(false);
@@ -45,9 +47,9 @@ const ProductProvider = (props) => {
   const [itemsTotal, setItemsTotal] = useState(0);
   const [finalTotal, setFinalTotal] = useState(0);
   const [isAdded, setisAdded] = useState(false);
-
   const [currentSelectProduct, setSelected] = useState(undefined);
 
+  console.log(selectedOption);
   useEffect(() => {
     let unmounted = false;
     const fetchData = async () => {
@@ -130,8 +132,13 @@ const ProductProvider = (props) => {
 
   useEffect(() => {
     const currentDate = new Date().getTime().toString();
-    const storedobject = { cart: cart, timestamp: currentDate };
-    localStorage.setItem("key", JSON.stringify(storedobject));
+    const storedobject = {
+      cart: cart,
+      selectedOption: selectedOption,
+      timestamp: currentDate,
+    };
+
+    localStorage.setItem("shopping_cart", JSON.stringify(storedobject));
   }, [cart]);
 
   //Set up a fresh data order to not to change the original data.In order to get the value not the reference.

@@ -37,7 +37,7 @@ const Payment = () => {
 
   const onApprove = (data) => {
     setIsLoading(true);
-    return fetch(`$/api/paypal-transaction-complete`, {
+    return fetch(`/api/paypal-transaction-complete`, {
       headers: {
         "content-type": "application/json",
       },
@@ -47,11 +47,14 @@ const Payment = () => {
       }),
     })
       .then((res) => {
+        console.log(` this is sparta${res}`);
         return res.json();
       })
       .catch((details) => {
         console.log("error");
-        alert("Something went wrong suring the payment. -on approve");
+        alert(
+          "Something went wrong during the payment. Please contact send us a message to this email address:adrienn.sepa@outlook.com"
+        );
         return history.push("/error");
       })
       .then((details) => {

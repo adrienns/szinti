@@ -74,13 +74,15 @@ const SinglePhoto = (props) => {
         </ProductConsumer>
       </li>
 
-      <div className="necklace-text-container">
+      <div className="product-text-container">
         <p className="product-description">
           <Link to={`/organicproduct/${name}`}>
             {locale == "en" ? name : name_hun}
           </Link>
         </p>
-        <p className="product-description">{imgPrice.toLocaleString()} HUF</p>
+        <p id="product-price" className="product-description">
+          {imgPrice.toLocaleString()} HUF
+        </p>
       </div>
     </div>
   );
