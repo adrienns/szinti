@@ -10,6 +10,8 @@ const EarringProductsDisplay = () => {
   const { pathname } = useLocation();
   const { products, error, loading } = useContext(ProductContext);
 
+  console.log(pathname);
+
   return (
     <div>
       {loading ? (

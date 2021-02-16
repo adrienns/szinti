@@ -74,7 +74,10 @@ const ProductDescription = ({
 
         <Link to="/cart">
           <button>
-            <FormattedMessage id="app.gotopayment" defaultMessage="Pay Now" />
+            <FormattedMessage
+              id="app.continueshopping"
+              defaultMessage="Continue shopping"
+            />
           </button>
         </Link>
       </div>

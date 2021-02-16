@@ -57,8 +57,8 @@ const Modal = () => {
                   }}
                 >
                   <FormattedMessage
-                    id="app.gotopayment"
-                    defaultMessage="Go to Cart"
+                    id="app.continueshopping"
+                    defaultMessage="continue shopping"
                   />
                 </button>
               </Link>
