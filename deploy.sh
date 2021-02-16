@@ -1,4 +1,4 @@
-ssh -i "~/.ssh/szintis.pem" ubuntu@ec2-18-188-66-127.us-east-2.compute.amazonaws.com << EOF
+ssh -T -i "~/.ssh/szintis.pem" ubuntu@vewejewelry.com << EOF
    cd /home/ubuntu/szinti
    git pull
    npm run client_prod
