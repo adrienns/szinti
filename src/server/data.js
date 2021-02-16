@@ -500,7 +500,7 @@ const data = {
       secondImage: image18,
       images: [image18],
       link: "organicnecklaceitem6",
-      price: 200,
+      price: 7000,
       name_hun: "Ezüst fülbevaló párban – Áthúzós lánc",
       name: "Double Silver Earrings  - Fine Chain",
       material: "925 Sterling Silver",
