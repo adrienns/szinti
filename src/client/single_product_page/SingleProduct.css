@@ -88,6 +88,7 @@
   font-weight: bold;
   margin: 5px 0 5px 0;
   border-radius: 3px;
+  text-transform: uppercase;
 }
 
 .single_product_page_button_container button:hover {

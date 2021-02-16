@@ -111,12 +111,20 @@ app.post("/api/form", (req, res) => {
 
 app.post("/api/payment_details", (req, res) => {
   console.log("Payment details dats:", req.body);
-  const { transactionDate, transactionId, status, email, name } = req.body;
+  const {
+    transactionDate,
+    transactionId,
+    status,
+    email,
+    name,
+    address,
+  } = req.body;
   sendMail(
     email,
     `New transaction ${transactionId} from client ${name} (email: ${email}) made on ${transactionDate}`,
     `You have received a ${status} transaction from a customer. 
-    Shipping address: `,
+    Shipping address: ${address}  
+    Email: ${email}`,
 
     (err) => {
       if (err) {
@@ -135,11 +143,8 @@ app.post("/api/payment", async (req, res) => {
     const cartData = req.body;
     const finalSum = updateWithShippingCost(cartData);
     const priceTotal = calculateTotals(cartData);
-    console.log(cartData);
     const items = getItemDetails(cartData);
     const shippingFee = finalSum - priceTotal;
-    console.log("hello itt a maki" + items);
-    console.log("hello itt a maki" + shippingFee);
 
     // 3. Call PayPal to set up a transaction
     let request = new paypal.orders.OrdersCreateRequest();
@@ -193,6 +198,7 @@ app.post("/api/paypal-transaction-complete", async (req, res) => {
   request.requestBody({});
   try {
     const capture = await client.execute(request);
+    debugger;
     console.log(`Response: ${JSON.stringify(capture)}`);
     console.log(`Capture: ${JSON.stringify(capture.result)}`);
     const result = capture.result;

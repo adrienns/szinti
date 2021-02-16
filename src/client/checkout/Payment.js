@@ -63,9 +63,14 @@ const Payment = () => {
         const transactionId = purchase_units[0].payments.captures[0].id;
         const transactionDate =
           purchase_units[0].payments.captures[0].create_time;
-        const name = payer.name.given_name + payer.name.surname;
+        const name = `${payer.name.given_name}  ${payer.name.surname}`;
         const email = payer.email_address;
-        const address = payer.address.country_code;
+        const address = ` ${purchase_units[0].shipping.name.full_name} 
+        ${purchase_units[0].shipping.address.address_line_1} 
+        ${purchase_units[0].shipping.address.address_line_2} 
+        ${purchase_units[0].shipping.address.admin_area_2} 
+       ${purchase_units[0].shipping.address.country_code} 
+        ${purchase_units[0].shipping.address.postal_code}`;
         const transactionAmount =
           purchase_units[0].payments.captures[0].amount.value;
 

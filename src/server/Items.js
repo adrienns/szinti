@@ -10,17 +10,17 @@ const getItemDetails = (cartData) => {
 
   let items = [];
 
-  for (const [jewleryTypeList, jewleryList] of Object.entries(data)) {
-    jewleryList.forEach((jewlery) => {
-      if (jewlery.id in idsObject) {
-        const id = jewlery.id;
-        const name = jewlery.name;
+  for (const [jewelryTypeList, jewelryList] of Object.entries(data)) {
+    jewelryList.forEach((jewelry) => {
+      if (jewelry.id in idsObject) {
+        const id = jewelry.id;
+        const name = jewelry.name;
         const count = idsObject[id].count;
 
         if (count > 0) {
           let item = {};
           const numberofItems = count;
-          const itemPrice = jewlery.price;
+          const itemPrice = jewelry.price;
           item = {
             name: `${name} `,
             sku: `${id}`,

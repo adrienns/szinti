@@ -10,13 +10,13 @@ const calculateTotals = (cartData) => {
 
   let totalSum = 0;
 
-  for (const [jewleryTypeList, jewleryList] of Object.entries(data)) {
-    jewleryList.forEach((jewlery) => {
+  for (const [jewelryTypeList, jewelryList] of Object.entries(data)) {
+    jewelryList.forEach((jewelry) => {
       // Is it in the cart?
-      if (jewlery.id in idsObject) {
-        const id = jewlery.id;
+      if (jewelry.id in idsObject) {
+        const id = jewelry.id;
         idsObject[id].count;
-        totalSum += jewlery.price * idsObject[id].count;
+        totalSum += jewelry.price * idsObject[id].count;
       }
     });
   }

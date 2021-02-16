@@ -67,7 +67,7 @@ const TermsandConditions = () => {
         shipping in Hungary costs 1500Ft. In the European Union it the shipping
         costs 2500 Ft. The package will arrive to the customer approximately
         within 4-8 working days in Hungary. If you order over 19.000 Ft the
-        shipping is free. After placing the order if the ordered jewlery is in
+        shipping is free. After placing the order if the ordered jewelry is in
         the stock, the package will be sent on the day of the purchase,
         therefore the delivery time will be approximately within 4 days in
         Hungary.If the jewelery is not in stock it will take approximately 2

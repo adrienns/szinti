@@ -96,7 +96,7 @@
   text-align: center;
   background-color: rgb(248, 246, 246);
   border-radius: 9px;
-  margin: 95px 0 100px 0;
+  margin: 10px 0 100px 0;
   width: 460px;
   height: 488px;
 }
@@ -106,7 +106,7 @@
 }
 
 .successful-payment-box h5 {
-  margin: 0 40px 18px 40px;
+  margin: 0 35px 18px 35px;
   display: flex;
   justify-content: space-between;
 }
@@ -130,6 +130,23 @@
   font-weight: lighter;
   border: solid green;
   border-width: 0.5px;
+}
+
+@media only screen and (max-width: 1025px) {
+  .successful-payment-box {
+    height: 530px;
+    margin: 150px 0 100px 0;
+  }
+}
+
+@media only screen and (max-width: 290px) {
+  .successful-payment-box h5 {
+    margin: 0 8px 18px 8px;
+  }
+
+  .successful-payment-box {
+    margin: 165px 0 100px 0;
+  }
 }
 /*payment error page*/
 
