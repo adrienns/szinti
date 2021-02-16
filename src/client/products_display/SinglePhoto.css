@@ -13,7 +13,7 @@
 }
 .jewelery-item {
   box-shadow: 2px 2px 11px #ccc;
-  margin: 15px 0 170px 0;
+  margin: 15px 0 200px 0;
   list-style: none;
   position: relative;
   height: var(--respo-height);
@@ -21,15 +21,6 @@
   display: flex;
   flex-direction: column;
 }
-
-.jewelery-item:empty {
-  height: 0;
-  border: none;
-}
-
-/* .jewelery-item:after {
-  height: 0px;
-} */
 
 .image-wrapper {
   position: relative;
@@ -50,7 +41,7 @@
 }
 
 .product-description:last-child {
-  margin-top: 10px;
+  margin-top: 21px;
   text-align: center;
   line-height: 28px;
 }
@@ -146,5 +137,19 @@
 
   .cart_btn {
     display: none;
+  }
+
+  .extra_listitem {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 299px) {
+  .extra_listitem {
+    display: none;
+  }
+
+  .jewelery-item {
+    font-size: 12px;
   }
 }

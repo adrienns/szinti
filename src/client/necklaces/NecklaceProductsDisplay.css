@@ -29,3 +29,12 @@
     padding-top: 90px;
   }
 }
+
+@media only screen and (max-width: 299px) {
+  .location-param {
+    padding-top: 100px;
+  }
+  .location-param {
+    font-size: 12px !important;
+  }
+}
