@@ -14,7 +14,14 @@ import dotenv from "dotenv";
 dotenv.config({ path: "src/.env" });
 const clientId = process.env.PAYPAL_CLIENT_ID;
 const clientSecret = process.env.PAYPAL_SECRET_ID;
-const environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
+
+let environment;
+if (false && process.env.NODE_ENV === "development") {
+  environment = new paypal.core.SandboxEnvironment(clientId, clientSecret);
+} else {
+  environment = new paypal.core.LiveEnvironment(clientId, clientSecret);
+}
+
 const client = new paypal.core.PayPalHttpClient(environment);
 
 const app = express();
