@@ -3,6 +3,7 @@ import video1 from "../images/VEWEcover_04.0.mp4";
 import ReactPlayer from "react-player";
 import "./MainImages.css";
 import video2 from "../images/VEWEcover_04.0_mobile.mp4";
+
 import { useSpring, animated } from "react-spring";
 
 const style = { height: "368px", width: "350px", padding: "20px" };
