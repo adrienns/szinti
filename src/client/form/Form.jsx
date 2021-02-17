@@ -52,7 +52,7 @@ class Form extends Component {
       message: this.state.message,
     };
     axios
-      .post(`$/api/form`, data)
+      .post(`/api/form`, data)
       .then((res) => {
         this.setState(
           {
