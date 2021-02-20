@@ -6,7 +6,7 @@ import ResponsiveSingleProductPage from "./ResponsiveSingleProductPage";
 import ProductDescription from "./ProductDescription";
 import { ProductContext } from "../contexts/ProductContext";
 import { useParams } from "react-router-dom";
-import { getWindowSize } from "../products_display/getWindowSize";
+import getWindowSize from "../products_display/getWindowSize";
 
 const SingleProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -31,6 +31,8 @@ const SingleProductPage = () => {
   } = currentProduct;
 
   const size = getWindowSize();
+
+  console.log(size);
 
   useEffect(() => {
     setSelected(parseInt(productname));
