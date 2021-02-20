@@ -1,7 +1,12 @@
 .product_wrapper {
   display: flex;
   justify-content: center;
-  margin: 81px 30px 20px 30px;
+  margin: 155px 30px 20px 30px;
+}
+
+p strong {
+  border-bottom: solid black;
+  border-width: 0.5px;
 }
 
 .product_textbox {

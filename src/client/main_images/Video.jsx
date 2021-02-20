@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import video1 from "../images/VEWEcover_04.0.mp4";
+import video1 from "../images/VEWEcover_04.0compressed.mp4";
 import ReactPlayer from "react-player";
 import "./MainImages.css";
-import video2 from "../images/VEWEcover_04.0_mobile.mp4";
+import video2 from "../images/VEWEcover_04.0_mobile_compressed.mp4";
 
 import { useSpring, animated } from "react-spring";
 

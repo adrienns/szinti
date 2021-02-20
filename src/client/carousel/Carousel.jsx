@@ -36,6 +36,8 @@ const Carousel = () => {
     className: "product-item-box",
     swipe: true,
     touchMove: true,
+    initialSlide: 4,
+
     margin: "0 -15px",
     nextArrow: <SlickArrowRight />,
     prevArrow: <SlickArrowLeft />,
@@ -46,6 +48,7 @@ const Carousel = () => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
+          initialSlide: 4,
         },
       },
       {
@@ -53,7 +56,7 @@ const Carousel = () => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          initialSlide: 2,
+          initialSlide: 4,
         },
       },
     ],
@@ -62,37 +65,33 @@ const Carousel = () => {
   return (
     <div className="carousel">
       <Slider {...settings}>
-        {products
-          .filter((element) => element.id !== 4)
-          .map((element) => {
-            const {
-              id,
-              firstImage,
-              secondImage,
-              name,
-              name_hun,
-              price,
-            } = element;
-            return (
-              <div key={id} className="carousel-wrapper">
-                <CarouselImage
-                  firstImage={firstImage}
-                  secondImage={secondImage}
-                  id={id}
-                />
-                <Link to={`/organicproduct/${id}`}>
-                  <div className="carousel-text-wrapper">
-                    <p className="carousel-text">
-                      {locale == "en" ? name : name_hun}
-                    </p>
-                    <p className="carousel-price">
-                      {price.toLocaleString()} HUF
-                    </p>
-                  </div>
-                </Link>
-              </div>
-            );
-          })}
+        {products.map((element) => {
+          const {
+            id,
+            firstImage,
+            secondImage,
+            name,
+            name_hun,
+            price,
+          } = element;
+          return (
+            <div key={id} className="carousel-wrapper">
+              <CarouselImage
+                firstImage={firstImage}
+                secondImage={secondImage}
+                id={id}
+              />
+              <Link to={`/organicproduct/${id}`}>
+                <div className="carousel-text-wrapper">
+                  <p className="carousel-text">
+                    {locale == "en" ? name : name_hun}
+                  </p>
+                  <p className="carousel-price">{price.toLocaleString()} HUF</p>
+                </div>
+              </Link>
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );

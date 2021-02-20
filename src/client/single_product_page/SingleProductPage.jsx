@@ -6,10 +6,10 @@ import ResponsiveSingleProductPage from "./ResponsiveSingleProductPage";
 import ProductDescription from "./ProductDescription";
 import { ProductContext } from "../contexts/ProductContext";
 import { useParams } from "react-router-dom";
+import { getWindowSize } from "../products_display/getWindowSize";
 
 const SingleProductPage = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [size, setSize] = useState(window.innerWidth);
   const { productname } = useParams();
   const { getCurrentProduct, setSelected } = useContext(ProductContext);
 
@@ -30,19 +30,10 @@ const SingleProductPage = () => {
     material_description,
   } = currentProduct;
 
+  const size = getWindowSize();
+
   useEffect(() => {
     setSelected(parseInt(productname));
-  });
-
-  const checkSize = () => {
-    setSize(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", checkSize);
-    return () => {
-      window.removeEventListener("resize", checkSize);
-    };
   });
 
   const changeCurrentImageTo = (index) => {

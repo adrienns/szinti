@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./cart.css";
 import CartColumns from "./CartColumns";
 import EmptyCart from "./EmptyCart";
@@ -8,20 +8,10 @@ import CartTotals from "./CartTotals";
 import CheckoutSteps from "../checkout/CheckoutSteps";
 import { FormattedMessage } from "react-intl";
 import ResponsiveCart from "./ResponsiveCart";
+import getWindowSize from "../products_display/getWindowSize";
 
 const Cart = () => {
-  const [size, setSize] = useState(window.innerWidth);
-
-  const checkSize = () => {
-    setSize(window.innerWidth);
-  };
-
-  useEffect(() => {
-    window.addEventListener("resize", checkSize);
-    return () => {
-      window.removeEventListener("resize", checkSize);
-    };
-  });
+  const size = getWindowSize();
 
   return (
     <React.Fragment>

@@ -37,6 +37,12 @@
     height: auto;
   }
 }
+
+@media only screen and (min-width: 760px) and (max-width: 800px) {
+  .main-video {
+    margin-top: 150px;
+  }
+}
 @media only screen and (min-width: 300px) and (max-width: 565px) {
   .main-video {
     width: 100%;
