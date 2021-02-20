@@ -54,3 +54,13 @@
     display: none;
   }
 }
+
+@media only screen and (max-width: 299px) {
+  .shopnow-text {
+    display: none;
+  }
+
+  .main-video {
+    margin-top: -39px;
+  }
+}

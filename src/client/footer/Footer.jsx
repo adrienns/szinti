@@ -73,9 +73,9 @@ class Footer extends React.Component {
           <div className="footer-section">
             {/* <div className="footer-group-title">Legal</div> */}
             <ul>
-              <li>
-                <a href="#">Privacy & Cookies</a>
-              </li>
+              {/* <li>
+                <a href="#">Privacy</a>
+              </li> */}
               <li>
                 <Link to="/terms&conditions">Terms & Conditions</Link>
               </li>
@@ -93,7 +93,7 @@ class Footer extends React.Component {
             </div>
           </div>
 
-          <p id="footer-company">© 2020 Vewe Ltd. Reg No 0000000</p>
+          <p id="footer-company">© VēWē - Handcrafted Jewelry</p>
         </div>
       </footer>
     );
