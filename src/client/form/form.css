@@ -74,13 +74,18 @@
   color: white;
 }
 
-@media only screen and (min-width: 541px) and (max-width: 950px) {
-  /* .google-maps {
-    width: 40%;
+@media only screen and (min-width: 1500px) {
+  .contact-form-container {
+    margin-top: 200px;
   }
   .contact-form-wrapper {
-    width: 40%;
-  } */
+    width: 490px;
+  }
+
+  .google-maps {
+    margin-left: 30px;
+    width: 510px;
+  }
 }
 
 @media only screen and (max-width: 540px) {
