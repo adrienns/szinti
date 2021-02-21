@@ -40,49 +40,46 @@ const SinglePhoto = (props) => {
       <li key={id}>
         <ProductConsumer>
           {(value) => (
-            <Link to={`/organicproduct/${id}`}>
-              <div onClick={() => value.setSelected(id)}>
-                <div className="image-wrapper">
-                  <div className="image-placeholder">
-                    {!imageIsLoaded && <Placeholder />}
-                    {transitions.map(({ item, key, props }) => (
-                      <animated.img
-                        key={key}
-                        style={props}
-                        className={"necklaces-img"}
-                        onLoad={handleImageLoaded}
-                        src={item ? secondImg : mainImg}
-                        alt="product"
-                      />
-                    ))}
-                  </div>
+            <div className="image-wrapper">
+              <div className="image-placeholder">
+                {!imageIsLoaded && <Placeholder />}
+                {transitions.map(({ item, key, props }) => (
+                  <animated.img
+                    key={key}
+                    style={props}
+                    className={"necklaces-img"}
+                    onLoad={handleImageLoaded}
+                    src={item ? secondImg : mainImg}
+                    alt="product"
+                  />
+                ))}
 
-                  {isHovered && (
-                    <button
-                      className="cart_btn"
-                      onClick={() => {
-                        value.openModal(id);
-                      }}
-                    >
-                      <p className="button_text">ADD TO BAG</p>
-                    </button>
-                  )}
-                </div>
+                {isHovered && (
+                  <button
+                    className="cart_btn"
+                    onClick={() => {
+                      value.openModal(id);
+                    }}
+                  >
+                    <p className="button_text">ADD TO BAG</p>
+                  </button>
+                )}
               </div>
-            </Link>
+            </div>
           )}
         </ProductConsumer>
       </li>
-
-      <div className="product-text-container">
-        <p className="product-description">
-          <Link to={`/organicproduct/${name}`}>
-            {locale == "en" ? name : name_hun}
-          </Link>
-        </p>
-        <p id="product-price" className="product-description">
-          {imgPrice.toLocaleString()} HUF
-        </p>
+      <div onClick={() => value.setSelected(id)}>
+        <Link to={`/organicproduct/${id}`}>
+          <div className="product-text-container">
+            <p className="product-description">
+              {locale == "en" ? name : name_hun}
+            </p>
+            <p id="product-price" className="product-description">
+              {imgPrice.toLocaleString()} HUF
+            </p>
+          </div>
+        </Link>
       </div>
     </div>
   );

@@ -77,13 +77,15 @@
 .final-order-details {
   text-align: center;
   border-radius: 5px 5px 0 0;
-  background-color: rgb(56, 55, 55);
+  background-color: rgb(62, 73, 94);
   color: white;
   font-size: 22px;
   font-weight: lighter;
   padding: 9px;
 }
 
+.paypal-button-label-container {
+}
 /*successful payment*/
 
 .successful-payment-outer-wrapper {
