@@ -49,7 +49,7 @@ const Modal = () => {
                   defaultMessage="Add to Shopping Bag"
                 />
               </button>
-              <Link to="/cart">
+              <Link to="/necklaces">
                 <button
                   className="go-to-cart-btn"
                   onClick={() => {

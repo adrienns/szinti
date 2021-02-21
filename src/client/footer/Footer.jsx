@@ -31,20 +31,20 @@ class Footer extends React.Component {
                 </Link>
                 <ul className="follow-us-icons-and-text">
                   <li>
-                    <Link to="">
+                    <a href="https://www.instagram.com/vewe_jewelry">
                       <FontAwesomeIcon
                         className="instagram-icon"
                         icon={["fab", "instagram"]}
                       />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link to="https://www.facebook.com/vewedesign">
+                    <a href="https://www.facebook.com/vewedesign">
                       <FontAwesomeIcon
                         icon={faFacebook}
                         className="facebook-icon"
                       />
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </li>
