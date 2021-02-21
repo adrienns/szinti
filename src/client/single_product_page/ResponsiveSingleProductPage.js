@@ -101,11 +101,11 @@ const ResponsiveSingleProductpage = ({
               />
             </button>
 
-            <Link to="/cart">
+            <Link to="/necklaces">
               <button>
                 <FormattedMessage
-                  id="app.gotopayment"
-                  defaultMessage="Pay Now"
+                  id="app.continueshopping"
+                  defaultMessage="Continue Shopping"
                 />
               </button>
             </Link>
