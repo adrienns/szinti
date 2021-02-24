@@ -33,8 +33,7 @@
   border-width: 1.5px;
   padding: 16px 0 16px 0;
   font-size: 13px;
-
-  font-family: "Raleway";
+  font-family: "Raleway", "sans-serif";
 }
 
 .empty-class-container {

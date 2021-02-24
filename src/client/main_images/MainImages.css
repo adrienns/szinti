@@ -1,12 +1,11 @@
 .shopnow-text {
   position: absolute;
-  /* color: rgb(62, 73, 94); */
-  font-weight: lighter;
+  font-weight: bolder;
   color: white;
+  font-family: "Raleway", "sans-serif";
   top: 20%;
-  left: 45%;
+  left: 44%;
   font-size: 20px;
-  /* border: solid rgb(86, 101, 128); */
   border: solid white;
   border-width: 2px;
   padding: 7px 18px 7px 18px;
@@ -29,6 +28,19 @@
 .main-video {
   width: 100%;
   height: auto;
+}
+
+@media only screen and (min-width: 1600px) {
+  .shopnow-text {
+    padding: 20px;
+    font-family: "Raleway", "sans-serif";
+    left: 46.5%;
+    font-weight: bolder;
+    font-size: 25px;
+    border: solid white;
+    border-width: 2px;
+    padding: 10px 20px 10px 20px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
