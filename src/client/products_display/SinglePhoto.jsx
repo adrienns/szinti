@@ -69,19 +69,19 @@ const SinglePhoto = (props) => {
           )}
         </ProductConsumer>
       </li>
-      <div onClick={() => value.setSelected(id)}>
-        <Link to={`/organicproduct/${id}`}>
-          <div className="product-text-container">
-            <p className="product-description">
-              {locale == "en" ? name : name_hun}
-            </p>
-            <p id="product-price" className="product-description">
-              {imgPrice.toLocaleString()} HUF
-            </p>
-          </div>
-        </Link>
-      </div>
+      {/* <div onClick={() => value.setSelected(id)}> */}
+      <Link to={`/organicproduct/${id}`}>
+        <div className="product-text-container">
+          <p className="product-description">
+            {locale == "en" ? name : name_hun}
+          </p>
+          <p id="product-price" className="product-description">
+            {imgPrice.toLocaleString()} HUF
+          </p>
+        </div>
+      </Link>
     </div>
+    // </div>
   );
 };
 
