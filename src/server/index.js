@@ -97,9 +97,9 @@ app.use(express.json());
 
 //here we are expecting  data from the client ==> for form
 app.post("/api/form", (req, res) => {
+  debugger;
   console.log("Data:", req.body);
   const { customername, email, message } = req.body;
-
   sendMail(
     email,
     `You have received a new message from ${customername}`,
