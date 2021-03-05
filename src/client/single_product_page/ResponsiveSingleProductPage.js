@@ -27,6 +27,8 @@ const ResponsiveSingleProductpage = ({
 
   const numberOfImages = productImages.length;
 
+  console.log(material_cleaning);
+
   const handlePrevImage = () => {
     const prevState = (currentImage + numberOfImages - 1) % numberOfImages;
     changeCurrentImageTo(prevState);
@@ -73,20 +75,31 @@ const ResponsiveSingleProductpage = ({
           </h4>
 
           <p>
-            <strong>Anyaga: </strong>
+            <strong>
+              <FormattedMessage id="app.material" defaultMessage="Material" />
+            </strong>
             {locale === "en" ? material_description : material_description_hun}
           </p>
           <p>
-            <strong>Termékleírás: </strong>
+            <strong>
+              <FormattedMessage
+                id="app.description"
+                defaultMessage="Description"
+              />
+            </strong>{" "}
             {locale === "en" ? description : description_hun}
           </p>
           <p>
-            <strong>Tisztítása: </strong>
+            <strong>
+              <FormattedMessage id="app.cleaning" defaultMessage="Cleaning: " />
+            </strong>{" "}
             {locale === "en" ? material_cleaning : material_cleaning_hun}
           </p>
-          <strong className="more-info-about-shipping">
-            Szállítással kapcsolatos tudnivalók{" "}
-          </strong>
+          <FormattedMessage
+            className="more-info-about-shipping"
+            id="app.moreinfoaboutshipping"
+            defaultMessage="More info about shipping "
+          />
 
           <div className="single_product_page_button_container">
             <button

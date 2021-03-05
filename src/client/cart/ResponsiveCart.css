@@ -52,12 +52,12 @@
 }
 @media only screen and (max-width: 415px) {
   #step1 {
-    font-size: 10px;
+    font-size: 12px;
     margin: 0 5px 20px -10px;
   }
 
   #step2 {
-    font-size: 10px;
+    font-size: 12px;
   }
   .checkout-steps-container {
     margin-top: 90px;

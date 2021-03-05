@@ -37,7 +37,6 @@ const CartTotals = ({ val }) => {
                 checked={selectedOption === "pickup"}
               />
               <label htmlFor="shipping-method">
-                {" "}
                 <FormattedMessage
                   id="app.pickupfree"
                   defaultMessage="pick up: free"
