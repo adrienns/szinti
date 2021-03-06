@@ -26,7 +26,13 @@ class Footer extends React.Component {
                 />
               </Link>
               <li>
-                <Link to="/terms&conditions">Terms & Conditions</Link>
+                <Link to="/terms&conditions">
+                  {" "}
+                  <FormattedMessage
+                    id="app.termsandconditions"
+                    defaultMessage="Terms & Conditions"
+                  />
+                </Link>
               </li>
               <li>
                 <Link to="/aboutus">
@@ -36,15 +42,24 @@ class Footer extends React.Component {
                   />{" "}
                 </Link>
               </li>
-              <li>
-                <a href="#">Collections</a>
-              </li>
+              {/* <li>
+                <FormattedMessage
+                  id="app.collection"
+                  defaultMessage="Collections"
+                />
+              </li> */}
             </li>
           </ul>
 
           <div className="footer-section">
             <ul>
-              <li className="footer-group-title">Follow us</li>
+              <li className="footer-group-title">
+                {" "}
+                <FormattedMessage
+                  id="app.followme"
+                  defaultMessage="Follow me"
+                />{" "}
+              </li>
 
               <li>
                 {" "}
