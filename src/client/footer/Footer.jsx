@@ -17,18 +17,37 @@ class Footer extends React.Component {
     return (
       <footer className="footer">
         <section className="footer-nav">
-          <div className="footer-section">
-            {/* <div className="footer-group-title">
-              <FormattedMessage id="app.help" defaultMessage="help" />
-            </div> */}
-            <ul>
+          <ul className="footer-section">
+            <li>
+              <Link to="/form">
+                <FormattedMessage
+                  id="app.contactus"
+                  defaultMessage="Contact me"
+                />
+              </Link>
               <li>
-                <Link to="/form">
+                <Link to="/terms&conditions">Terms & Conditions</Link>
+              </li>
+              <li>
+                <Link to="/aboutus">
                   <FormattedMessage
-                    id="app.contactus"
-                    defaultMessage="Contact me"
-                  />
+                    id="app.aboutus"
+                    defaultMessage="about us"
+                  />{" "}
                 </Link>
+              </li>
+              <li>
+                <a href="#">Collections</a>
+              </li>
+            </li>
+          </ul>
+
+          <div className="footer-section">
+            <ul>
+              <li className="footer-group-title">Follow us</li>
+
+              <li>
+                {" "}
                 <ul className="follow-us-icons-and-text">
                   <li>
                     <a href="https://www.instagram.com/vewe_jewelry">
@@ -46,55 +65,22 @@ class Footer extends React.Component {
                       />
                     </a>
                   </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            {/* <div className="footer-group-title">
-              <FormattedMessage id="app.general" defaultMessage="general" />
-            </div> */}
-            <ul>
-              <li>
-                <Link to="/aboutus">
-                  <FormattedMessage
-                    id="app.aboutus"
-                    defaultMessage="about us"
-                  />{" "}
-                </Link>
-              </li>
-              <li>
-                <a href="#">Collections</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
-            {/* <div className="footer-group-title">Legal</div> */}
-            <ul>
-              {/* <li>
-                <a href="#">Privacy</a>
-              </li> */}
-              <li>
-                <Link to="/terms&conditions">Terms & Conditions</Link>
+                </ul>{" "}
               </li>
             </ul>
           </div>
         </section>
         <div>
-          <div className="social_media_icons">
-            <div className="paypal_acceptance_mark">
-              <img
-                src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg"
-                border="0"
-                alt="PayPal Acceptance Mark"
-              />
-            </div>
+          <div className="paypal_acceptance_mark">
+            <img
+              src="https://www.paypalobjects.com/webstatic/mktg/logo/AM_mc_vs_dc_ae.jpg"
+              border="0"
+              alt="PayPal Acceptance Mark"
+            />
           </div>
-
-          <p id="footer-company">© VēWē - Handcrafted Jewelry</p>
         </div>
+
+        <p id="footer-company">© VēWē - Handcrafted Jewelry</p>
       </footer>
     );
   }

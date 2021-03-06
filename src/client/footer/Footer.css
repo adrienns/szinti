@@ -8,22 +8,17 @@ footer {
 }
 .footer-nav {
   width: 100%;
-  padding-top: 110px;
+  padding-top: 30px;
   display: flex;
-  justify-content: space-evenly;
-}
-
-.footer-group-title {
-  font-size: 13.5px;
-  text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 1px;
-  padding-bottom: 20px;
+  justify-content: center;
 }
 
 .footer-section {
-  padding: 0;
-  margin: 0;
+  margin: 60px;
+}
+.footer-group-title {
+  margin-bottom: 20px;
+  color: black;
 }
 
 .footer-section li {
@@ -40,7 +35,6 @@ footer {
 
 .footer-group-title a {
   line-height: 30px;
-  font-size: 12px;
 }
 
 #footer-company {
@@ -50,30 +44,27 @@ footer {
   padding-top: 30px;
 }
 
-.social_media_icons ul {
-  display: flex;
-  justify-content: flex-start;
-  list-style: none;
-  margin-left: 50px;
-}
-
 .follow-us-icons-and-text {
   display: flex;
   flex-direction: row;
 }
 
 .facebook-icon {
-  margin-left: 10px;
-  font-size: 15px !important;
+  margin-left: 15px;
+  font-size: 25px !important;
 }
 
+.footer-section:last-child {
+  display: flex;
+  align-items: center;
+}
 .instagram-icon {
-  font-size: 15px !important;
+  font-size: 26px !important;
 }
 
 .paypal_acceptance_mark img {
   width: 170px;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 .paypal_acceptance_mark {
@@ -82,6 +73,12 @@ footer {
 }
 
 @media only screen and (max-width: 299px) {
+  .footer-section li {
+    font-size: 9px;
+  }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 700px) {
   .footer-section li {
     font-size: 9px;
   }
