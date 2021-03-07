@@ -39,7 +39,7 @@ class Footer extends React.Component {
                   <FormattedMessage
                     id="app.aboutus"
                     defaultMessage="about us"
-                  />{" "}
+                  />
                 </Link>
               </li>
               {/* <li>
@@ -58,11 +58,10 @@ class Footer extends React.Component {
                 <FormattedMessage
                   id="app.followme"
                   defaultMessage="Follow me"
-                />{" "}
+                />
               </li>
 
               <li>
-                {" "}
                 <ul className="follow-us-icons-and-text">
                   <li>
                     <a href="https://www.instagram.com/vewe_jewelry">
@@ -80,7 +79,7 @@ class Footer extends React.Component {
                       />
                     </a>
                   </li>
-                </ul>{" "}
+                </ul>
               </li>
             </ul>
           </div>

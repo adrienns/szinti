@@ -17,7 +17,7 @@ footer {
   margin: 60px;
 }
 .footer-group-title {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
   color: black;
 }
 
@@ -27,14 +27,18 @@ footer {
   font-size: 12px;
 }
 
-.footer-section li a:hover {
+.footer-section:first-child li a:hover {
   font-weight: bolder;
   border-bottom: solid black;
   border-width: 1px;
 }
 
-.footer-group-title a {
-  line-height: 30px;
+.footer-section:last-child li .facebook-icon:hover {
+  font-size: 28px !important;
+}
+
+.footer-section:last-child li .instagram-icon:hover {
+  font-size: 30px !important;
 }
 
 #footer-company {
