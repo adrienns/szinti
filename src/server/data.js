@@ -48,18 +48,18 @@ const data = {
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
-        " The earrings are made of 925 Sterling with rhodium coating and with sweetwater pearl. ",
+        " The earrings are made of 925 Sterling with a rhodium coating and with sweetwater pearl. ",
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel, halványrózsaszín édesvízi gyöngy kíséretében.",
       material_cleaning:
-        "Please do not clean the jewelery with chemicals and do you spay parfum on it as it can cause damage to the sweetwater pearl. With a cloth gently rub it. Store it in a dry and dark place.",
+        "Please do not clean the jewelry with chemicals and do you spray perfume on it as it can cause damage to the sweetwater pearl. With a cloth gently rub it. Store it in a dry and dark place.",
       material_cleaning_hun:
         " Vegyszermentes finom törlőkendővel alaposan áttörölni. Édesvízi gyöngysora miatt vegyszer, parfüm nem érheti! Száraz sötét helyen tartandó.",
       description_hun:
         "Kézzel készült ezüst szemes nyaklánc, hullámos karika medállal és halványrózsaszín édesvízi gyöngy díszítéssel. Hétköznapokra és alkalmakra is tökéletes viselet. A modellen 42 cm-es hosszúságú lánc látható, de választható 45 cm-es hosszúságban is.",
 
       description:
-        "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
+        "The necklace is a handmade jewelry with fine silver chain, wavy silver loop and beautiful light pink pearl. It perfectly fits to all outfits.        ",
       inCart: false,
       count: 0,
       total: 0,
@@ -82,11 +82,11 @@ const data = {
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth, rub the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "This hand-made nacklace has a special lentil shape medal that give the necklace a special shine. It perfectly fits to every outfit.",
+        "This hand-made necklace has a special lentil shape medal that gives the necklace a special shine. It perfectly fits every outfit.        ",
 
       description_hun:
         "Kézzel készült ezüst szemes nyaklánc, tömör lencse medállal különleges fényű matt csiszolással. Hétköznapokra és alkalmakra is tökéletes viselet. A képen látható modellen 42 cm-es hosszúságú lánc van, de választható 45 cm-es hosszúságban is.",
@@ -104,7 +104,7 @@ const data = {
       images: [image25, image24],
       price: 15000,
       name_hun: " Ezüst karika nyaklánc",
-      name: "Silver Earrings -  Sweetwater Pearl",
+      name: "Silver Nacklace - Hoop",
       material: "925 Sterling Silver",
       material_hun: "925 Sterling ezüst",
       material_description:
@@ -112,11 +112,11 @@ const data = {
       material_description_hun:
         " Az ékszer 925 Sterling ezüstből készült bevonva ródium réteggel.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth, gently rub the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Szappanos vízzel és fogkefével átdörzsölni majd szárazra törölni. Száraz sötét helyen, dobozában tartandó.",
       description:
-        "The necklace is hand-made with a uniquely formed hoop medal. On the picture the lenght of the necklace is 42 cm, however you can choose the lenght to be 45 cm. ",
+        "The necklace is hand-made with a uniquely formed hoop medal.  It perfectly fits every outfit. In the picture the length of the necklace is 42 cm, however, you can choose the length to be 45 cm.",
 
       description_hun:
         "Kézzel készült ezüst szemes nyaklánc, különleges fényű,matt csiszolású karika medállal. Hétköznapokra és alkalmakra is tökéletes viselet. A modellen 42 cm-es hosszúságú lánc látható, de választható 45 cm-es hosszúságban is.",
@@ -141,11 +141,11 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült, édesvízi gyöngysor kíséretében.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth, rub the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earrings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        "The necklace is hand-made with sweet water pearl beads and a silver hoop. The delicacy and shine of the pearls make you look special and unique",
 
       description_hun:
         "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
@@ -367,11 +367,11 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült Ródium bevonattal védve.",
       material_cleaning:
-        "With a used toothbrush, water with soap rub the jewelery, then wash the soap off and dry it with a cloth",
+        "With a used toothbrush, rub the jewelry with soapy water, then wash the soap off and dry it with a cloth.",
       material_cleaning_hun:
         "Elhasznált fogkefével, szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Nedves, párás helyen nem tárolandó!",
       description:
-        "The earrings are hand-made organic  shaped. they are beutifly formed as waves from two directions. As their color is posished to matte they can easily play with the lights, it is noticable. Due to its shape it can be rotated in differents ways. The earrings organic shape and minimlist sporty looking makes your looking very special and unique.",
+        "The earrings are hand-made with an organic shape. They are beautifully formed as waves from two directions. As they are polished with a matte color, they can easily play with the lights. Due to its shape, it can rotate in different ways. The earring’s organic shape, minimalist, and sporty look will make you look very special and unique.",
       description_hun:
         "Kézzel készült organikus formájú, két irányból hullámosra kalapált karika fülbevaló. Egyik vége a fülcimpa mögé bújik. Mattra csiszolt felülete miatt nagyszerűen játszik a fényekkel, így könnyen észrevehető. Formájából adódóan felvéve többféleképpen forgatható, állítható. Organikusan tompa formája és minimalista sportossága teszi egyedivé, különlegessé viselőjét.",
       inCart: false,
@@ -424,11 +424,11 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült arany bevonattal. ",
       material_cleaning:
-        "With water and soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth, rub the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Szappanos vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The organic shape earrings are hand-made with a light pink sweetwater pearl. the earrings organic shape and the delicacy of the pearl makes your looking special and unique. ",
+        " The organic shape earrings are hand-made with a light pink sweet water pearl. The earring’s organic shape and the delicacy of the pearl make you look special and unique.",
       description_hun:
         "Kézzel készült organikus formájú fülbevaló, közepén halványrózsaszín édesvízi gyönggyel.Organikusan formája és a gyöngy finomsága teszi egyedivé, különlegessé viselőjét.",
       count: 0,
@@ -451,11 +451,11 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth, gently rub the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.        ",
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earrings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        " The earrings are hand-made with a sweet water pearl. They are perfect for all occasions. The delicacy and shine of the pearl will make you look special and unique.",
 
       description_hun:
         "Kézzel készült édesvízi gyöngy fülbevaló. Hétköznapi viseletkor is megállja a helyét. A gyöngy finomsága és fénye teszi egyedivé, különlegessé viselőjét.",
@@ -481,7 +481,7 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth, rub the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
@@ -510,11 +510,11 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült édesvízi gyönggyel.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth, rub the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earrings are hand-made with a sweetwater pearl. They are perfect for all occations.  The delicacy and shine of the pearl makes your looking special and unique. ",
+        "The earrings are hand-made with small fine chain links that you can pull through your ears. At the end of the chain there is a 1 cm long straight part. It is a light comfortable unique jewelry, which length can be adjusted.        ",
       description_hun:
         "Kézzel készült, füllyukon áthúzható, apró négyzetes láncszemekből álló lógós fülbevaló, végén 1 cm merev egyenes résszel. Könnyű, kényelmes, mutatós darab, hosszúsága állítható. Minimalista sportossága vagy éppen finomsága teszi különlegessé viselőjét.",
       count: 0,
@@ -537,11 +537,11 @@ const data = {
       material_description_hun:
         "Az ékszer 925 Sterling ezüstből készült ródium bevonattal és gyöngyház kagylóval.",
       material_cleaning:
-        "With water with soap rub gently the jewelery and dry it with a cloth. Keep it in a dry place in its box.",
+        "With a cloth,  rub gently the jewelry with soapy water, then wash the soap off and dry it with a cloth. Keep it in a dry place in its box.",
       material_cleaning_hun:
         "Vízzel enyhén megdörzsölni, átmosni majd törölközővel szárazra törölni. Száraz helyen, dobozában tárolandó.",
       description:
-        "The earrings are hand-made half lentil shaped with a unique pattern real pearl. The jewelery can be woren in different ways. The delicacy and shine of the pearl makes your looking speacial and unique. ",
+        "The half lentil-shaped earrings are hand-made and a real pearl with a unique pattern. The jewelry can be worn in different ways. The delicacy and shine of the pearl will make you look special and unique.        ",
 
       description_hun:
         " Kézzel készült tömör ezüst félgömb fülbevaló, hátulról rácsatlakoztatható különleges mintájú és fényű igazi kagylóval. A fülbevaló variálható, több féle képen viselhető. A kagyló fényének ereje és finomsága teszi egyedivé, különlegessé viselőjét.  ",
