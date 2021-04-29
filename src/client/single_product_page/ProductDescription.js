@@ -52,12 +52,14 @@ const ProductDescription = ({
           </strong>
           {locale === "en" ? material_cleaning : material_cleaning_hun}
         </p>
-        <strong className="more-info-about-shipping">
-          <FormattedMessage
-            id="app.moreinfoaboutshipping"
-            defaultMessage="More info about shipping "
-          />
-        </strong>
+        <Link to="/terms&conditions">
+          <strong className="more-info-about-shipping">
+            <FormattedMessage
+              id="app.moreinfoaboutshipping"
+              defaultMessage="More info about shipping "
+            />
+          </strong>
+        </Link>
       </section>
       <div className="single_product_page_button_container">
         <button

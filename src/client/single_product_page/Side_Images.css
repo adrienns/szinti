@@ -3,6 +3,7 @@
   height: 110px;
   opacity: 0.5;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .side_image_list {

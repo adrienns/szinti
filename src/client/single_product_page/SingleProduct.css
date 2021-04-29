@@ -40,6 +40,7 @@ p strong {
 .more-info-about-shipping:hover {
   border-bottom: solid black;
   border-width: 1px;
+  cursor: pointer;
 }
 
 /*CSS Transition Group*/
