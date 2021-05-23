@@ -87,12 +87,6 @@
   margin-top: 150px;
 }
 
-.main-video {
-  width: 100%;
-  height: 100vh;
-  margin-bottom: -4px;
-}
-
 @media only screen and (min-width: 300px) and (max-width: 780px) {
   .header {
     height: 90px;
