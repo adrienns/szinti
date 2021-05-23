@@ -1,6 +1,6 @@
 import React from "react";
 import "./AboutUs.css";
-import image1 from "../images/aboutmephoto.jpg";
+// import image1 from "../images/aboutmephoto.jpg";
 import { FormattedMessage } from "react-intl";
 
 const AboutUs = () => {
@@ -9,7 +9,11 @@ const AboutUs = () => {
       <div className="about-us-wrapper">
         <div className="boxes">
           <a href="#">
-            <img src={image1} alt="Photo" width="450" />
+            <img
+              src="https://res.cloudinary.com/cloudies/image/upload/v1621780244/aboutmephoto_qtxfcw.jpg"
+              alt="Photo"
+              width="450"
+            />
           </a>
         </div>
         <div className="boxes" id="text-box1">
