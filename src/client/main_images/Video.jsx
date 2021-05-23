@@ -52,7 +52,7 @@ const Video = ({ carouselRef }) => {
       ) : (
         <ReactPlayer
           muted={true}
-          url="https://res.cloudinary.com/cloudies/video/upload/v1621773899/VEWEcover_04.0compressed_s2orx6.mp4"
+          url="https://res.cloudinary.com/cloudies/video/upload/v1621778344/VEWEcover_04.0_mobile_compressed_yekx0p.mp4"
           playing
           onEnded={FadeIn}
           playIcon={<button>Play</button>}
