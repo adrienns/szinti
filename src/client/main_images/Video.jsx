@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import video1 from "../images/VEWEcover_04.0compressed.mp4";
+// import video1 from "../images/VEWEcover_04.0compressed.mp4";
 import ReactPlayer from "react-player";
 import "./MainImages.css";
-import video2 from "../images/VEWEcover_04.0_mobile_compressed.mp4";
+// import video2 from "../images/VEWEcover_04.0_mobile_compressed.mp4";
 
 import { useSpring, animated } from "react-spring";
 
@@ -40,7 +40,7 @@ const Video = ({ carouselRef }) => {
       {size > 1100 ? (
         <ReactPlayer
           muted={true}
-          url={video1}
+          url="https://res.cloudinary.com/cloudies/video/upload/v1621773899/VEWEcover_04.0compressed_s2orx6.mp4"
           onEnded={FadeIn}
           playing
           playIcon={<button>Play</button>}
@@ -52,7 +52,7 @@ const Video = ({ carouselRef }) => {
       ) : (
         <ReactPlayer
           muted={true}
-          url={video2}
+          url="https://res.cloudinary.com/cloudies/video/upload/v1621773899/VEWEcover_04.0compressed_s2orx6.mp4"
           playing
           onEnded={FadeIn}
           playIcon={<button>Play</button>}
