@@ -34,7 +34,7 @@ const CarouselImage = (props) => {
       onMouseEnter={() => handleMouseOn()}
     >
       {!imageIsLoaded && <Placeholder />}
-      {transitions.filter.map(({ item, key, props }) => (
+      {transitions.map(({ item, key, props }) => (
         <animated.img
           key={key}
           style={props}
