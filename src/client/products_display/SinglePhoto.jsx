@@ -37,40 +37,41 @@ const SinglePhoto = (props) => {
       onMouseLeave={() => handleMouseOff()}
       onMouseEnter={() => handleMouseOn()}
     >
-      <li key={id}>
-        <ProductConsumer>
-          {(value) => (
-            <div className="image-wrapper">
-              <div className="image-placeholder">
-                {!imageIsLoaded && <Placeholder />}
-                {transitions.map(({ item, key, props }) => (
-                  <animated.img
-                    key={key}
-                    style={props}
-                    className={"necklaces-img"}
-                    onLoad={handleImageLoaded}
-                    src={item ? secondImg : mainImg}
-                    alt="product"
-                  />
-                ))}
-
-                {isHovered && (
-                  <button
-                    className="cart_btn"
-                    onClick={() => {
-                      value.openModal(id);
-                    }}
-                  >
-                    <p className="button_text">ADD TO BAG</p>
-                  </button>
-                )}
-              </div>
-            </div>
-          )}
-        </ProductConsumer>
-      </li>
-      {/* <div onClick={() => value.setSelected(id)}> */}
+      {" "}
       <Link to={`/organicproduct/${id}`}>
+        <li key={id}>
+          <ProductConsumer>
+            {(value) => (
+              <div className="image-wrapper">
+                <div className="image-placeholder">
+                  {!imageIsLoaded && <Placeholder />}
+                  {transitions.map(({ item, key, props }) => (
+                    <animated.img
+                      key={key}
+                      style={props}
+                      className={"necklaces-img"}
+                      onLoad={handleImageLoaded}
+                      src={item ? secondImg : mainImg}
+                      alt="product"
+                    />
+                  ))}
+
+                  {isHovered && (
+                    <button
+                      className="cart_btn"
+                      onClick={() => {
+                        value.openModal(id);
+                      }}
+                    >
+                      <p className="button_text">ADD TO BAG</p>
+                    </button>
+                  )}
+                </div>
+              </div>
+            )}
+          </ProductConsumer>
+        </li>
+
         <div className="product-text-container">
           <p className="product-description">
             {locale == "en" ? name : name_hun}
@@ -81,7 +82,6 @@ const SinglePhoto = (props) => {
         </div>
       </Link>
     </div>
-    // </div>
   );
 };
 
