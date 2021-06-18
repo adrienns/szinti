@@ -34,16 +34,18 @@ const CarouselImage = (props) => {
       onMouseEnter={() => handleMouseOn()}
     >
       {!imageIsLoaded && <Placeholder />}
-      {transitions.map(({ item, key, props }) => (
-        <animated.img
-          key={key}
-          style={props}
-          className="carousel_image"
-          onLoad={handleImageLoaded}
-          src={item ? firstImage : secondImage}
-          alt="product image"
-        />
-      ))}
+      {transitions
+        .filter((el) => el.id !== 21 && el.id !== 21)
+        .map(({ item, key, props }) => (
+          <animated.img
+            key={key}
+            style={props}
+            className="carousel_image"
+            onLoad={handleImageLoaded}
+            src={item ? firstImage : secondImage}
+            alt="product image"
+          />
+        ))}
     </div>
   );
 };
