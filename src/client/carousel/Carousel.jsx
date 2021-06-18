@@ -76,12 +76,13 @@ const Carousel = () => {
           } = element;
           return (
             <div key={id} className="carousel-wrapper">
-              <CarouselImage
-                firstImage={firstImage}
-                secondImage={secondImage}
-                id={id}
-              />
               <Link to={`/organicproduct/${id}`}>
+                <CarouselImage
+                  firstImage={firstImage}
+                  secondImage={secondImage}
+                  id={id}
+                />
+
                 <div className="carousel-text-wrapper">
                   <p className="carousel-text">
                     {locale == "en" ? name : name_hun}
