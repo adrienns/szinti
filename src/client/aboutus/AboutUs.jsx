@@ -24,9 +24,9 @@ const AboutUs = () => {
       </div>
       <div id="text-box2">
         <p>
-          Hello! I graduated from goldsmith school in Hungary. I love designing
-          creative jewelries. I create my unique pieces in a cute studio based
-          in Budapest.
+          Hello! My name is Szintia, a goldsmith school graduate from Hungary. I
+          love designing creative jewelries. I create my unique pieces in a cute
+          studio based in Budapest. More info coming soon :)
         </p>
       </div>
     </main>
