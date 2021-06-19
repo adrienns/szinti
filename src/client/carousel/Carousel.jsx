@@ -11,6 +11,7 @@ import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { ProductContext } from "../contexts/ProductContext";
 import { Link } from "react-router-dom";
 import { WrapperContext } from "../Wrapper";
+import { imagesArr } from "../images/jeweleryPhotos";
 
 library.add(faChevronLeft, faChevronRight);
 
@@ -62,18 +63,18 @@ const Carousel = () => {
     ],
   };
 
+  arr1 = [1, 2, 3];
+  arr2 = [4, 5, 6];
+  arr1.map((value1, index) => {
+    const value2 = arr2[index];
+  });
+
   return (
     <div className="carousel">
       <Slider {...settings}>
-        {products.map((element) => {
-          const {
-            id,
-            firstImage,
-            secondImage,
-            name,
-            name_hun,
-            price,
-          } = element;
+        {products.map((element, index) => {
+          const { id, name, name_hun, price } = element;
+          const { firstImage, secondImage } = imagesArr[index];
           return (
             <div key={id} className="carousel-wrapper">
               <Link to={`/organicproduct/${id}`}>
