@@ -63,12 +63,6 @@ const Carousel = () => {
     ],
   };
 
-  arr1 = [1, 2, 3];
-  arr2 = [4, 5, 6];
-  arr1.map((value1, index) => {
-    const value2 = arr2[index];
-  });
-
   return (
     <div className="carousel">
       <Slider {...settings}>
