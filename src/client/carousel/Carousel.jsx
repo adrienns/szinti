@@ -67,7 +67,7 @@ const Carousel = () => {
     <div className="carousel">
       <Slider {...settings}>
         {products.map((element) => {
-          const { name, name_hun, price } = element;
+          const { id, name, name_hun, price } = element;
           return (
             <div key={id} className="carousel-wrapper">
               <Link to={`/organicproduct/${id}`}>
