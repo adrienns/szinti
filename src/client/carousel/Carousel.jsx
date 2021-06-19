@@ -73,8 +73,8 @@ const Carousel = () => {
             <div key={id} className="carousel-wrapper">
               <Link to={`/organicproduct/${id}`}>
                 <CarouselImage
-                  firstImage={firstImage}
-                  secondImage={secondImage}
+                  firstImage={secondImage}
+                  secondImage={firstImage}
                   id={id}
                 />
 
